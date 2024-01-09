@@ -1,0 +1,6 @@
+[user]
+    name = Poplar at twilight
+    email = poplar.cubic@gmail.com
+
+[http]
+	proxy = http://127.0.0.1:7890

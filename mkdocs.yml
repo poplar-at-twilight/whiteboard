@@ -1,0 +1,395 @@
+site_name: 白杨的文档站
+site_url: https://whiteboard-ui8.pages.dev/
+site_description: 本站用于收纳一些 FOSS 新闻/博客译文和站长的杂谈、笔记和博客等内容。
+site_author: Poplar at twilight
+
+repo_name: source code
+repo_url:   #仓库链接
+edit_uri: ""
+
+theme:
+    name: material
+    custom_dir: overrides
+    language: zh    
+    #custom_dir: overrides
+    highlightjs: true
+    palette:
+      - scheme: default
+        primary: white
+        accent: blue
+        toggle:
+          icon: material/brightness-7
+          name: 切换到深色模式
+      - scheme: slate
+        primary: black
+        accent: light green
+        toggle:
+          icon: material/brightness-4
+          name: 切换到浅色模式
+    features:
+      - navigation.tabs
+      - content.tabs.link #启用内容页
+      - navigation.footer
+      - header.autohide  #公告栏
+      - announce.dismiss #可关闭的公告栏
+    logo: assets/open-book.png
+    icon:
+      repo: fontawesome/brands/gitlab
+    font:
+      text: Noto Sans
+      code: Noto Sans Mono    
+
+nav:
+    - 首页:
+      - index.md
+    - 译文归档:
+      - translation/about.md
+      - 2023-11:
+        - translation/tdf-2023-10-recap.md
+      - 2023-10:
+        - translation/thunderbird-ransomware-alert.md
+        - translation/tdf-2023-09-recap.md
+        - translation/fedora-operations-architect.md
+        - translation/krita-in-store.md
+        - translation/thunderbird-sha-1.md
+      - 2023-09:
+        - translation/tdf-2023-08-recap.md
+        - translation/tdf-libreoffice7.5.6-released.md
+        - translation/open-letter-cc-gai.md
+        - translation/tdf-1.5million.md
+        - translation/kde-wayland.md
+        - translation/fedora39-beta-released.md
+        - translation/tdf-gsoc-2023.md
+      - 2023-08:
+        - translation/thunderbird-2023-08-01.md
+        - translation/tdf-the-new-goodie-site.md
+        - translation/tdf-2023-07-recap.md
+        - translation/fedora-asahi-remix.md
+        - translation/tdf-2022-annual-report.md
+        - translation/blender-2022-annual-report.md
+        - translation/tdf-draw-impress-guide-7.5.md
+        - translation/gimp-support-arm.md
+        - translation/tdf-weblate.md
+        - translation/tdf-libreoffice-7.6.md
+        - translation/thunderbird-2023-08-25.md
+      - 2023-07:
+        - translation/wikipedia-llicense-update.md
+        - translation/wikimedia-flickr.md
+        - translation/gimp-2.99.16-released.md
+        - translation/thunderbird-supernova.md
+        - translation/2023-07-12-opensuse-faq.md
+        - translation/tdf-libreoffice-7.5-new-guideline.md
+        - translation/tdf-libreoffice7.5.5-released.md
+        - translation/thunderbird-security-audit.md
+        - translation/interpeer-wei.md
+        - translation/our-world-in-data.md
+      - 2023-06:
+        - translation/tdf-libreoffice7.5.4.md
+        - translation/thunderbird-2023-06-16.md
+        - translation/2023-06-18-theevilskeleton.md
+        - translation/tdf-thunderbird.md
+        - translation/gimp-wilber-week-2023.md
+        - translation/blender-3.6-lts.md
+        - translation/blender-annecy-2023.md
+      - 2023-05:
+        - translation/thunderbird-new-logo.md
+        - translation/opensuse-aeon.md
+        - translation/fedora38-release-party.md    
+      - 2023-04:
+        - translation/archive.org-2023-0402.md
+        - translation/krita-2022-review.md
+        - translation/fedora38-released.md
+        - translation/fedora38-whatnew.md
+        - translation/anaconda-survey-results.md
+      - 2023-03:
+        - translation/fosdem2023-02.md
+        - translation/opensuse-kubic.md
+        - translation/fedora38-beta-released.md
+        - translation/blender-gdc-2023.md
+        - translation/gimp-in-gsoc-2023.md
+        - translation/fedora-objective-review.md
+      - 2023-02:
+        - translation/display-hdr-hackfest.md
+        - translation/flathub-linux-app-store.md
+      - 2023-01:
+        - translation/docker-and-fedora-37.md
+        - translation/blender-2023-01.md
+        - translation/anaconda-need-feedback.md
+        - translation/fedora-fosdem-2023.md
+        - translation/Blenderheads.md
+        - translation/gimp-2022-annual-report.md
+      - 2022-12:
+        - translation/xfce4.18-pre2.md
+        - translation/yast-d-installer-02.md
+        - translation/xfce4.18-released.md
+        - translation/fedora-site-merge.md
+        - translation/forgejo-2022-12-15.md
+        - translation/fedora-get-ready-for-2023.md
+      - 2022-11:
+        - translation/fedora37-released.md
+        - translation/fosdem2023.md
+        - translation/gimp-happy-27.md
+        - translation/anaconda-webui-image-go-public.md
+      - 2022-10:
+        - translation/intro-nvk.md
+        - translation/using-btrfs-01.md
+        - translation/gimp-dev.md
+        - translation/2022-10-18-theevilskeleton.md
+        - translation/fedora-remains-community-driven.md
+        - translation/xfce-4.18-wallpaper-contest.md
+        - translation/fedora37-update-note.md
+      - 2022-09:
+        - translation/fedora37-beta-released.md
+        - translation/fedora-38-wallpaper-winner.md
+      - 2022-08:
+        - translation/libadwaita-gtk4-TheEvilSkeleton.md
+        - translation/siggraph-2022-report-blender.md
+      - 2022-07:
+        - translation/ms-pluton-chips.md
+      - 2022-06:
+        - translation/gimp-gsoc-2022-02.md
+        - translation/open-letter-intel-fsp.md
+        - translation/nodejs-eol-v16-0626.md
+        - translation/accessibility-in-fedora.md
+      - 2022-05:
+        - translation/fedora36-released.md
+        - translation/2022-05-17-theevilskeleton.md
+        - translation/blender-events-in-2022.md
+      - 2022-04:
+        - translation/yast-d-installer.md
+        - translation/xfce4-terminal-1.0.0.md
+        - translation/xfce-setting-gui.md
+      - 2022-03:
+        - translation/xfce4-terminal-0.9.2.md
+        - translation/gimp-gsoc-2022.md
+        - translation/blender-3.1.md
+        - translation/xfce-gsoc-2022.md
+        - translation/tdf-libreoffice-gsoc-2022.md
+        - translation/plan-to-drop-soft.o.o.md
+        - translation/openSUSE-code-of-conduct.md
+      - 2022-02:
+        - translation/donation-help-us.md
+      - 2022-01:
+        - translation/xfce-2022-01-21.md
+      - 2021-10:
+        - translation/gimp-mirror-policy.md
+      - 2021-12:
+        - translation/xfce-2021-12-10.md
+        - translation/eff-chrome-manifestv3.md
+      - 2021-11:
+        - translation/fedora35-released.md
+        - translation/xfce-2021-11-26.md
+      - 2021-10:
+        - translation/kde-network-china-2021.md
+      - 2021-09:
+        - translation/xfce-2021-09-12.md
+        - translation/xfce-09-17.md
+        - translation/fedora-nest-2021.md
+      - 2021-08:
+        - translation/xfce-2021-08-02.md
+        - translation/google-2021-08-04.md
+        - translation/xfce-2021-08-17.md
+        - translation/xfce-2021-08-17-02.md
+        - translation/fedora-dpg-02.md
+      - 2021-07:
+        - translation/xfce-gsoc-2021.md
+        - translation/opensuse-cc.md
+        - translation/fedora-dpg.md
+        - translation/github-2021-07-27.md
+    - 站内杂谈: 
+      - essay/about.md
+      - 杂谈:
+        - essay/others/nvidia-wayland.md
+        - essay/others/access-zlibrary.md
+        - essay/others/aria2.md
+        - essay/others/mpv.conf.md
+        - essay/others/ryujinx-win.md
+        - essay/others/keepassxc-2fa.md
+        - essay/others/android-apk.md
+        - essay/others/md-epub.md
+        - essay/others/ainme.md
+        - essay/others/small-size-phone.md
+        - essay/others/steam-deck.md
+        - essay/others/xperia-toolkit.md
+        - essay/others/wifi-connection.md
+        - essay/others/play-minecraft.md
+        - essay/others/use-rss-sub.md
+        - essay/others/fonts-and-measurement.md
+        - essay/others/adjust-win11-for-popurse.md
+        - essay/others/2021-08.md
+        - essay/others/Tachidesk-quick-setup.md
+        - essay/others/opencc.md
+        - essay/others/alias-tips.md
+        - essay/others/eyecandy-kde.md
+        - essay/others/other-configs.md
+        - essay/others/opensuse.md
+      - 随笔&日常:
+        - essay/main/about.md
+        #- essay/main/
+        - essay/main/2023-10-25.md
+        - essay/main/2023-10-07.md
+        - essay/main/2023-08-18.md
+        - essay/main/2023-07-22.md
+        - essay/main/2023-07-21.md
+        - essay/main/2023-07-16.md
+        - essay/main/2023-05-30.md
+        - essay/main/2023-05-25.md
+        - essay/main/2023-05-21.md
+        - essay/main/2023-05-04.md
+        - essay/main/2023-04-02.md
+        - essay/main/2023-03-27.md
+        - essay/main/2023-03-13.md
+        - essay/main/2023-02-28.md
+        - essay/main/2023-02-23.md
+        - essay/main/2023-02-10.md
+        - essay/main/2023-02-06.md
+        - essay/main/2023-02-02.md
+        - essay/main/2023-01-30.md
+        - essay/main/2023-01-21.md
+        - essay/main/2023-01-12.md
+        - essay/main/2023-01-06.md
+        - essay/main/2023-01-04.md
+        - essay/main/2022-12-30.md
+        - essay/main/2022-12-29.md
+        - essay/main/2022-12-13.md
+        - essay/main/2022-12-09.md
+        - essay/main/2022-12-02.md
+        - essay/main/2022-11-12.md
+        - essay/main/2022-11-10.md
+        - essay/main/2022-11-07.md
+        - essay/main/2022-10-24.md
+        - essay/main/2022-09-09.md
+        - essay/main/2022-09-05.md
+        - essay/main/2022-08-27.md
+        - essay/main/2022-08-04.md
+        - essay/main/2022-07-26.md
+        - essay/main/2022-07-10.md
+        - essay/main/2022-07-03.md
+        - essay/main/2022-06-21.md
+        - essay/main/2022-06-05.md
+        - essay/main/2022-06-01.md
+        - essay/main/2022-05-27.md
+        - essay/main/2022-05-22.md
+        - essay/main/2022-05-21.md
+        - essay/main/2022-05-19.md
+        - essay/main/2022-05-16.md
+        - essay/main/2022-05-10.md
+        - essay/main/2022-05-05.md
+        - essay/main/2022-05-03.md
+        - essay/main/2022-04-26.md
+        - essay/main/2022-04-14.md
+        - essay/main/2022-04-13.md
+        - essay/main/2022-04-12.md
+        - essay/main/2022-04-11.md
+        - essay/main/2022-04-09.md
+        - essay/main/2022-04-01.md
+        - essay/main/2022-03-30.md
+        - essay/main/2022-03-05.md
+        - essay/main/2022-02-12.md
+      - 笔记:
+        - essay/note/pandoc's-markdwon-spec.md
+      - Linux 文档集:
+        - essay/guide/intro.md
+        - 安装 Linux 系统:
+          - essay/guide/install/prepare.md
+          - essay/guide/install/vm.md
+          - essay/guide/install/tumbleweed.md
+          #- essay/guide/install/fedora.md
+        - Linux 基础知识:
+          - essay/guide/base/intro.md
+          - essay/guide/base/base-01.md
+        - 系统管理:
+          - essay/guide/sysadmin/update-sys.md
+          - essay/guide/sysadmin/package-manager.md
+          - essay/guide/sysadmin/setup-proxy.md
+          - essay/guide/sysadmin/nvidia-driver.md
+          - essay/guide/sysadmin/firewall.md
+          - essay/guide/sysadmin/systemctl.md
+          - essay/guide/sysadmin/flatpak-get-start.md
+          - essay/guide/sysadmin/appimage-base.md
+        - 杂项:
+          - essay/guide/misc/mirror-site.md
+          - essay/guide/misc/kleopatra.md
+          - essay/guide/misc/extend.md
+          - essay/guide/misc/eyecandy-kde.md
+          - essay/guide/misc/eyecandy-xfce4.md
+          - essay/guide/misc/unity-list.md
+          - essay/guide/misc/makeup.md
+    - 站外归档:
+      - archives/about.md
+      - archives/external-index.md
+      - 博客归档:
+        - archives/qbittorrent-confs.md
+        - archives/rss-refresh.md
+    - 博客:
+      - blog/index.md
+    - 关于: 
+      - about/about-me.md
+      - about/friends.md
+      - about/license.md
+      - about/tags.md
+
+markdown_extensions:
+  #启用工具提示
+  - abbr
+  - attr_list
+  - pymdownx.snippets
+  #启用警示标识
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences 
+  #启用注释
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  #启用按钮
+  - attr_list
+  #启用内容页
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  #启用脚注
+  - footnotes
+  #启用文本格式化
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  #启用图片
+  - attr_list
+  - md_in_html
+  #启用列表
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search #启用搜索
+  - blog:   #启用博客
+      blog_toc: true
+      authors_file: blog/.authors.yml
+      post_readtime: false
+  - tags:
+      tags_file: about/tags.md
+  - rss:
+      abstract_chars_count: -1
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/suse
+      link: https://forum.suse.org.cn/u/Aui/summary
+    - icon: fontawesome/brands/fedora
+      link: https://discussion.fedoraproject.org/u/bh
+    - icon: fontawesome/brands/wikipedia-w
+      link: https://zh.opensuse.org/User:White-poplar
+    - icon: fontawesome/brands/github
+      link: https://github.com/poplar-at-twilight
+
+copyright: Copyleft; 2021-2024 Poplar_at_twilight
