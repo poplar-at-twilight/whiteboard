@@ -5,6 +5,12 @@ hide:
 
 # 欢迎来到我的个人文档站！
 
+!!! warning "注意"
+
+    文档站正在从 Gitlab 迁移至 GitHub，有许多东西需要清理并重新配置。
+
+    个人时间有限，目前仍在维修中 🚑
+
 ![cover](./assets/Minecraft-Nature.png)
 
 ## 关于本站
