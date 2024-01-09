@@ -1,0 +1,8980 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="本站用于收纳一些 FOSS 新闻/博客译文和站长的杂谈、笔记和博客等内容。">
+      
+      
+        <meta name="author" content="Poplar at twilight">
+      
+      
+        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/essay/guide/sysadmin/package-manager/">
+      
+      
+        <link rel="prev" href="../update-sys/">
+      
+      
+        <link rel="next" href="../setup-proxy/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>包管理器 - 白杨的文档站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CNoto+Sans+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Noto Sans Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="白杨的文档站" class="md-header__button md-logo" aria-label="白杨的文档站" data-md-component="logo">
+      
+  <img src="../../../../assets/open-book.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            白杨的文档站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              包管理器
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-green"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/poplar-at-twilight/whiteboard" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    source code
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../translation/about/" class="md-tabs__link">
+          
+  
+  译文归档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  站内杂谈
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../archives/about/" class="md-tabs__link">
+          
+  
+  站外归档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../blog/" class="md-tabs__link">
+          
+  
+  博客
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about/about-me/" class="md-tabs__link">
+          
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="白杨的文档站" class="md-nav__button md-logo" aria-label="白杨的文档站" data-md-component="logo">
+      
+  <img src="../../../../assets/open-book.png" alt="logo">
+
+    </a>
+    白杨的文档站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/poplar-at-twilight/whiteboard" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    source code
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    欢迎来到我的个人文档站！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    译文归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            译文归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-11
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            2023-11
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-2023-10-recap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice 项目和社区月度总结：2023 年 10 月
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-10
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            2023-10
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/thunderbird-ransomware-alert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    勒索软件警报：你使用的是受信任的 Thunderbird 版本吗？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-2023-09-recap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice 项目和社区月度总结：2023 年 9 月
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-operations-architect/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    来自新 Fedora 运营架构师的自我介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/krita-in-store/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Krita 登陆 MacOS App Store
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/thunderbird-sha-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Thunderbird 115 和使用过时的 SHA-1 算法的签名
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-09
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            2023-09
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-2023-08-recap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice 项目和社区月度总结：2023 年 8 月
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-libreoffice7.5.6-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文档基金会发布 LibreOffice 7.5.6 Community
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/open-letter-cc-gai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    公开信： 使用生成式人工智能技术的艺术家要求美国国会给予席位
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-1.5million/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice 7.6 的下载量达到 150 万次！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/kde-wayland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    让我们来谈谈 Wayland 这件事吧
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora39-beta-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora Linux 39 Beta 版本现已发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-gsoc-2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice 与谷歌编程之夏 2023：活动成果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-08
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            2023-08
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/thunderbird-2023-08-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Thunderbird for Android / K-9 Mail：2023 年 6 月进度报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-the-new-goodie-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    试试我们更新后的扩展和模板网站！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-2023-07-recap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice 项目和社区月度总结：2023 年 7 月
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-asahi-remix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    即将推出：适用于 Apple Silicon Mac 的 Fedora！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-2022-annual-report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文档基金会 2022 年年度报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/blender-2022-annual-report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blender 基金会 2022 年年度报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-draw-impress-guide-7.5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    为社区提供双份礼物：Impress Guide 7.5 和 Draw Guide 7.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-support-arm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIMP 现可在 Windows on ARM 上运行（实验性）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-weblate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    由文档基金会资助的 Weblate（翻译工具）改进
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-libreoffice-7.6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice 7.6 Community 公告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/thunderbird-2023-08-25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Thunderbird for Android / K-9 Mail：2023 年 7 月进度报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-07
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            2023-07
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/wikipedia-llicense-update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    迈向未来：Wikimedia 项目过渡到知识共享 4.0 许可证
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/wikimedia-flickr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flickr 基金会正在 Flickr 和维基共享资源之间架起一座新桥梁
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-2.99.16-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIMP 2.99.16（Wilber Week 2023 版）已发布!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/thunderbird-supernova/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    我们有史以来最快、最美的版本：Thunderbird 115 “Supernova” 来了！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/2023-07-12-opensuse-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    openSUSE:Faq - 2023-0712-0930
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-libreoffice-7.5-new-guideline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    入门指南已更新至 LibreOffice 7.5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-libreoffice7.5.5-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice 7.5.5 Community 现可供下载
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/thunderbird-security-audit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    K-9 Mail 与 OSTIF、7ASecurity 合作开展安全审计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/interpeer-wei/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    谷歌正在危害开放网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/our-world-in-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    我们个人经验的限制与统计数据的价值
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-06
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            2023-06
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-libreoffice7.5.4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文档基金会发布 LibreOffice 7.5.4 Community
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/thunderbird-2023-06-16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Thunderbird for Android / K-9 Mail：2023 五月进度报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/2023-06-18-theevilskeleton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对《Developers are lazy, thus Flatpak》的回应
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-thunderbird/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    五种我们能让 LibreOffice 与 Thunderbird 更好地协作的办法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-wilber-week-2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIMP Wilber Week 2023：报道
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/blender-3.6-lts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blender 3.6 LTS 现已发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/blender-annecy-2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blender 2023 年安纳西电影节概要
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-05
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            2023-05
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/thunderbird-new-logo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引入全新的 Thunderbird 徽标！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/opensuse-aeon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    欢迎新的分支：openSUSE Aeon！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora38-release-party/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    诚邀您参加 Fedora Linux 38 发行派对！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-04
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            2023-04
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/archive.org-2023-0402/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    不要删除我们的书！举行集会
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/krita-2022-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Krita 2022 年回顾与 2023 年展望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora38-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora Linux 38 现已正式发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora38-whatnew/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora Workstation 38 的新亮点
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/anaconda-survey-results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anaconda 安装器分区和存储调查结果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-03
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            2023-03
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fosdem2023-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora 项目在 FOSDEM 2023 的经历
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/opensuse-kubic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubic 项目已经结束
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora38-beta-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora 38 Beta 版已发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/blender-gdc-2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blender 项目将参加 GDC 2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-in-gsoc-2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIMP 参加 GSoC 2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-objective-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    任务目标综述：不可变变体在使用中的 Fedora Linux 占大多数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-02
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            2023-02
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/display-hdr-hackfest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    显示/HDR 黑客节的公告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/flathub-linux-app-store/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flathub：Linux 应用商店
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2023-01
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            2023-01
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/docker-and-fedora-37/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker 和 Fedora 37：迁移至 Podman
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/blender-2023-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023 年值得期待的 Blender 项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/anaconda-need-feedback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    请对 Anaconda Web UI 存储功能进行反馈！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-fosdem-2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora 项目将出席 FOSDEM 2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/Blenderheads/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    纪录片系列《Blenderheads》
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-2022-annual-report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIMP 2022 年度报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-12
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            2022-12
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce4.18-pre2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 4.18 Pre2（预览版）现已发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/yast-d-installer-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    D-Installer 需要你的帮助
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce4.18-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 4.18 现已正式发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-site-merge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora 用户社区变更新闻两则
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/forgejo-2022-12-15/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beyond coding. We forge.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-get-ready-for-2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    为激动人心的 2023 年做好准备
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-11
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_14">
+            <span class="md-nav__icon md-icon"></span>
+            2022-11
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora37-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora Linux 37 现已正式发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fosdem2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FOSDEM 2023 Distributions Devroom - 征集参与
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-happy-27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27 岁快乐！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/anaconda-webui-image-go-public/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anaconda Web UI 预览镜像现已发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-10
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_15">
+            <span class="md-nav__icon md-icon"></span>
+            2022-10
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/intro-nvk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NVK 简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/using-btrfs-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 Btrfs：一般概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIMP 开发者网站的复苏
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/2022-10-18-theevilskeleton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    不推荐 Flatpak 用户做的事情
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-remains-community-driven/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora 项目仍然是社区驱动的
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-4.18-wallpaper-contest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 4.18 壁纸竞赛
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora37-update-note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora Linux 37 更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-09
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_16">
+            <span class="md-nav__icon md-icon"></span>
+            2022-09
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora37-beta-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora Linux 37 Beta 版本现已发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-38-wallpaper-winner/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora 38 壁纸获胜者
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_17" id="__nav_2_17_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-08
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_17">
+            <span class="md-nav__icon md-icon"></span>
+            2022-08
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/libadwaita-gtk4-TheEvilSkeleton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    libadwaita：修复 Linux 桌面的可用性问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/siggraph-2022-report-blender/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blender SIGGRAPH 2022 展会报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_18" id="__nav_2_18_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-07
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_18">
+            <span class="md-nav__icon md-icon"></span>
+            2022-07
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/ms-pluton-chips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    认识 Microsoft Pluton 处理器——专为未来 Windows PC 设计的安全芯片
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_19" id="__nav_2_19_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-06
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_19">
+            <span class="md-nav__icon md-icon"></span>
+            2022-06
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-gsoc-2022-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GSoC 2022 项目公布：CMYK 特性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/open-letter-intel-fsp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    为英特尔 FSP 采用开源固件方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/nodejs-eol-v16-0626/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    将 Node.js 16 的生命周期结束日期提前
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/accessibility-in-fedora/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora Workstation 的无障碍功能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_20" id="__nav_2_20_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-05
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_20">
+            <span class="md-nav__icon md-icon"></span>
+            2022-05
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora36-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora 36 已正式发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/2022-05-17-theevilskeleton/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    对《Flatpak Is Not the Future》的回应
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/blender-events-in-2022/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blender 在 2022 年的活动
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_21" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_21" id="__nav_2_21_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-04
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_21">
+            <span class="md-nav__icon md-icon"></span>
+            2022-04
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/yast-d-installer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YaST D-Installer 第一次公开发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce4-terminal-1.0.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce Terminal 1.0.0 稳定版已发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-setting-gui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 设置的图形界面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_22" id="__nav_2_22_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-03
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_22">
+            <span class="md-nav__icon md-icon"></span>
+            2022-03
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce4-terminal-0.9.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    xfce4-terminal 0.9.2 开发版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-gsoc-2022/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIMP 是 GSoC 2022 导师组织
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/blender-3.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blender 3.1 已发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-gsoc-2022/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 已加入 Google Summer of Code 2022
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/tdf-libreoffice-gsoc-2022/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    培养你的技能，学习令人兴奋的新事物！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/plan-to-drop-soft.o.o/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计划停用 software.opensuse.org（社区会议）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/openSUSE-code-of-conduct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    openSUSE 行为准则
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_23" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_23" id="__nav_2_23_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-02
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_23">
+            <span class="md-nav__icon md-icon"></span>
+            2022-02
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/donation-help-us/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    捐款如何在 2021 年帮助我们
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_24" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_24" id="__nav_2_24_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2022-01
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_24">
+            <span class="md-nav__icon md-icon"></span>
+            2022-01
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-2022-01-21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 开发者博客 —— 更好的 Thunar 工具栏
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_25" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_25" id="__nav_2_25_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2021-10
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_25">
+            <span class="md-nav__icon md-icon"></span>
+            2021-10
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/gimp-mirror-policy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GIMP 官方镜像和镜像政策
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_26" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_26" id="__nav_2_26_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2021-12
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_26_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_26">
+            <span class="md-nav__icon md-icon"></span>
+            2021-12
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-2021-12-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 开发者博客 —— xfce4-terminal 0.9.1 开发版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/eff-chrome-manifestv3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    电子前线基金会 —— Chrome 用户请注意：Manifest V3 具有欺骗性和威胁性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_27" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_27" id="__nav_2_27_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2021-11
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_27_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_27">
+            <span class="md-nav__icon md-icon"></span>
+            2021-11
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora35-released/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    值得等待：Fedora Linux 35 已发布！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-2021-11-26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 开发者博客 —— Xfce 的快捷方式编辑器和其他一些东西
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_28" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_28" id="__nav_2_28_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2021-10
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_28_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_28">
+            <span class="md-nav__icon md-icon"></span>
+            2021-10
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/kde-network-china-2021/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 应用生态沙龙（KDE Network 中国）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_29" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_29" id="__nav_2_29_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2021-09
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_29_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_29">
+            <span class="md-nav__icon md-icon"></span>
+            2021-09
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-2021-09-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 开发者博客 —— 得益于 GSoC 2021，Thunar 中出现了闪亮的新事物。
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-09-17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 开发者博客 —— Thunar 的几个重要特征
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-nest-2021/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nest With Fedora 2021 recordings now available!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_30" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_30" id="__nav_2_30_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2021-08
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_30_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_30">
+            <span class="md-nav__icon md-icon"></span>
+            2021-08
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-2021-08-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 开发者博客 ——— 改进搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/google-2021-08-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Google Security Blog – 正确对待 Linux 内核安全
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-2021-08-17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 开发者博客 —— 一场即将到达终点的旅行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-2021-08-17-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 开发者博客 —— GSOC 贡献总结
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-dpg-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora Linux 正式被联合国认证为数字公共产品
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_31" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_31" id="__nav_2_31_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2021-07
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_31_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_31">
+            <span class="md-nav__icon md-icon"></span>
+            2021-07
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/xfce-gsoc-2021/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xfce 已加入 Google Summer of Code 2022
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/opensuse-cc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    定期 openSUSE 会议调查的结果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/fedora-dpg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fedora GNU/Linux 被联合国数字公共产品项目提名
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../translation/github-2021-07-27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    为开发者站台：斯坦福大学法学院的 GitHub 开发者权利奖学金
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    站内杂谈
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            站内杂谈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    杂谈
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            杂谈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/nvidia-wayland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在 openSUSE KDE Wayland 会话中使用 NVIDIA 显卡运行游戏
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/access-zlibrary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    访问 Z-Library 的方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/aria2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装与使用 aria2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/mpv.conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mpv 配置文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/ryujinx-win/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 Nintendo Switch 模拟器游玩 P5R
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/keepassxc-2fa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 KeePassXC 配置 TOTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/android-apk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android 实用应用程序清单
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/md-epub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 Pandoc 制作简易的 Epub 电子书
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/ainme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    影视&番剧记录单
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/small-size-phone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    小尺寸手机备忘录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/steam-deck/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Steam Deck 备忘录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/xperia-toolkit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sony Xperia 实用工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/wifi-connection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows10 - 保持网络连接
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/play-minecraft/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在 openSUSE 上游玩 Minecraft
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/use-rss-sub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于 RSS 的简单资讯聚合订阅
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/fonts-and-measurement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    字体与带宽单位
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/adjust-win11-for-popurse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows 11 安装与调教
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/2021-08/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux distro in my view
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/Tachidesk-quick-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在 Linux 上使用 Tachidesk | 快速配置指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/opencc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 OpenCC 进行简繁中文转换
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/alias-tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    alias 命令小记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/eyecandy-kde/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    openSUSE KDE 美化小记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/other-configs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tumbleweed 配置小记（二）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/opensuse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tumbleweed 配置小记（一）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    随笔&日常
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            随笔&日常
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-10-25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-10-25
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-10-07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-10-07
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-08-18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-08-18
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-07-22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-07-22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-07-21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-07-21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-07-16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-07-16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-05-30/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-05-30
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-05-25/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-05-25
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-05-21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-05-21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-05-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-05-04
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-04-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-04-02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-03-27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-03-27
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-03-13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-03-13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-02-28/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-02-28
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-02-23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-02-23
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-02-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-02-10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-02-06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-02-06
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-02-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-02-02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-01-30/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-01-30
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-01-21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-01-21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-01-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-01-12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-01-06/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-01-06
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2023-01-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023-01-04
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-12-30/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-12-30
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-12-29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-12-29
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-12-13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-12-13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-12-09/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-12-08
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-12-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-12-02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-11-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-11-12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-11-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-11-10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-11-07/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-11-07
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-10-24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-10-24
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-09-09/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-09-09
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-09-05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-09-05
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-08-27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-08-27
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-08-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-08-04
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-07-26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-07-26
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-07-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-07-10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-07-03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-07-03
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-06-21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-06-21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-06-05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-06-05
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-06-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-06-01
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-05-27/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-05-27
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-05-22/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-05-22
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-05-21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-05-21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-05-19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-05-19
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-05-16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-05-16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-05-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-05-10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-05-05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-05-05
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-05-03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-05-03
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-04-26/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-04-26
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-04-14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-04-14
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-04-13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-04-13
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-04-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-04-12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-04-11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-04-11
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-04-09/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-04-09
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-04-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-04-01
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-03-30/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-03-30
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-03-05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-03-05
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../main/2022-02-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2022-02-12
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../note/pandoc%27s-markdwon-spec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandoc’s Markdown spec
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux 文档集
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Linux 文档集
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    安装 Linux 系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            安装 Linux 系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    准备工作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/vm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    部署虚拟机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/tumbleweed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装 openSUSE Tumbleweed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_3" id="__nav_3_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux 基础知识
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linux 基础知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/base-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_4" id="__nav_3_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    系统管理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            系统管理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-sys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    包管理器
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    包管理器
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      软件包与依赖关系
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="软件包与依赖关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      推荐的软件获取来源
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      查找软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      列举软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      显示软件包的信息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用事务历史
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用事务历史">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      还原和重复事务
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dnf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNF 配置文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      管理软件仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      额外信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zypper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zypper
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zypper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      管理软件包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="管理软件包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      搜索软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装，删除软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      识别孤立包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      识别使用已删除文件的进程或程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      管理软件仓库
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="管理软件仓库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加软件仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      刷新软件仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除软件仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      编辑仓库
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zypper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      zypper 配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      更多信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-proxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    设置网络代理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvidia-driver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NVIDIA 独显驱动
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firewall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    防火墙
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemctl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 systemctl 管理服务
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flatpak-get-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 Flatpak
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appimage-base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 Appimage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_5" id="__nav_3_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    杂项
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            杂项
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/mirror-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    软件源与镜像源
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/kleopatra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 Kleopatra 校验文件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/extend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    扩展阅读
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/eyecandy-kde/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    openSUSE KDE 美化简易指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/eyecandy-xfce4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    将 Xfce4 外观现代化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/unity-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实用应用程序列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/makeup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    纯文本文档与标记语言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    站外归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            站外归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archives/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archives/external-index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    外站链接
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    博客归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            博客归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archives/qbittorrent-confs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    qBittorrent 参数详细设置教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archives/rss-refresh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    『给 RSS 爱好者们的一封信』为什么我们应该提高 RSS 刷新间隔？
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    博客
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            博客
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/archive/2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    分类
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            分类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/%E5%8D%9A%E5%AE%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    博客
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            关于
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/about-me/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于我
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/friends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    友链
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    许可证清单 | License list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    标签导航
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      软件包与依赖关系
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="软件包与依赖关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      推荐的软件获取来源
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      检查更新
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      查找软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      列举软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      显示软件包的信息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用事务历史
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用事务历史">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      还原和重复事务
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dnf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNF 配置文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      管理软件仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      额外信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zypper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zypper
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zypper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      管理软件包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="管理软件包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      一般使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      搜索软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装，删除软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新软件包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      识别孤立包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      识别使用已删除文件的进程或程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      管理软件仓库
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="管理软件仓库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加软件仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      刷新软件仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除软件仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      编辑仓库
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zypper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      zypper 配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      更多信息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../../../about/tags/#linux" class="md-tag">Linux 简明指南</a>
+    
+  
+    
+    
+    
+      <a href="../../../../about/tags/#zypper" class="md-tag">zypper</a>
+    
+  
+    
+    
+    
+      <a href="../../../../about/tags/#dnf" class="md-tag">dnf</a>
+    
+  
+    
+    
+    
+      <a href="../../../../about/tags/#" class="md-tag">教程</a>
+    
+  
+    
+    
+    
+      <a href="../../../../about/tags/#" class="md-tag">系统管理</a>
+    
+  
+</nav>
+
+
+
+<h1 id="_1">包管理器</h1>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<ul>
+<li><code>repository</code> 一词的完整原意是软件仓库。但它也可以被翻译成软件源，储存库或仓库。</li>
+<li>有关 Flatpak 包管理器的使用详见<a href="../flatpak-get-start/">此处</a>。</li>
+<li>有关 rpm 包管理器的使用详见：<code>$ man rpm</code> 或 <code>$ rpm --help</code></li>
+</ul>
+</div>
+<h2 id="_2">软件包与依赖关系</h2>
+<p>在 Linux 上，通过统一的软件源分发的应用程序都被打包成软件包（package）的形式。一个完整的应用程序，常常会被拆分成多个小部件，即子包（subpackage），并且有很多软件子包是共享的。</p>
+<p>如果将一个功能完整的应用程序类比为一辆汽车，则子包是需要组装在一起的部件（例如车身、引擎、传动等）。如果一个软件包 A 要正常发挥基本功能需要用户安装软件包 B，则我们将软件包 B 称之为软件包 A 的依赖（<code>dependencies</code>）或者软件包 A 需要（<code>require</code>）软件包 B。例如，汽车要能够跑起来，必然需要发动机正常工作，则发动机是汽车的"依赖"。</p>
+<p>如果软件包 A 要发挥额外的功能，需要用户安装软件包 C，则我们称软件包 C 是软件包 A 的推荐依赖（<code>recommend</code>）。不安装软件包 C 不影响软件包 A 的正常工作，但会让软件包 A 无法发挥完整的功能。例如，汽车如果没有车载收音机，则用户无法收听交通广播。但没有车载收音机并不影响汽车正常行驶。此时车载收音机就是一种"推荐"安装的部件。</p>
+<p>而将开发者的应用程序拆解成零散的软件包，然后再通过软件源分发给最终用户的人则叫<strong>打包者</strong>。</p>
+<h3 id="_3">推荐的软件获取来源</h3>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>优先值越小，优先级越高。请尽量使用优先级高的途径获取软件包。<br />
+OBS 软件源查询辅助工具：<code>sudo zypper in opi</code><br />
+OBS 和 COPR 也是一个较安全的，可选的软件包获取途径。  </p>
+</div>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>优先值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>发行版官方仓库</td>
+<td>1</td>
+<td>请相信你使用的发行版的官方打包和维护人员。你所需要的大部分软件包都来源于此。</td>
+</tr>
+<tr>
+<td>发行版官方认可的第三方仓库</td>
+<td>1</td>
+<td>比如 <a href="https://rpmfusion.org/">rpmfusion</a> 和 <a href="https://en.opensuse.org/Additional_package_repositories">packman</a>。此类第三方仓库通常包含因为许可证问题不能纳入官方仓库的软件包。</td>
+</tr>
+<tr>
+<td>Flatpak</td>
+<td>2</td>
+<td><a href="https://flathub.org">Flatpak Remote</a> 是一个受许多发行版维护者信任的第三方软件源。</td>
+</tr>
+<tr>
+<td>开发者自建的软件源</td>
+<td>2</td>
+<td>比如 Google 自建的 chrome 软件源。这类由开发者维护的上游软件源是可信任的，但请注意配置正确的软件源。</td>
+</tr>
+<tr>
+<td>开发者发布的第一方 Appimage/rpm/deb 软件包</td>
+<td>2</td>
+<td>你可以信任由软件主要维护者或开发者打包发布的第一方软件包。虽然你需要手动更新软件，并可能需要自行处理依赖问题。</td>
+</tr>
+<tr>
+<td><a href="https://build.opensuse.org/">Open Build Service</a></td>
+<td>3</td>
+<td>请确保选择合适的，你信任的第三方打包者发布的 OBS 源。</td>
+</tr>
+<tr>
+<td><a href="https://copr.fedorainfracloud.org/">Fedora COPR</a></td>
+<td>3</td>
+<td>请确保选择合适的，你信任的第三方打包者发布的 COPR 源。</td>
+</tr>
+<tr>
+<td>开发者发布的第一方预编译的二进制文件包</td>
+<td>4</td>
+<td>并不建议大量使用预编译的二进制文件，一是难以轻松地进行版本管理，二是可能会出现版本依赖问题。</td>
+</tr>
+<tr>
+<td>从源码编译安装</td>
+<td>5</td>
+<td>除非你很清楚地知道你在干什么，否则我们并不建议从源码编译安装一个软件。</td>
+</tr>
+<tr>
+<td>第三方打包者自行维护的第三方软件源，或发布的 Appimage/deb/rpm/二进制文件</td>
+<td>6</td>
+<td>请注意安全，请确保这是你信任的打包者发布的软件包。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dnf">DNF</h2>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>官方手册详见<a href="https://docs.fedoraproject.org/en-US/fedora/latest/">此处</a>。</p>
+</div>
+<p>DNF 是 Fedora 项目包管理器，它能用于管理软件包，软件源和更新系统。</p>
+<h3 id="_4">检查更新</h3>
+<div class="highlight"><pre><span></span><code>dnf upgrade #检查系统更新
+</code></pre></div>
+<p>注意，dnf 只会安装可用的更新，存在问题（如被锁定、依赖存在问题等）的软件包会被自动跳过。</p>
+<p>你可以使用 <code>dnf check-update</code> 检查当前可用的更新包</p>
+<div class="highlight"><pre><span></span><code>~]# dnf check-update
+Using metadata from Mon Apr 20 16:34:10 2015 (2:42:10 hours old)
+
+python.x86_64                     2.7.9-6.fc22          updates
+python-cryptography.x86_64        0.8.2-1.fc22          updates
+python-libs.x86_64                2.7.9-6.fc22          updates
+</code></pre></div>
+<p>如上，可更新的软件包都会被列举出来，其中：</p>
+<ul>
+<li><code>python</code> 是软件包的名称</li>
+<li><code>x86_64</code> 是软件包构建的 CPU 架构类型  <ul>
+<li><code>noarch</code> 表示软件包没有为特定的 CPU 架构进行构建  </li>
+</ul>
+</li>
+<li><code>2.7.9</code> 是软件包的版本</li>
+<li><code>6.fc22</code> 是软件包的更新版本</li>
+<li><code>updates</code> 是软件包所属的软件源</li>
+</ul>
+<h3 id="_5">更新软件包</h3>
+<p>你可以使用 <code>dnf upgrade</code> 命令更新软件包。或者将某个软件包的名称作为参数放置到末尾，让 dnf 更新特定的某个软件包。</p>
+<div class="highlight"><pre><span></span><code># dnf upgrade package_name
+</code></pre></div>
+<p>在更新过程中，dnf 会询问你一些问题（比如是否接受更新），如果你熟悉 dnf 的工作流程，你可以将 <code>-y</code> 作为选项放置到命令的默认，提示 dnf 自动接受所有问题的默认值。</p>
+<h3 id="_6">查找软件包</h3>
+<p>你可以使用 <code>dnf search</code> 检索相关软件包名称和概述。</p>
+<div class="highlight"><pre><span></span><code>dnf search &lt;关键字&gt;
+</code></pre></div>
+<p>搜索的关键字支持元字符，比如 <code>dnf search *nvidia*</code> 可以检索任何匹配 <code>nvidia</code> 字符的软件包。</p>
+<h3 id="_7">列举软件包</h3>
+<p><code>dnf list</code> 和相关的命令可以列举软件包、软件包组（package groups）和软件源（repositories）。</p>
+<div class="highlight"><pre><span></span><code>dnf list &lt;关键字&gt;
+</code></pre></div>
+<p>上述命令可以列举匹配关键字的软件包</p>
+<div class="highlight"><pre><span></span><code>dnf list all
+</code></pre></div>
+<p>上述命令可以列举出所有已安装和可用的软件包。</p>
+<div class="highlight"><pre><span></span><code>dnf list installed &lt;关键字&gt;
+</code></pre></div>
+<p>上述命令可以列举匹配关键字，已安装的软件包。</p>
+<div class="highlight"><pre><span></span><code>dnf list available &lt;关键字&gt;
+</code></pre></div>
+<p>上述命令可以列举出所有已启用的软件仓库中，匹配关键字的，可获得的软件包。</p>
+<div class="highlight"><pre><span></span><code>dnf group list
+</code></pre></div>
+<p>上述命令可以列举出所有的软件包组（一个软件包组包含了用于某一特定目的的全部软件包）</p>
+<div class="highlight"><pre><span></span><code>~]# dnf repolist
+Last metadata expiration check performed 0:48:29 ago on Mon May 25 23:38:13 2015.
+repo id                             repo name                           status
+*fedora                             Fedora 22 - x86_64                  44,762
+*updates                            Fedora 22 - x86_64 - Updates             0
+</code></pre></div>
+<p>上述命令可以列举出<strong>已启用</strong>的仓库的 ID、名称和提供的软件包数量。</p>
+<div class="highlight"><pre><span></span><code>dnf repository-packages repo_id list [option]
+</code></pre></div>
+<p>上述命令的默认行为是列举出特定的软件仓库的软件包。你需要将 <code>repo_id</code> 替换成特定软件仓库的 ID。可用的选项是 <code>available</code> 和 <code>installed</code>，用于提示 dnf 应该列举哪种软件包（已安装还是可获得）。</p>
+<h3 id="_8">显示软件包的信息</h3>
+<div class="highlight"><pre><span></span><code>dnf info &lt;软件包包名&gt;
+</code></pre></div>
+<p>上述命令可以显示指定的软件包的详细信息（包名、架构、版本、开发者链接、许可证信息等内容）。</p>
+<div class="highlight"><pre><span></span><code>dnf repoquery &lt;软件包包名&gt; --info
+</code></pre></div>
+<p>要显示有关所有可用软件包的信息，包括已安装的和可从存储库获得的，请使用如上命令。</p>
+<p>更多帮助信息请使用：</p>
+<div class="highlight"><pre><span></span><code>$ dnf repoquery -h
+</code></pre></div>
+<h3 id="_9">安装软件包</h3>
+<div class="highlight"><pre><span></span><code>dnf install &lt;软件包包名&gt;
+</code></pre></div>
+<p>上述命令可以安装匹配指定包名的软件包。你也可以一次性安装多个软件包，比如 <code>$ sudo dnf in smplayer smplayer-themes deadbeef</code>。软件包包名是 <code>dnf in</code> 的选项，而这个命令支持元字符和 <a href="https://rgb-24bit.github.io/blog/2018/glob.html">glob 表达式</a>。</p>
+<p>软件包组和单一的软件包很相似，你无法单独使用软件包组的某一个软件包，它们需要全部安装后才能正常工作。如果你尝试安装其中的一个软件包，dnf 会自动安装同一个组内的其他软件包。每一个软件包组都有一个组名称（group_name）和组 ID（groupid, GID）。<code>dnf group list -v</code> 命令可以列举出所有的软件包组的名称和它们的 GID</p>
+<div class="highlight"><pre><span></span><code># dnf -v group list kde\*
+cachedir: /var/cache/dnf/x86_64/22
+Loaded plugins: builddep, config-manager, copr, playground, debuginfo-install, download, generate_completion_cache, kickstart, needs-restarting, noroot, protected_packages, Query, reposync, langpacks
+initialized Langpacks plugin
+DNF version: 0.6.5
+repo: using cache for: fedora
+not found deltainfo for: Fedora 22 - x86_64
+not found updateinfo for: Fedora 22 - x86_64
+repo: using cache for: updates-testing
+repo: using cache for: updates
+not found updateinfo for: Fedora 22 - x86_64 - Updates
+Using metadata from Thu Apr 16 13:41:45 2015 (4:37:51 hours old)
+Available environment groups:
+   KDE Plasma Workspaces (kde-desktop-environment)
+</code></pre></div>
+<p>比如 KDE 相关的软件包组叫 <code>KDE Plasma Workspaces</code>，它的 GID 是 <code>kde-desktop-environment</code>。</p>
+<p>你可以使用下列命令安装某个软件包组：</p>
+<div class="highlight"><pre><span></span><code>dnf group install group_name
+dnf group install groupid
+dnf install @group
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>并不建议使用在同一个系统上安装多个桌面环境，这可能会造成一些未知的问题，以及大量难以清理的依赖软件包。</p>
+</div>
+<p>对于软件包组名称存在多个单词的软件包组，你需要使用引号将其包裹起来，比如</p>
+<div class="highlight"><pre><span></span><code># dnf group install &quot;KDE Plasma Workspaces&quot;
+# dnf group install kde-desktop-environment
+# dnf install @kde-desktop-environment
+</code></pre></div>
+<h3 id="_10">移除软件包</h3>
+<p>你可以使用下列命令删除特定的软件包。相似地，你可以同时删除多个软件包：</p>
+<div class="highlight"><pre><span></span><code># dnf remove package_name
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dnf group remove group
+dnf remove @group
+</code></pre></div>
+<p>上述命令可以删除某一个软件包组。</p>
+<h3 id="_11">使用事务历史</h3>
+<p>dnf history 命令允许用户查看有关 DNF 事务（Transaction）的时间线、它们发生的日期和时间、受影响的包数、事务是成功还是中止以及事务之间是否更改了 RPM 数据库的信息。此外，此命令可用于撤消或重做某些事务。</p>
+<div class="highlight"><pre><span></span><code># dnf history list
+</code></pre></div>
+<p>上述命令可以列出全部的事务历史（transaction history）。</p>
+<div class="highlight"><pre><span></span><code>dnf history list start_id..end_id
+</code></pre></div>
+<p>上述命令可以指定显示特定范围的事务历史。</p>
+<p>你还可以仅列出有关特定软件包或软件包的事务历史。为此，请使用带有软件包包名或 glob 表达式的命令：</p>
+<div class="highlight"><pre><span></span><code>dnf history list &lt;选项&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>~]# dnf history list 1..4
+Using metadata from Thu Apr 16 13:41:45 2015 (5:47:31 hours old)
+ID     | Login user               | Date a | Action | Altere
+-------------------------------------------------------------------------------
+     4 | root &lt;root&gt;              | 2015-04-16 18:35 | Erase          |    1
+     3 | root &lt;root&gt;              | 2015-04-16 18:34 | Install        |    1
+     2 | root &lt;root&gt;              | 2015-04-16 17:53 | Install        |    1
+     1 | System &lt;unset&gt;           | 2015-04-16 14:14 | Install        |  668 E
+</code></pre></div>
+<p>dnf history list 命令生成表格输出，每行由以下列组成：</p>
+<ul>
+<li><code>ID</code> —— 标识特定事务的整数值。</li>
+<li><code>Login user</code> —— 启动事务的用户的用户名，此信息通常以 <em><code>Full Name &lt;username&gt;</code></em> 形式显示，但有时会显示用于执行事务的命令。 对于不是由用户发出的事务（例如自动系统更新），使用 <code>System &lt;unset&gt;</code> 代替。</li>
+<li><code>Date and time</code> —— 事务的发生日期和时间。</li>
+<li><code>Action(s)</code> —— 事务期间执行的操作列表，如操作字段的可能值中所述。</li>
+<li><code>Altered</code> —— 受事务影响的软件包数量，后面可能还有其他信息。</li>
+</ul>
+<p>Action(s) 字段的可能值如下：</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>缩写</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Downgrade</code></td>
+<td><code>D</code></td>
+<td>至少有一个软件包已降级为旧版本。</td>
+</tr>
+<tr>
+<td><code>Erase</code></td>
+<td><code>E</code></td>
+<td>至少一个包裹已被移除。</td>
+</tr>
+<tr>
+<td><code>Install</code></td>
+<td><code>I</code></td>
+<td>至少安装了一个新软件包。</td>
+</tr>
+<tr>
+<td><code>Obsoleting</code></td>
+<td><code>O</code></td>
+<td>至少有一个软件包被标记为过时。</td>
+</tr>
+<tr>
+<td><code>Reinstall</code></td>
+<td><code>R</code></td>
+<td>至少已重新安装一个软件包。</td>
+</tr>
+<tr>
+<td><code>Update</code></td>
+<td><code>U</code></td>
+<td>至少有一个软件包已更新到较新的版本。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_12">还原和重复事务</h4>
+<p>除了查看事务历史，<code>dnf history</code> 命令还提供了撤销或重复选定事务的方法。请在 shell 提示符下以 <code>root</code> 身份键入以下内容：</p>
+<div class="highlight"><pre><span></span><code>dnf history undo id #撤销某个事务
+dnf history redo id #重复某个事务
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>请注意，<code>dnf history undo</code> 和 <code>dnf history redo</code> 命令都只是撤销或重复在事务期间执行的步骤，如果所需的包不可用，则会失败。例如，如果事务安装了一个新包，<code>dnf history undo</code> 命令将卸载它并尝试将所有更新的包降级到以前的版本，但如果所需的包不可用，该命令将失败。</p>
+</div>
+<p>这两个命令都支持使用 <code>last</code> 作为参数，来撤销或重复最新一次的事务。</p>
+<h3 id="dnf_1">DNF 配置文件</h3>
+<p>有关 dnf 配置文件和 dnf 仓库的指南信息，请阅读<a href="https://docs.fedoraproject.org/en-US/fedora/latest/system-administrators-guide/package-management/DNF/#sec-Configuring_DNF_and_DNF_Repositories">官方指南</a>。</p>
+<h3 id="_13">管理软件仓库</h3>
+<p><code>dnf config-manager</code> 命令可以用于添加、启用/禁用和移除软件仓库。</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>记录有仓库信息和配置的文件都存放在 <code>/etc/yum.repos.d</code> 文件夹中。在禁用了仓库后，你可以手动删除一些弃用仓库的配置文件。</p>
+</div>
+<p>使用下述命令添加新仓库：</p>
+<div class="highlight"><pre><span></span><code>dnf config-manager --add-repo repository_url
+</code></pre></div>
+<p><code>repository_url</code> 应该包含 <code>.repo</code> 文件或者指向 <code>.repo</code> 文件。</p>
+<p>使用下述命令启用仓库：</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>此处的 repository 指的是仓库的 repository ID</p>
+</div>
+<div class="highlight"><pre><span></span><code>dnf config-manager --set-enabled repository
+</code></pre></div>
+<p>使用下述命令禁用仓库：</p>
+<div class="highlight"><pre><span></span><code>dnf config-manager --set-disabled repository
+</code></pre></div>
+<h3 id="_14">额外信息</h3>
+<ul>
+<li><code>dnf(8)</code> — DNF 命令参考手册页。</li>
+<li><code>dnf.conf(8)</code> — DNF 配置参考手册页。</li>
+</ul>
+<h2 id="zypper">Zypper</h2>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>完整的使用指南详见<a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html">此处</a>。</p>
+</div>
+<p>zypper 是 openSUSE 默认的软件包管理器，可以用于管理软件包、软件仓库和升级更新系统。</p>
+<h3 id="_15">管理软件包</h3>
+<h4 id="_16">一般使用</h4>
+<p>zypper 的命令格式如下：</p>
+<div class="highlight"><pre><span></span><code>zypper [--global-options] COMMAND  [--command-options] [arguments]
+</code></pre></div>
+<p>使用 <code>[]</code> 包围起来的部分不是必须使用的。你可以键入 <code>$ zypper --help</code> 查看通用选项（<code>--global-options</code>）和命令（<code>COMMAND</code>）的完整列表。你也可以使用 <code>$ zypper help COMMAND</code> 查看特定的命令的帮助信息。</p>
+<ul>
+<li>Zypper command<br />
+    执行 zypper 最简单的方式是直接键入命令的名字，例如应用全部可用的更新补丁：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper patch
+</code></pre></div></li>
+<li>全局选项（<code>--global-options</code>）<br />
+    你可以在 zypper 后直接添加一个或多个选项，来实现额外的功能，例如：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper --non-interactive patch
+</code></pre></div>
+    如上，<code>--non-interactive</code> 选项表示命令会直接运行而不询问用户的意见（即自动以默认的答案回答命令执行过程中出现的问题）。注意，如果你不清楚 zypper 的工作流程和相关的默认配置，请不要跳过手动处理阶段。  </li>
+<li>命令特定选项（<code>--command-options</code>） <br />
+    要使用命令特定的选项，你需要将这些选项直接放置在命令的后面，例如：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper patch --auto-agree-with-licenses
+</code></pre></div>
+    如上，<code>--auto-agree-with-licenses</code> 选项会自动确认并接受补丁包的许可证信息。如果你没有添加该选项，你需要阅读并接受许可证（比如 NVIDIA 私有驱动的最终用户使用协议）。    </li>
+<li>参数（<code>Arguments</code>）<br />
+    一些命令需要用户提供一个或多个参数。例如，使用 zypper 安装软件包时，你需要声明要安装哪些软件包，如下：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper install smplayer
+</code></pre></div>
+    有些命令特定选项也需要额外的参数，例如列出全部已知的模组：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper search -t pattern
+</code></pre></div></li>
+</ul>
+<p>你也可以将上面的用法同时堆叠在一起，写出一个很长的命令。例如，下列命令会从 <code>factory</code> 仓库安装 <code>vim</code> 和 <code>mc</code> 软件包，并显示冗余信息：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper -v install --from factory mc vim
+</code></pre></div>
+<p>如果没有特别声明，<code>--from</code> 选项默认从全部已启用的软件仓库检索软件包。你也可以使用 <code>--repo</code> ，她是 <code>--from</code> 的别名。</p>
+<p>大多数 zypper 命令都具有 <code>dry-run</code> 选项，可以模拟运行给定的命令。该选项可以用于测试用途。例如：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper remove --dry-run MozillaFirefox
+</code></pre></div>
+<h4 id="_17">搜索软件包</h4>
+<p>你可以使用下述命令查询符合关键字的软件包：</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>更多信息详见：<a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-query">2.1.7 Querying repositories and packages with Zypper</a></p>
+</div>
+<div class="highlight"><pre><span></span><code>zypper search &lt;关键字&gt;
+</code></pre></div>
+<p>要查询某个软件包的信息，请使用：</p>
+<div class="highlight"><pre><span></span><code>zypper info &lt;软件包包名&gt;
+</code></pre></div>
+<h4 id="_18">安装，删除软件包</h4>
+<p>你可以使用下列命令安装或移除特定的软件包（参数是软件包包名 <code>PACKAGE_NAME</code>）：</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>请不要使用 zypper 删除重要的系统软件包（比如 <code>glic</code>、<code>zypper</code> 和 <code>kernel</code> 等软件包），这可能会导致系统崩溃。</p>
+</div>
+<div class="highlight"><pre><span></span><code>sudo zypper install PACKAGE_NAME
+sudo zypper remove PACKAGE_NAME
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>关于 <code>zypper install</code> 和 <code>zypper remove</code> 命令更多详细用法，详见 <a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-softman">2.1.3 Installing and removing software with Zypper</a>。</p>
+</div>
+<h4 id="_19">更新软件包</h4>
+<p>你可以使用下列命令更新软件包：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper dup                  #更新全部的软件包，即更新系统
+sudo zypper update PACKAGE_NAME  #更新特定的软件包
+</code></pre></div>
+<p>你可以使用下述命令查看当前系统需要更新的软件包：</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<ul>
+<li>这个命令只能列举出没有发生供应商变更的软件包的更新版本。即已安装的软件包和要安装的新版本必须来自于同一个软件源。</li>
+<li>要安装的软件包所属的仓库的优先级必须与已安装的软件包所属的仓库的优先级至少相同。  </li>
+<li>必须可安装。（满足所有的依赖关系）</li>
+</ul>
+</div>
+<p>你可以使用下述命令查看全部可获得的软件包更新（不论是否可安装）：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper list-updates --all
+</code></pre></div>
+<p>要查看某个软件包不能安装的原因，你可以使用 <code>zypper install</code> 或 <code>zypper update</code> 命令查看详细信息。</p>
+<h4 id="_20">识别孤立包</h4>
+<p>当你删除某些仓库或者升级你的系统后，某些软件包可能进入 <code>orphaned</code>（孤立）状态。这些孤立包不属于任何已启用的软件仓库。你可以使用下列命令查看这些软件包：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper packages --orphaned
+</code></pre></div>
+<h4 id="_21">识别使用已删除文件的进程或程序</h4>
+<p>你可以使用下列命令输出仍然在使用已删除文件的进程或程序的 PID、UID、所属的用户和命令等相关信息。</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>详细信息详见：<a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-ps">2.1.5 Identifying processes and services using deleted files</a></p>
+</div>
+<div class="highlight"><pre><span></span><code>zypper ps-s
+</code></pre></div>
+<p>在更新后，你需要手动重启这些程序或进程以应用更新，但你可以直接重启系统。</p>
+<h3 id="_22">管理软件仓库</h3>
+<p>zypper 可以用于管理软件仓库：</p>
+<p>键入以下命令查看你当前使用的软件仓库概况，例如：</p>
+<div class="highlight"><pre><span></span><code>bh@c004-h0:~&gt; zypper repos
+软件源优先级已生效：                                                                               (细节请参考 &#39;zypper lr -P&#39;)
+      90 (更高的优先级) :  1 个软件源
+      99 (默认优先级)   :  6 个软件源
+
+#  | Alias                    | Name                        | Enab-&gt; | GPG Ch-&gt; | Re-&gt;
+---+--------------------------+-----------------------------+--------+----------+-----
+ 1 | NVIDIA                   | NVIDIA                      | 是     | (r ) 是  | 是
+ 2 | OPEN-TUNA:TW:NON-OSS     | OPEN-TUNA:TW:NON-OSS        | 是     | (r ) 是  | 是
+ 3 | OPEN-TUNA:TW:OSS         | OPEN-TUNA:TW:OSS            | 是     | (r ) 是  | 是
+ 4 | code                     | Visual Studio Code          | 是     | (r ) 是  | 是
+ 5 | google-chrome            | google-chrome               | 是     | (r ) 是  | 是
+ 6 | home_fusionfuture_office | home:fusionfuture:office    | 是     | (r ) 是  | 是
+ 7 | packman                  | packman                     | 是     | (r ) 是  | 是
+ 8 | repo-debug               | openSUSE-Tumbleweed-Debug   | 否     | ----     | ----
+ 9 | repo-non-oss             | openSUSE-Tumbleweed-Non-Oss | 否     | ----     | ----
+10 | repo-oss                 | openSUSE-Tumbleweed-Oss     | 否     | ----     | ----
+11 | repo-source              | openSUSE-Tumbleweed-Source  | 否     | ----     | ----
+12 | repo-update              | openSUSE-Tumbleweed-Update  | 否     | ----     | ----
+</code></pre></div>
+<p>如上，这是一个禁用了官方软件源，使用镜像源和多个第三方软件源的 tumbleweed 系统。在与软件仓库相关的一系列命令和选项中，建议使用使用仓库的别名 <code>Alias</code> 作为参数。</p>
+<h4 id="_23">添加软件仓库</h4>
+<p>要添加一个新的软件仓库，你使用下列命令：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper addrepo URL ALIAS
+</code></pre></div>
+<p>URL 是仓库的地址，ALIAS 是仓库的别名。你可以随意指定仓库的别名，但是请保持新添加的仓库的别名是独有的，不与其他已有的仓库别名重复。</p>
+<h4 id="_24">刷新软件仓库</h4>
+<p>你可以使用下列命令刷新软件仓库:</p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>一些命令会自动刷新软件仓库，你不需要特意去执行这个命令。</p>
+</div>
+<div class="highlight"><pre><span></span><code>sudo zypper refresh
+</code></pre></div>
+<h4 id="_25">移除软件仓库</h4>
+<p>你可以使用下列命令移除匹配指定的仓库别名的仓库：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper removerepo REPO_ALIAS
+</code></pre></div>
+<h4 id="_26">编辑仓库</h4>
+<p>你可以使用 <code>zypper modifyrepo</code> 命令编辑仓库的属性。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-e</td>
+<td>启用已禁用的软件源。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>禁用但不移除软件源。</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>应用修改到全部软件源。</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>禁用软件源的自动刷新。</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置软件源的优先级。</td>
+</tr>
+</tbody>
+</table>
+<p>要查看完整的选项信息，你可以键入 <code>$ sudo zypper help modifyrepo</code>。</p>
+<h3 id="zypper_1">zypper 配置</h3>
+<p>Zypper 现在附带一个配置文件，允许你永久更改 Zypper 的行为（系统范围或用户特定）。 对于系统范围的更改，编辑 <code>/etc/zypp/zypper.conf</code>。对于特定于用户的更改，请编辑 <code>~/.zypper.conf</code>。如果 <code>~/.zypper.conf</code> 尚不存在，你可以使用 <code>/etc/zypp/zypper.conf</code> 作为模板，将其复制到 <code>~/.zypper.conf</code> 并根据自己的喜好进行调整。 有关可用选项的帮助，请参阅文件中的注释。</p>
+<h3 id="_27">更多信息</h3>
+<p>更多信息详见 <code>zypper help</code> 和 <code>zypper help COMMAND</code> 或者 <code>man zypper(8)</code></p>
+<ul>
+<li>https://en.opensuse.org/SDB:Zypper_usage</li>
+<li>https://en.opensuse.org/openSUSE:Zypper_versions</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../update-sys/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 更新系统">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                更新系统
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../setup-proxy/" class="md-footer__link md-footer__link--next" aria-label="下一页: 设置网络代理">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                设置网络代理
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyleft; 2021-2024 Poplar_at_twilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://forum.suse.org.cn/u/Aui/summary" target="_blank" rel="noopener" title="forum.suse.org.cn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M593.1 192.6a10.4 10.4 0 1 1 11.4 17.4 10.4 10.4 0 1 1-11.4-17.4zM546 204.8a38.5 38.5 0 1 1 75-17.6 38.5 38.5 0 1 1-75 17.6zM433.7 336.7c3.2 4.6 5.8 9 7.3 13.4 1 3.1 2.4 7.3 5.5 8.9.2.1.3.2.5.2 5.7 2.1 20.3 1.7 20.3 1.7h26.8c2.3 0 22.4 0 21.9-2.3-2.4-10.8-14.9-12.7-24.4-18.3-8.7-5.2-17-11.1-20.8-21.3-2-5.2-.8-17.4 2.6-21.8 2.5-3.2 6.1-5.3 10-6.2 4.3-.9 8.8-.1 13.1.3 5.3.5 10.6 1.5 15.9 2.2 10.3 1.3 20.6 1.9 31 1.6 17.1-.5 34.2-3.2 50.4-8.7 11.3-3.8 22.4-8.9 32-16.1 10.9-8.1 8.1-7.4-3-6.2-13.3 1.4-26.6 1.6-39.9.8-12.4-.7-24.7-2.2-35.9-7.9-8.8-4.6-16.4-9.1-23.4-16.2-1-1.1-1.7-4.2.2-6.2 1.9-1.9 5.8-.8 7 .2 12.2 10.2 30.5 18.6 49.3 19.5 10.2.5 20.1.7 30.4.3 5.1-.2 12.8-.2 17.9-.3 2.6 0 9.8.7 11.2-2.1.4-.8.4-1.8.3-2.7-1.5-40.9-4.5-86.9-47.3-106.5-31.9-14.6-79.7-37.2-99.9-46.6-4.7-2.2-10.2 1.3-10.2 6.5 0 13.6.7 33.3.7 51.1-9.7-9.9-26-16.1-38.4-21.8-14.1-6.5-28.7-12-43.5-16.6-29.8-9.2-60.7-14.9-91.7-18-35.2-3.5-71-1.8-105.7 5.3-56.9 12.2-113.1 39.7-155.7 79.8-26.1 24.6-46.6 59.7-48 95.2-2 50.3 12.1 77.3 38 105.2 41.3 44.4 130.2 50.6 166.2-2 16.2-23.7 19.7-55.8 8-82-11.8-26.2-38.8-45.1-67.4-46-22.2-.7-45.9 10.6-54.5 31.1-6.5 15.7-2.8 35.1 9 47.3 4.6 4.8 10.9 8.7 17.7 7.1 4-.9 7.4-3.9 8-8 .9-6-4.4-9.9-7.6-14.5-5.8-8.3-4.7-20.9 2.7-27.9 6.2-6 15.3-7.8 23.9-7.7 8 0 16.2 1.4 23.1 5.5 9.7 5.7 16.2 16.2 18.4 27.2 6.7 33-20.2 59.9-56.6 62-18.6 1.1-37.6-3.8-52.1-15.5-36.9-29.8-45.9-90.3-3.8-122.7 40-30.7 90.4-22.8 120.2-6.8 23.8 12.8 41.5 33.6 55 56.7 6.7 11.6 12.5 23.7 17.8 36.1 5.1 11.8 9.9 23.8 20.2 32.5 6.8 5.8 15.2 5.6 24.1 5.6h50.8c6.9 0 5.2-4.6 2.2-7.7-6.7-6.9-16.4-8.4-25.4-10.9-20.5-5.6-18.4-32.8-12.7-32.8 18.3 0 18.9.6 34.9.3 23.2-.3 30.2-1.7 48.3 5 9.7 3.6 19 13.1 25.1 21.7z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discussion.fedoraproject.org/u/bh" target="_blank" rel="noopener" title="discussion.fedoraproject.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M.041 255.8C.121 132.2 100.3 32 224 32s224 100.3 224 224-100.2 223.9-223.9 224H50.93C22.84 480 .083 457.3.042 429.2H0V255.8h.041zM342.6 192.7c0-39.7-35.6-68.5-73.2-68.5-34.9 0-65.8 26.3-70.1 59.9-.2 3.8-.4 5-.4 8.5-.1 21.1 0 42.8-.8 64.4.9 26.1 1 52.1 0 76.6 0 27.1-19.4 45.5-44.7 45.5-25.3 0-45.8-20.2-45.8-45.5.5-27.7 22.6-45.3 48.5-46.1h.2l26.3-.2V250l-26.3.2c-47.1-.4-84.58 36.5-85.94 83.4 0 45.6 37.54 82.9 83.04 82.9 43 0 78.7-33.6 82.6-75.6l.2-53.5 32.6-.3c25.3.2 25-37.8-.2-37.3l-32.4.3c0-6.4.1-12.8.1-19.2.1-12.7.1-25.4-.1-38.2.1-16.5 15.8-31.2 33.2-31.2 17.5 0 35.9 8.7 35.9 31.2 0 3.2-.1 5.1-.3 6.3-1.9 10.5 5.2 20.4 15.7 21.9 10.6 1.5 20.2-6.1 21.2-16.6.6-4.2.7-7.9.7-11.6z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://zh.opensuse.org/User:White-poplar" target="_blank" rel="noopener" title="zh.opensuse.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m640 51.2-.3 12.2c-28.1.8-45 15.8-55.8 40.3-25 57.8-103.3 240-155.3 358.6H415l-81.9-193.1c-32.5 63.6-68.3 130-99.2 193.1-.3.3-15 0-15-.3C172 352.3 122.8 243.4 75.8 133.4 64.4 106.7 26.4 63.4.2 63.7c0-3.1-.3-10-.3-14.2h161.9v13.9c-19.2 1.1-52.8 13.3-43.3 34.2 21.9 49.7 103.6 240.3 125.6 288.6 15-29.7 57.8-109.2 75.3-142.8-13.9-28.3-58.6-133.9-72.8-160-9.7-17.8-36.1-19.4-55.8-19.7V49.8l142.5.3v13.1c-19.4.6-38.1 7.8-29.4 26.1 18.9 40 30.6 68.1 48.1 104.7 5.6-10.8 34.7-69.4 48.1-100.8 8.9-20.6-3.9-28.6-38.6-29.4.3-3.6 0-10.3.3-13.6 44.4-.3 111.1-.3 123.1-.6v13.6c-22.5.8-45.8 12.8-58.1 31.7l-59.2 122.8c6.4 16.1 63.3 142.8 69.2 156.7L559.2 91.8c-8.6-23.1-36.4-28.1-47.2-28.3V49.6l127.8 1.1.2.5z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/poplar-at-twilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "content.tabs.link", "navigation.footer", "header.autohide", "announce.dismiss"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
