@@ -9,7 +9,7 @@
 下载源码：
 
 ```
-git clone https://gitlab.com/reuleaux-triangle/whiteboard.git && cd whiteboard
+git clone https://github.com/poplar-at-twilight/whiteboard.git && cd whiteboard
 ```
 
 创建容器：
