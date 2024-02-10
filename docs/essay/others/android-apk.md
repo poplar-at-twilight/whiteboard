@@ -1,4 +1,5 @@
 ---
+comments: true
 tags:
   - 杂谈
   - Android

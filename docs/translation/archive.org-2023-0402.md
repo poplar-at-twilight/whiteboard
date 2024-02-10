@@ -1,4 +1,5 @@
 ---
+comments: true
 tags:
   - 新闻
   - 互联网档案馆

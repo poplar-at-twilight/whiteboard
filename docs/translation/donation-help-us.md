@@ -1,4 +1,5 @@
 ---
+comments: true
 tags:
   - 新闻
   - 文档基金会

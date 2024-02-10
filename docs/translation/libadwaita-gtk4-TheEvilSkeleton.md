@@ -1,4 +1,5 @@
 ---
+comments: true
 tags:
   - 新闻
   - libadwaita

@@ -1,4 +1,5 @@
 ---
+comments: true
 tags:
   - Linux 简明指南
   - 防火墙
