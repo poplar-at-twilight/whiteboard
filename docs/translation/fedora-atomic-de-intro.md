@@ -35,7 +35,7 @@ tags:
 [Fedora Atomic Workstation]: https://projectatomic.io/blog/2018/02/fedora-atomic-workstation/
 [gnome]: https://www.gnome.org/
 
-2021 年，[Fedora 35] 推出了 [Kinoite]。事态似乎平静了一段时间，直到去年，我们又看到了两个 rpm-ostree spins 的发布—— [Fedora 38] 中的 [Sericea] 和 Fedora 39 中的 [Onyx]。
+2021 年，[Fedora 35] 推出了 [Kinoite]。事态似乎平静了一段时间，直到去年，我们又看到了两个 rpm-ostree spins 的发布—— [Fedora 38] 中的 [Sericea] 和 [Fedora 39] 中的 [Onyx]。
 
 [Fedora 35]: https://fedoramagazine.org/announcing-fedora-35/
 [Fedora 38]: https://fedoramagazine.org/announcing-fedora-38/
@@ -80,6 +80,6 @@ Silverblue 和 Kinoite 保留其名称的原因是品牌知名度和存在时间
 
 [Fedora Atomic Desktops SIG]: https://fedoraproject.org/wiki/SIGs/AtomicDesktops
 
-单击[此处]了解有关 Fedora Atomic 的更多信息。让我们也开始使用#FedoraAtomic 来简化我们在社交媒体上的对话！
+单击[此处]了解有关 Fedora Atomic 的更多信息。让我们也开始使用 `#FedoraAtomic` 来简化我们在社交媒体上的对话！
 
 [此处]: https://fedoraproject.org/atomic-desktops/
