@@ -10,8 +10,7 @@ tags:
 
 - 本站点标题：白杨的文档站
 - 本人的称呼：暮光的白杨
-- Gitlab：<https://gitlab.com/Poplar.at.twilight>
-- GitHub：<https://github.com/Hanjingxue-Boling>
+- GitHub：<https://github.com/poplar-at-twilight>
 - 链接: <https://whiteboard-ui8.pages.dev/>
 - 头像: [点此下载](./images/one-last-neko-2.jpeg)
 - 简介: 鸽子/咸鱼/openSUSE 新闻译者
