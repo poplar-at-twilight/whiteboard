@@ -7858,7 +7858,7 @@
 </blockquote>
 <p>我们很高兴地宣布一个新的 <a href="https://fedoraproject.org/spins/">Fedora Spins</a> 系列诞生了：<a href="https://fedoraproject.org/atomic-desktops/">Fedora Atomic Desktops</a>（Fedora 原子化桌面版）！随着 <a href="https://fedoraproject.org/atomic-desktops/silverblue/">Silverblue</a> 越来越受欢迎，我们看到 Fedora 推出越来越多的使用 <a href="https://coreos.github.io/rpm-ostree/">rpm-ostree</a> 技术的 spin 发行版。现在已经很难同时谈论所有这些话题了。因此，我们引入了一个新品牌，它将简化我们讨论 rpm-ostree 以及如何命名未来的 Fedora Atomic spin 分支的方式。</p>
 <p>有些人可能会注意到这更像是重新介绍。原子项目（<a href="https://projectatomic.io/blog/2014/04/announcing-project-atomic/">Project Atomic</a>）于 10 年前随着原子主机（Atomic Host）的开发而启动。正如团队当时所说的那样，“原子主机包含一组来自操作系统的软件包（……），与 rpm-ostree 配套使用，以创建可以作为原子单元部署和更新的文件系统树。”在 2018 年，我们看到了 <a href="https://projectatomic.io/blog/2018/02/fedora-atomic-workstation/">Fedora Atomic Workstation</a> 的推出，这是一个搭载 <a href="https://www.gnome.org/">GNOME</a> 桌面环境的桌面（图形化）客户端实现；它在一年后更名为 Silverblue。</p>
-<p>2021 年，<a href="https://fedoramagazine.org/announcing-fedora-35/">Fedora 35</a> 推出了 <a href="https://fedoraproject.org/atomic-desktops/kinoite">Kinoite</a>。事态似乎平静了一段时间，直到去年，我们又看到了两个 rpm-ostree spins 的发布—— <a href="https://fedoramagazine.org/announcing-fedora-38/">Fedora 38</a> 中的 <a href="https://fedoraproject.org/atomic-desktops/sway">Sericea</a> 和 Fedora 39 中的 <a href="https://fedoraproject.org/atomic-desktops/budgie">Onyx</a>。</p>
+<p>2021 年，<a href="https://fedoramagazine.org/announcing-fedora-35/">Fedora 35</a> 推出了 <a href="https://fedoraproject.org/atomic-desktops/kinoite">Kinoite</a>。事态似乎平静了一段时间，直到去年，我们又看到了两个 rpm-ostree spins 的发布—— <a href="https://fedoramagazine.org/announcing-fedora-38/">Fedora 38</a> 中的 <a href="https://fedoraproject.org/atomic-desktops/sway">Sericea</a> 和 <a href="https://fedoramagazine.org/announcing-fedora-linux-39/">Fedora 39</a> 中的 <a href="https://fedoraproject.org/atomic-desktops/budgie">Onyx</a>。</p>
 <h2 id="_1">为何选择新品牌？</h2>
 <p>这就引出了我们需要调整品牌的第一个原因：可能会有更多的 spin 分支。我们有四个传统的 Fedora Linux Spins，但还没有原子化变体。其中一些桌面环境正在试验中，比如 <a href="https://universal-blue.org/">Universal Blue 自定义镜像</a>项目中的 Vauxite (Xfce)。还有其他一些桌面环境，如 <a href="https://wiki.archlinux.org/title/Pantheon">Pantheon</a> 或即将推出的 <a href="https://github.com/pop-os/cosmic">COSMIC</a>，如果贡献者愿意，我们非常欢迎他们加入社区。随着 Spin 群组的不断壮大，我们需要将它们组织在同一个综合体下。</p>
 <p>其次，如果没有一个统一的方式来谈论我们的原子化 spin，那么谈论起来就会更加困难。你是否曾经在尝试提及所有四种原子化 spin 或使用简写来提及它们（即 Silverblue 和它的朋友们）时犯了糊涂？让一个原子化 spin（Silverblue）代表其他三个原子化 spin，同时又指某个特定的东西（Fedora Linux 工作站的 rpm-ostree 实现），这是非常不方便的。此外，人们对这些 spin 的哪些方面是共享的也感到困惑。例如，有些人可能在查找 Kinoite 的文档时没有意识到一篇关于 Silverblue 的文章也适用于他们的问题。当你要查找有关它们共同的某一方面的信息时，使用如此多的关键字是低效的。</p>
@@ -7875,7 +7875,7 @@
 <p>今后，新的原子化 spin 将使用 <code>Fedora + 桌面环境名称 + Atomic</code> 的格式命名，以保持简单明了。不会再有哪个名称指代哪个桌面环境的问题。不会再有错误发音。新名称更清楚地说明为什么这些 Fedora spins 与普通的 spins 不同。</p>
 <p>新的综合性品牌也为我们提供了一个新的名称，让我们可以将其与 rpm-ostree 同类产品放在一起！Fedora Atomic Desktops 与 <a href="https://fedoraproject.org/coreos/">Fedora CoreOS</a> 和 <a href="https://fedoraproject.org/iot/">Fedora IoT</a> 并列，因为它们都使用 rpm-ostree 来满足不同的需求。</p>
 <p><a href="https://fedoraproject.org/wiki/SIGs/AtomicDesktops">Fedora Atomic Desktops SIG</a> 和社区中的许多人对这一变化感到非常兴奋。我们希望它能让讨论和学习这种操作系统变得更加容易。</p>
-<p>单击<a href="https://fedoraproject.org/atomic-desktops/">此处</a>了解有关 Fedora Atomic 的更多信息。让我们也开始使用#FedoraAtomic 来简化我们在社交媒体上的对话！</p>
+<p>单击<a href="https://fedoraproject.org/atomic-desktops/">此处</a>了解有关 Fedora Atomic 的更多信息。让我们也开始使用 <code>#FedoraAtomic</code> 来简化我们在社交媒体上的对话！</p>
 
 
 
