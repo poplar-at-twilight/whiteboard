@@ -1,8 +1,3 @@
----
-hide:
-  - tags
----
-
 # 欢迎来到我的个人文档站！
 
 ![cover](./assets/Minecraft-Nature.png)
@@ -30,6 +25,7 @@ hide:
     - [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) Licensed ✅
     - 站内搜索 ✅
     - 日夜间主题切换 ✅
+    - 评论系统（基于 [giscus](https://giscus.app)）✅
     - [标签地图](./about/tags.md) ✅
     - [RSS 订阅](./blog/posts/hello-world.md) ✅
     - 文档归档（请提交 [PR] 与许可协议副本） ✅
@@ -38,17 +34,13 @@ hide:
         - [Cloudflare Pages](https://whiteboard-ui8.pages.dev/) ✅
         - [互联网档案馆镜像](https://web.archive.org/web/*/https://whiteboard-ui8.pages.dev)（内容不完整） ❎
 
-=== "不支持的功能"
-
-    - 评论系统 ❓（准备恢复中）
-    - M17N ❌
-
 === "第三方内容/cookie/数据追踪"
 
     - 【待完善】
     - Cloudflare 站点数据追踪
     - YouTube
     - SoundCloud
+    - GitHub Discussion
 
 ---
 
