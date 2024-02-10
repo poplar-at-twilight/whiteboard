@@ -15,13 +15,13 @@ theme:
     highlightjs: true
     palette:
       - scheme: default
-        primary: white
+        primary: green
         accent: blue
         toggle:
           icon: material/brightness-7
           name: 切换到深色模式
       - scheme: slate
-        primary: black
+        primary: blue
         accent: light green
         toggle:
           icon: material/brightness-4
@@ -44,6 +44,8 @@ nav:
       - index.md
     - 译文归档:
       - translation/about.md
+      - 2024-02:
+        - translation/fedora-atomic-de-intro.md
       - 2023-11:
         - translation/tdf-2023-10-recap.md
       - 2023-10:
