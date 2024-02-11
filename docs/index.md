@@ -11,6 +11,7 @@
     上月总结请翻阅本站[博客](./blog/index.md)  
 
     - [Fedora Atomic Desktops 简介](./translation/fedora-atomic-de-intro.md)
+    - [Xfce4 Wayland 开发路线图](./translation/xfce4-wayland-roadmap.md)
 
 === "主要内容"
 
