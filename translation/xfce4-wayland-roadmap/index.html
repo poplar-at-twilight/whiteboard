@@ -12,13 +12,13 @@
         <meta name="author" content="Poplar at twilight">
       
       
-        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/translation/xfce-2021-09-12/">
+        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/translation/xfce4-wayland-roadmap/">
       
       
-        <link rel="prev" href="../kde-network-china-2021/">
+        <link rel="prev" href="../fedora-atomic-de-intro/">
       
       
-        <link rel="next" href="../xfce-09-17/">
+        <link rel="next" href="../tdf-2023-10-recap/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../feed_rss_created.xml">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Xfce 开发者博客 —— 得益于 GSoC 2021，Thunar 中出现了闪亮的新事物。 - 白杨的文档站</title>
+        <title>Xfce4 Wayland 开发路线图 - 白杨的文档站</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#xfce-gsoc-2021thunar" class="md-skip">
+        <a href="#xfce4-wayland" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Xfce 开发者博客 —— 得益于 GSoC 2021，Thunar 中出现了闪亮的新事物。
+              Xfce4 Wayland 开发路线图
             
           </span>
         </div>
@@ -505,19 +505,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -531,7 +533,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             2024-02
@@ -563,10 +565,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../xfce4-wayland-roadmap/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Xfce4 Wayland 开发路线图
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -575,6 +597,203 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总体规划
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期目标
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      组件特定状态
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="组件特定状态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心组件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfdesktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfdesktop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfwm4" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfwm4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-power-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-power-manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-notifyd" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-notifyd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-screenshooter" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-screenshooter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thunar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thunar 插件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      面板插件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wayland" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wayland 原生
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      外部链接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4117,21 +4336,19 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_30" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_30" >
         
           
           <label class="md-nav__link" for="__nav_2_30" id="__nav_2_30_label" tabindex="0">
@@ -4145,7 +4362,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_30_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_30_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_30">
             <span class="md-nav__icon md-icon"></span>
             2021-09
@@ -4156,30 +4373,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Xfce 开发者博客 —— 得益于 GSoC 2021，Thunar 中出现了闪亮的新事物。
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../xfce-2021-09-12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4188,35 +4385,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      正文
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -7798,9 +7966,177 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      正文
+      总体规划
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期目标
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      组件特定状态
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="组件特定状态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心组件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfdesktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfdesktop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfwm4" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfwm4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-power-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-power-manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-notifyd" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-notifyd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfce4-screenshooter" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfce4-screenshooter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thunar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thunar 插件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      面板插件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wayland" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wayland 原生
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      外部链接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7832,40 +8168,551 @@
       <a href="../../about/tags/#xfce" class="md-tag">xfce</a>
     
   
+    
+    
+    
+      <a href="../../about/tags/#wayland" class="md-tag">Wayland</a>
+    
+  
 </nav>
 
 
 
-<h1 id="xfce-gsoc-2021thunar">Xfce 开发者博客 —— 得益于 GSoC 2021，Thunar 中出现了闪亮的新事物。</h1>
+<h1 id="xfce4-wayland">Xfce4 Wayland 开发路线图</h1>
 <ul>
-<li>原文：<a href="https://alexxcons.github.io/2021/09/11/shiny-new-things-in-thunar.html">Shiny new things in Thunar thanks to GSoC 2021</a></li>
-<li>作者：<a href="https://gitlab.xfce.org/alexxcons">Alexander Schwinn</a></li>
-<li>许可证：未知</li>
+<li>译文信息：<ul>
+<li>原文：<a href="https://wiki.xfce.org/releng/wayland_roadmap">Xfce Wayland Development Roadmap</a></li>
+<li>类型：维基词条</li>
+<li>许可证：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a></li>
+<li>日期：2024-02-11</li>
 <li>译者：暮光的白杨</li>
-<li>日期：2021-09-12</li>
+</ul>
+</li>
 </ul>
 <hr />
-<h2 id="_1">正文</h2>
-<p><a href="https://summerofcode.withgoogle.com/">GSoC 2021</a> 已经结束，我很高兴地告诉你，在 thunar 上工作的两个学生都做得很好。由于他们的努力，已经增加了很多好东西。</p>
-<p>为了让你发现所有这些新功能，<a href="https://mail.xfce.org/pipermail/xfce-announce/2021-September/001059.html">Thunar 4.17.5</a> 刚刚发布（请注意，这是一个开发版本。它仍然可能有一些粗糙的边缘）。</p>
-<p>关于新功能的细节，请查看 Sergios 和 Yongha 提供的摘要：</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
 <ul>
-<li><a href="http://users.uoa.gr/~sdi1800073/sources/xfce_blog05.html">Sergios GSoC Summary</a></li>
-<li><a href="https://dev.ikx.kr/GSOC-6th/">Yongha’s GSoC Summary</a></li>
+<li>本文档旨在供 <a href="https://xfce.org/">Xfce</a> 开发人员跟踪 <a href="https://wayland.freedesktop.org/">Wayland</a> 开发。这是一项正在进行的工作，并不意味着任何未来的实施承诺。</li>
+<li>本文只是原文档于 2024 年 2 月 11 日的版本的译文。</li>
 </ul>
-<p>除了这些，这里还有一些在 GSoC 期间增加的新功能，我认为它们值得一提：</p>
+</div>
+<h2 id="_1">总体规划</h2>
+<p>对于 Xfce 4.20，我们的计划是在不失去 <a href="https://x.org/wiki/">X11</a> 支持的前提下，为核心组件添加对 Wayland 的初步支持。这并不意味着在下一个主要版本中，Xfce 的 Wayland 会话将提供所有现有功能，但我们希望它能在最低程度上可用。我们还打算继续完善我们（那些已经可以运行或只需少量工作即可运行的应用程序）的应用程序，使其能在 Wayland 上正常运行。</p>
+<p>查看<a href="#_3">组件特定状态</a>部分的表格，了解详细信息和按组别标注的问题：</p>
 <ul>
-<li>书签被移到一个单独的 “书签菜单” 中，并增加了 “创建书签” 选项（<a href="https://gitlab.xfce.org/xfce/thunar/-/merge_requests/109">MR! 109</a> 和 <a href="https://gitlab.xfce.org/xfce/thunar/-/merge_requests/71">MR! 71</a>）：<br />
-<img alt="01" src="../images/2021-09/xfce-09-12-01.png" /></li>
-<li>在 “打开方式” 子菜单中增加了一个新的菜单项 “设置默认应用程序”（<a href="https://gitlab.xfce.org/xfce/thunar/-/merge_requests/79">MR! 79</a>）:<br />
-<img alt="02" src="../images/2021-09/xfce-09-12-02.png" /></li>
-<li>在 "thunar-chooser-dialog "中增加了一个新的部分 “默认应用程序”(<a href="https://gitlab.xfce.org/xfce/thunar/-/merge_requests/81">MR! 81</a>）：<br />
-<img alt="03" src="../images/2021-09/xfce-09-12-03.png" /></li>
+<li><a href="#_4">核心组件</a></li>
+<li><a href="#_5">应用</a></li>
+<li><a href="#thunar">Thunar 插件</a></li>
+<li><a href="#_6">面板插件</a></li>
 </ul>
-<p>此外，还有<a href="https://gitlab.xfce.org/xfce/thunar/-/merge_requests">各种开放的合并请求</a>，其中大部分是来自 GSoC 的学生，我目前没有时间处理这些请求。所以希望更多的新功能能很快到来!</p>
-<p>你也可以关注一下 <a href="https://gitlab.xfce.org/apps/xfce4-terminal">xfce4-terminal</a>，它最近有很多活动，因为它现在是由 Sergios Kefalidis 维护。</p>
-<p>如果你发现这些新功能的错误，请使用 <a href="https://gitlab.xfce.org/xfce/thunar">xfce 错误追踪器</a>。</p>
-<p>测试愉快！</p>
+<h2 id="_2">长期目标</h2>
+<p>目前还不清楚哪个 Xfce 版本将实现 Xfce Wayland 的完全过渡（或是否会实现过渡）。下面列出了为实现过渡而需要完成的大型任务。</p>
+<p>其中一些大部分得到了 Xfce 开发人员的认可。</p>
+<p><strong>商定的指导方针</strong></p>
+<ul>
+<li>不依赖 <a href="https://wayland.freedesktop.org/xserver.html">XWayland</a><ul>
+<li>没有 <a href="https://wiki.archlinux.org/title/Xsettingsd">xsettings</a></li>
+</ul>
+</li>
+<li>使用 <a href="https://gitlab.freedesktop.org/wlroots">wlroots</a> 而不是 <a href="https://mutter.gnome.org/">libmutter</a><ul>
+<li>保留将 xfdesktop 和 xfce4-panel 作为单独组件运行的可能性</li>
+<li>防止对 <a href="https://github.com/GNOME/gnome-desktop">libgnome-desktop</a> 的依赖</li>
+<li>xfce4-panel 和 xfdesktop 已移植到 Wayland，假设我们的混成器将基于 wlroots。</li>
+<li><a href="https://github.com/adlocode/xfwm4/tree/wayland">xfwm4 的非官方移植</a>也正在进行中。</li>
+</ul>
+</li>
+<li>在可预见的未来保持 X11 兼容性<ul>
+<li>Nvidia 对 Wayland 的支持仍然存在问题，这是保持 X11 向后兼容性的又一个原因（<a href="https://nouveau.freedesktop.org/">nouveau</a> 驱动程序通常性能孱弱）</li>
+<li>像 <a href="https://wayland.pages.freedesktop.org/weston/">Weston</a> 或 <a href="https://swaywm.org/">sway</a> 这样从头开始编写的 Wayland 混成器永远不会作为 X11 窗口管理器运行。但其他以 X11 窗口管理器（例如 kwin 或 mutter）开始的仍然保留他们的 x11 窗口管理代码</li>
+<li><a href="https://www.freebsd.org/">FreeBSD</a> 对 Wayland 提供了不错的<a href="https://docs.freebsd.org/en/books/handbook/wayland/">支持</a>，<a href="https://www.openbsd.org/papers/eurobsdcon2023-matthieu-wayland-openbsd.pdf">OpenBSD</a> Wayland</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">组件特定状态</h2>
+<h3 id="_4">核心组件</h3>
+<p>此表反映了 Xfce 4.19 或 git master 发布的内容的当前状态。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">组件名</th>
+<th style="text-align: center;">Wayland</br>支持</th>
+<th style="text-align: left;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">exo</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">libxfce4ui</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"><a href="https://gitlab.xfce.org/xfce/libxfce4ui/-/merge_requests/110">libxfce4ui!110</a> 中的 X11 代码路径得到正确保护</td>
+</tr>
+<tr>
+<td style="text-align: left;">libxfce4util</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">thunar</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-appfinder</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://wiki.xfce.org/releng/wayland_roadmap#xfce4-panel">xfce4-panel</a></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">见下文</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-session</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://wiki.xfce.org/releng/wayland_roadmap#xfce4-settings">xfce4-settings</a></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">见下文</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfconf</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://wiki.xfce.org/releng/wayland_roadmap#xfdesktop">xfdesktop</a></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">见下文</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://wiki.xfce.org/releng/wayland_roadmap#xfwm4">xfwm4</a></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://wiki.xfce.org/releng/wayland_roadmap#xfce4-power-manager">xfce4-power-manager</a></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">见下文</td>
+</tr>
+<tr>
+<td style="text-align: left;">tumbler</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">garcon</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">thunar-volman</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-dev-tools</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="xfce4-panel">xfce4-panel</h4>
+<ul>
+<li>Wayland 移植工作已完成：<a href="https://gitlab.xfce.org/xfce/xfce4-panel/-/merge_requests/103">xfce4-panel!103</a><ul>
+<li>基于 Wlroots 的目标混成器：<a href="https://github.com/labwc/labwc">Labwc</a>、<a href="https://github.com/WayfireWM/wayfire">Wayfire</a></li>
+</ul>
+</li>
+<li>在 Wayland 上，面板无法再使用 GtkSocket/GtkPlug 将插件作为外部（单独的进程）运行。最初，为了推进其他功能的移植，将它们作为内部运行就足够了（与面板相同的进程，因此插件崩溃会导致面板崩溃）。如果我们想之后“原生地”恢复它，似乎我们必须在某种程度上使面板成为 Wayland 混成器（<a href="https://wayland.freedesktop.org/docs/html/ch02.html#sect-Compositors-Embedding-Compositor">嵌入混成器</a>，另请参阅<a href="https://gitlab.freedesktop.org/wayland/wayland-protocols/-/issues/74">允许嵌入外部 wl_surfaces</a>）。目前，socket/插件结构已使用 <a href="https://wayland.app/protocols/wlr-layer-shell-unstable-v1">layer-shell 协议</a>和 <a href="https://www.freedesktop.org/wiki/Software/dbus/">D-Bus</a> 在 Wayland 上重现，虽然不是原生的，但具有简单性和重用现有内容的优点（更多详细信息请参见<a href="https://mail.xfce.org/pipermail/xfce4-dev/2022-October/033092.html">此处</a>）。</li>
+</ul>
+<h4 id="xfdesktop">xfdesktop</h4>
+<ul>
+<li>Wayland 移植工作已完成：<a href="https://gitlab.xfce.org/xfce/xfdesktop/-/merge_requests/43">xfdesktop!43</a></li>
+<li>工作区支持需要 X11/Wayland 抽象（abstraction），并且可以在 Wayland 上使用 <code>wlr-workspace-unstable-v1</code> 协议。</li>
+<li>列出所有顶层窗口（窗口列表菜单、桌面上的窗口图标）需要 X11/Wayland 抽象，并且可以在 Wayland 上使用 <code>wlr-foreign-toplevel-management-unstable-v1</code> 协议。</li>
+</ul>
+<h4 id="xfwm4">xfwm4</h4>
+<ul>
+<li>非官方的 Wayland 移植正在进行中：<a href="https://github.com/adlocode/xfwm4/tree/wayland">https://github.com/adlocode/xfwm4/tree/wayland</a></li>
+</ul>
+<h4 id="xfce4-settings">xfce4-settings</h4>
+<ul>
+<li><a href="https://gitlab.xfce.org/xfce/xfce4-settings/-/merge_requests/104">xfce4-settings!104</a> 中添加了 Wayland 上 xsettings 的对应项，只需进行最少的修改即可使 xfsettingd 在 Wayland 上可执行。</li>
+<li><a href="https://gitlab.xfce.org/xfce/xfce4-settings/-/merge_requests/104">xfce4-settings!112</a> 中已将显示设置移植到 Wayland，这次在整个 xfce4-settings 中完全分离了 X11/Wayland 代码路径。</li>
+<li>在 X11 特有的实现中，只有显示设置适合移植到 Wayland。目前还没有其余的协议（键盘、鼠标、工作区等，都是混成器内部的）。</li>
+</ul>
+<h4 id="xfce4-power-manager">xfce4-power-manager</h4>
+<ul>
+<li>Wayland 移植工作已完成：<a href="https://gitlab.xfce.org/xfce/xfce4-power-manager/-/merge_requests/54">xfce4-power-manager!54</a></li>
+<li>用户不活动监控和显示电源管理的基本功能已通过 <a href="https://wayland.app/protocols/ext-idle-notify-v1">ext-idle-notify</a> 协议和 <a href="https://wayland.app/protocols/wlr-output-power-management-unstable-v1">wlr-output-power-management</a> 协议恢复。</li>
+<li>亮度管理没有真正的对应项（<a href="https://wayland.app/protocols/wlr-gamma-control-unstable-v1">wlr-gamma-control</a> 协议在外观上提供类似的功能，但实际上与节能无关），但现有的 <a href="https://wiki.archlinux.org/title/Polkit">Polkit</a> 实现独立于窗口环境工作。</li>
+<li>与键盘处理（亮度键、暂停键等）有关的所有内容都不会恢复，因为当前只有混成器能够管理它。</li>
+</ul>
+<h3 id="_5">应用</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">组件名</th>
+<th style="text-align: center;">Wayland</br>支持</th>
+<th style="text-align: left;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">xfce4-terminal</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">下拉需要 layer-shell 才能正常工作</br><a href="https://gitlab.xfce.org/apps/xfce4-terminal/-/merge_requests/72">xfce4-terminal!72</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">mousepad</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://wiki.xfce.org/releng/wayland_roadmap#xfce4-notifyd">xfce4-notifyd</a></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfdashboard</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">启动时崩溃</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-taskmanager</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">没有 libwnck（appicons、<a href="https://gitlab.xfce.org/apps/xfce4-taskmanager/-/issues/75">xfce4-taskmanager#75</a>）、没有“识别窗口”、没有系统托盘图标（<a href="https://gitlab.xfce.org/apps/xfce4-taskmanager/-/issues/78">xfce4-taskmanager#78</a>）</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-mixer</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">ristretto</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfburn</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">parole</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">没有系统托盘图标（<a href="https://gitlab.xfce.org/apps/parole/-/issues/126">parole#126</a>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://wiki.xfce.org/releng/wayland_roadmap#xfce4-screenshooter">xfce4-screenshooter</a></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">正在处理中 <a href="https://gitlab.xfce.org/apps/xfce4-screenshooter/-/merge_requests/52">xfce4-screenshooter!52</a>，见下文</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-screensaver</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">移植到 Wayland 基本上是通过 <a href="https://gitlab.xfce.org/apps/xfce4-screensaver/-/merge_requests/28">xfce4-screensaver!28</a> 完成的</br>但这需要 <code>libwlembed</code>，它仍处于实验阶段，现阶段尚未发布 (2024-02-04)</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfmpc</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-volumed-pulse</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">按键绑定失败</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-dict</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">gigolo</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-panel-profiles</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="xfce4-notifyd">xfce4-notifyd</h4>
+<p>如果你将窗口设置为覆盖重定向或始终在顶部，GTK 似乎不会执行任何特殊操作。</p>
+<h4 id="xfce4-screenshooter">xfce4-screenshooter</h4>
+<p>Wayland 没有为混成器指定用于截取屏幕截图的原生接口，而且<a href="https://gitlab.freedesktop.org/wayland/wayland/-/issues/32">看起来永远不会</a>。</p>
+<p>因此对于 xfce4-screenshooter 有以下选项：</p>
+<ul>
+<li>添加对 wlroots screencopy 协议的支持<ul>
+<li><a href="https://gitlab.freedesktop.org/wlroots/wlr-protocols/-/blob/master/unstable/wlr-screencopy-unstable-v1.xml">wlr-screencopy-unstable-v1.xml</a></li>
+<li>我们的混成器很可能支持这个协议</li>
+</ul>
+</li>
+<li>如果我们想要支持未实现上述协议的混成器，我们必须为 <a href="https://github.com/flatpak/xdg-desktop-portal">org.freedesktop.portal.Screenshot</a> 添加 DBus 支持，即：<ul>
+<li>xdg-desktop-portal-gnome</li>
+<li>xdg-desktop-portal-kde</li>
+</ul>
+</li>
+</ul>
+<h3 id="thunar">Thunar 插件</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">组件名</th>
+<th style="text-align: center;">Wayland</br>支持</th>
+<th style="text-align: left;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">thunar-archive-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">thunar-media-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">thunar-vcs-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">thunar-shares-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">面板插件</h3>
+<p>有关如何在 Wayland 上运行外部插件的详细信息，请参阅 <a href="#xfce4-panel">xfce4-panel</a> 部分。首先，下面的 “✅” 仅仅意味着“不会崩溃”，即使经过一些基本操作（最终）也是如此。这并不意味着一切都像 X11 上那样工作。</p>
+<p>以下测试是在 2022 年 10 月 12 日通过 git-master 为每个插件构建进行的。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">组件名</th>
+<th style="text-align: center;">Wayland</br>支持</th>
+<th style="text-align: left;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">xfce4-battery-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-calculator-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">对输入文本无反应</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-clipman-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">通过 wlr-data-control <a href="https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/merge_requests/26">移植</a></br>TODO：<a href="https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/issues/87">使用状态通知器而不是状态图标</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-cpufreq-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-cpugraph-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-datetime-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-diskperf-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-docklike-plugin</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">崩溃（<a href="https://developer-old.gnome.org/libwnck/stable/">Libwnck</a>）</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-embed-plugin</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">未维护，gtk2</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-eyes-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">面板外不跟随指针</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-fsguard-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-generic-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-genmon-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-indicator-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-mailwatch-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-mount-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-mpc-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">虽然可能依赖于不工作的东西（？）</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-netload-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-notes-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-places-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">图标问题，删除插件时出现严重错误</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-pulseaudio-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">有警告（需要重新检查）</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-sample-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-sensors-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-smartbookmark-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">对输入文本无反应</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-statusnotifier-plugin</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">崩溃（gdk_x11 代码，从 4.15.4 开始合并到系统托盘插件中）</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-stopwatch-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-systemload-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-time-out-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">删除/重新添加插件时卡住和严重错误时的核心转储</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-timer-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-verve-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">对输入文本无反应</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-wavelan-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-weather-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-whiskermenu-plugin</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: left;">图标问题，菜单窗口浮动</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-windowck-plugin</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">无法工作（Libwnck）</td>
+</tr>
+<tr>
+<td style="text-align: left;">xfce4-xkb-plugin</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: left;">无法工作（Libwnck）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">测试</h2>
+<p>有关测试特定组件的信息。</p>
+<p>关于要测试的版本：最好是 master 版本或最新的开发版本，当然最新的稳定版本也可以。目前大多数组件的版本差别不大。如果你没有测试 master 版本，最好添加信息说明你测试的版本。</p>
+<p>如果你使用的是英伟达 GPU，则需要使用 "Nouveau" 驱动程序进行测试，因为英伟达的专有驱动程序不支持 Wayland。（尽管在某些情况下有些东西可能会工作）。</p>
+<h3 id="wayland">Wayland 原生</h3>
+<ul>
+<li>使用包管理器安装 <code>Weston</code>（如果需要基于 Wlroots 的混成器，如 <a href="https://wiki.xfce.org/releng/wayland_roadmap#xfce4-panel">xfce4-panel</a>，请参阅<a href="https://gitlab.xfce.org/xfce/xfce4-panel/-/merge_requests/103">此 MR</a> 以获取更多信息）</li>
+<li>也许你需要设置一个最小配置，例如：
+    <div class="highlight"><pre><span></span><code>~/.config/weston.ini
+
+[keyboard]
+keymap_layout=fr
+numlock-on=true
+</code></pre></div></li>
+<li>在终端模拟器中运行 <code>weston</code>，或者最好在不同用户的 <code>tty</code> 中运行，或者先注销 X11 会话（混成器的行为可能不太一样，这样可以避免与当前环境发生交互）。</li>
+<li>如果在终端模拟器中运行，请确保至少要测试的组件尚未在 X11 会话中运行（例如 Thunar 作为后台程序）</li>
+<li>在 <code>Weston</code> 会话中打开终端并启动要测试的组件</li>
+</ul>
+<h3 id="_8">外部链接</h3>
+<ul>
+<li><a href="https://discourse.ubuntu.com/t/porting-mate-apps-to-wayland/12670">将 MATE 桌面环境的应用程序移植到 wayland</a></li>
+<li><a href="https://frontpagelinux.com/articles/a-deep-dive-into-the-wayland-protocol-for-linux">深入探讨 Wayland 协议</a></li>
+<li><a href="https://gitlab.xfce.org/xfce/libxfce4ui/-/commit/57410e2dffde5271443809a0dbd0280be262ba47">检查当前显示是否为 Wayland 显示</a></li>
+</ul>
 
 
 
@@ -7915,7 +8762,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../kde-network-china-2021/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Linux 应用生态沙龙（KDE Network 中国）">
+          <a href="../fedora-atomic-de-intro/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Fedora Atomic Desktops 简介">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -7925,20 +8772,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Linux 应用生态沙龙（KDE Network 中国）
+                Fedora Atomic Desktops 简介
               </div>
             </div>
           </a>
         
         
           
-          <a href="../xfce-09-17/" class="md-footer__link md-footer__link--next" aria-label="下一页: Xfce 开发者博客 —— Thunar 的几个重要特征">
+          <a href="../tdf-2023-10-recap/" class="md-footer__link md-footer__link--next" aria-label="下一页: LibreOffice 项目和社区月度总结：2023 年 10 月">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Xfce 开发者博客 —— Thunar 的几个重要特征
+                LibreOffice 项目和社区月度总结：2023 年 10 月
               </div>
             </div>
             <div class="md-footer__button md-icon">
