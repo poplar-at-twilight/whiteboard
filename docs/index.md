@@ -14,6 +14,7 @@
     - [Xfce4 Wayland 开发路线图](./translation/xfce4-wayland-roadmap.md)
     - [Fedora Linux 39 现已发布](./translation/fedora39-released.md) 【补档】
     - [Fedora Asahi Remix 39 简介](./translation/fedora-asahi-remix-39.md) 【补档】
+    - [Fedora Workstation 39 的新亮点](./translation/fedora39-whatnew.md)
 
 === "主要内容"
 
@@ -35,7 +36,7 @@
     - 镜像：
         - [GitHub Pages](https://poplar-at-twilight.github.io/whiteboard/) ✅
         - [Cloudflare Pages](https://whiteboard-ui8.pages.dev/) ✅
-        - [互联网档案馆镜像](https://web.archive.org/web/*/https://whiteboard-ui8.pages.dev)（内容不完整） ❎
+        - [互联网档案馆快照](https://web.archive.org/web/*/https://whiteboard-ui8.pages.dev)（内容不完整） 🔄️
 
 === "第三方内容/cookie/数据追踪"
 

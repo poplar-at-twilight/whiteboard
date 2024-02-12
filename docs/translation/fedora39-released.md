@@ -7,7 +7,7 @@ tags:
 
 # Fedora Linux 39 现已发布
 
-- 作品信息：
+- 译文信息：
     - 原文：[Fedora Linux 39 is officially here!](https://fedoramagazine.org/announcing-fedora-linux-39/)
     - 作者：[Matthew Miller](https://fedoramagazine.org/author/mattdm/)
     - 日期：2023-11-07

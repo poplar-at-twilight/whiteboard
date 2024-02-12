@@ -8,7 +8,7 @@ tags:
 
 # Fedora Linux 39 Beta 版本现已发布
 
-- 作品信息：
+- 译文信息：
     - 原文：[Announcing Fedora Linux 39 Beta](https://fedoramagazine.org/announcing-fedora-39-beta/)
     - 作者：[Matthew Miller](https://fedoramagazine.org/author/mattdm/)
     - 日期：2023-09-20
