@@ -13,6 +13,7 @@
     - [Fedora Atomic Desktops 简介](./translation/fedora-atomic-de-intro.md)
     - [Xfce4 Wayland 开发路线图](./translation/xfce4-wayland-roadmap.md)
     - [Fedora Linux 39 现已发布](./translation/fedora39-released.md) 【补档】
+    - [Fedora Asahi Remix 39 简介](./translation/fedora-asahi-remix-39.md) 【补档】
 
 === "主要内容"
 
