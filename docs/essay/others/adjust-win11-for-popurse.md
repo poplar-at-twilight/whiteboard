@@ -216,6 +216,30 @@ Edge 已经和系统深度绑定了，卸载它可能会导致更新失败。
 
 ## 常用程序
 
+### winget
+
+[winget] 是微软推出的软件包管理器。该工具由预装的 UWP 应用提供。
+
+[winget]: https://learn.microsoft.com/en-us/windows/package-manager/winget/
+
+列出可用命令：
+
+```
+winget --help
+```
+
+列出可升级的软件（不适用于便携版软件）：
+
+```
+winget upgrade
+```
+
+升级软件：
+
+```
+winget upgrade [应用 ID]
+```
+
 ### 不需要配置
 
 - [Auto Night Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
