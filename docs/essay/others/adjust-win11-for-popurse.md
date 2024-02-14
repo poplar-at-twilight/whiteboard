@@ -8,8 +8,7 @@ tags:
 # Windows 11 安装与调教
 
 !!! note "注意"
-    本文最后一次更新时间是：2024 年 2 月。  
-    适用于 Windows 11 23H2
+    本文最后一次更新时间是：2024 年 2 月；适用于 Windows 11 23H2。
 
 本文仅记录一些本人认为特别需要修改的地方。
 
@@ -169,7 +168,9 @@ tags:
 
 ### UWP 应用
 
-使用 [Geek Uninstaller](https://geekuninstaller.com/) 清理系统的 UWP 软件。
+使用 [Geek Uninstaller] 清理系统的 UWP 软件。
+
+[Geek Uninstaller]: https://geekuninstaller.com/
 
 <center>
 ![](./images/geek.png){ width=50% }</br>
@@ -204,6 +205,10 @@ Edge 已经和系统深度绑定了，卸载它可能会导致更新失败。
 - 打开 AMD FreeSync
 - 关闭 Vari-Bright
 
+#### 独显直连相关
+
+另见：[【答疑篇】玄机星游戏本性能模式&显卡模式，全方位大讲解以及切换方法！](https://www.bilibili.com/video/BV1m94y1B73f/)
+
 ### 运行库
 
 - [DirectX 最终用户运行时 Web 安装程序](https://www.microsoft.com/zh-cn/download/details.aspx?id=35)
@@ -211,10 +216,79 @@ Edge 已经和系统深度绑定了，卸载它可能会导致更新失败。
 
 ## 常用程序
 
-- [7zip](https://www.7-zip.org/download.html)
-- [Auto Dark Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
-- [Eclipse Temurin JDK](https://adoptium.net/)
-- [Git](https://git-scm.com/)
-- [The GNU Privacy Guard](https://www.gnupg.org/)
-- [Kate](https://kate-editor.org/zh-cn/get-it/)
+### 不需要配置
+
+- [Auto Night Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
+- [CrystalDiskMark](https://crystalmark.info/en/software/crystaldiskmark/)
+- [Eclipse Temurin JDK](https://adoptium.net/temurin/releases/)
+- [GIMP](https://www.gimp.org/)
+- [Gpg4win](https://gpg4win.org/download.html)
+- [Kate](https://kate-editor.org/zh-cn/)
+- [LibreOffice](https://www.libreoffice.org/)
+- [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
+- [Pandoc](https://pandoc.org/releases.html)（另见 [Pandoc’s Markdown spec](./../note/pandoc's-markdwon-spec.md)）
+- [Python](https://www.python.org/)
+- [Steam](https://store.steampowered.com/)
 - [VLC](https://www.videolan.org/vlc/)
+
+### 需要配置
+
+- [7-zip](https://www.7-zip.org/download.html)  
+    打开 **工具** → **选项**：  
+    在 **7-Zip** 页面，取消勾选 **层叠右键菜单**、**压缩并邮寄**、**压缩<档案>.7z并邮寄** 和 **压缩<档案>.zip并邮寄**；  
+    在 **显示** 页面，勾选 **显示 ⌜...⌟ 项**、**显示真实图标**、**整行选择**、**显示网格线**、**单击打开项目**。
+- [Git](https://git-scm.com/)  
+    配置文件在 `C:\Users\用户名\.gitconfig`  
+    示例配置文件：  
+    ```
+    [https]
+	    proxy = http://127.0.0.1:7890
+    [http]
+	    proxy = http://127.0.0.1:7890
+    [user]
+	    name = Poplar at Twilight
+	    email = poplar.cubic@gmail.com
+    ```
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads)  
+    另见：[部署虚拟机](./../guide/install/vm.md)
+- [qBittorrent-Enhanced-Edition](https://github.com/c0re100/qBittorrent-Enhanced-Edition)  
+    另见：[qBittorrent 参数详细设置教程](./../../archives/qbittorrent-confs.md)
+- [Fluent-Reader](https://github.com/yang991178/fluent-reader)  
+    设置快捷方式：  
+    ```
+    "D:\Software\portable\fluent-reader\Fluent Reader.exe" --proxy-server=http://127.0.0.1:7890
+    ```
+
+### 便携软件
+
+- [aegisub](https://github.com/arch1t3cht/Aegisub)
+- [aria2](https://aria2.github.io/)  
+    另见：[安装与使用 aria2](./aria2.md)
+- [Calibre](https://calibre-ebook.com/download_portable)
+- [DiskGenius](https://www.diskgenius.cn/download.php)
+- [Dism++]
+- [Everything](https://www.voidtools.com/zh-cn/downloads/)
+- [Foobox](https://github.com/dream7180/foobox-cn/)
+- [GoldenDict-ng](https://github.com/xiaoyifang/goldendict-ng)  
+    需要在 `GoldenDict.exe` 所在目录新建一个名为 `portable` 的文件夹  
+    词典文件只能放置在 `content` 文件夹中
+- [Honeyview](https://www.bandisoft.com/honeyview/dl.php?portable)
+- [HWiNFO](https://www.hwinfo.com/download/)
+- [KeePassXC](https://keepassxc.org/download/)
+- [MusicTag](https://www.cnblogs.com/vinlxc/p/11347744.html)  
+    安装包解压密码：`www.coolapk.com`
+- [nekoray](https://github.com/MatsuriDayo/nekoray)
+- [Rufus](https://rufus.ie/zh/)
+- [ShareX](https://getsharex.com)
+- [spek](https://www.spek.cc/p/download)
+- [Telegram](https://telegram.org/dl/desktop/win64_portable)
+- [VSCode](https://code.visualstudio.com/)  
+    需要在 `code.exe` 所在目录新建一个名为 `data` 的文件夹
+- [Autoruns64.exe](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns)
+- [BOOTICEx64.exe](https://www.majorgeeks.com/files/details/bootice_64_bit.html)
+- [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager/)
+- [Geek Uninstaller]
+- [KMS-Cangshui.net.bat](https://kms.cangshui.net/)
+- [MicrosoftProgram_Install_and_Uninstall.meta.diagcab](https://support.microsoft.com/en-gb/topic/fix-problems-that-block-programs-from-being-installed-or-removed-cca7d1b6-65a9-3d98-426b-e9f927e1eb4d)
+- [SpaceSniffer](http://www.uderzo.it/main_products/space_sniffer/)
+- [ventoy]
