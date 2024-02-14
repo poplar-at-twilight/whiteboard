@@ -26,8 +26,9 @@ source .venv/bin/activate
 
 对于 Windows 用户，则可在 Powershell 输入绝对路径，运行 `.venv/Script` 文件夹下的 `activate.bat` 脚本：
 
-```shell
+```
 [脚本的绝对路径]\.venv\Scripts\activate.bat
+
 #例如 D:\Myfile\documents\git\whiteboard\.venv\Scripts\activate.bat
 ```
 
@@ -44,3 +45,13 @@ mkdocs serve
 ```
 
 然后你就会在 <http://127.0.0.1:8000/> 看到站点预览。
+
+更新依赖：
+
+```
+python.exe -m pip install --upgrade pip
+```
+
+```
+pip install --upgrade mkdocs mkdocs-material mkdocs-rss-plugin
+```
