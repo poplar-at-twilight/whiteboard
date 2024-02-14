@@ -8,11 +8,11 @@ tags:
 
 <center>
 
-![1](./images/one-last-neko-2.jpeg){ width=170px }
+![](./images/one-last-neko-2.jpeg){ width=170px }
 
 </center>
 
-我是 [Poplar at twilight](https://gitlab.com/Poplar.at.twilight) (zh-Hans: `暮光的白杨`)，你可以简称我为**白杨**（en: `White Poplar` or `Poplar`）。我是 [openSUSE Linux 中文维基](https://zh.opensuse.org/)和[社区新闻](https://suse.org.cn/)的翻译者之一。
+我是 [Poplar at twilight](https://github.com/poplar-at-twilight) (zh-Hans: `暮光的白杨`)，你可以简称我为**白杨**（en: `White Poplar` or `Poplar`）。我是 [openSUSE Linux 中文维基](https://zh.opensuse.org/)和[社区新闻](https://suse.org.cn/)的翻译者之一。
 
 - 关联账户：  
     - [Aui - openSUSE 中文论坛](https://forum.suse.org.cn/u/aui/summary)  

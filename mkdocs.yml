@@ -3,7 +3,7 @@ site_url: https://whiteboard-ui8.pages.dev/
 site_description: 本站用于收纳一些 FOSS 新闻/博客译文和站长的杂谈、笔记和博客等内容。
 site_author: Poplar at twilight
 
-repo_name: source code
+repo_name: SRC
 repo_url: https://github.com/poplar-at-twilight/whiteboard  #仓库链接
 edit_uri: ""
 

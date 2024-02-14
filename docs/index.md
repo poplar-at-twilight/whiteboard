@@ -25,6 +25,8 @@
     - 个人随笔杂谈
     - 有趣的东西……
 
+    **注意：本站的绝大部分内容都具有时效性。如果你认为某些内容需要更新，欢迎提交 [PR] 或 [issue] 以协助改进站点内容。**
+
 === "支持的功能"
 
     - [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) Licensed ✅
