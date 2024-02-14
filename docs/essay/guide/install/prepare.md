@@ -55,7 +55,7 @@ aria2c https://opentuna.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_6
 
 有关 aria2 的部署，另见 [aria2c]。
 
-[aria2c]: ./../misc/aria2c.md
+[aria2c]: ./../../others/aria2.md
 
 ### 使用 metalink
 
