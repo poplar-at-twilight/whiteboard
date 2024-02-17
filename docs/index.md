@@ -6,8 +6,10 @@
 
 ## 关于本站
 
-=== "本月更新"</br>
-    上月总结请翻阅本站[博客](./blog/index.md)</br>
+=== "本月更新"
+
+    上月总结请翻阅本站[博客](./blog/index.md)
+
     - [Fedora Atomic Desktops 简介](./translation/fedora-atomic-de-intro.md)
     - [Xfce4 Wayland 开发路线图](./translation/xfce4-wayland-roadmap.md)
     - [Fedora Linux 39 现已发布](./translation/fedora39-released.md) 【补档】
