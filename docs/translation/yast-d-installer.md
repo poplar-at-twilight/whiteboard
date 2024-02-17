@@ -4,6 +4,7 @@ tags:
   - 新闻
   - openSUSE
   - D-Installer
+  - YaST
   - 版权所有
 ---
 

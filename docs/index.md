@@ -6,16 +6,15 @@
 
 ## 关于本站
 
-=== "本月更新"
-
-    上月总结请翻阅本站[博客](./blog/index.md)  
-
+=== "本月更新"</br>
+    上月总结请翻阅本站[博客](./blog/index.md)</br>
     - [Fedora Atomic Desktops 简介](./translation/fedora-atomic-de-intro.md)
     - [Xfce4 Wayland 开发路线图](./translation/xfce4-wayland-roadmap.md)
     - [Fedora Linux 39 现已发布](./translation/fedora39-released.md) 【补档】
     - [Fedora Asahi Remix 39 简介](./translation/fedora-asahi-remix-39.md) 【补档】
     - [Fedora Workstation 39 的新亮点](./translation/fedora39-whatnew.md) 【补档】
     - [GIMP 2.10.36 已发布!](./translation/gimp-2.10.36-relased.md) 【补档】
+    - [Agama 2024 年路线图展望](./translation/opensuse-agama-roadmap-2024.md)
 
 === "主要内容"
 
