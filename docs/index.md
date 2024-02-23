@@ -1,22 +1,17 @@
 # 欢迎来到我的个人文档站！
 
-![cover](./assets/Minecraft-Nature.png)
+> ![cover](./assets/503.jpg)  
+> 图源 [HTTP Cats]
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/98816333&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/minecraftwizards" title="Minecraft Wizards" target="_blank" style="color: #cccccc; text-decoration: none;">Minecraft Wizards</a> · <a href="https://soundcloud.com/minecraftwizards/08-c418-minecraft" title="08 C418 - Minecraft" target="_blank" style="color: #cccccc; text-decoration: none;">08 C418 - Minecraft</a></div>
+[HTTP Cats]: https://http.cat/
+
+停更中，更多信息另见 [二月更新动态](./blog/posts/2024-02.md)。
 
 ## 关于本站
 
 === "本月更新"
 
     上月总结请翻阅本站[博客](./blog/index.md)
-
-    - [Fedora Atomic Desktops 简介](./translation/fedora-atomic-de-intro.md)
-    - [Xfce4 Wayland 开发路线图](./translation/xfce4-wayland-roadmap.md)
-    - [Fedora Linux 39 现已发布](./translation/fedora39-released.md) 【补档】
-    - [Fedora Asahi Remix 39 简介](./translation/fedora-asahi-remix-39.md) 【补档】
-    - [Fedora Workstation 39 的新亮点](./translation/fedora39-whatnew.md) 【补档】
-    - [GIMP 2.10.36 已发布!](./translation/gimp-2.10.36-relased.md) 【补档】
-    - [Agama 2024 年路线图展望](./translation/opensuse-agama-roadmap-2024.md)
 
 === "主要内容"
 
@@ -47,7 +42,6 @@
     - 【待完善】
     - Cloudflare 站点数据追踪
     - YouTube
-    - SoundCloud
     - GitHub Discussion
 
 ---
