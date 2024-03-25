@@ -44,7 +44,10 @@ nav:
       - index.md
     - 译文归档:
       - translation/about.md
+      - 2024-03:
+        - translation/fedora-flock-2024-cfp.md
       - 2024-02:
+        - translation/fedora-flock-2024.md
         - translation/fedora-atomic-de-intro.md
         - translation/xfce4-wayland-roadmap.md
         - translation/opensuse-agama-roadmap-2024.md
