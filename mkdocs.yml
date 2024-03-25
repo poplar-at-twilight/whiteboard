@@ -211,6 +211,7 @@ nav:
     - 站内杂谈: 
       - essay/about.md
       - 杂谈:
+        - essay/others/qbittorrent-conf.md
         - essay/others/nvidia-wayland.md
         - essay/others/access-zlibrary.md
         - essay/others/aria2.md
