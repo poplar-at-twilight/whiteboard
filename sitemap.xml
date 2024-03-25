@@ -751,6 +751,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://whiteboard-ui8.pages.dev/translation/fedora-flock-2024-cfp/</loc>
+         <lastmod>2024-03-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://whiteboard-ui8.pages.dev/translation/fedora-flock-2024/</loc>
+         <lastmod>2024-03-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://whiteboard-ui8.pages.dev/translation/fedora-fosdem-2023/</loc>
          <lastmod>2024-03-25</lastmod>
          <changefreq>daily</changefreq>
