@@ -1,11 +1,17 @@
 # 欢迎来到我的个人文档站！
 
-> ![cover](./assets/503.jpg)  
-> 图源 [HTTP Cats]
+> ![cover](./assets/start.png)  
+> 正在冷启动……
+
+<!---
+
+图源 [HTTP Cats]
 
 [HTTP Cats]: https://http.cat/
 
 停更中，更多信息另见 [二月更新动态](./blog/posts/2024-02.md)。
+
+--->
 
 ## 关于本站
 
