@@ -21,6 +21,7 @@
 
     - [Flock to Fedora 2024 将在纽约州罗切斯特举行](./translation/fedora-flock-2024.md)【补档】
     - [Flock 2024 CFP 现已开放，截止日期为 4 月 21 日](./translation/fedora-flock-2024-cfp.md)【补档】
+    - [Fedora Linux 40 Beta 版本现已发布](./translation/fedora40-beta-released.md)
 
 === "主要内容"
 
