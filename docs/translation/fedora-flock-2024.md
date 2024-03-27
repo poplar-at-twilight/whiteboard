@@ -11,6 +11,7 @@ tags:
     - 源文：[Announcing Flock 2024 in Rochester, New York](https://fedoramagazine.org/flock-2024-rochester-new-york/)
     - 作者：[Justin W. Flory](https://fedoramagazine.org/author/jflory7/)
     - 许可证：[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+    - 日期：2024-02-29
     - 译者：暮光的白杨
     - 补档翻译时间：2024-03-25
 

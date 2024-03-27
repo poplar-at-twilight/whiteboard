@@ -20,8 +20,9 @@
     上月总结请翻阅本站[博客](./blog/index.md)
 
     - [Flock to Fedora 2024 将在纽约州罗切斯特举行](./translation/fedora-flock-2024.md)【补档】
-    - [Flock 2024 CFP 现已开放，截止日期为 4 月 21 日](./translation/fedora-flock-2024-cfp.md)【补档】
+    - [Flock 2024 CFP 现已开放，截止日期为 4 月 21 日](./translation/fedora-flock-2024-cfp.md)
     - [Fedora Linux 40 Beta 版本现已发布](./translation/fedora40-beta-released.md)
+    - [GIMP 2.99.18 已发布：3.0 版本发布前最后的开发版预览](./translation/gimp-2.99.18-released.md)【补档】
 
 === "主要内容"
 

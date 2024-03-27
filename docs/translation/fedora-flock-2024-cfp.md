@@ -12,7 +12,7 @@ tags:
     - 作者：[Justin W. Flory](https://fedoramagazine.org/author/jflory7/)
     - 许可证：[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
     - 译者：暮光的白杨
-    - 补档翻译时间：2024-03-25
+    - 日期：2024-03-25
 
 ----
 
