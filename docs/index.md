@@ -17,7 +17,7 @@
 
 === "本月更新"
 
-    上月总结请翻阅本站[博客](./blog/index.md)
+    上月总结请翻阅本站[博客](./blog/index.md)。
 
     - [Flock to Fedora 2024 将在纽约州罗切斯特举行](./translation/fedora-flock-2024.md)【补档】
     - [Flock 2024 CFP 现已开放，截止日期为 4 月 21 日](./translation/fedora-flock-2024-cfp.md)
@@ -33,6 +33,17 @@
     - 有趣的东西……
 
     **注意：本站的绝大部分内容都具有时效性。如果你认为某些内容需要更新，欢迎提交 [PR] 或 [issue] 以协助改进站点内容。**
+
+=== "关注的动态"
+
+    当前长期跟踪的内容：
+
+    - [GIMP Blog](https://www.gimp.org/news/)
+    - [Fedora Magazine](https://fedoramagazine.org/)
+        - 不包含技术教程、测试请求、流行应用推荐的博客。
+    - [Xfce Blog](https://blog.xfce.org/)
+    - openSUSE
+        - 不经常更新的内容；经常更新的官方新闻另见 [suse.org.cn](https://suse.org.cn)。
 
 === "支持的功能"
 
