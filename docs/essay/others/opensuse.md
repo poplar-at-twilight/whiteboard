@@ -85,10 +85,10 @@ sudo zypper mr -da
 添加第三方软件源并更新系统（可选），例如：
 
 ```
-sudo zypper ar -fcg https://opentuna.cn/opensuse/tumbleweed/repo/oss/ opentuna-oss
+sudo zypper ar -cfg 'https://mirror.sjtu.edu.cn/opensuse/tumbleweed/repo/oss/' sjtu-mirror-oss
 ```
 ```
-sudo zypper ar -fcg https://opentuna.cn/opensuse/tumbleweed/repo/non-oss/ opentuna-non-oss
+sudo zypper ar -cfg 'https://mirror.sjtu.edu.cn/opensuse/tumbleweed/repo/non-oss/' sjtu-mirror-non-oss
 ```
 ```
 sudo zypper ref && sudo zypper dup -y
