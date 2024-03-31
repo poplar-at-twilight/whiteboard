@@ -7108,14 +7108,16 @@
 <div class="highlight"><pre><span></span><code>sudo zypper mr -da
 </code></pre></div>
 <p>添加第三方软件源并更新系统（可选），例如：</p>
-<p><div class="highlight"><pre><span></span><code>sudo zypper ar -fcg https://opentuna.cn/opensuse/tumbleweed/repo/oss/ opentuna-oss
+<p><div class="highlight"><pre><span></span><code>sudo zypper ar -cfg &#39;https://mirror.sjtu.edu.cn/opensuse/tumbleweed/repo/oss/&#39; sjtu-mirror-oss
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo zypper ar -fcg https://opentuna.cn/opensuse/tumbleweed/repo/non-oss/ opentuna-non-oss
+<div class="highlight"><pre><span></span><code>sudo zypper ar -cfg &#39;https://mirror.sjtu.edu.cn/opensuse/tumbleweed/repo/non-oss/&#39; sjtu-mirror-non-oss
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo zypper ref &amp;&amp; sudo zypper dup -y
 </code></pre></div></p>
-<p>修补 YaST2 GUI 无法启动的 BUG：</p>
+<p>为了修补 YaST2 GUI 无法启动的 BUG，需要移除多余的软件包并补齐推荐的依赖：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper in which
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo zypper inr
 </code></pre></div>
 <p>重启系统。</p>
 <h3 id="_5">安装多媒体解码器</h3>
@@ -7323,9 +7325,6 @@ http  127.0.0.1 7890
 </code></pre></div>
 <p>添加 NVIDIA 软件源（可选）：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper ar --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA &amp;&amp; sudo zypper ref
-</code></pre></div>
-<p>补齐系统推荐的依赖软件包：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper inr
 </code></pre></div>
 <p>然后重启系统。</p>
 <h3 id="kde">KDE 相关</h3>
