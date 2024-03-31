@@ -94,10 +94,14 @@ sudo zypper ar -cfg 'https://mirror.sjtu.edu.cn/opensuse/tumbleweed/repo/non-oss
 sudo zypper ref && sudo zypper dup -y
 ```
 
-修补 YaST2 GUI 无法启动的 BUG：
+为了修补 YaST2 GUI 无法启动的 BUG，需要移除多余的软件包并补齐推荐的依赖：
 
 ```
 sudo zypper in which
+```
+
+```
+sudo zypper inr
 ```
 
 重启系统。
@@ -231,12 +235,6 @@ sudo usermod -aG vboxusers $USER
 
 ```
 sudo zypper ar --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA && sudo zypper ref
-```
-
-补齐系统推荐的依赖软件包：
-
-```
-sudo zypper inr
 ```
 
 然后重启系统。
