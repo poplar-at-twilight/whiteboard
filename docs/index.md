@@ -19,6 +19,8 @@
 
     上月总结请翻阅本站[博客](./blog/index.md)。
 
+    - [德国将 3 万台个人电脑迁移至 LibreOffice](./translation/tdf-libreoffice-german.md)
+
 === "主要内容"
 
     - 开源组织的新闻或博客的译文
