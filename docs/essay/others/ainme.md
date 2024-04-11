@@ -185,6 +185,7 @@ tags:
 - 唐伯虎点秋香
 - 盗梦空间（Inception）
 - 奥本海默（Oppenheimer）
+- 猫鼠游戏（Catch Me If You Can）
 
 ### B 类
 
@@ -206,6 +207,7 @@ tags:
 ### X 类
 
 - 未麻的部屋（Perfect Blue）
+- 你想活出怎样的人生（君たちはどう生きるか）
 
 ### D 类
 
