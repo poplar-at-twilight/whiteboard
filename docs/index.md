@@ -20,6 +20,7 @@
     上月总结请翻阅本站[博客](./blog/index.md)。
 
     - [德国将 3 万台个人电脑迁移至 LibreOffice](./translation/tdf-libreoffice-german.md)
+    - [阿鲁巴成为第一个支持保护记忆机构数字权利声明的国家](./translation/archive.org-aruba-1.md)
 
 === "主要内容"
 
