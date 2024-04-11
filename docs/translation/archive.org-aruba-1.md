@@ -61,7 +61,7 @@ grey { color: grey }
 - Biblioteca Nacional Aruba (BNA)<br />
   <em><grey>阿鲁巴国家图书馆</grey></em>
 - Coleccion Aruba<br />
-  <em><grey>阿鲁巴岛系列</grey></em>
+  <em><grey>阿鲁巴馆藏</grey></em>
 - Museo Arkeologico Nacional Aruba (MANA)<br />
   <em><grey>阿鲁巴国家考古博物馆</grey></em>
 - Stichting Monumentenfonds Aruba<br />
