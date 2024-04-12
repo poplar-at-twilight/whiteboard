@@ -20,8 +20,8 @@ tags:
 - [XIU2/TrackersListCollection](https://trackerslist.com/#/zh)  
     每天更新！全网热门 BitTorrent Tracker 列表！  
     同时包含了对于 tracker 和 BT 的介绍。
-- [中文博客聚合订阅](https://box.othing.xyz/i/)  
-    由 [Save The Web](https://box.saveweb.org) 搭建的中文独立博客 RSS 订阅。
+- [中文博客聚合订阅](https://box.saveweb.org)  
+    由 [Save The Web](https://github.com/saveweb) 搭建的中文独立博客 RSS 订阅。
 - [中国科技大学测速网站](http://test.ustc.edu.cn/)
 - [FreeDict Forum](https://forum.freemdict.com/)  
     词典爱好者之家
@@ -30,6 +30,8 @@ tags:
 - [LineageOS 官方设备维护列表](https://wiki.lineageos.org/devices/)
 - [Hack News](https://news.ycombinator.com/)  
     各种科技新闻
+- [google chrome standalone installer](https://www.google.com/chrome/?standalone=1)  
+    谷歌浏览器离线安装包
 
 ## 个人博客
 
@@ -43,6 +45,5 @@ tags:
 |---|---|
 |[comwrg/package-manager-proxy-settings](https://github.com/comwrg/package-manager-proxy-settings)|记录各个包管理器代理设置坑点。|
 |[eryajf-world/Thanks-Mirror](https://github.com/eryajf-world/Thanks-Mirror)|整理记录各个包管理器，系统镜像，以及常用软件的好用镜像。|
-|[archlinux 简明指南](https://arch.icekylin.online/)|📖 让 archlinux 成为你的常用系统吧！ ❤️️|
 |[Fedora Docs](https://docs.fedoraproject.org/en-US/docs/)|Fedora Linux 用户文档|
 |[openSUSE Docs](https://doc.opensuse.org/)|openSUSE Linux 用户文档|
