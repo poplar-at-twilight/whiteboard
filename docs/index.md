@@ -1,9 +1,11 @@
 # 欢迎来到我的个人文档站！
 
-> ![cover](./assets/start.png)  
-> 正在冷启动……
+![cover](./assets/Minecraft-Nature.png)
 
 <!---
+
+![cover](./assets/start.png)  
+> 正在冷启动……
 
 图源 [HTTP Cats]
 
