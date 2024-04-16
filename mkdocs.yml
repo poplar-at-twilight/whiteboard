@@ -47,6 +47,7 @@ nav:
       - 2024-04:
         - translation/tdf-libreoffice-german.md
         - translation/archive.org-aruba-1.md
+        - translation/fedora-cve-2024-3094.md
       - 2024-03:
         - translation/fedora-flock-2024-cfp.md
         - translation/fedora40-beta-released.md
