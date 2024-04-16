@@ -204,15 +204,15 @@ IP 过滤列表的示例：
 
 我使用的是 `Ghost-chu/PeerBanHelper`
 
-使用 `PeerBanHelper-*-Windows-Lazy-Pack.zip`，以防止自动触发独显直连。
-
-双击启动 `start.bat` 文件，然后关闭终端窗口。
+双击启动 `peerbanhelper-binary.exe`，然后关闭终端窗口。
 
 在 `/data/config` 目录下，打开 `config.yml`，修改配置：
 
 - 隐藏 Transmission 的配置
 - 修改 webui 地址
-- 删除用户密码
+- 删除用户密码（需要启动跳过验证本地客户端的链接）
+
+如下：
 
 ```shell
 # 客户端设置
@@ -236,11 +236,17 @@ client:
     basic-auth:
       user: ""
       pass: ""
-  #transmission-002:
-    #type: Transmission
-    #endpoint: "http://127.0.0.1:9091"
-    #username: "admin"
-    #password: "admin"
+    # 验证 SSL 证书有效性
+    verify-ssl: true
+    # Http 协议版本
+    http-version: "HTTP_1_1"
+  # transmission-002:
+    # type: Transmission
+    # endpoint: "http://127.0.0.1:9091"
+    # username: "admin"
+    # password: "admin"
+    # verify-ssl: true
+    # http-version: "HTTP_1_1"
 # Http 服务器设置
 server:
   # 监听端口
@@ -249,36 +255,18 @@ server:
   # Docker 网络请改 host 模式使用或者设置容器端口暴露
   # 当客户端需要与 PBH 通信时，客户端的 URL 会被更改为 http://<address>:<http-port>/<client-api-route>
   address: "127.0.0.1"
-# 日志记录器配置
-logger:
-  # 是否隐藏 [完成] 已检查 XX 的 X 个活跃 Torrent 和 X 个对等体 的日志消息？
-  # 在 DSM 的 ContainerManager 上有助于大幅度减少日志数量，并仅记录有价值的封禁等日志条目
-  hide-finish-log: false
-# 线程控制
-threads:
-  # 全局检查线程池并发等级
-  # 此线程用于执行通用并发任务：如：Peers 任务提交处理，执行规则集
-  # 提升此值将允许更多任务执行，但过高的值并不会带来显著收益
-  general-parallelism: 6
-  # 封禁检查线程池并发等级
-  # 此线程池用于执行功能模块
-  # 提升此值将允许更多的功能模块实例同时执行
-  check-ban-parallelism: 8
-  # 规则执行线程池并发等级
-  # 此线程池用于执行用户定义的规则检查，如：执行主动探测的耗时规则子项
-  rule-execute-parallelism: 16
-  # 下载器 API 操作线程池并发等级
-  # 此线程池用于调用下载器 API，如：获取 Torrents 或 Peers 列表
-  # 提升此值将允许同时执行更多的 API 请求以提升速度，但可能对下载器产生压力，建议不要设置的过大，以免造成下载器进程卡住或崩溃
-  downloader-api-parallelism: 8
+  # 在 PBH 需要给下载器传递地址时，将使用此地址传递，请确保此地址最终可被下载器访问，请【不要】以 / 结尾
+  prefix: "http://127.0.0.1:9898"
 ```
 
-保存，然后在 `start.bat` 同一目录中，新建 `HideRun-peerbanhelper.vbs`：
+保存，然后在 `peerbanhelper-binary.exe` 同一目录中，新建 `HideRun-peerbanhelper.vbs`：
 
 ```
-CreateObject("WScript.Shell").Run "start.bat",0
+CreateObject("WScript.Shell").Run "peerbanhelper-binary.exe",0
 ```
 
 将 `HideRun-peerbanhelper.vbs` 的快捷方式拷贝到 `shell:startup` 中，以实现开机启动。
 
-Peerbanhelper 的实时日志在 `/data/logs/latest.log`，归档的日志文件在 `/logs`
+Peerbanhelper 的日志文件在 `/data/logs/` 中。
+
+WebUI 地址默认是 <http://localhost:9898/>
