@@ -76,6 +76,7 @@ tags:
 - 四叠半神话大系（The Tatami Galaxy）
 - 四叠半时光机布鲁斯（Yojouhan Time Machine Blues）
 - 春宵苦短，少女前进吧！（Yoru wa Mijikashi Aruke yo Otome）
+- 葬送的芙莉莲（葬送のフリーレン）
 
 ### B 类
 
