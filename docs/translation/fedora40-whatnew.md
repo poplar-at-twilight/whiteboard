@@ -78,7 +78,7 @@ GNOME 46 对[设置]应用程序进行了令人兴奋的更新，使其比以往
 
 [扩展程序]: https://apps.gnome.org/zh-CN/Extensions/
 
-- GNOME 46 升级了[时钟]和[通讯录]应用程序。您现在可在时钟中快速设置计时器。此外，你还能在通讯录中一次性导入多个 VCard 文件。
+- GNOME 46 升级了[时钟]和[通讯录]应用程序。您现在可在时钟中快速设置计时器。此外，您还能在通讯录中一次性导入多个 VCard 文件。
 
 [时钟]: https://apps.gnome.org/zh-CN/Clocks/
 [通讯录]: https://apps.gnome.org/zh-CN/Contacts/
