@@ -25,6 +25,9 @@
     - [阿鲁巴成为第一个支持保护记忆机构数字权利声明的国家](./translation/archive.org-aruba-1.md)
     - [CVE-2024-3094：全部清除](./translation/fedora-cve-2024-3094.md)
     - [Fedora Chat：通往 Matrix 的门户](./translation/fedora-chat.md)
+    - [噢！我们四十了！（Fedora Linux 40 现已发布）](./translation/fedora40-released.md)
+    - [Fedora Workstation 40 的新亮点](./translation/fedora40-whatnew.md)
+    - [Fedora KDE 40 的新亮点](./translation/fedora40-whatnew-kde.md)
 
 === "主要内容"
 
