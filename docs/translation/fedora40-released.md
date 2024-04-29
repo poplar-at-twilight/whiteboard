@@ -12,7 +12,7 @@ tags:
     - 原文：[OMG! We’re at forty! (Announcing the release of Fedora Linux 40)](https://fedoramagazine.org/announcing-fedora-linux-40/)
     - 作者：[Matthew Miller](https://fedoramagazine.org/author/mattdm/)
     - 许可证：[CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
-    - 日期：2023-04-23
+    - 日期：2024-04-23
     - 译者：暮光的白杨
 
 ----
