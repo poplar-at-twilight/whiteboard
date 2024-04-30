@@ -3,7 +3,7 @@ comments: true
 tags:
   - 新闻
   - Fedora
-  - GNOME
+  - KDE
 ---
 
 # Fedora KDE 40 的新亮点

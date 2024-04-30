@@ -52,6 +52,7 @@ nav:
         - translation/fedora40-released.md
         - translation/fedora40-whatnew.md
         - translation/fedora40-whatnew-kde.md
+        - translation/fedora40-atomic-update.md
       - 2024-03:
         - translation/fedora-flock-2024-cfp.md
         - translation/fedora40-beta-released.md
