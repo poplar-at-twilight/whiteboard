@@ -556,6 +556,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://whiteboard-ui8.pages.dev/translation/fedora40-atomic-update/</loc>
+         <lastmod>2024-04-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://whiteboard-ui8.pages.dev/translation/fedora40-beta-released/</loc>
          <lastmod>2024-04-30</lastmod>
          <changefreq>daily</changefreq>

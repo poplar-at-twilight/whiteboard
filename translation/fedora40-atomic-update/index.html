@@ -12,13 +12,13 @@
         <meta name="author" content="Poplar at twilight">
       
       
-        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/translation/blender-gdc-2023/">
+        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/translation/fedora40-atomic-update/">
       
       
-        <link rel="prev" href="../fedora38-beta-released/">
+        <link rel="prev" href="../fedora40-whatnew-kde/">
       
       
-        <link rel="next" href="../gimp-in-gsoc-2023/">
+        <link rel="next" href="../fedora-flock-2024-cfp/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../feed_rss_created.xml">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Blender 项目将参加 GDC 2023 - 白杨的文档站</title>
+        <title>Fedora 40 中的 Fedora Atomic Desktops 有哪些新亮点 - 白杨的文档站</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#blender-gdc-2023" class="md-skip">
+        <a href="#fedora-40-fedora-atomic-desktops" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Blender 项目将参加 GDC 2023
+              Fedora 40 中的 Fedora Atomic Desktops 有哪些新亮点
             
           </span>
         </div>
@@ -504,6 +504,8 @@
                 
   
   
+    
+  
   
   
     
@@ -513,11 +515,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -531,7 +533,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             2024-04
@@ -689,10 +691,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../fedora40-atomic-update/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Fedora 40 中的 Fedora Atomic Desktops 有哪些新亮点
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -701,6 +723,182 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fedora-atomic-desktops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fedora Atomic Desktops 介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bootupd" class="md-nav__link">
+    <span class="md-ellipsis">
+      引导加载程序更新（bootupd 集成）的状态更新
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#silverblue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Silverblue 的新亮点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Silverblue 的新亮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gnome" class="md-nav__link">
+    <span class="md-ellipsis">
+      最新的 GNOME 桌面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#langpack" class="md-nav__link">
+    <span class="md-ellipsis">
+      默认情况下不再覆盖语言包（langpack）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinoite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kinoite 的新亮点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kinoite 的新亮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kde-plasma-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      KDE Plasma 6
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wayland-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wayland only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fedora-flatpaks-kde-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 Fedora Flatpaks 的 KDE Apps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flathub-kde-flatpaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flathub 上的 KDE Flatpaks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sway-atomic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sway Atomic 的新亮点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budgie-atomic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Budgie Atomic 的新亮点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      下一步行动
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinoite-discover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kinoite 中 Discover 更新支持改进的预告
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#universal-bluebluefinbazzite-aurora" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal Blue、Bluefin、Bazzite 和 Aurora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      联系我们
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2484,8 +2682,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2495,11 +2691,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
         
           
           <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
@@ -2513,7 +2709,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_14">
             <span class="md-nav__icon md-icon"></span>
             2023-03
@@ -2587,30 +2783,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Blender 项目将参加 GDC 2023
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../blender-gdc-2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2619,35 +2795,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      译文信息
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6938,9 +7085,156 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fedora-atomic-desktops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fedora Atomic Desktops 介绍
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bootupd" class="md-nav__link">
+    <span class="md-ellipsis">
+      引导加载程序更新（bootupd 集成）的状态更新
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#silverblue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Silverblue 的新亮点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Silverblue 的新亮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gnome" class="md-nav__link">
+    <span class="md-ellipsis">
+      最新的 GNOME 桌面
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#langpack" class="md-nav__link">
+    <span class="md-ellipsis">
+      默认情况下不再覆盖语言包（langpack）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinoite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kinoite 的新亮点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kinoite 的新亮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kde-plasma-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      KDE Plasma 6
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wayland-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wayland only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fedora-flatpaks-kde-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 Fedora Flatpaks 的 KDE Apps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flathub-kde-flatpaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flathub 上的 KDE Flatpaks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sway-atomic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sway Atomic 的新亮点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budgie-atomic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Budgie Atomic 的新亮点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      译文信息
+      下一步行动
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinoite-discover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kinoite 中 Discover 更新支持改进的预告
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#universal-bluebluefinbazzite-aurora" class="md-nav__link">
+    <span class="md-ellipsis">
+      Universal Blue、Bluefin、Bazzite 和 Aurora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      联系我们
     </span>
   </a>
   
@@ -6971,26 +7265,134 @@
     
     
     
-      <a href="../../about/tags/#blender" class="md-tag">Blender</a>
+      <a href="../../about/tags/#fedora" class="md-tag">Fedora</a>
     
   
 </nav>
 
 
 
-<h1 id="blender-gdc-2023">Blender 项目将参加 GDC 2023</h1>
-<h2 id="_1">译文信息</h2>
+<h1 id="fedora-40-fedora-atomic-desktops">Fedora 40 中的 Fedora Atomic Desktops 有哪些新亮点</h1>
 <ul>
-<li>原文：<a href="https://www.blender.org/events/blender-at-gdc-2023/">Blender at GDC 2023</a></li>
-<li>作者：<a href="https://www.blender.org/author/fsiddi/">Francesco Siddi</a></li>
-<li>许可证：<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a></li>
+<li>译文信息：<ul>
+<li>原文：<a href="https://fedoramagazine.org/whats-new-for-fedora-atomic-desktops-in-fedora-40/">What’s new for Fedora Atomic Desktops in Fedora 40</a></li>
+<li>作者：<a href="https://fedoramagazine.org/author/siosm/">Timothée Ravier</a></li>
+<li>许可证：<a href="http://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a></li>
+<li>日期：2024-04-30</li>
 <li>译者：暮光的白杨</li>
-<li>日期：2023-03-17</li>
+</ul>
+</li>
 </ul>
 <hr />
-<p>Blender 有参加 <a href="https://www.youtube.com/watch?v=9G9I4WFe3B0">SIGGRAPH</a> 的悠久传统（已经超过 20 年），在过去几年中，Blender 将更多的活动添加到日程表中，例如 CTN 和 <a href="https://www.annecyfestival.com/home">Annecy 动画电影节</a>。</p>
-<p>Blender 团队的一个小型代表团（Francesco Siddi 和 Dalai Felinto）今年也将参加在加利福尼亚州旧金山举行的<a href="https://gdconf.com/">游戏开发者大会</a> (GDC)。主要目标是与合作伙伴建立联系并可用于行业外展。</p>
-<p>如果您在 3 月 20 日至 24 日期间在湾区并希望联系我们，请访问 blender.org 联系 francesco。</p>
+<blockquote>
+<p><img alt="" src="../images/2024-04/fedora/whats_new_Atomic_Fedora_40.jpg" />
+图片由 Fedora 团队提供</p>
+</blockquote>
+<p><a href="../fedora40-whatnew/">Fedora 40 现已发布！</a>🎉让我们来看看 Fedora Atomic Desktops 变体（Silverblue、Kinoite、Sway Atomic 和 Budgie Atomic）的新版本中包含哪些内容。</p>
+<h2 id="fedora-atomic-desktops">Fedora Atomic Desktops 介绍</h2>
+<p>正如你可能从标题中猜到的，我们现在叫 <strong>Fedora Atomic Desktops</strong>！请参阅 Fedora 杂志<a href="../fedora-atomic-de-intro/">关于 Fedora Atomic Desktops 介绍</a>的文章，了解所有详细信息。</p>
+<p>总的来说，Fedora 原子桌面由四个 Atomic <a href="https://spins.fedoraproject.org/">spin</a> 组成：</p>
+<ul>
+<li>Fedora Silverblue</li>
+<li>Fedora Kinoite</li>
+<li>Fedora Sway Atomic (曾经叫 Fedora Sericea)</li>
+<li>Fedora Budgie Atomic (曾经叫 Fedora Onyx)</li>
+</ul>
+<p>我们<a href="../fedora40-whatnew/">在 fedoraproject.org 网站上有一个发布页面</a>。</p>
+<h2 id="bootupd">引导加载程序更新（bootupd 集成）的状态更新</h2>
+<p>遗憾的是，由于我们在 <a href="https://fedoraproject.org/wiki/Anaconda">Ananconda</a> 处理 <a href="https://fedoraproject.org/wiki/Changes/FedoraSilverblueBootupd">bootupd</a> 安装过程后期发现了一个问题，而这个问题依赖于 <code>bootupd</code> 中不完整的功能，因此我们无法在此版本中提供 <code>bootupd</code> 支持。</p>
+<p>我们将尝试在发布后通过更新再次添加 <code>bootupd</code>。</p>
+<p>如果你在此期间遇到安全启动错误或需要更新引导加载器，可以尝试 <a href="https://github.com/fedora-silverblue/issue-tracker/issues/543#issuecomment-2048350047">fedora-silverblue#543</a> 的说明。请确保准备好 Live USB 以防遇到问题。请事先做好备份。</p>
+<p>我们希望对 bootupd 进行改进，以简化这一过程。</p>
+<p>另见：<a href="https://gitlab.com/fedora/ostree/sig/-/issues/1">atomic-desktops-sig#1</a>.</p>
+<h2 id="silverblue">Silverblue 的新亮点</h2>
+<h3 id="gnome">最新的 GNOME 桌面</h3>
+<p>Fedora Silverblue 已搭载最新的 <a href="https://release.gnome.org/46/">GNOME 46</a>。</p>
+<p>有关 GNOME 46 变化的更多详情，请参阅 Fedora Magazine 上的 <a href="../fedora40-whatnew/">Fedora Workstation 40 有哪些新功能</a>，以及 Christian F.K. Schaller 的 <a href="https://blogs.gnome.org/uraeus/2024/03/28/fedora-workstation-40-what-are-we-working-on/">Fedora Workstation 40 - 我们在做什么</a>。</p>
+<h3 id="langpack">默认情况下不再覆盖语言包（langpack）</h3>
+<p>GNOME Software 将不再在第一次更新时为你的 locale 覆盖 langpack 软件包。这将使更新更快，因为更新不再需要覆盖软件包（除非你明确决定覆盖某些软件包）。</p>
+<p>如果你是从以前的版本升级，则必须手动移除此覆盖软件包。例如</p>
+<ol>
+<li>
+<p>使用 <code>rpm-ostree status</code> 查找覆盖的软件包：
+    <div class="highlight"><pre><span></span><code>$ rpm-ostree status
+State: idle
+Deployments:
+● fedora:fedora/40/x86_64/silverblue
+                  Version: 40.20240410.1 (2024-04-10T03:43:23Z)
+                   Commit: 2428fdbec13787633b3bcd79d4f002ab48582bae8c6a473ca357a1ad43573a94
+             GPGSignature: Valid signature by E8F23996F23218640CB44CBE75CF5AC418B8E74C
+          LayeredPackages: langpacks-fr
+
+  fedora:fedora/40/x86_64/silverblue
+                 Version: 40.20240402.0 (2024-04-02T00:39:43Z)
+                 Commit: 634c8097165e6aab2baeaca6ae6d1ea2a7f11fba9f4955297bcf0fc2507047be
+            GPGSignature: Valid signature by E8F23996F23218640CB44CBE75CF5AC418B8E74C
+        LayeredPackages: langpacks-fr
+</code></pre></div></p>
+</li>
+<li>
+<p>移除覆盖的软件包：</p>
+<div class="highlight"><pre><span></span><code>$ rpm-ostree uninstall langpacks-fr
+</code></pre></div>
+</li>
+<li>
+<p>重启系统</p>
+</li>
+</ol>
+<p>请注意，这将从系统中删除相应语言的词典，从而删除镜像中包含的应用程序。</p>
+<p>对于 Flatpak，词典是根据 Flatpak 配置中设置的语言下载的。如果你已在 GNOME 设置中设置了首选语言，那么该配置应该已经设置。例如</p>
+<div class="highlight"><pre><span></span><code># Get the current config
+$ flatpak config --list
+languages: en;fr;de (default: en)
+extra-languages: *unset*
+
+# Set the languages to use
+$ flatpak config --set languages &quot;en;fr&quot;
+</code></pre></div>
+<p>更多详情，请参阅 <a href="https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-config">flatpak-config</a> 文档。</p>
+<p>还要注意的是，使用 <code>man</code> 查询的系统命令的文档的翻译文件也将随之删除。要恢复这些手册页，你可以使用 toolbox 等将其安装到容器中：</p>
+<div class="highlight"><pre><span></span><code>$ toolbox create
+$ toolbox enter
+$ sudo dnf install man-pages-fr
+</code></pre></div>
+<p>另见：<a href="https://gitlab.com/fedora/ostree/sig/-/issues/14">atomic-desktops-sig#14</a>.</p>
+<h2 id="kinoite">Kinoite 的新亮点</h2>
+<h3 id="kde-plasma-6">KDE Plasma 6</h3>
+<p>Fedora Kinoite 预装了 <a href="https://kde.org/announcements/megarelease/6/">Plasma 6、Frameworks 6 和 Gear 24.02</a>（详见 <a href="https://fedoraproject.org/wiki/Changes/KDE_Plasma_6">Fedora Change</a>）。另请参阅 Fedora Magazine 上的 <a href="../fedora40-whatnew-kde/">Fedora KDE 40 有哪些新功能？</a></p>
+<h3 id="wayland-only">Wayland only</h3>
+<p>Fedora Kinoite 现在仅支持 Wayland 会话。传统 X11 应用程序将使用 XWayland 运行。请参阅 <a href="https://fedoraproject.org/wiki/KDE/X11_Unsupported">Fedora 40：现不支持 X11</a>。</p>
+<p>如果你使用的是 NVIDIA GPU 并遇到问题，我建议你查看 Universal Blue 镜像文件（见下文），等待即将到来，有望改善 Wayland 支持的 NVIDIA 驱动程序更新；或者尝试更新支持显卡的 Nouveau/NVK 堆栈。</p>
+<h3 id="fedora-flatpaks-kde-apps">使用 Fedora Flatpaks 的 KDE Apps</h3>
+<p>现在，新系统安装的 KDE 应用程序子集默认由 Ananconda 作为 Fedora Flatpaks 安装。Flatpak <a href="https://gitlab.com/fedora/ostree/sig/-/issues/8">不会在更新时安装</a>，但你可以从 <a href="https://fedoramagazine.org/an-introduction-to-fedora-flatpaks/">Fedora Flatpak remote</a> 或 <a href="https://flathub.org/setup/Fedora">Flathub</a> 安装。</p>
+<h3 id="flathub-kde-flatpaks">Flathub 上的 KDE Flatpaks</h3>
+<p>大多数 KDE 应用程序都是由 KDE 社区直接在 Flathub 上发布和维护的，我们已经完成了向 <a href="https://www.qt.io/">Qt</a> 6.6 和 KDE Framework 6 Runtime 的过渡。</p>
+<p>您可以在 <a href="https://invent.kde.org/teams/flathub/issues/-/issues/26">kde/teams/flathub#26</a> 中跟踪其余应用程序的进度。</p>
+<h2 id="sway-atomic">Sway Atomic 的新亮点</h2>
+<p>Fedora Sway Atmoic 预装了最新的 <a href="https://github.com/swaywm/sway/releases/tag/1.9">Sway 1.9 版本</a>。</p>
+<h2 id="budgie-atomic">Budgie Atomic 的新亮点</h2>
+<p>Fedora Budgie Atomic 随 <a href="https://buddiesofbudgie.org/blog/budgie-10-9-released">Budgie Desktop 10.9</a> “发布系列（release series）”的最新版本一起发布。Budgie 10.9 在向 Wayland 迁移的过程中，对 <code>libxfce4windowing</code> 进行了初步移植，并重新设计了蓝牙小程序，新增了直接断开/连接的功能。</p>
+<p>此外，Fedora Budgie Atomic 配备了最新的 Budgie 控制中心，并使用了 budgie-session。由于 Buddies of Budgie 正式支持 Fedora，Budgie Desktop 还获得了大量回传错误修复，为 Fedora 用户提供更好的使用体验。</p>
+<p>您可以在 <a href="https://buddiesofbudgie.org/blog">Buddies of Budgie 博客</a>上了解更多关于 Budgie 的最新动态。</p>
+<h2 id="_1">下一步行动</h2>
+<p>不幸的是，这一次的部分会很短，因为<a href="https://tim.siosm.fr/blog/2023/11/22/fedora-atomic-desktops-39/#whats-next">自上次以来</a>我们的未来计划没有太大进展。</p>
+<p>一旦获得更多信息，我们将提供最新文章。</p>
+<h2 id="kinoite-discover">Kinoite 中 Discover 更新支持改进的预告</h2>
+<p><img alt="" src="../images/2024-04/fedora/kinoite-discover-update-size.png" /></p>
+<h2 id="universal-bluebluefinbazzite-aurora">Universal Blue、Bluefin、Bazzite 和 Aurora</h2>
+<p>我们在 Universal Blue、Bluefin 和 Bazzite 项目中的朋友也发布了他们的图像更新。</p>
+<p>现在，Universal Blue 与 <a href="https://universal-blue.discourse.group/t/bluefin-is-now-generally-available/1234">Bluefin</a> 一起被视为 “<a href="https://universal-blue.discourse.group/t/universal-blue-is-now-generally-available/1233">普遍可用</a>”（Generally Available）。</p>
+<p>为了满足你的所有游戏需求，Bazzite 以我们最新的 Fedora 40 镜像为基础，<a href="https://universal-blue.discourse.group/t/announcing-bazzite-3-0/1218">升级到了 3.0 版本</a>。</p>
+<p>他们还推出了 <a href="https://getaurora.dev/">Aurora</a>，一个基于 KDE Plasma 和 Kinoite 的 Bluefin 替代品。有关详细信息，请参阅《<a href="https://universal-blue.discourse.group/t/introduction-to-aurora/1235">Aurora 简介</a>》一文。</p>
+<h2 id="_2">联系我们</h2>
+<p>我们正在寻找贡献者，帮助我们为 Fedora 用户打造最佳的 Fedora Atomic Desktops 体验。</p>
+<ul>
+<li>Atomic Desktops SIG：<a href="https://fedoraproject.org/wiki/SIGs/AtomicDesktops">维基页面</a>、<a href="https://gitlab.com/fedora/ostree/sig/-/issues">问题追踪器</a> 和 <a href="https://matrix.to/#/#atomic-desktops:fedoraproject.org">#atomic-desktops:fedoraproject.org</a></li>
+<li>Silverblue：<a href="https://docs.fedoraproject.org/en-US/workstation-working-group/">Workstation 工作组</a> 和 <a href="https://matrix.to/#/#silverblue:fedoraproject.org">#silverblue:fedoraproject.org</a></li>
+<li>Kinoite：<a href="https://fedoraproject.org/wiki/SIGs/KDE">KDE SIG</a> 和 <a href="https://matrix.to/#/#kinoite:fedoraproject.org">#kinoite:fedoraproject.org</a></li>
+<li>Sway Atomic：<a href="https://fedoraproject.org/wiki/SIGs/Sway">Sway SIG</a> 和 <a href="https://matrix.to/#/#sway:fedoraproject.org">#sway:fedoraproject.org</a></li>
+<li>Budgie Atomic：<a href="https://fedoraproject.org/wiki/SIGs/Budgie">Budgie SIG</a> 和 <a href="https://matrix.to/#/#budgie:fedoraproject.org">#budgie:fedoraproject.org</a></li>
+</ul>
 
 
 
@@ -7040,7 +7442,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../fedora38-beta-released/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Fedora 38 Beta 版已发布">
+          <a href="../fedora40-whatnew-kde/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Fedora KDE 40 的新亮点">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -7050,20 +7452,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Fedora 38 Beta 版已发布
+                Fedora KDE 40 的新亮点
               </div>
             </div>
           </a>
         
         
           
-          <a href="../gimp-in-gsoc-2023/" class="md-footer__link md-footer__link--next" aria-label="下一页: GIMP 参加 GSoC 2023">
+          <a href="../fedora-flock-2024-cfp/" class="md-footer__link md-footer__link--next" aria-label="下一页: Flock 2024 CFP 现已开放，截止日期为 4 月 21 日">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                GIMP 参加 GSoC 2023
+                Flock 2024 CFP 现已开放，截止日期为 4 月 21 日
               </div>
             </div>
             <div class="md-footer__button md-icon">
