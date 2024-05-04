@@ -178,7 +178,7 @@ taskkill /im aria2c.exe /t /f
 ### 安装
 
 ```
-sudo zypper in aria2c
+sudo zypper in aria2
 ```
 
 ### 配置文件
