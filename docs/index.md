@@ -21,6 +21,8 @@
 
     上月总结请翻阅本站[博客](./blog/index.md)。
 
+    - [预留日期：Fedora 40 发行派对，5 月 24 日至 25 日](./translation/fedora40-release-party.md)
+
 === "主要内容"
 
     - 开源组织的新闻或博客的译文

@@ -44,6 +44,9 @@ nav:
       - index.md
     - 译文归档:
       - translation/about.md
+      - 2024-05:
+        - translation/fedora40-release-party.md
+        #- translation/gimp-2.10.38-released.md
       - 2024-04:
         - translation/tdf-libreoffice-german.md
         - translation/archive.org-aruba-1.md
