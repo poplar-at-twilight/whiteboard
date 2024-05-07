@@ -46,7 +46,8 @@ nav:
       - translation/about.md
       - 2024-05:
         - translation/fedora40-release-party.md
-        #- translation/gimp-2.10.38-released.md
+        - translation/gimp-2.10.38-released.md
+        - translation/gimp-lgm-2024.md
       - 2024-04:
         - translation/tdf-libreoffice-german.md
         - translation/archive.org-aruba-1.md
