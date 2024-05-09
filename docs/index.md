@@ -24,6 +24,7 @@
     - [预留日期：Fedora 40 发行派对，5 月 24 日至 25 日](./translation/fedora40-release-party.md)
     - [GIMP 2.10.38 已发布!](./translation/gimp-2.10.38-released.md)
     - [LGM 2024 上的 GIMP（法国雷恩）](./translation/gimp-lgm-2024.md)
+    - [Fedora Asahi Remix 40 现已发布](./translation/fedora-asahi-remix-40-released.md)
 
 === "主要内容"
 
