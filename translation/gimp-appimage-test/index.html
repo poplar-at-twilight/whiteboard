@@ -7199,7 +7199,7 @@
 <p><a href="https://appimage.org/">AppImage</a> 是一个应用程序包格式，本质上是一个捆绑包（bundle），非常适合上述的开发和测试工作流。需要明确的是，⚠️ <strong>我们目前还没有将 AppImage 发布为官方软件包</strong> ⚠️（本文稍后会详细介绍）。关于这些实验……</p>
 <h2 id="_1">选择“正确”的工具</h2>
 <p>AppImage 没有强制性的 SDK<sup id="fnref:mean1"><a class="footnote-ref" href="#fn:mean1">1</a></sup>。创建过程可以使用一些免费的工具完成，例如 <code>linuxdeployqt</code>、<code>appimage-builder</code> 和 <code>AppImageKit</code>。不过我们选择使用 <code>go-appimage</code>，因为它用途广泛，而且我们只需要进行快速测试构建。</p>
-<p>在我们的例子中，该工具负责打包几乎所有依赖项，并通过恰当的 ELF<sup id="fnref:mean2"><a class="footnote-ref" href="#fn:mean2">2</a></sup> 数据将所有内容压缩成一个可单击执行的文件。但是，该工具并没有原生支持猜测不同软件的细节（例如脚本解释器的使用），因此我们需要<a href="https://gitlab.gnome.org/GNOME/gimp/-/raw/master/build/linux/appimage/bundle-gimp-appimage.sh">手动</a>复制和设置一些东西。顺便说一句，我们已经在 go-appimage 代码仓库中提交了一些 issue，希望能改进一些功能，这也是<a href="https://github.com/probonopd/go-appimage/issues/282">自由与开源软件协作</a>的一个小例子。</p>
+<p>在我们的例子中，该工具负责打包几乎所有依赖项，并通过恰当的 ELF<sup id="fnref:mean2"><a class="footnote-ref" href="#fn:mean2">2</a></sup> 数据将所有内容压缩成一个可单击执行的文件。但是，该工具并没有原生支持猜测不同软件的细节（例如脚本解释器的使用），因此我们需要<a href="https://gitlab.gnome.org/GNOME/gimp/-/raw/master/build/linux/appimage/bundle-gimp-appimage.sh">手动</a>复制和设置一些东西。顺便说一句，我们已经在 <code>go-appimage</code> 代码仓库中提交了一些 issue，希望能改进一些功能，这也是<a href="https://github.com/probonopd/go-appimage/issues/282">自由与开源软件协作</a>的一个小例子。</p>
 <h2 id="appimage">从过往的 appimage 学习</h2>
 <p>当然，我们并不是从头开始的！我们借鉴了其他非官方的 GIMP AppImage 构建版本（你可以在此处找到相关<a href="https://gitlab.gnome.org/GNOME/gimp/-/raw/master/build/linux/appimage/AppRun">列表</a>）。也许还存在其他版本，但我们只找到了这四个。</p>
 <p>我们还联系了这些非官方构建版本的开发者，就潜在的官方 AppImage 进行测试和反馈。非常感谢他们！此外，其他人也做出了贡献（你可以在此<a href="https://gitlab.gnome.org/GNOME/gimp/-/merge_requests/1440">合并请求</a>中找到有关信息）。感谢所有参与人员！😄</p>
@@ -7221,7 +7221,7 @@
 <li>这对于处理问题也很有用：在分类问题时会推荐最新的 master 分支版本，因此需要不断进行本地重新构建。幸运的是，由于我们的持续集成会为每次新的提交自动生成一个 AppImage，所以这不再是必需的操作。</li>
 </ul>
 <p>当然，这仅仅是一个有限的用例，这使得我们的 AppImage 并不适合在开发者版本下载页面进行链接。并不是每个贡献者都使用 Debian 12 系统，也并非每个 Windows 或 Mac 用户都拥有一个 Debian 12 的虚拟机。坦白地说，如果该 AppImage 出现一些我们无法修复的问题，那么它随时都可能被放弃。</p>
-<p>因此，<strong>我们欢迎为提高与其他发行版</strong>（至少是最古老的受支持的 Ubuntu 和最新的 Fedora）<strong>的兼容性做出贡献</strong>。如果你对此感兴趣，<a href="https://www.gimp.org/discuss.html">请与我们联系</a>。</p>
+<p>因此，<strong>我们欢迎为提高与其他发行版</strong>（至少是最旧的受支持的 Ubuntu 和最新的 Fedora）<strong>的兼容性做出贡献</strong>。如果你对此感兴趣，<a href="https://www.gimp.org/discuss.html">请与我们联系</a>。</p>
 <div class="footnote">
 <hr />
 <ol>
