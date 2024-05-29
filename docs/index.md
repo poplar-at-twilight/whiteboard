@@ -25,6 +25,7 @@
     - [GIMP 2.10.38 已发布!](./translation/gimp-2.10.38-released.md)
     - [LGM 2024 上的 GIMP（法国雷恩）](./translation/gimp-lgm-2024.md)
     - [Fedora Asahi Remix 40 现已发布](./translation/fedora-asahi-remix-40-released.md)
+    - [基于 AppImage 的新 GIMP 测试工具](./translation/gimp-appimage-test.md)
 
 === "主要内容"
 
