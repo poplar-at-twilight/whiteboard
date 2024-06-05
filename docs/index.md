@@ -21,8 +21,6 @@
 
     上月总结请翻阅本站[博客](./blog/index.md)。
 
-    - [Krita 25 周年快乐！](./translation/krita-25-years.md)
-
 === "主要内容"
 
     - 开源组织的新闻或博客的译文
