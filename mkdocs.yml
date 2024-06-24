@@ -243,45 +243,20 @@ nav:
         - essay/others/opencc.md
         - essay/others/alias-tips.md
         - essay/others/eyecandy-kde.md
-        - essay/others/other-configs.md
-        - essay/others/opensuse.md
       - 随笔&日常:
         - essay/main/about.md
         #- essay/main/
         - essay/main/misc.md
-        - essay/main/2023-05-04.md
       - 笔记:
-        - essay/note/pandoc's-markdwon-spec.md
-      - Linux 文档集:
-        - essay/guide/intro.md
-        - 安装 Linux 系统:
-          - essay/guide/install/prepare.md
-          - essay/guide/install/vm.md
-          - essay/guide/install/tumbleweed.md
-          - essay/guide/install/fedora.md
-        - Linux 基础知识:
-          - essay/guide/base/intro.md
-          - essay/guide/base/base-01.md
-        - 系统管理:
-          - essay/guide/sysadmin/update-sys.md
-          - essay/guide/sysadmin/package-manager.md
-          - essay/guide/sysadmin/setup-proxy.md
-          - essay/guide/sysadmin/nvidia-driver.md
-          - essay/guide/sysadmin/firewall.md
-          - essay/guide/sysadmin/systemctl.md
-          - essay/guide/sysadmin/flatpak-get-start.md
-          - essay/guide/sysadmin/appimage-base.md
-        - 杂项:
-          - essay/guide/misc/mirror-site.md
-          - essay/guide/misc/kleopatra.md
-          - essay/guide/misc/extend.md
-          - essay/guide/misc/eyecandy-kde.md
-          - essay/guide/misc/eyecandy-xfce4.md
-          - essay/guide/misc/unity-list.md
-          - essay/guide/misc/makeup.md
+        - essay/note/about.md
+        - essay/note/preparation.md
+        - essay/note/installation.md
+        - essay/note/first-boot.md
+        - essay/note/software.md
     - 站外归档:
       - archives/about.md
       - archives/external-index.md
+      - archives/pandoc's-markdwon-spec.md
       - 博客归档:
         - archives/qbittorrent-confs.md
         - archives/rss-refresh.md

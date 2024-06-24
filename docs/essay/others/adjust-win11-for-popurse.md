@@ -250,7 +250,7 @@ winget upgrade [应用 ID]
 - [Kate](https://kate-editor.org/zh-cn/)
 - [LibreOffice](https://www.libreoffice.org/)
 - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
-- [Pandoc](https://pandoc.org/releases.html)（另见 [Pandoc’s Markdown spec](./../note/pandoc's-markdwon-spec.md)）
+- [Pandoc](https://pandoc.org/releases.html)
 - [Python](https://www.python.org/)
 - [Steam](https://store.steampowered.com/)
 - [VLC](https://www.videolan.org/vlc/)
@@ -274,7 +274,6 @@ winget upgrade [应用 ID]
 	    email = poplar.cubic@gmail.com
     ```
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)  
-    另见：[部署虚拟机](./../guide/install/vm.md)
 - [qBittorrent-Enhanced-Edition](https://github.com/c0re100/qBittorrent-Enhanced-Edition)  
     另见：[qBittorrent 参数详细设置教程](./../../archives/qbittorrent-confs.md)
 - [Fluent-Reader](https://github.com/yang991178/fluent-reader)  

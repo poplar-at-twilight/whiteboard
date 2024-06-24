@@ -1,0 +1,176 @@
+---
+comments: true
+tags:
+  - Linux
+  - 笔记
+---
+
+# 初次启动
+
+### 设置主机名
+
+```
+sudo hostnamectl set-hostname --pretty "White-Poplar's Laptop"
+```
+```
+sudo hostnamectl set-hostname --static c004-h0
+```
+
+## 删除 Packagekit 和 Discover
+
+```
+sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
+```
+
+## 删除软件包与软件原
+
+删除多余的 openH264 软件源和 ISO 软件源，并安装 google-chrome。
+
+默认应该有如下软件源：
+
+```
+poplar@c004-h0:~> sudo zypper lr
+软件源优先级已生效：                                                               (细节请参考 'zypper lr -P')
+      90 (更高的优先级) :  1 个软件源
+      99 (默认优先级)   :  4 个软件源
+
+# | Alias         | Name                        | Enabled | GPG Check | Refresh
+--+---------------+-----------------------------+---------+-----------+--------
+1 | google-chrome | google-chrome               | 是      | (r ) 是   | 是
+2 | packman       | packman                     | 是      | (r ) 是   | 是
+3 | repo-debug    | openSUSE-Tumbleweed-Debug   | 否      | ----      | ----
+4 | repo-non-oss  | openSUSE-Tumbleweed-Non-Oss | 是      | (r ) 是   | 是
+5 | repo-oss      | openSUSE-Tumbleweed-Oss     | 是      | (r ) 是   | 是
+6 | repo-source   | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
+7 | repo-update   | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
+```
+
+删除 VLC：
+
+```
+sudo zypper rm -u vlc; sudo zypper al vlc
+```
+
+更新系统：
+
+```
+sudo zypper ref; sudo zypper dup
+```
+
+补齐缺失的软件包：
+
+```
+sudo zypper inr
+```
+
+## 多媒体播放器
+
+添加 Packman 源：
+
+```
+sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman
+```
+
+解锁 VLC：
+
+```
+sudo zypper rl vlc
+```
+
+更新并安装多媒体播放器：
+
+```
+sudo zypper refresh
+```
+```
+sudo zypper dist-upgrade --from packman --allow-vendor-change
+```
+```
+sudo zypper in vlc ffmpeg7
+```
+
+## 安装基本工具
+
+```
+sudo zypper in keepassxc proxychains-ng git-core
+```
+
+### 配置文件
+
+在 `~/.gitconfig` 中，写入：
+
+```
+[user]
+    name = Poplar at twilight
+    email = poplar.cubic@gmail.com
+[http]
+    proxy = http://127.0.0.1:7890
+```
+
+`/etc/proxychains.conf`：
+
+```
+quiet_mode
+http 127.0.0.1 7890
+```
+
+设置代理（`~/.config/pip/pip.conf`）：
+
+```
+[global]
+proxy=http://localhost:7890
+```
+
+`~/.bashrc`：
+
+```shell
+export EDITOR=nano
+#将默认文本编辑器指定为 nano
+
+alias sha256sum-dir="find . -type f -exec sha256sum {} \; > ../checksum.sha256; mv ../checksum.sha256 ."
+#自动计算当前文件夹内的全部文件的哈希，并将结果写入 sha256 文件
+
+alias git-repo-clean="git remote prune origin && git repack && git prune-packed && git reflog expire --expire=1.month.ago && git gc --aggressive"
+#清理并压缩 git 仓库
+
+alias set-proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
+alias unset-proxy="unset http_proxy; unset https_proxy; unset all_proxy"
+#环境变量开关
+
+alias sudo="sudo "
+#对 sudo 后的字符启用别名
+
+alias pyc="proxychains4"
+#更短的别名
+
+#alias dnfx="proxychains4 dnf"
+#alias zypper="proxychains4 zypper"
+#对 zypper/dnf 使用代理
+
+alias flatpak="flatpak --user"
+#增加 --user 标签
+
+alias flatpakx="proxychains4 flatpak --user"
+#对 flatpak 使用代理，并增加 --user 标签
+
+alias yt-dlp="proxychains4 yt-dlp"
+#为下载工具设置代理
+
+alias clean="clear; exit"
+#适用于 vscode 内置终端的退出命令
+
+alias font-ref="fc-cache -fv"
+#刷新字体缓存
+
+alias pings="ping opentuna.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6"
+#测试网络连通性
+
+alias update="sudo zypper ref; sudo zypper lu; flatpakx update"
+#刷新软件源并列出可用的更新
+
+alias venv-setup="python3 -m venv .venv"
+#设置容器
+
+alias venv="source .venv/bin/activate"
+#启动容器环境
+```
