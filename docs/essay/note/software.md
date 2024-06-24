@@ -7,7 +7,25 @@ tags:
 
 # 软件包
 
-## flatpak
+## clash-verge-rev
+
+下载：
+
+- <https://github.com/Clash-Verge-rev/clash-verge-rev/releases>
+
+安装依赖：
+
+```
+sudo zypper libayatana-appindicator3-1 libwebkit2gtk-4_0-37
+```
+
+安装本体：
+
+```
+sudo rpm -i clash-verge-*.x86_64.rpm
+```
+
+## Flatpak
 
 安装：
 
@@ -35,3 +53,73 @@ flatpak --help
 
 ----
 
+## 删除软件包
+
+删除并锁定：
+
+```
+poplar@c004-h0:~> zypper ll
+
+#  | Name                    | Type    | Repository | Comment
+---+-------------------------+---------+------------+--------
+1  | MozillaFirefox          | package | （任意）   | 
+2  | PackageKit              | package | （任意）   | 
+3  | chromium                | package | （任意）   | 
+4  | discover6               | package | （任意）   | 
+5  | falkon                  | package | （任意）   | 
+6  | fcitx                   | package | （任意）   | 
+7  | games                   | pattern | （任意）   | 
+8  | ibus                    | package | （任意）   | 
+9  | kde_pim                 | pattern | （任意）   | 
+10 | kernel-firmware-iwlwifi | package | （任意）   | 
+11 | kmousetool              | package | （任意）   | 
+12 | kompare                 | package | （任意）   | 
+13 | konversation            | package | （任意）   | 
+14 | opensuse-welcome        | package | （任意）   | 
+15 | patterns-kde-kde_games  | package | （任意）   | 
+16 | patterns-kde-kde_pim    | package | （任意）   | 
+17 | skanlite                | package | （任意）   |
+```
+
+## 安装软件包
+
+- `fcitx5`
+- `filelight`
+- `google-noto-sans-mono-fonts`
+- `gimp`
+- `goldendict-ng`
+  - `goldendict-ng-lang`
+- `kfind`
+- `kleopatra`
+- `peazip`
+- `pandoc`
+- `steam`
+- `telegram-desktop`
+
+快捷命令：
+
+```
+sudo zypper in fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc telegram-desktop google-noto-sans-mono-fonts
+```
+```
+sudo zypper in steam
+```
+
+## 散装软件包
+
+- <https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases>
+- <https://github.com/yang991178/fluent-reader/releases>
+
+### vscode
+
+下载：
+
+- <https://code.visualstudio.com/>
+
+在与 `code` 同级文件夹中新建 `data`，启用便携模式。
+
+字体设置：
+
+```
+'Noto Sans Mono', 'Noto Sans SC', monospace
+```

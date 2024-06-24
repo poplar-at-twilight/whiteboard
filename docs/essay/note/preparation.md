@@ -13,6 +13,8 @@ tags:
 
 - <https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/>
 
+另见：[校园网联合镜像站](https://mirrors.cernet.edu.cn/list)
+
 ## 校验文件
 
 ### 下载证书

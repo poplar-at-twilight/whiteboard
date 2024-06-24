@@ -86,7 +86,7 @@ sudo zypper refresh
 sudo zypper dist-upgrade --from packman --allow-vendor-change
 ```
 ```
-sudo zypper in vlc ffmpeg7
+sudo zypper in vlc ffmpeg-7 deadbeef
 ```
 
 ## 安装基本工具
@@ -94,6 +94,16 @@ sudo zypper in vlc ffmpeg7
 ```
 sudo zypper in keepassxc proxychains-ng git-core
 ```
+
+## 更换语言
+
+在 YaST Language 将首选语言修改为简体中文，同时选择英文作为第二语言。
+
+然后将 KDE 设置中的区域和语言更改为中文。
+
+等待更新完成，重启系统。
+
+----
 
 ### 配置文件
 
