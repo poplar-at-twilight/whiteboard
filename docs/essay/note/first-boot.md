@@ -103,6 +103,14 @@ sudo zypper in keepassxc proxychains-ng git-core
 
 等待更新完成，重启系统。
 
+## AMD GPU
+
+要使用 AMD GPU 运行程序，使用：
+
+```
+DRI_PRIME=1
+```
+
 ----
 
 ### 配置文件
