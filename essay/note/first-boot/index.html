@@ -5914,11 +5914,29 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="安装基本工具">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      更换语言
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amd-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMD GPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AMD GPU">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       配置文件
     </span>
@@ -5952,6 +5970,27 @@
   
   <span class="md-ellipsis">
     软件包
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kde/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KDE 相关
   </span>
   
 
@@ -6599,11 +6638,29 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="安装基本工具">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      更换语言
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amd-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMD GPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AMD GPU">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       配置文件
     </span>
@@ -6696,12 +6753,21 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo zypper dist-upgrade --from packman --allow-vendor-change
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo zypper in vlc ffmpeg7
+<div class="highlight"><pre><span></span><code>sudo zypper in vlc ffmpeg-7 deadbeef
 </code></pre></div></p>
 <h2 id="_5">安装基本工具</h2>
 <div class="highlight"><pre><span></span><code>sudo zypper in keepassxc proxychains-ng git-core
 </code></pre></div>
-<h3 id="_6">配置文件</h3>
+<h2 id="_6">更换语言</h2>
+<p>在 YaST Language 将首选语言修改为简体中文，同时选择英文作为第二语言。</p>
+<p>然后将 KDE 设置中的区域和语言更改为中文。</p>
+<p>等待更新完成，重启系统。</p>
+<h2 id="amd-gpu">AMD GPU</h2>
+<p>要使用 AMD GPU 运行程序，使用：</p>
+<div class="highlight"><pre><span></span><code>DRI_PRIME=1
+</code></pre></div>
+<hr />
+<h3 id="_7">配置文件</h3>
 <p>在 <code>~/.gitconfig</code> 中，写入：</p>
 <div class="highlight"><pre><span></span><code>[user]
     name = Poplar at twilight

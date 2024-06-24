@@ -18,7 +18,7 @@
         <link rel="prev" href="../first-boot/">
       
       
-        <link rel="next" href="../../../archives/about/">
+        <link rel="next" href="../kde/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../feed_rss_created.xml">
@@ -5893,11 +5893,62 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#flatpak" class="md-nav__link">
+  <a href="#clash-verge-rev" class="md-nav__link">
     <span class="md-ellipsis">
-      flatpak
+      clash-verge-rev
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flatpak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flatpak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除软件包
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装软件包
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      散装软件包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="散装软件包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      vscode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5905,6 +5956,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kde/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KDE 相关
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -6506,11 +6578,62 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#flatpak" class="md-nav__link">
+  <a href="#clash-verge-rev" class="md-nav__link">
     <span class="md-ellipsis">
-      flatpak
+      clash-verge-rev
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flatpak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flatpak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除软件包
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装软件包
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      散装软件包
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="散装软件包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      vscode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6547,7 +6670,18 @@
 
 
 <h1 id="_1">软件包</h1>
-<h2 id="flatpak">flatpak</h2>
+<h2 id="clash-verge-rev">clash-verge-rev</h2>
+<p>下载：</p>
+<ul>
+<li><a href="https://github.com/Clash-Verge-rev/clash-verge-rev/releases">https://github.com/Clash-Verge-rev/clash-verge-rev/releases</a></li>
+</ul>
+<p>安装依赖：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper libayatana-appindicator3-1 libwebkit2gtk-4_0-37
+</code></pre></div>
+<p>安装本体：</p>
+<div class="highlight"><pre><span></span><code>sudo rpm -i clash-verge-*.x86_64.rpm
+</code></pre></div>
+<h2 id="flatpak">Flatpak</h2>
 <p>安装：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper in flatpak
 </code></pre></div>
@@ -6561,6 +6695,64 @@
 <div class="highlight"><pre><span></span><code>flatpak --help
 </code></pre></div>
 <hr />
+<h2 id="_2">删除软件包</h2>
+<p>删除并锁定：</p>
+<div class="highlight"><pre><span></span><code>poplar@c004-h0:~&gt; zypper ll
+
+#  | Name                    | Type    | Repository | Comment
+---+-------------------------+---------+------------+--------
+1  | MozillaFirefox          | package | （任意）   | 
+2  | PackageKit              | package | （任意）   | 
+3  | chromium                | package | （任意）   | 
+4  | discover6               | package | （任意）   | 
+5  | falkon                  | package | （任意）   | 
+6  | fcitx                   | package | （任意）   | 
+7  | games                   | pattern | （任意）   | 
+8  | ibus                    | package | （任意）   | 
+9  | kde_pim                 | pattern | （任意）   | 
+10 | kernel-firmware-iwlwifi | package | （任意）   | 
+11 | kmousetool              | package | （任意）   | 
+12 | kompare                 | package | （任意）   | 
+13 | konversation            | package | （任意）   | 
+14 | opensuse-welcome        | package | （任意）   | 
+15 | patterns-kde-kde_games  | package | （任意）   | 
+16 | patterns-kde-kde_pim    | package | （任意）   | 
+17 | skanlite                | package | （任意）   |
+</code></pre></div>
+<h2 id="_3">安装软件包</h2>
+<ul>
+<li><code>fcitx5</code></li>
+<li><code>filelight</code></li>
+<li><code>google-noto-sans-mono-fonts</code></li>
+<li><code>gimp</code></li>
+<li><code>goldendict-ng</code></li>
+<li><code>goldendict-ng-lang</code></li>
+<li><code>kfind</code></li>
+<li><code>kleopatra</code></li>
+<li><code>peazip</code></li>
+<li><code>pandoc</code></li>
+<li><code>steam</code></li>
+<li><code>telegram-desktop</code></li>
+</ul>
+<p>快捷命令：</p>
+<p><div class="highlight"><pre><span></span><code>sudo zypper in fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc telegram-desktop google-noto-sans-mono-fonts
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo zypper in steam
+</code></pre></div></p>
+<h2 id="_4">散装软件包</h2>
+<ul>
+<li><a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases">https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases</a></li>
+<li><a href="https://github.com/yang991178/fluent-reader/releases">https://github.com/yang991178/fluent-reader/releases</a></li>
+</ul>
+<h3 id="vscode">vscode</h3>
+<p>下载：</p>
+<ul>
+<li><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+</ul>
+<p>在与 <code>code</code> 同级文件夹中新建 <code>data</code>，启用便携模式。</p>
+<p>字体设置：</p>
+<div class="highlight"><pre><span></span><code>&#39;Noto Sans Mono&#39;, &#39;Noto Sans SC&#39;, monospace
+</code></pre></div>
 
 
 
@@ -6627,13 +6819,13 @@
         
         
           
-          <a href="../../../archives/about/" class="md-footer__link md-footer__link--next" aria-label="下一页: 关于">
+          <a href="../kde/" class="md-footer__link md-footer__link--next" aria-label="下一页: KDE 相关">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                关于
+                KDE 相关
               </div>
             </div>
             <div class="md-footer__button md-icon">
