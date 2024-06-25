@@ -111,6 +111,13 @@ sudo zypper in keepassxc proxychains-ng git-core
 DRI_PRIME=1
 ```
 
+```
+poplar@c004-h0:~> DRI_PRIME=1 glxinfo | grep "OpenGL renderer"
+OpenGL renderer string: AMD Radeon RX 7600M XT (radeonsi, navi33, LLVM 18.1.6, DRM 3.57, 6.9.5-1-default)
+poplar@c004-h0:~> DRI_PRIME=0 glxinfo | grep "OpenGL renderer"
+OpenGL renderer string: AMD Radeon 780M (radeonsi, gfx1103_r1, LLVM 18.1.6, DRM 3.57, 6.9.5-1-default)
+```
+
 ----
 
 ### 配置文件
