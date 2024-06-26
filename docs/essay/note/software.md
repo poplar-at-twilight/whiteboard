@@ -36,7 +36,7 @@ sudo zypper in flatpak
 添加远程仓库：
 
 ```
-proxychains4 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpakx remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 加入 Flatpak 用户组
@@ -49,6 +49,15 @@ sudo usermod -aG flatpak $USER
 
 ```
 flatpak --help
+```
+
+### 安装
+
+```
+flatpakx install com.calibre_ebook.calibre
+flatpakx install com.jgraph.drawio.desktop
+flatpakx install com.github.qarmin.czkawka
+flatpakx install org.freefilesync.FreeFileSync
 ```
 
 ----

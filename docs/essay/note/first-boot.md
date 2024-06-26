@@ -172,9 +172,6 @@ alias pyc="proxychains4"
 #alias zypper="proxychains4 zypper"
 #对 zypper/dnf 使用代理
 
-alias flatpak="flatpak --user"
-#增加 --user 标签
-
 alias flatpakx="proxychains4 flatpak --user"
 #对 flatpak 使用代理，并增加 --user 标签
 
