@@ -105,6 +105,14 @@ sudo zypper in fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleo
 sudo zypper in steam
 ```
 
+### steam
+
+如果无法正常缩放，则设置变量：
+
+```
+STEAM_FORCE_DESKTOPUI_SCALING=1.5
+```
+
 ## 散装软件包
 
 - <https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases>
