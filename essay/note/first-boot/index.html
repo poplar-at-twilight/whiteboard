@@ -6766,6 +6766,11 @@
 <p>要使用 AMD GPU 运行程序，使用：</p>
 <div class="highlight"><pre><span></span><code>DRI_PRIME=1
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>poplar@c004-h0:~&gt; DRI_PRIME=1 glxinfo | grep &quot;OpenGL renderer&quot;
+OpenGL renderer string: AMD Radeon RX 7600M XT (radeonsi, navi33, LLVM 18.1.6, DRM 3.57, 6.9.5-1-default)
+poplar@c004-h0:~&gt; DRI_PRIME=0 glxinfo | grep &quot;OpenGL renderer&quot;
+OpenGL renderer string: AMD Radeon 780M (radeonsi, gfx1103_r1, LLVM 18.1.6, DRM 3.57, 6.9.5-1-default)
+</code></pre></div>
 <hr />
 <h3 id="_7">配置文件</h3>
 <p>在 <code>~/.gitconfig</code> 中，写入：</p>
@@ -6806,9 +6811,6 @@ proxy=http://localhost:7890
 <span class="c1">#alias dnfx=&quot;proxychains4 dnf&quot;</span>
 <span class="c1">#alias zypper=&quot;proxychains4 zypper&quot;</span>
 <span class="c1">#对 zypper/dnf 使用代理</span>
-
-<span class="nb">alias</span><span class="w"> </span><span class="nv">flatpak</span><span class="o">=</span><span class="s2">&quot;flatpak --user&quot;</span>
-<span class="c1">#增加 --user 标签</span>
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;proxychains4 flatpak --user&quot;</span>
 <span class="c1">#对 flatpak 使用代理，并增加 --user 标签</span>
