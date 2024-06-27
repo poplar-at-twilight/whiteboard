@@ -3,8 +3,8 @@ site_url: https://whiteboard-ui8.pages.dev/
 site_description: 本站用于收纳一些 FOSS 新闻/博客译文和站长的杂谈、笔记和博客等内容。
 site_author: Poplar at twilight
 
-repo_name: SRC
-repo_url: https://github.com/poplar-at-twilight/whiteboard  #仓库链接
+repo_name: RSS Subscribe
+repo_url: https://whiteboard-ui8.pages.dev/feed_rss_created.xml  #RSS 链接
 edit_uri: ""
 
 theme:
@@ -34,7 +34,7 @@ theme:
       - announce.dismiss #可关闭的公告栏
     logo: assets/open-book.png
     icon:
-      repo: fontawesome/brands/github
+      repo: fontawesome/brands/linux
     font:
       text: Noto Sans
       code: Noto Sans Mono    
