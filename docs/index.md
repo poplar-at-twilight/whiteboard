@@ -52,7 +52,6 @@
     - [RSS 订阅](./blog/posts/hello-world.md) ✅
     - 文档归档（请提交 [PR] 与许可协议副本） ✅
     - 镜像：
-        - [GitHub Pages](https://poplar-at-twilight.github.io/whiteboard/) ✅
         - [Cloudflare Pages](https://whiteboard-ui8.pages.dev/) ✅
         - [互联网档案馆快照](https://web.archive.org/web/*/https://whiteboard-ui8.pages.dev)（内容不完整） 🔄️
 
@@ -65,9 +64,19 @@
 
 ---
 
+<!---
+
+欢迎提交 [PR] 或 [issue] 以协助改进站点内容。
+
+Feel free to submit [PR] or [issue] to help improve site content. 
+
+[PR]: https://github.com/poplar-at-twilight/whiteboard/pulls
+[issue]: https://github.com/poplar-at-twilight/whiteboard/issues
+--->
+
 <center><em>
 
-欢迎提交 [PR] 或 [issue] 以协助改进站点内容。许可证清单详见[此处]。<br />Feel free to submit [PR] or [issue] to help improve site content. See [here][此处] for a list of licenses.
+许可证清单详见[此处]。<br />See [here][此处] for a list of licenses.
 
 </em></center>
 
@@ -77,7 +86,5 @@
 
 </center>
 
-[PR]: https://github.com/poplar-at-twilight/whiteboard/pulls
-[issue]: https://github.com/poplar-at-twilight/whiteboard/issues
 [此处]: ./about/license.md
 [朋友们]: ./about/friends.md

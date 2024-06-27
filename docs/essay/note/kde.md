@@ -62,6 +62,7 @@ git clone https://github.com/tonyfettes/fcitx5-nord.git
 
 锁屏：
 
+- 自动锁定屏幕：15 分钟
 - 外观
 
 用户反馈：
