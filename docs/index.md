@@ -17,40 +17,18 @@
 
 ## 关于本站
 
-=== "本月更新"
-
-    上月总结请翻阅本站[博客](./blog/index.md)。
-
 === "主要内容"
 
-    - 开源组织的新闻或博客的译文
-        - 仅包含 FOSS 社区的市场营销/广告/捐款求助
     - 一些说明文档，备忘录
     - 个人随笔杂谈
     - 有趣的东西……
-
-    **注意：本站的绝大部分内容都具有时效性。如果你认为某些内容需要更新，欢迎提交 [PR] 或 [issue] 以协助改进站点内容。**
-
-=== "关注的动态"
-
-    当前长期跟踪的内容：
-
-    - [GIMP Blog](https://www.gimp.org/news/)
-    - [Fedora Magazine](https://fedoramagazine.org/)
-        - 不包含技术教程、测试请求、流行应用推荐的博客。
-    - [Xfce Blog](https://blog.xfce.org/)
-    - openSUSE
-        - 不经常更新的内容；经常更新的官方新闻另见 [suse.org.cn](https://suse.org.cn)。
 
 === "支持的功能"
 
     - [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) Licensed ✅
     - 站内搜索 ✅
     - 日夜间主题切换 ✅
-    - 评论系统（基于 [giscus](https://giscus.app)）✅
     - [标签地图](./about/tags.md) ✅
-    - [RSS 订阅](./blog/posts/hello-world.md) ✅
-    - 文档归档（请提交 [PR] 与许可协议副本） ✅
     - 镜像：
         - [Cloudflare Pages](https://whiteboard-ui8.pages.dev/) ✅
         - [互联网档案馆快照](https://web.archive.org/web/*/https://whiteboard-ui8.pages.dev)（内容不完整） 🔄️
