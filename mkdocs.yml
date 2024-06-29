@@ -17,13 +17,13 @@ theme:
         primary: green
         accent: blue
         toggle:
-          icon: material/brightness-7
+          icon: material/weather-night
           name: 切换到深色模式
       - scheme: slate
-        primary: blue
-        accent: light green
+        primary: green
+        accent: blue
         toggle:
-          icon: material/brightness-4
+          icon: material/weather-sunny
           name: 切换到浅色模式
     features:
       - navigation.tabs
