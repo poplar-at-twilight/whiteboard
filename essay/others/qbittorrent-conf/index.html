@@ -671,19 +671,37 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      附加的反吸血措施
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附加的反吸血措施">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ip" class="md-nav__link">
     <span class="md-ellipsis">
       IP 过滤列表
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="IP 过滤列表">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#ip_1" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      封禁中国 IP 段
+      客户端过滤列表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      辅助封禁工具
     </span>
   </a>
   
@@ -691,24 +709,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      客户端过滤列表
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      辅助封禁工具
-    </span>
-  </a>
   
 </li>
       
@@ -1925,19 +1925,37 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      附加的反吸血措施
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附加的反吸血措施">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ip" class="md-nav__link">
     <span class="md-ellipsis">
       IP 过滤列表
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="IP 过滤列表">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#ip_1" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      封禁中国 IP 段
+      客户端过滤列表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      辅助封禁工具
     </span>
   </a>
   
@@ -1945,24 +1963,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      客户端过滤列表
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      辅助封禁工具
-    </span>
-  </a>
   
 </li>
       
@@ -2008,8 +2008,8 @@
 </li>
 </ul>
 <h2 id="_1">安装</h2>
-<p>使用：<a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases">c0re100/qBittorrent-Enhanced-Edition</a> -  <code>qbittorrent_enhanced_*_qt6_x64_setup.exe</code></p>
-<p>安装完成后，在 qbittorrent 的安装文件中，新建一个名为 <code>profile</code> 的文件夹，以便携模式启动 qbittorrent。</p>
+<p>使用：<a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases">c0re100/qBittorrent-Enhanced-Edition</a></p>
+<p>对于 Windows，安装完成后，在 qbittorrent 的安装文件中，新建一个名为 <code>profile</code> 的文件夹，以便携模式启动 qbittorrent。</p>
 <h2 id="_2">日志</h2>
 <p>在菜单栏的 <strong>视图</strong> → <strong>日志</strong> 中，勾选全部类型的日志信息。</p>
 <h2 id="_3">软件设置</h2>
@@ -2132,20 +2132,15 @@
 <ul>
 <li>禁止连接到特权端口上的 peer</li>
 </ul>
-<h2 id="ip">IP 过滤列表</h2>
+<hr />
+<h2 id="_9">附加的反吸血措施</h2>
+<h3 id="ip">IP 过滤列表</h3>
 <p>要使用 IP 过滤列表，你需要新建一个名为 <code>ipfilter.dat</code> 的纯文本文件，并在 <strong>设置</strong> → <strong>连接</strong> → <strong>IP 过滤</strong> 中勾选此文件。</p>
 <p>IP 过滤列表的示例：</p>
 <div class="highlight"><pre><span></span><code>1.180.24.0-1.180.25.255
 240e:918:8008:4::0-240e:918:8008:4::ffff
 </code></pre></div>
-<h3 id="ip_1">封禁中国 IP 段</h3>
-<p>另见：<a href="https://www.v2ex.com/t/1029736">为了应对运营商考核上下行比率，恩山无线论坛用户和某云盘使用恶意软件从 Bittorrent 网络无限吸血以提高下载量</a></p>
-<ol>
-<li>打开 <a href="https://ip.ludost.net/">IP &lt;-&gt; Country database at LUDOST.NET</a>，将 <code>Select template for formating the output of your query</code> 改为 <code>interval</code>；</li>
-<li>在 <code>Input a list of ISO country codes separated by spaces in this field</code> 中输入 <code>cn</code>，按下 Enter 键；</li>
-<li>将弹出的新页面保存为 <code>.dat</code> 文件。最后在设置中导入此 IP 过滤列表。</li>
-</ol>
-<h2 id="_9">客户端过滤列表</h2>
+<h3 id="_10">客户端过滤列表</h3>
 <p>要启用客户端过滤列表，请在 <code>profile/qBittorrent/data</code> 目录下新建名为 <code>peer_blacklist.txt</code> 的文件。</p>
 <p>格式为 <code>PeerIP 客户端名</code> </p>
 <p>示例：</p>
@@ -2153,70 +2148,42 @@
 -DT0001- dt/torrent/v1.01
 -DT0001- DT\s0.0.0.1
 </code></pre></div>
-<h2 id="_10">辅助封禁工具</h2>
+<h3 id="_11">辅助封禁工具</h3>
 <p>目前有两个流行的工具：</p>
 <ul>
 <li><a href="https://github.com/Simple-Tracker/qBittorrent-ClientBlocker">Simple-Tracker/qBittorrent-ClientBlocker</a></li>
 <li><a href="https://github.com/Ghost-chu/PeerBanHelper">Ghost-chu/PeerBanHelper</a></li>
 </ul>
-<p>我使用的是 <code>Ghost-chu/PeerBanHelper</code></p>
-<p>双击启动 <code>peerbanhelper-binary.exe</code>，然后关闭终端窗口。</p>
-<p>在 <code>/data/config</code> 目录下，打开 <code>config.yml</code>，修改配置：</p>
+<p>我使用的是 <code>Ghost-chu/PeerBanHelper</code>。</p>
+<p><code>PeerBanHelper.jar</code> 启动脚本：</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
+</code></pre></div>
+<p>用于让 <code>PeerBanHelper</code> 开机自启动的 systemd 服务文件：</p>
+<div class="highlight"><pre><span></span><code>[Unit]
+Description=Start PeerBanHelper jar file
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar nogui
+Type=simple
+WorkingDirectory=/home/poplar/bin/qbee/peerbanhelper
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div>
+<p>服务文件需要放置到 <code>/etc/systemd/system/</code> 文件夹中，然后重载 systemd 守护进程，再开启服务：</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl daemon-reload
+sudo systemctl enable pbh --now
+</code></pre></div>
+<p>初次启动后，在 <code>/data/config</code> 目录下，打开 <code>config.yml</code>，修改配置：</p>
 <ul>
-<li>隐藏 Transmission 的配置</li>
+<li>删除 Transmission 的配置</li>
 <li>修改 webui 地址</li>
 <li>删除用户密码（需要启动跳过验证本地客户端的链接）</li>
 </ul>
-<p>如下：</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 客户端设置</span>
-client:
-<span class="w">  </span><span class="c1"># 名字，可以自己起，会在日志中显示，只能由字母数字横线组成，数字不能打头</span>
-<span class="w">  </span>qbittorrent-001:
-<span class="w">    </span><span class="c1"># 客户端类型</span>
-<span class="w">    </span><span class="c1"># 支持的客户端列表：</span>
-<span class="w">    </span><span class="c1"># qBittorrent</span>
-<span class="w">    </span><span class="c1"># Transmission</span>
-<span class="w">    </span><span class="c1"># 其它也许以后会加</span>
-<span class="w">    </span>type:<span class="w"> </span>qBittorrent
-<span class="w">    </span><span class="c1"># 客户端地址</span>
-<span class="w">    </span>endpoint:<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8080&quot;</span>
-<span class="w">    </span><span class="c1"># 登录信息（暂不支持 Basic Auth）</span>
-<span class="w">    </span><span class="c1"># 用户名</span>
-<span class="w">    </span>username:<span class="w"> </span><span class="s2">&quot;&quot;</span>
-<span class="w">    </span><span class="c1"># 密码</span>
-<span class="w">    </span>password:<span class="w"> </span><span class="s2">&quot;&quot;</span>
-<span class="w">    </span><span class="c1"># Basic Auth - 不知道这是什么的话，请保持默认</span>
-<span class="w">    </span>basic-auth:
-<span class="w">      </span>user:<span class="w"> </span><span class="s2">&quot;&quot;</span>
-<span class="w">      </span>pass:<span class="w"> </span><span class="s2">&quot;&quot;</span>
-<span class="w">    </span><span class="c1"># 验证 SSL 证书有效性</span>
-<span class="w">    </span>verify-ssl:<span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span><span class="c1"># Http 协议版本</span>
-<span class="w">    </span>http-version:<span class="w"> </span><span class="s2">&quot;HTTP_1_1&quot;</span>
-<span class="w">  </span><span class="c1"># transmission-002:</span>
-<span class="w">    </span><span class="c1"># type: Transmission</span>
-<span class="w">    </span><span class="c1"># endpoint: &quot;http://127.0.0.1:9091&quot;</span>
-<span class="w">    </span><span class="c1"># username: &quot;admin&quot;</span>
-<span class="w">    </span><span class="c1"># password: &quot;admin&quot;</span>
-<span class="w">    </span><span class="c1"># verify-ssl: true</span>
-<span class="w">    </span><span class="c1"># http-version: &quot;HTTP_1_1&quot;</span>
-<span class="c1"># Http 服务器设置</span>
-server:
-<span class="w">  </span><span class="c1"># 监听端口</span>
-<span class="w">  </span>http:<span class="w"> </span><span class="m">9898</span>
-<span class="w">  </span><span class="c1"># 客户端远程 URL 设置</span>
-<span class="w">  </span><span class="c1"># Docker 网络请改 host 模式使用或者设置容器端口暴露</span>
-<span class="w">  </span><span class="c1"># 当客户端需要与 PBH 通信时，客户端的 URL 会被更改为 http://&lt;address&gt;:&lt;http-port&gt;/&lt;client-api-route&gt;</span>
-<span class="w">  </span>address:<span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span>
-<span class="w">  </span><span class="c1"># 在 PBH 需要给下载器传递地址时，将使用此地址传递，请确保此地址最终可被下载器访问，请【不要】以 / 结尾</span>
-<span class="w">  </span>prefix:<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:9898&quot;</span>
-</code></pre></div>
-<p>保存，然后在 <code>peerbanhelper-binary.exe</code> 同一目录中，新建 <code>HideRun-peerbanhelper.vbs</code>：</p>
-<div class="highlight"><pre><span></span><code>CreateObject(&quot;WScript.Shell&quot;).Run &quot;peerbanhelper-binary.exe&quot;,0
-</code></pre></div>
-<p>将 <code>HideRun-peerbanhelper.vbs</code> 的快捷方式拷贝到 <code>shell:startup</code> 中，以实现开机启动。</p>
 <p>Peerbanhelper 的日志文件在 <code>/data/logs/</code> 中。</p>
-<p>WebUI 地址默认是 <a href="http://localhost:9898/">http://localhost:9898/</a></p>
+<p>WebUI 地址默认是 <a href="http://127.0.0.1:9898/">http://127.0.0.1:9898/</a></p>
 
 
 
