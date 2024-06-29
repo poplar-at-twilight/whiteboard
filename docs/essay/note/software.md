@@ -58,7 +58,21 @@ flatpakx install com.calibre_ebook.calibre
 flatpakx install com.jgraph.drawio.desktop
 flatpakx install com.github.qarmin.czkawka
 flatpakx install org.freefilesync.FreeFileSync
+flatpakx install com.usebottles.bottles
+flatpakx install io.crow_translate.CrowTranslate
 ```
+
+### CrowTranslate
+
+从 [Traineddata Files for Version 4.00 +](https://tesseract-ocr.github.io/tessdoc/Data-Files.html) 下载所需文件。
+
+- chi_sim.traineddata
+- chi_sim_vert.traineddata
+- chi_tra.traineddata
+- chi_tra_vert.traineddata
+- eng.traineddata
+
+默认关闭 chi_tra 文件。
 
 ----
 

@@ -15,11 +15,11 @@ tags:
 
 ## 安装
 
-使用：[c0re100/qBittorrent-Enhanced-Edition] -  `qbittorrent_enhanced_*_qt6_x64_setup.exe`
+使用：[c0re100/qBittorrent-Enhanced-Edition]
 
 [c0re100/qBittorrent-Enhanced-Edition]: https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases
 
-安装完成后，在 qbittorrent 的安装文件中，新建一个名为 `profile` 的文件夹，以便携模式启动 qbittorrent。
+对于 Windows，安装完成后，在 qbittorrent 的安装文件中，新建一个名为 `profile` 的文件夹，以便携模式启动 qbittorrent。
 
 ## 日志
 
@@ -160,7 +160,11 @@ tags:
 
 - 禁止连接到特权端口上的 peer
 
-## IP 过滤列表
+----
+
+## 附加的反吸血措施
+
+### IP 过滤列表
 
 要使用 IP 过滤列表，你需要新建一个名为 `ipfilter.dat` 的纯文本文件，并在 **设置** → **连接** → **IP 过滤** 中勾选此文件。
 
@@ -171,17 +175,7 @@ IP 过滤列表的示例：
 240e:918:8008:4::0-240e:918:8008:4::ffff
 ```
 
-### 封禁中国 IP 段
-
-另见：[为了应对运营商考核上下行比率，恩山无线论坛用户和某云盘使用恶意软件从 Bittorrent 网络无限吸血以提高下载量](https://www.v2ex.com/t/1029736)
-
-1. 打开 [IP <-> Country database at LUDOST.NET]，将 `Select template for formating the output of your query` 改为 `interval`；
-2. 在 `Input a list of ISO country codes separated by spaces in this field` 中输入 `cn`，按下 Enter 键；
-3. 将弹出的新页面保存为 `.dat` 文件。最后在设置中导入此 IP 过滤列表。
-
-[IP <-> Country database at LUDOST.NET]: https://ip.ludost.net/
-
-## 客户端过滤列表
+### 客户端过滤列表
 
 要启用客户端过滤列表，请在 `profile/qBittorrent/data` 目录下新建名为 `peer_blacklist.txt` 的文件。
 
@@ -195,78 +189,51 @@ IP 过滤列表的示例：
 -DT0001- DT\s0.0.0.1
 ```
 
-## 辅助封禁工具
+### 辅助封禁工具
 
 目前有两个流行的工具：
 
 - [Simple-Tracker/qBittorrent-ClientBlocker](https://github.com/Simple-Tracker/qBittorrent-ClientBlocker)
 - [Ghost-chu/PeerBanHelper](https://github.com/Ghost-chu/PeerBanHelper)
 
-我使用的是 `Ghost-chu/PeerBanHelper`
+我使用的是 `Ghost-chu/PeerBanHelper`。
 
-双击启动 `peerbanhelper-binary.exe`，然后关闭终端窗口。
+`PeerBanHelper.jar` 启动脚本：
 
-在 `/data/config` 目录下，打开 `config.yml`，修改配置：
+```
+#!/bin/bash
+java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
+```
 
-- 隐藏 Transmission 的配置
+用于让 `PeerBanHelper` 开机自启动的 systemd 服务文件：
+
+```
+[Unit]
+Description=Start PeerBanHelper jar file
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar nogui
+Type=simple
+WorkingDirectory=/home/poplar/bin/qbee/peerbanhelper
+
+[Install]
+WantedBy=multi-user.target
+```
+
+服务文件需要放置到 `/etc/systemd/system/` 文件夹中，然后重载 systemd 守护进程，再开启服务：
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable pbh --now
+```
+
+初次启动后，在 `/data/config` 目录下，打开 `config.yml`，修改配置：
+
+- 删除 Transmission 的配置
 - 修改 webui 地址
 - 删除用户密码（需要启动跳过验证本地客户端的链接）
 
-如下：
-
-```shell
-# 客户端设置
-client:
-  # 名字，可以自己起，会在日志中显示，只能由字母数字横线组成，数字不能打头
-  qbittorrent-001:
-    # 客户端类型
-    # 支持的客户端列表：
-    # qBittorrent
-    # Transmission
-    # 其它也许以后会加
-    type: qBittorrent
-    # 客户端地址
-    endpoint: "http://127.0.0.1:8080"
-    # 登录信息（暂不支持 Basic Auth）
-    # 用户名
-    username: ""
-    # 密码
-    password: ""
-    # Basic Auth - 不知道这是什么的话，请保持默认
-    basic-auth:
-      user: ""
-      pass: ""
-    # 验证 SSL 证书有效性
-    verify-ssl: true
-    # Http 协议版本
-    http-version: "HTTP_1_1"
-  # transmission-002:
-    # type: Transmission
-    # endpoint: "http://127.0.0.1:9091"
-    # username: "admin"
-    # password: "admin"
-    # verify-ssl: true
-    # http-version: "HTTP_1_1"
-# Http 服务器设置
-server:
-  # 监听端口
-  http: 9898
-  # 客户端远程 URL 设置
-  # Docker 网络请改 host 模式使用或者设置容器端口暴露
-  # 当客户端需要与 PBH 通信时，客户端的 URL 会被更改为 http://<address>:<http-port>/<client-api-route>
-  address: "127.0.0.1"
-  # 在 PBH 需要给下载器传递地址时，将使用此地址传递，请确保此地址最终可被下载器访问，请【不要】以 / 结尾
-  prefix: "http://127.0.0.1:9898"
-```
-
-保存，然后在 `peerbanhelper-binary.exe` 同一目录中，新建 `HideRun-peerbanhelper.vbs`：
-
-```
-CreateObject("WScript.Shell").Run "peerbanhelper-binary.exe",0
-```
-
-将 `HideRun-peerbanhelper.vbs` 的快捷方式拷贝到 `shell:startup` 中，以实现开机启动。
-
 Peerbanhelper 的日志文件在 `/data/logs/` 中。
 
-WebUI 地址默认是 <http://localhost:9898/>
+WebUI 地址默认是 <http://127.0.0.1:9898/>
