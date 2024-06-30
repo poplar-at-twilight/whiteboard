@@ -77,6 +77,7 @@ tags:
 - 四叠半时光机布鲁斯（Yojouhan Time Machine Blues）
 - 春宵苦短，少女前进吧！（Yoru wa Mijikashi Aruke yo Otome）
 - 葬送的芙莉莲（葬送のフリーレン）
+- 为美好的世界献上祝福（KonoSuba: God's Blessing on This Wonderful World!） S1~S3 + M
 
 ### B 类
 
@@ -86,7 +87,6 @@ tags:
 - 动物新世纪（BNA: Brand New Animal）
 - 巨兵长城传 S1
 - 女子高中生的虚度日常（女子高生の無駄づかい）
-- 为美好的世界献上祝福（KonoSuba: God's Blessing on This Wonderful World!） S1~S2 + M
 - 慎重勇者～这个勇者明明超强却过分慎重～（慎重勇者～この勇者が俺TUEEEくせに慎重すぎる～）
 - 辉夜大小姐想让我告白（Kaguya-sama: Love Is War） S1~S2
 - 非洲的动物上班族（アフリカのサラリーマン）
