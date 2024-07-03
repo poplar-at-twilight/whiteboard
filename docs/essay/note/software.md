@@ -74,6 +74,20 @@ flatpakx install io.crow_translate.CrowTranslate
 
 默认关闭 chi_tra 文件。
 
+### Bottles
+
+创建容器后，需要安装一些前置依赖：
+
+- 系统字体包
+- CJK 字体包
+- VC++ 2015-2022
+
+Bottles 的 desktop 文件的环境变量可设置为：
+
+```
+https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+```
+
 ----
 
 ## 删除软件包
@@ -135,6 +149,8 @@ sudo zypper in steam
 ```
 STEAM_FORCE_DESKTOPUI_SCALING=1.5
 ```
+
+steam 会默认优先运行游戏的 Linux 原生版本。如果出现性能问题，请强制使用 steam proton 兼容工具。
 
 ## 散装软件包
 
