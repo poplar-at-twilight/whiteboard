@@ -1102,6 +1102,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bottles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bottles
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1185,6 +1194,27 @@
   
   <span class="md-ellipsis">
     KDE 相关
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../re-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    重装
   </span>
   
 
@@ -1826,6 +1856,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bottles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bottles
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1963,6 +2002,16 @@ flatpakx install io.crow_translate.CrowTranslate
 <li>eng.traineddata</li>
 </ul>
 <p>默认关闭 chi_tra 文件。</p>
+<h3 id="bottles">Bottles</h3>
+<p>创建容器后，需要安装一些前置依赖：</p>
+<ul>
+<li>系统字体包</li>
+<li>CJK 字体包</li>
+<li>VC++ 2015-2022</li>
+</ul>
+<p>Bottles 的 desktop 文件的环境变量可设置为：</p>
+<div class="highlight"><pre><span></span><code>https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+</code></pre></div>
 <hr />
 <h2 id="_3">删除软件包</h2>
 <p>删除并锁定：</p>
@@ -2012,6 +2061,7 @@ flatpakx install io.crow_translate.CrowTranslate
 <p>如果无法正常缩放，则设置变量：</p>
 <div class="highlight"><pre><span></span><code>STEAM_FORCE_DESKTOPUI_SCALING=1.5
 </code></pre></div>
+<p>steam 会默认优先运行游戏的 Linux 原生版本。如果出现性能问题，请强制使用 steam proton 兼容工具。</p>
 <h2 id="_5">散装软件包</h2>
 <ul>
 <li><a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases">https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases</a></li>
