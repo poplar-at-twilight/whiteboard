@@ -213,7 +213,7 @@ Description=Start PeerBanHelper jar file
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar nogui
+ExecStart=/usr/bin/java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=7890" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=7890" -jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar nogui
 Type=simple
 WorkingDirectory=/home/poplar/bin/qbee/peerbanhelper
 
@@ -233,6 +233,7 @@ sudo systemctl enable pbh --now
 - 删除 Transmission 的配置
 - 修改 webui 地址
 - 删除用户密码（需要启动跳过验证本地客户端的链接）
+- 启用并配置 BTN 网络
 
 Peerbanhelper 的日志文件在 `/data/logs/` 中。
 
