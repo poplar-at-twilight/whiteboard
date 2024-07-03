@@ -68,6 +68,8 @@ nav:
         - essay/note/first-boot.md
         - essay/note/software.md
         - essay/note/kde.md
+        - essay/note/fonts.md
+        - essay/note/re-install.md
     - 站外归档:
       - archives/about.md
       - archives/external-index.md
