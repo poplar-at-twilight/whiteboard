@@ -152,6 +152,8 @@ STEAM_FORCE_DESKTOPUI_SCALING=1.5
 
 steam 会默认优先运行游戏的 Linux 原生版本。如果出现性能问题，请强制使用 steam proton 兼容工具。
 
+如果存在连接性问题，则使用 `steam-proxy` 命令。
+
 ## 散装软件包
 
 - <https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases>

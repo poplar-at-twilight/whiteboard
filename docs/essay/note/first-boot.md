@@ -195,4 +195,7 @@ alias venv-setup="python3 -m venv .venv"
 
 alias venv="source .venv/bin/activate"
 #启动容器环境
+
+alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
+#设置代理，并启动 steam（1440p）
 ```
