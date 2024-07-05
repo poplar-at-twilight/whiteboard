@@ -2004,7 +2004,10 @@ http 127.0.0.1 7890
 proxy=http://localhost:7890
 </code></pre></div>
 <p><code>~/.bashrc</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR</span><span class="o">=</span>nano
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
+<span class="c1">#自定义 $PATH 路径</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR</span><span class="o">=</span>nano
 <span class="c1">#将默认文本编辑器指定为 nano</span>
 
 <span class="nb">alias</span><span class="w"> </span>sha256sum-dir<span class="o">=</span><span class="s2">&quot;find . -type f -exec sha256sum {} \; &gt; ../checksum.sha256; mv ../checksum.sha256 .&quot;</span>
@@ -2050,6 +2053,9 @@ proxy=http://localhost:7890
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">venv</span><span class="o">=</span><span class="s2">&quot;source .venv/bin/activate&quot;</span>
 <span class="c1">#启动容器环境</span>
+
+<span class="nb">alias</span><span class="w"> </span>steam-proxy<span class="o">=</span><span class="s2">&quot;set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam&quot;</span>
+<span class="c1">#设置代理，并启动 steam（1440p）</span>
 </code></pre></div>
 
 

@@ -769,9 +769,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#start-aria2sh" class="md-nav__link">
+  <a href="#systemd" class="md-nav__link">
     <span class="md-ellipsis">
-      start-aria2.sh
+      systemd 服务
     </span>
   </a>
   
@@ -785,7 +785,7 @@
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      开机启动
+      日志清理
     </span>
   </a>
   
@@ -2032,9 +2032,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#start-aria2sh" class="md-nav__link">
+  <a href="#systemd" class="md-nav__link">
     <span class="md-ellipsis">
-      start-aria2.sh
+      systemd 服务
     </span>
   </a>
   
@@ -2048,7 +2048,7 @@
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      开机启动
+      日志清理
     </span>
   </a>
   
@@ -2260,36 +2260,68 @@ rpc-secret<span class="o">=</span>poplar
 <div class="highlight"><pre><span></span><code>sudo zypper in aria2
 </code></pre></div>
 <h3 id="_5">配置文件</h3>
-<p>在 <code>~/.config/aria2</code> 目录下新建文本文档：</p>
-<ul>
-<li>aria2.conf</li>
-<li>aria2.log</li>
-<li>aria2.session</li>
-<li>start-aria2.sh</li>
-</ul>
+<p>在 <code>~/bin/aria2</code> 目录下新建文本文档：</p>
+<div class="highlight"><pre><span></span><code>poplar@c004-h0:~/bin&gt; tree aria2
+aria2
+├── aria2.conf
+├── aria2.log
+├── aria2.service
+├── aria2.session
+└── ariang.html
+</code></pre></div>
 <h4 id="aria2conf_1">aria2.conf</h4>
 <p>此处使用的 aria2.conf 文件与上面的文件不同之处在于</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置</span>
-<span class="nv">dir</span><span class="o">=</span>/home/poplar/下载
+<span class="nv">dir</span><span class="o">=</span>/home/poplar/Downloads/Aria2
 
 <span class="c1"># 日志文件保存目录</span>
-<span class="nv">log</span><span class="o">=</span>/home/poplar/.config/aria2/aria2.log
+<span class="nv">log</span><span class="o">=</span>/home/poplar/bin/aria2/aria2.log
 
 
 <span class="c1"># 从会话文件中读取下载任务</span>
-input-file<span class="o">=</span>/home/poplar/.config/aria2/aria2.session
+input-file<span class="o">=</span>/home/poplar/bin/aria2/aria2.session
 
 <span class="c1"># 在 aria2 退出时保存`错误/未完成`的下载任务到会话文件</span>
-save-session<span class="o">=</span>/home/poplar/.config/aria2/aria2.session
+save-session<span class="o">=</span>/home/poplar/bin/aria2/aria2.session
 </code></pre></div>
-<h4 id="start-aria2sh">start-aria2.sh</h4>
-<p>创建启动脚本并赋予可执行权限：</p>
+<h4 id="systemd">systemd 服务</h4>
+<p>使用 systemd 服务启动 aria2：</p>
+<div class="highlight"><pre><span></span><code>[Unit]
+Description=Start aria2 daemon
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/aria2c --conf-path=/home/poplar/bin/aria2/aria2.conf
+Type=simple
+WorkingDirectory=/home/poplar/bin/aria2
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div>
+<p>将 <code>aria2.service</code> 文件放置到 <code>/etc/systemd/system</code> 文件夹下，然后使用</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl daemon-reload
+sudo systemctl enable aria2 --now
+</code></pre></div>
+<h3 id="_6">日志清理</h3>
+<p>在 <code>~/bin/command</code> 下新建一个名为 <code>aria2-clean</code> 的 shell 脚本：</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
-aria2c<span class="w"> </span>--conf-path<span class="o">=</span>/home/poplar/.config/aria2/aria2.conf
+touch<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
+<span class="c1">#创建日志文件</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
+<span class="c1">#查询状态</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>aria2
+<span class="c1">#关闭服务</span>
+rm<span class="w"> </span>~/bin/aria2/aria2.log<span class="p">;</span><span class="w"> </span>touch<span class="w"> </span>~/bin/aria2/aria2.log
+<span class="c1">#清理日志文件</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>aria2
+<span class="c1">#重启服务</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
+<span class="c1">#查询状态</span>
+clear
+<span class="c1">#清理输出</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Log cleanup completed! For details on cleaning task logs, see the files in the desktop folder.&quot;</span>
+<span class="c1">#打印结果</span>
 </code></pre></div>
-<h3 id="_6">开机启动</h3>
-<p>在 KDE 桌面的 <strong>系统设置</strong> &gt; <strong>开机与关机</strong> &gt; <strong>自动启动</strong> 中，添加 <code>start-aria2.sh</code> 即可。</p>
-<p>剩余步骤与 Windows 上操作方式相同。</p>
 <hr />
 <h2 id="_7">参考资料</h2>
 <ul>
