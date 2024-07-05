@@ -17,7 +17,6 @@ tags:
 /home/poplar/Music
 /home/poplar/Pictures
 
-/home/poplar/.config/aria2
 /home/poplar/.config/fcitx
 /home/poplar/.config/fcitx5
 /home/poplar/.config/fluent-reader

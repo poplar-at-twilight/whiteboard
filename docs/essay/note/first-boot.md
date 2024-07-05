@@ -149,6 +149,9 @@ proxy=http://localhost:7890
 `~/.bashrc`：
 
 ```shell
+export PATH=/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
+#自定义 $PATH 路径
+
 export EDITOR=nano
 #将默认文本编辑器指定为 nano
 

@@ -183,12 +183,17 @@ sudo zypper in aria2
 
 ### 配置文件
 
-在 `~/.config/aria2` 目录下新建文本文档：
+在 `~/bin/aria2` 目录下新建文本文档：
 
-- aria2.conf
-- aria2.log
-- aria2.session
-- start-aria2.sh
+```
+poplar@c004-h0:~/bin> tree aria2
+aria2
+├── aria2.conf
+├── aria2.log
+├── aria2.service
+├── aria2.session
+└── ariang.html
+```
 
 #### aria2.conf
 
@@ -196,33 +201,67 @@ sudo zypper in aria2
 
 ```shell
 # 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
-dir=/home/poplar/下载
+dir=/home/poplar/Downloads/Aria2
 
 # 日志文件保存目录
-log=/home/poplar/.config/aria2/aria2.log
+log=/home/poplar/bin/aria2/aria2.log
 
 
 # 从会话文件中读取下载任务
-input-file=/home/poplar/.config/aria2/aria2.session
+input-file=/home/poplar/bin/aria2/aria2.session
 
 # 在 aria2 退出时保存`错误/未完成`的下载任务到会话文件
-save-session=/home/poplar/.config/aria2/aria2.session
+save-session=/home/poplar/bin/aria2/aria2.session
 ```
 
-#### start-aria2.sh
+#### systemd 服务
 
-创建启动脚本并赋予可执行权限：
+使用 systemd 服务启动 aria2：
+
+```
+[Unit]
+Description=Start aria2 daemon
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/aria2c --conf-path=/home/poplar/bin/aria2/aria2.conf
+Type=simple
+WorkingDirectory=/home/poplar/bin/aria2
+
+[Install]
+WantedBy=multi-user.target
+```
+
+将 `aria2.service` 文件放置到 `/etc/systemd/system` 文件夹下，然后使用
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable aria2 --now
+```
+
+### 日志清理
+
+在 `~/bin/command` 下新建一个名为 `aria2-clean` 的 shell 脚本：
 
 ```shell
 #!/bin/sh
-aria2c --conf-path=/home/poplar/.config/aria2/aria2.conf
+touch /home/poplar/Desktop/clean-log.txt
+#创建日志文件
+sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
+#查询状态
+sudo systemctl stop aria2
+#关闭服务
+rm ~/bin/aria2/aria2.log; touch ~/bin/aria2/aria2.log
+#清理日志文件
+sudo systemctl restart aria2
+#重启服务
+sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
+#查询状态
+clear
+#清理输出
+echo "Log cleanup completed! For details on cleaning task logs, see the files in the desktop folder."
+#打印结果
 ```
-
-### 开机启动
-
-在 KDE 桌面的 **系统设置** > **开机与关机** > **自动启动** 中，添加 `start-aria2.sh` 即可。
-
-剩余步骤与 Windows 上操作方式相同。
 
 ----
 
