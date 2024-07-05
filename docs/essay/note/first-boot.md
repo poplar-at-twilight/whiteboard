@@ -120,7 +120,9 @@ OpenGL renderer string: AMD Radeon 780M (radeonsi, gfx1103_r1, LLVM 18.1.6, DRM 
 
 ----
 
-### 配置文件
+## 配置文件
+
+### git
 
 在 `~/.gitconfig` 中，写入：
 
@@ -132,6 +134,8 @@ OpenGL renderer string: AMD Radeon 780M (radeonsi, gfx1103_r1, LLVM 18.1.6, DRM 
     proxy = http://127.0.0.1:7890
 ```
 
+### proxychains-ng
+
 `/etc/proxychains.conf`：
 
 ```
@@ -139,12 +143,16 @@ quiet_mode
 http 127.0.0.1 7890
 ```
 
+### python
+
 设置代理（`~/.config/pip/pip.conf`）：
 
 ```
 [global]
 proxy=http://localhost:7890
 ```
+
+### bashrc
 
 `~/.bashrc`：
 
