@@ -73,7 +73,6 @@ gpg --verify openSUSE-Tumbleweed-DVD-x86_64-[快照序号]-Media.iso.sha256.asc
 
 ## 额外的 RPM 包
 
-- <https://www.google.com/intl/zh-CN/chrome/>
 - <https://github.com/ilya-zlobintsev/LACT/releases>
 - <https://github.com/Clash-Verge-rev/clash-verge-rev/releases>
 

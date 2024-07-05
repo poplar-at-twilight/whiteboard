@@ -24,25 +24,22 @@ sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
 
 ## 删除软件包与软件原
 
-删除多余的 openH264 软件源和 ISO 软件源，并安装 google-chrome。
-
-默认应该有如下软件源：
+删除多余的 openH264 软件源和 ISO 软件源。默认应该有如下软件源：
 
 ```
-poplar@c004-h0:~> sudo zypper lr
-软件源优先级已生效：                                                               (细节请参考 'zypper lr -P')
+poplar@c004-h0:~> zypper lr
+软件源优先级已生效：                                                                          (细节请参考 'zypper lr -P')
       90 (更高的优先级) :  1 个软件源
-      99 (默认优先级)   :  4 个软件源
+      99 (默认优先级)   :  3 个软件源
 
-# | Alias         | Name                        | Enabled | GPG Check | Refresh
---+---------------+-----------------------------+---------+-----------+--------
-1 | google-chrome | google-chrome               | 是      | (r ) 是   | 是
-2 | packman       | packman                     | 是      | (r ) 是   | 是
-3 | repo-debug    | openSUSE-Tumbleweed-Debug   | 否      | ----      | ----
-4 | repo-non-oss  | openSUSE-Tumbleweed-Non-Oss | 是      | (r ) 是   | 是
-5 | repo-oss      | openSUSE-Tumbleweed-Oss     | 是      | (r ) 是   | 是
-6 | repo-source   | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
-7 | repo-update   | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
+# | Alias        | Name                        | Enabled | GPG Check | Refresh
+--+--------------+-----------------------------+---------+-----------+--------
+1 | packman      | packman                     | 是      | (r ) 是   | 是
+2 | repo-debug   | openSUSE-Tumbleweed-Debug   | 否      | ----      | ----
+3 | repo-non-oss | openSUSE-Tumbleweed-Non-Oss | 是      | (r ) 是   | 是
+4 | repo-oss     | openSUSE-Tumbleweed-Oss     | 是      | (r ) 是   | 是
+5 | repo-source  | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
+6 | repo-update  | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
 ```
 
 删除 VLC：
@@ -91,8 +88,15 @@ sudo zypper in vlc ffmpeg-7 deadbeef
 
 ## 安装基本工具
 
+- `keepassxc`
+- `proxychains-ng`
+- `git-core`
+- `chromium`
+
+快捷命令：
+
 ```
-sudo zypper in keepassxc proxychains-ng git-core
+sudo zypper in keepassxc proxychains-ng git-core chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm
 ```
 
 ## 更换语言

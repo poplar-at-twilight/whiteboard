@@ -101,21 +101,20 @@ poplar@c004-h0:~> zypper ll
 ---+-------------------------+---------+------------+--------
 1  | MozillaFirefox          | package | （任意）   | 
 2  | PackageKit              | package | （任意）   | 
-3  | chromium                | package | （任意）   | 
-4  | discover6               | package | （任意）   | 
-5  | falkon                  | package | （任意）   | 
-6  | fcitx                   | package | （任意）   | 
-7  | games                   | pattern | （任意）   | 
-8  | ibus                    | package | （任意）   | 
-9  | kde_pim                 | pattern | （任意）   | 
-10 | kernel-firmware-iwlwifi | package | （任意）   | 
-11 | kmousetool              | package | （任意）   | 
-12 | kompare                 | package | （任意）   | 
-13 | konversation            | package | （任意）   | 
-14 | opensuse-welcome        | package | （任意）   | 
-15 | patterns-kde-kde_games  | package | （任意）   | 
-16 | patterns-kde-kde_pim    | package | （任意）   | 
-17 | skanlite                | package | （任意）   |
+3  | discover6               | package | （任意）   | 
+4  | falkon                  | package | （任意）   | 
+5  | fcitx                   | package | （任意）   | 
+6  | games                   | pattern | （任意）   | 
+7  | ibus                    | package | （任意）   | 
+8  | kde_pim                 | pattern | （任意）   | 
+9  | kernel-firmware-iwlwifi | package | （任意）   | 
+10 | kmousetool              | package | （任意）   | 
+11 | kompare                 | package | （任意）   | 
+12 | konversation            | package | （任意）   | 
+13 | opensuse-welcome        | package | （任意）   | 
+14 | patterns-kde-kde_games  | package | （任意）   | 
+15 | patterns-kde-kde_pim    | package | （任意）   | 
+16 | skanlite                | package | （任意）   | 
 ```
 
 ## 安装软件包

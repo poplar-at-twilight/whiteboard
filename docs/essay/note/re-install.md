@@ -17,11 +17,11 @@ tags:
 /home/poplar/Music
 /home/poplar/Pictures
 
+/home/poplar/.config/chromium
 /home/poplar/.config/fcitx
 /home/poplar/.config/fcitx5
 /home/poplar/.config/fluent-reader
 /home/poplar/.config/goldendict
-/home/poplar/.config/google-chrome
 /home/poplar/.config/keepassxc
 /home/poplar/.config/peazip
 /home/poplar/.config/pip
