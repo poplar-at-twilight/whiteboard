@@ -13,7 +13,7 @@ tags:
 sudo hostnamectl set-hostname --pretty "White-Poplar's Laptop"
 ```
 ```
-sudo hostnamectl set-hostname --static c004-h0
+sudo hostnamectl set-hostname --static c004-h1
 ```
 
 ## 删除 Packagekit 和 Discover
@@ -27,7 +27,7 @@ sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
 删除多余的 openH264 软件源和 ISO 软件源。默认应该有如下软件源：
 
 ```
-poplar@c004-h0:~> zypper lr
+poplar@c004-h1:~> zypper lr
 软件源优先级已生效：                                                                          (细节请参考 'zypper lr -P')
       90 (更高的优先级) :  1 个软件源
       99 (默认优先级)   :  3 个软件源
@@ -116,9 +116,9 @@ DRI_PRIME=1
 ```
 
 ```
-poplar@c004-h0:~> DRI_PRIME=1 glxinfo | grep "OpenGL renderer"
+poplar@c004-h1:~> DRI_PRIME=1 glxinfo | grep "OpenGL renderer"
 OpenGL renderer string: AMD Radeon RX 7600M XT (radeonsi, navi33, LLVM 18.1.6, DRM 3.57, 6.9.5-1-default)
-poplar@c004-h0:~> DRI_PRIME=0 glxinfo | grep "OpenGL renderer"
+poplar@c004-h1:~> DRI_PRIME=0 glxinfo | grep "OpenGL renderer"
 OpenGL renderer string: AMD Radeon 780M (radeonsi, gfx1103_r1, LLVM 18.1.6, DRM 3.57, 6.9.5-1-default)
 ```
 

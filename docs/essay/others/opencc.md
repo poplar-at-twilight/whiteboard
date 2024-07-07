@@ -22,11 +22,11 @@ sudo zypper in opencc -y
 示例：
 
 ```shell
-bh@c004-h0:~> ls && cat 繁体中文.txt
+bh@c004-h1:~> ls && cat 繁体中文.txt
 繁体中文.txt  公共  模板  视频  图片  文档  下载  音乐  桌面  Applications  BT-Network
 OpenCC 是一個開源項目，用於繁體中文、簡體中文和日文漢字（Shinjitai）之間的轉換。支持中國大陸、臺灣和香港之間的字符級和短語級轉換、字符變體轉換和地區成語。這不是普通話和粵語等之間的翻譯工具。
-bh@c004-h0:~> opencc -i 繁体中文.txt -c t2s -o 简体中文.txt
-bh@c004-h0:~> cat 简体中文.txt
+bh@c004-h1:~> opencc -i 繁体中文.txt -c t2s -o 简体中文.txt
+bh@c004-h1:~> cat 简体中文.txt
 OpenCC 是一个开源项目，用于繁体中文、简体中文和日文汉字（Shinjitai）之间的转换。支持中国大陆、台湾和香港之间的字符级和短语级转换、字符变体转换和地区成语。这不是普通话和粤语等之间的翻译工具。
 ```
 

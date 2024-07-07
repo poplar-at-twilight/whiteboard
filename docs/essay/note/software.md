@@ -95,7 +95,7 @@ https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=soc
 删除并锁定：
 
 ```
-poplar@c004-h0:~> zypper ll
+poplar@c004-h1:~> zypper ll
 
 #  | Name                    | Type    | Repository | Comment
 ---+-------------------------+---------+------------+--------

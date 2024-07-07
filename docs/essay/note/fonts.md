@@ -8,7 +8,7 @@ tags:
 # 用户字体
 
 ```
-poplar@c004-h0:~/.local/share/fonts> tree
+poplar@c004-h1:~/.local/share/fonts> tree
 .
 └── win11-fonts-partial
     ├── arial

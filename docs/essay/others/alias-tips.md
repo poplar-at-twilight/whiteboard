@@ -29,7 +29,7 @@ alias mkdocs="python3 -m pip mkdocs server"
 对于 Bash Shell，普通用户可将别名添加至 `$HOME/.bashrc` 文件。如：
 
 ```
-bh@c004-h0:~> cat .bashrc
+bh@c004-h1:~> cat .bashrc
 # Sample .bashrc for SUSE Linux
 # Copyright (c) SUSE Software Solutions Germany GmbH
 
@@ -66,7 +66,7 @@ unalias alias_name
 要为所有用户设置别名，可在 `/etc/profile.d` 下新建一个名为 `00-aliases.sh` 的 shell 脚本，然后将别名填入脚本中，如下[^2]：
 
 ```
-bh@c004-h0:~> cat /etc/profile.d/00-aliases.sh
+bh@c004-h1:~> cat /etc/profile.d/00-aliases.sh
 alias sudo="sudo "
 alias zypper="proxychains4 zypper"
 ```
