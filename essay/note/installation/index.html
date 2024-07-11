@@ -1032,6 +1032,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      KVM
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1750,6 +1759,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      KVM
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1858,6 +1876,14 @@
 </tr>
 </tbody>
 </table>
+<h2 id="kvm">KVM</h2>
+<p>部署 KVM：</p>
+<p><div class="highlight"><pre><span></span><code>sudo zypper install -t pattern kvm_server kvm_tools
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo usermod -aG libvirt $USER
+</code></pre></div></p>
+<p>然后重启系统。</p>
+<p>注意，不要使用默认的存储池。另见：<a href="https://zh.opensuse.org/KVM">openSUSE Wiki - KVM</a></p>
 
 
 

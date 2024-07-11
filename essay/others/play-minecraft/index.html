@@ -707,12 +707,36 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      JDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      desktop 文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      安装依赖
+      启动器配置
     </span>
   </a>
   
@@ -721,7 +745,40 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      集成至开始菜单
+      安装游戏
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="安装游戏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mod" class="md-nav__link">
+    <span class="md-ellipsis">
+      mod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      光影包
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      外部链接
     </span>
   </a>
   
@@ -1766,12 +1823,36 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      JDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      desktop 文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      安装依赖
+      启动器配置
     </span>
   </a>
   
@@ -1780,7 +1861,40 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      集成至开始菜单
+      安装游戏
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="安装游戏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mod" class="md-nav__link">
+    <span class="md-ellipsis">
+      mod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      光影包
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      外部链接
     </span>
   </a>
   
@@ -1826,33 +1940,69 @@
 
 <h1 id="opensuse-minecraft">在 openSUSE 上游玩 Minecraft</h1>
 <h2 id="_1">准备</h2>
-<p>首先，前往官网 <a href="https://hmcl.huangyuhui.net/">Hellow Minecraft Launcher（HMCL）</a> 下载适用于 Linux 平台的 Jar 文件。</p>
-<h2 id="_2">安装依赖</h2>
-<p>你需要先安装两个基本包：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper in openjfx java-17-openjdk
-</code></pre></div>
-<p>然后在命令行启动启动器：</p>
-<div class="highlight"><pre><span></span><code>java -jar HMCL*.jar
-</code></pre></div>
-<h2 id="_3">集成至开始菜单</h2>
-<p>设置一个 start.sh 脚本</p>
-<div class="highlight"><pre><span></span><code>#!/bin/sh
-cd /path_to_dir_of_minecraft
-java -jar HMCL-*.jar
-</code></pre></div>
-<p>然后在 ~/.local/share/applications 下创建一个 desktop 文件：</p>
+<p>使用的启动器是 <a href="https://multimc.org/">MultiMC</a> 发布的 <code>Binary Tarball (64-bit)</code> 版本，将文件解压至 <code>~/bin/mc</code>。</p>
+<h3 id="jdk">JDK</h3>
+<p>openSUSE 默认安装的 LibreOffice 会依赖 OpenJDK 21。一般不需要安装额外的 JDK。</p>
+<h3 id="desktop">desktop 文件</h3>
+<p>使用 <code>DRI_PRIME=1</code> 变量让 Minecraft 在 GPU 下运行。</p>
 <div class="highlight"><pre><span></span><code>[Desktop Entry]
-Encoding=UTF-8
-Value=1.0
+Comment[zh_CN]=Minecraft launcher
+Categories=Game
+Comment=Minecraft launcher
+Exec=env DRI_PRIME=1 /home/poplar/bin/mc/MultiMC
+GenericName[zh_CN]=MultiMC
+GenericName=MultiMC
+Icon=minecraft
+MimeType=
+Name[zh_CN]=MultiMC
+Name=MultiMC
+Path=/home/poplar/bin/mc
+StartupNotify=true
+Terminal=false
+TerminalOptions=
 Type=Application
-Name=HMCL
-GenericName=Hellow Minecraft Launcher
-Comment=a Minecraft game launcher
-Icon=/path_to_icons
-Exec=&quot;/path_to_start.sh&quot; &quot;&quot;
-Categories=Game;
-Path=/path_to_minecraft
+X-KDE-SubstituteUID=false
+X-KDE-Username=
 </code></pre></div>
+<h2 id="_2">启动器配置</h2>
+<ul>
+<li>语言：简体中文</li>
+<li>JDK：<ul>
+<li>Java 路径：使用系统的 JDK</li>
+<li>最大内存分配大小：4096MiB</li>
+</ul>
+</li>
+<li>Minecraft：将窗口大小调整为 1920x1080</li>
+<li>代理服务器：<ul>
+<li>HTTP</li>
+<li>127.0.0.1:7890</li>
+</ul>
+</li>
+<li>账户：Microsoft 账户</li>
+</ul>
+<h2 id="_3">安装游戏</h2>
+<p>MultiMC 以实例（instance）为单位管理 Minecraft 游戏本体。默认安装的版本是 1.20.6。</p>
+<p>游戏本体存放在 <code>~/bin/mc/instances/&lt;版本名称&gt;/.minecraft</code> 中。</p>
+<h3 id="mod">mod</h3>
+<ul>
+<li>Fabric</li>
+<li><a href="https://modrinth.com/mod/fabric-api">Fabric API</a></li>
+<li><a href="https://modrinth.com/mod/iris">Iris Shader</a></li>
+<li><a href="https://modrinth.com/mod/sodium">Sodium</a></li>
+<li><a href="https://modrinth.com/mod/lithium">Lithium</a></li>
+<li><a href="https://www.curseforge.com/minecraft/mc-mods/journeymap">Journeymap</a></li>
+</ul>
+<h3 id="_4">光影包</h3>
+<p>默认选择：<a href="https://modrinth.com/shader/complementary-reimagined">Complementary Shaders - Reimagined</a></p>
+<h2 id="_5">外部链接</h2>
+<p>一些有用的外部链接：</p>
+<ul>
+<li><a href="https://www.mcmod.cn/">MC 百科</a></li>
+<li><a href="https://www.mcbbs.net/">MCBBS</a></li>
+<li><a href="https://www.curseforge.com/minecraft/modpacks">Minecraft - Curseforge</a></li>
+<li><a href="https://minecraft.fandom.com/wiki/Minecraft_Wiki">Minecraft Wiki</a></li>
+<li><a href="https://www.planetminecraft.com/data-packs/?p=0">Minecraft Data Packs | Planet Minecraft Community</a></li>
+</ul>
 
 
 

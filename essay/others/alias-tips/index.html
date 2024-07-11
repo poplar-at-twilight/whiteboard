@@ -1878,7 +1878,7 @@ alias mkdocs=&quot;python3 -m pip mkdocs server&quot;
 <p>在终端使用诸如 <code>$ alias word="command"</code> 之类的命令可以临时设置一个别名，但退出终端会话后，临时别名也会被丢弃。</p>
 <h2 id="_3">永久设置别名</h2>
 <p>对于 Bash Shell，普通用户可将别名添加至 <code>$HOME/.bashrc</code> 文件。如：</p>
-<div class="highlight"><pre><span></span><code>bh@c004-h0:~&gt; cat .bashrc
+<div class="highlight"><pre><span></span><code>bh@c004-h1:~&gt; cat .bashrc
 # Sample .bashrc for SUSE Linux
 # Copyright (c) SUSE Software Solutions Germany GmbH
 
@@ -1905,7 +1905,7 @@ alias flatpak=&quot;pyc flatpak&quot;
 </code></pre></div>
 <h2 id="_4">设置全局别名</h2>
 <p>要为所有用户设置别名，可在 <code>/etc/profile.d</code> 下新建一个名为 <code>00-aliases.sh</code> 的 shell 脚本，然后将别名填入脚本中，如下<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>：</p>
-<div class="highlight"><pre><span></span><code>bh@c004-h0:~&gt; cat /etc/profile.d/00-aliases.sh
+<div class="highlight"><pre><span></span><code>bh@c004-h1:~&gt; cat /etc/profile.d/00-aliases.sh
 alias sudo=&quot;sudo &quot;
 alias zypper=&quot;proxychains4 zypper&quot;
 </code></pre></div>

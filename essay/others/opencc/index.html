@@ -1858,11 +1858,11 @@
 </code></pre></div>
 <h2 id="_2">使用</h2>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>bh@c004-h0:~&gt;<span class="w"> </span>ls<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span>繁体中文.txt
+<div class="highlight"><pre><span></span><code>bh@c004-h1:~&gt;<span class="w"> </span>ls<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span>繁体中文.txt
 繁体中文.txt<span class="w">  </span>公共<span class="w">  </span>模板<span class="w">  </span>视频<span class="w">  </span>图片<span class="w">  </span>文档<span class="w">  </span>下载<span class="w">  </span>音乐<span class="w">  </span>桌面<span class="w">  </span>Applications<span class="w">  </span>BT-Network
 OpenCC<span class="w"> </span>是一個開源項目，用於繁體中文、簡體中文和日文漢字（Shinjitai）之間的轉換。支持中國大陸、臺灣和香港之間的字符級和短語級轉換、字符變體轉換和地區成語。這不是普通話和粵語等之間的翻譯工具。
-bh@c004-h0:~&gt;<span class="w"> </span>opencc<span class="w"> </span>-i<span class="w"> </span>繁体中文.txt<span class="w"> </span>-c<span class="w"> </span>t2s<span class="w"> </span>-o<span class="w"> </span>简体中文.txt
-bh@c004-h0:~&gt;<span class="w"> </span>cat<span class="w"> </span>简体中文.txt
+bh@c004-h1:~&gt;<span class="w"> </span>opencc<span class="w"> </span>-i<span class="w"> </span>繁体中文.txt<span class="w"> </span>-c<span class="w"> </span>t2s<span class="w"> </span>-o<span class="w"> </span>简体中文.txt
+bh@c004-h1:~&gt;<span class="w"> </span>cat<span class="w"> </span>简体中文.txt
 OpenCC<span class="w"> </span>是一个开源项目，用于繁体中文、简体中文和日文汉字（Shinjitai）之间的转换。支持中国大陆、台湾和香港之间的字符级和短语级转换、字符变体转换和地区成语。这不是普通话和粤语等之间的翻译工具。
 </code></pre></div>
 <p>在如上的示例中，我将繁体中文文本写入到名为 <code>繁体中文.txt</code> 的文件中，然后使用 opencc 读取该文件，并读取配置文件 <code>t2s</code> 进行转换，再输出一个名为 <code>简体中文.txt</code> 的文件。</p>
