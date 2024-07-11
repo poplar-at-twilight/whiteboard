@@ -57,22 +57,24 @@ X-KDE-Username=
 
 ## 安装游戏
 
-MultiMC 以实例（instance）为单位管理 Minecraft 游戏本体。默认安装的版本是 1.16.5。
+MultiMC 以实例（instance）为单位管理 Minecraft 游戏本体。默认安装的版本是 1.20.6。
 
 游戏本体存放在 `~/bin/mc/instances/<版本名称>/.minecraft` 中。
 
+### mod
+
+- Fabric
+- [Fabric API](https://modrinth.com/mod/fabric-api)
+- [Iris Shader](https://modrinth.com/mod/iris)
+- [Sodium](https://modrinth.com/mod/sodium)
+- [Lithium](https://modrinth.com/mod/lithium)
+- [Journeymap](https://www.curseforge.com/minecraft/mc-mods/journeymap)
+
 ### 光影包
 
-默认选择：[BSL Shaders]
+默认选择：[Complementary Shaders - Reimagined]
 
-[BSL Shaders]: https://modrinth.com/shader/bsl-shaders
-
-### 数据包与 mod
-
-除了许多可用的 [Mod] 之外，1.16 也有许多的[数据包]（datapak）可用。
-
-[Mod]: https://beta.curseforge.com/minecraft/search?index=1&gameId=432&pageSize=20&classId=6&sortType=2&gameVersion=1.16.5
-[数据包]: https://minecraft.fandom.com/wiki/Data_pack
+[Complementary Shaders - Reimagined]: https://modrinth.com/shader/complementary-reimagined
 
 ## 外部链接
 
