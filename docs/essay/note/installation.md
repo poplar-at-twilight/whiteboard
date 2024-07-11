@@ -30,3 +30,20 @@ SWAP 分区推荐大小如下所示：
 |2GB - 8GB|和 RAM 相同|RAM 的两倍|
 |8GB - 64GB|RAM 的 0.5 倍|RAM 的 1.5 倍|
 |大于 64GB|基于实际工作负载而定|不推荐休眠|
+
+## KVM
+
+部署 KVM：
+
+```
+sudo zypper install -t pattern kvm_server kvm_tools
+```
+```
+sudo usermod -aG libvirt $USER
+```
+
+然后重启系统。
+
+注意，不要使用默认的存储池。另见：[openSUSE Wiki - KVM]
+
+[openSUSE Wiki - KVM]: https://zh.opensuse.org/KVM
