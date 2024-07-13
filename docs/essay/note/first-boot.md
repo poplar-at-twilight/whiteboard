@@ -28,18 +28,19 @@ sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
 
 ```
 poplar@c004-h1:~> zypper lr
-软件源优先级已生效：                                                                          (细节请参考 'zypper lr -P')
+软件源优先级已生效：                                                                                                                        (细节请参考 'zypper lr -P')
       90 (更高的优先级) :  1 个软件源
-      99 (默认优先级)   :  3 个软件源
+      99 (默认优先级)   :  4 个软件源
 
-# | Alias        | Name                        | Enabled | GPG Check | Refresh
---+--------------+-----------------------------+---------+-----------+--------
-1 | packman      | packman                     | 是      | (r ) 是   | 是
-2 | repo-debug   | openSUSE-Tumbleweed-Debug   | 否      | ----      | ----
-3 | repo-non-oss | openSUSE-Tumbleweed-Non-Oss | 是      | (r ) 是   | 是
-4 | repo-oss     | openSUSE-Tumbleweed-Oss     | 是      | (r ) 是   | 是
-5 | repo-source  | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
-6 | repo-update  | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
+# | Alias         | Name                        | Enabled | GPG Check | Refresh
+--+---------------+-----------------------------+---------+-----------+--------
+1 | Google-Chrome | Google-Chrome               | 是      | (r ) 是   | 否
+2 | packman       | packman                     | 是      | (r ) 是   | 是
+3 | repo-debug    | openSUSE-Tumbleweed-Debug   | 否      | ----      | ----
+4 | repo-non-oss  | openSUSE-Tumbleweed-Non-Oss | 是      | (r ) 是   | 是
+5 | repo-oss      | openSUSE-Tumbleweed-Oss     | 是      | (r ) 是   | 是
+6 | repo-source   | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
+7 | repo-update   | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
 ```
 
 删除 VLC：
@@ -91,12 +92,28 @@ sudo zypper in vlc ffmpeg-7 deadbeef
 - `keepassxc`
 - `proxychains-ng`
 - `git-core`
-- `chromium`
 
 快捷命令：
 
 ```
-sudo zypper in keepassxc proxychains-ng git-core chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm
+sudo zypper in keepassxc proxychains-ng git-core
+```
+
+### chrome
+
+添加软件源：
+
+```
+wget https://dl.google.com/linux/linux_signing_key.pub; sudo rpm --import linux_signing_key.pub
+```
+```
+sudo zypper ar http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
+```
+
+安装软件包：
+
+```
+sudo rpm -i google-chrome-stable_current_x86_64.rpm
 ```
 
 ## 更换语言
@@ -213,4 +230,7 @@ alias venv="source .venv/bin/activate"
 
 alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
 #设置代理，并启动 steam（1440p）
+
+alias javax="java -jar "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=7890" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=7890""
+#为 java 设置代理
 ```
