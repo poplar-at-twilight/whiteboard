@@ -25,7 +25,7 @@
         <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../feed_rss_updated.xml">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
     
     
       
@@ -1087,6 +1087,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="安装基本工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      chrome
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1889,6 +1904,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="安装基本工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      chrome
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2004,18 +2034,19 @@
 <h2 id="_3">删除软件包与软件原</h2>
 <p>删除多余的 openH264 软件源和 ISO 软件源。默认应该有如下软件源：</p>
 <div class="highlight"><pre><span></span><code>poplar@c004-h1:~&gt; zypper lr
-软件源优先级已生效：                                                                          (细节请参考 &#39;zypper lr -P&#39;)
+软件源优先级已生效：                                                                                                                        (细节请参考 &#39;zypper lr -P&#39;)
       90 (更高的优先级) :  1 个软件源
-      99 (默认优先级)   :  3 个软件源
+      99 (默认优先级)   :  4 个软件源
 
-# | Alias        | Name                        | Enabled | GPG Check | Refresh
---+--------------+-----------------------------+---------+-----------+--------
-1 | packman      | packman                     | 是      | (r ) 是   | 是
-2 | repo-debug   | openSUSE-Tumbleweed-Debug   | 否      | ----      | ----
-3 | repo-non-oss | openSUSE-Tumbleweed-Non-Oss | 是      | (r ) 是   | 是
-4 | repo-oss     | openSUSE-Tumbleweed-Oss     | 是      | (r ) 是   | 是
-5 | repo-source  | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
-6 | repo-update  | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
+# | Alias         | Name                        | Enabled | GPG Check | Refresh
+--+---------------+-----------------------------+---------+-----------+--------
+1 | Google-Chrome | Google-Chrome               | 是      | (r ) 是   | 否
+2 | packman       | packman                     | 是      | (r ) 是   | 是
+3 | repo-debug    | openSUSE-Tumbleweed-Debug   | 否      | ----      | ----
+4 | repo-non-oss  | openSUSE-Tumbleweed-Non-Oss | 是      | (r ) 是   | 是
+5 | repo-oss      | openSUSE-Tumbleweed-Oss     | 是      | (r ) 是   | 是
+6 | repo-source   | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
+7 | repo-update   | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
 </code></pre></div>
 <p>删除 VLC：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper rm -u vlc; sudo zypper al vlc
@@ -2045,10 +2076,18 @@
 <li><code>keepassxc</code></li>
 <li><code>proxychains-ng</code></li>
 <li><code>git-core</code></li>
-<li><code>chromium</code></li>
 </ul>
 <p>快捷命令：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper in keepassxc proxychains-ng git-core chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm
+<div class="highlight"><pre><span></span><code>sudo zypper in keepassxc proxychains-ng git-core
+</code></pre></div>
+<h3 id="chrome">chrome</h3>
+<p>添加软件源：</p>
+<p><div class="highlight"><pre><span></span><code>wget https://dl.google.com/linux/linux_signing_key.pub; sudo rpm --import linux_signing_key.pub
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo zypper ar http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
+</code></pre></div></p>
+<p>安装软件包：</p>
+<div class="highlight"><pre><span></span><code>sudo rpm -i google-chrome-stable_current_x86_64.rpm
 </code></pre></div>
 <h2 id="_6">更换语言</h2>
 <p>在 YaST Language 将首选语言修改为简体中文，同时选择英文作为第二语言。</p>
@@ -2137,6 +2176,9 @@ proxy=http://localhost:7890
 
 <span class="nb">alias</span><span class="w"> </span>steam-proxy<span class="o">=</span><span class="s2">&quot;set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam&quot;</span>
 <span class="c1">#设置代理，并启动 steam（1440p）</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">javax</span><span class="o">=</span><span class="s2">&quot;java -jar &quot;</span>-Dhttp.proxyHost<span class="o">=</span><span class="m">127</span>.0.0.1<span class="s2">&quot; &quot;</span>-Dhttp.proxyPort<span class="o">=</span><span class="m">7890</span><span class="s2">&quot; &quot;</span>-Dhttps.proxyHost<span class="o">=</span><span class="m">127</span>.0.0.1<span class="s2">&quot; &quot;</span>-Dhttps.proxyPort<span class="o">=</span><span class="m">7890</span><span class="s2">&quot;&quot;</span>
+<span class="c1">#为 java 设置代理</span>
 </code></pre></div>
 
 
@@ -2284,7 +2326,7 @@ proxy=http://localhost:7890
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "content.tabs.link", "navigation.footer", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   </body>
