@@ -1987,7 +1987,7 @@
 <li><a href="https://github.com/Clash-Verge-rev/clash-verge-rev/releases">https://github.com/Clash-Verge-rev/clash-verge-rev/releases</a></li>
 </ul>
 <p>安装依赖：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper libayatana-appindicator3-1 libwebkit2gtk-4_0-37
+<div class="highlight"><pre><span></span><code>sudo zypper in libayatana-appindicator3-1 libwebkit2gtk-4_0-37
 </code></pre></div>
 <p>安装本体：</p>
 <div class="highlight"><pre><span></span><code>sudo rpm -i clash-verge-*.x86_64.rpm
@@ -2012,6 +2012,7 @@ flatpakx install com.github.qarmin.czkawka
 flatpakx install org.freefilesync.FreeFileSync
 flatpakx install com.usebottles.bottles
 flatpakx install io.crow_translate.CrowTranslate
+flatpakx install org.telegram.desktop
 </code></pre></div>
 <h3 id="crowtranslate">CrowTranslate</h3>
 <p>从 <a href="https://tesseract-ocr.github.io/tessdoc/Data-Files.html">Traineddata Files for Version 4.00 +</a> 下载所需文件。</p>
@@ -2038,27 +2039,27 @@ flatpakx install io.crow_translate.CrowTranslate
 <p>删除并锁定：</p>
 <div class="highlight"><pre><span></span><code>poplar@c004-h1:~&gt; zypper ll
 
-#  | Name                    | Type    | Repository | Comment
----+-------------------------+---------+------------+--------
-1  | MozillaFirefox          | package | （任意）   | 
-2  | PackageKit              | package | （任意）   | 
-3  | discover6               | package | （任意）   | 
-4  | falkon                  | package | （任意）   | 
-5  | fcitx                   | package | （任意）   | 
-6  | games                   | pattern | （任意）   | 
-7  | ibus                    | package | （任意）   | 
-8  | kde_pim                 | pattern | （任意）   | 
-9  | kernel-firmware-iwlwifi | package | （任意）   | 
-10 | kmousetool              | package | （任意）   | 
-11 | kompare                 | package | （任意）   | 
-12 | konversation            | package | （任意）   | 
-13 | opensuse-welcome        | package | （任意）   | 
-14 | patterns-kde-kde_games  | package | （任意）   | 
-15 | patterns-kde-kde_pim    | package | （任意）   | 
-16 | skanlite                | package | （任意）   | 
+#  | Name                       | Type    | Repository | Comment
+---+----------------------------+---------+------------+--------
+1  | MozillaFirefox             | package | （任意）   | 
+2  | PackageKit                 | package | （任意）   | 
+3  | discover6                  | package | （任意）   | 
+4  | fcitx                      | package | （任意）   | 
+5  | games                      | pattern | （任意）   | 
+6  | ibus                       | package | （任意）   | 
+7  | kmousetool                 | package | （任意）   | 
+8  | kompare                    | package | （任意）   | 
+9  | konversation               | package | （任意）   | 
+10 | opensuse-welcome           | package | （任意）   | 
+11 | patterns-games-games       | package | （任意）   | 
+12 | patterns-gnome-gnome_games | package | （任意）   | 
+13 | patterns-kde-kde_games     | package | （任意）   | 
+14 | patterns-kde-kde_pim       | package | （任意）   | 
+15 | skanlite                   | package | （任意）   | 
 </code></pre></div>
 <h2 id="_4">安装软件包</h2>
 <ul>
+<li><code>aria2</code></li>
 <li><code>fcitx5</code></li>
 <li><code>filelight</code></li>
 <li><code>google-noto-sans-mono-fonts</code></li>
@@ -2070,10 +2071,9 @@ flatpakx install io.crow_translate.CrowTranslate
 <li><code>peazip</code></li>
 <li><code>pandoc</code></li>
 <li><code>steam</code></li>
-<li><code>telegram-desktop</code></li>
 </ul>
 <p>快捷命令：</p>
-<p><div class="highlight"><pre><span></span><code>sudo zypper in fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc telegram-desktop google-noto-sans-mono-fonts
+<p><div class="highlight"><pre><span></span><code>sudo zypper in fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo zypper in steam
 </code></pre></div></p>

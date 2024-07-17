@@ -2048,9 +2048,6 @@
 6 | repo-source   | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
 7 | repo-update   | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
 </code></pre></div>
-<p>删除 VLC：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper rm -u vlc; sudo zypper al vlc
-</code></pre></div>
 <p>更新系统：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper ref; sudo zypper dup
 </code></pre></div>
@@ -2060,9 +2057,6 @@
 <h2 id="_4">多媒体播放器</h2>
 <p>添加 Packman 源：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman
-</code></pre></div>
-<p>解锁 VLC：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper rl vlc
 </code></pre></div>
 <p>更新并安装多媒体播放器：</p>
 <p><div class="highlight"><pre><span></span><code>sudo zypper refresh
