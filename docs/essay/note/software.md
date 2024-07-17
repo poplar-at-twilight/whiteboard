@@ -135,7 +135,7 @@ poplar@c004-h1:~> zypper ll
 快捷命令：
 
 ```
-sudo zypper in fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip peazip-kf5 pandoc  google-noto-sans-mono-fonts aria2
+sudo zypper in fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
 ```
 ```
 sudo zypper in steam
