@@ -229,13 +229,25 @@ sudo systemctl daemon-reload
 sudo systemctl enable pbh --now
 ```
 
+用于重启 PeerBanHelper 服务的脚本：
+
+```
+poplar@c004-h1:~/bin/command> cat pbh-s
+#!/bin/sh
+#重启 pbh
+sudo systemctl restart pbh
+#暂停 5 秒
+sleep 5
+#读取最新的日志
+cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
+```
+
 初次启动后，在 `/data/config` 目录下，打开 `config.yml`，修改配置：
 
-- 删除 Transmission 的配置
 - 修改 webui 地址
-- 删除用户密码（需要启动跳过验证本地客户端的链接）
+- 启用 IPDB
 - 启用并配置 BTN 网络
 
-Peerbanhelper 的日志文件在 `/data/logs/` 中。
+然后登录 <http://127.0.0.1:9898/>，添加需要连接的下载器，qBittorrent 一般是：
 
-WebUI 地址默认是 <http://127.0.0.1:9898/>
+- <http://127.0.0.1:8080>

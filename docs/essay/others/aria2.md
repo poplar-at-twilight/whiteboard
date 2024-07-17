@@ -247,6 +247,8 @@ sudo systemctl enable aria2 --now
 #!/bin/sh
 touch /home/poplar/Desktop/clean-log.txt
 #创建日志文件
+ls -lh ~/bin/aria2/aria2.log  | tee -a -p /home/poplar/Desktop/clean-log.txt
+#读取文件大小
 sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
 #查询状态
 sudo systemctl stop aria2

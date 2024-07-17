@@ -172,7 +172,7 @@ export PATH=/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/u
 export EDITOR=nano
 #将默认文本编辑器指定为 nano
 
-alias sha256sum-dir="find . -type f -exec sha256sum {} \; > ../checksum.sha256; mv ../checksum.sha256 ."
+alias sha256sum-dir="find . -type f -exec sha256sum {} \; > ../checksum.sha256; mv ../checksum.sha256 .; echo 'Complete calculation!'"
 #自动计算当前文件夹内的全部文件的哈希，并将结果写入 sha256 文件
 
 alias git-repo-clean="git remote prune origin && git repack && git prune-packed && git reflog expire --expire=1.month.ago && git gc --aggressive"
@@ -195,16 +195,10 @@ alias pyc="proxychains4"
 alias flatpakx="proxychains4 flatpak --user"
 #对 flatpak 使用代理，并增加 --user 标签
 
-alias yt-dlp="proxychains4 yt-dlp"
-#为下载工具设置代理
-
-alias clean="clear; exit"
-#适用于 vscode 内置终端的退出命令
-
 alias font-ref="fc-cache -fv"
 #刷新字体缓存
 
-alias pings="ping opentuna.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6"
+alias pings="ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6"
 #测试网络连通性
 
 alias update="sudo zypper ref; sudo zypper lu; flatpakx update"
