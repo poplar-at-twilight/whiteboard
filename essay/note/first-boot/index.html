@@ -2124,7 +2124,7 @@ proxy=http://localhost:7890
 <span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR</span><span class="o">=</span>nano
 <span class="c1">#将默认文本编辑器指定为 nano</span>
 
-<span class="nb">alias</span><span class="w"> </span>sha256sum-dir<span class="o">=</span><span class="s2">&quot;find . -type f -exec sha256sum {} \; &gt; ../checksum.sha256; mv ../checksum.sha256 .&quot;</span>
+<span class="nb">alias</span><span class="w"> </span>sha256sum-dir<span class="o">=</span><span class="s2">&quot;find . -type f -exec sha256sum {} \; &gt; ../checksum.sha256; mv ../checksum.sha256 .; echo &#39;Complete calculation!&#39;&quot;</span>
 <span class="c1">#自动计算当前文件夹内的全部文件的哈希，并将结果写入 sha256 文件</span>
 
 <span class="nb">alias</span><span class="w"> </span>git-repo-clean<span class="o">=</span><span class="s2">&quot;git remote prune origin &amp;&amp; git repack &amp;&amp; git prune-packed &amp;&amp; git reflog expire --expire=1.month.ago &amp;&amp; git gc --aggressive&quot;</span>
@@ -2147,16 +2147,10 @@ proxy=http://localhost:7890
 <span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;proxychains4 flatpak --user&quot;</span>
 <span class="c1">#对 flatpak 使用代理，并增加 --user 标签</span>
 
-<span class="nb">alias</span><span class="w"> </span>yt-dlp<span class="o">=</span><span class="s2">&quot;proxychains4 yt-dlp&quot;</span>
-<span class="c1">#为下载工具设置代理</span>
-
-<span class="nb">alias</span><span class="w"> </span><span class="nv">clean</span><span class="o">=</span><span class="s2">&quot;clear; exit&quot;</span>
-<span class="c1">#适用于 vscode 内置终端的退出命令</span>
-
 <span class="nb">alias</span><span class="w"> </span>font-ref<span class="o">=</span><span class="s2">&quot;fc-cache -fv&quot;</span>
 <span class="c1">#刷新字体缓存</span>
 
-<span class="nb">alias</span><span class="w"> </span><span class="nv">pings</span><span class="o">=</span><span class="s2">&quot;ping opentuna.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6&quot;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pings</span><span class="o">=</span><span class="s2">&quot;ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6&quot;</span>
 <span class="c1">#测试网络连通性</span>
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">update</span><span class="o">=</span><span class="s2">&quot;sudo zypper ref; sudo zypper lu; flatpakx update&quot;</span>

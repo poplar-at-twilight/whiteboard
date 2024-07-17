@@ -2307,6 +2307,8 @@ sudo systemctl enable aria2 --now
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 touch<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
 <span class="c1">#创建日志文件</span>
+ls<span class="w"> </span>-lh<span class="w"> </span>~/bin/aria2/aria2.log<span class="w">  </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
+<span class="c1">#读取文件大小</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
 <span class="c1">#查询状态</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>aria2
