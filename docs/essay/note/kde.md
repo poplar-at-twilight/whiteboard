@@ -9,11 +9,17 @@ tags:
 
 ## 主题
 
-- 光标图标主题：[Qogir cursors]
 - 图标主题：[Tela-icon-theme]
 
 [Tela-icon-theme]: https://store.kde.org/p/1279924
+
+<!--
+
+- 光标图标主题：[Qogir cursors]
+
 [Qogir cursors]: https://store.kde.org/p/1366182
+
+-->
 
 ### fcitx5 主题
 

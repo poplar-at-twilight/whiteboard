@@ -43,12 +43,6 @@ poplar@c004-h1:~> zypper lr
 7 | repo-update   | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
 ```
 
-删除 VLC：
-
-```
-sudo zypper rm -u vlc; sudo zypper al vlc
-```
-
 更新系统：
 
 ```
@@ -67,12 +61,6 @@ sudo zypper inr
 
 ```
 sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman
-```
-
-解锁 VLC：
-
-```
-sudo zypper rl vlc
 ```
 
 更新并安装多媒体播放器：
