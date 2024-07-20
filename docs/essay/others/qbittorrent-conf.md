@@ -199,11 +199,12 @@ IP 过滤列表的示例：
 
 我使用的是 `Ghost-chu/PeerBanHelper`。
 
-`PeerBanHelper.jar` 启动脚本：
+`PeerBanHelper.jar` 启动测试脚本 `test-start.sh`：
 
-```
+```shell
 #!/bin/bash
-java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
+#启动 PeerBanHelper.jar，同时设置代理
+java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=7890" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=7890" -jar PeerBanHelper.jar nogui
 ```
 
 用于让 `PeerBanHelper` 开机自启动的 systemd 服务文件：
@@ -229,19 +230,6 @@ sudo systemctl daemon-reload
 sudo systemctl enable pbh --now
 ```
 
-用于重启 PeerBanHelper 服务的脚本：
-
-```
-poplar@c004-h1:~/bin/command> cat pbh-s
-#!/bin/sh
-#重启 pbh
-sudo systemctl restart pbh
-#暂停 5 秒
-sleep 5
-#读取最新的日志
-cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
-```
-
 初次启动后，在 `/data/config` 目录下，打开 `config.yml`，修改配置：
 
 - 修改 webui 地址
@@ -251,3 +239,45 @@ cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
 然后登录 <http://127.0.0.1:9898/>，添加需要连接的下载器，qBittorrent 一般是：
 
 - <http://127.0.0.1:8080>
+
+----
+
+用于重启 PeerBanHelper 服务的脚本 `pbh-start`：
+
+```shell
+poplar@c004-h1:~/bin/command> cat pbh-s
+#!/bin/sh
+#重启 pbh
+sudo systemctl restart pbh
+#暂停 7 秒
+sleep 7
+#读取最新的日志
+cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
+```
+
+用于停止 PeerBanHelper 服务的脚本 `pbh-stop`：
+
+```shell
+poplar@c004-h1:~/bin/command$ cat pbh-stop
+#!/bin/sh
+#关闭 pbh
+sudo systemctl stop pbh
+#读取最新状态
+sudo systemctl status pbh
+```
+
+用于读取当前最新日志的脚本 `pbh-stat`：
+
+```shell
+poplar@c004-h1:~/bin/command$ cat pbh-stat
+#!/bin/sh
+#查看 Peerbanhelper 状态
+printf 'Do you want to read the log? (y/n)? '
+read answer
+
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
+else
+    ls -lh /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
+fi
+```

@@ -245,24 +245,46 @@ sudo systemctl enable aria2 --now
 
 ```shell
 #!/bin/sh
+#本脚本用于清理 aria2 日志文件
+
 touch /home/poplar/Desktop/clean-log.txt
 #创建日志文件
-ls -lh ~/bin/aria2/aria2.log  | tee -a -p /home/poplar/Desktop/clean-log.txt
-#读取文件大小
-sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
-#查询状态
-sudo systemctl stop aria2
-#关闭服务
-rm ~/bin/aria2/aria2.log; touch ~/bin/aria2/aria2.log
-#清理日志文件
-sudo systemctl restart aria2
-#重启服务
-sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
-#查询状态
-clear
-#清理输出
-echo "Log cleanup completed! For details on cleaning task logs, see the files in the desktop folder."
-#打印结果
+
+printf 'Do you want to clear the log files? (y/n)? '
+read answer
+
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    ls -lh ~/bin/aria2/aria2.log  | tee -a -p /home/poplar/Desktop/clean-log.txt
+    #读取文件大小
+    sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
+    #查询状态
+    sudo systemctl stop aria2
+    #关闭服务
+    rm ~/bin/aria2/aria2.log; touch ~/bin/aria2/aria2.log
+    #清理日志文件
+    sudo systemctl restart aria2
+    #重启服务
+    sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
+    #查询状态
+    clear
+    #清理输出
+    echo "Log cleanup completed! For details on cleaning task logs, see the files in the desktop folder."
+    #打印结果
+else
+    rm /home/poplar/Desktop/clean-log.txt
+    #清理任务日志文件
+    ls -lh ~/bin/aria2/aria2.log
+    #打印日志文件大小
+    printf 'Do you want to read the aria2 service status? (y/n)? '
+    read answer
+
+    if [ "$answer" != "${answer#[Yy]}" ] ;then
+        sudo systemctl status aria2
+        #查询状态
+    else
+        exit
+    fi
+fi
 ```
 
 ----
