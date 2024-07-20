@@ -59,8 +59,9 @@ flatpakx install com.jgraph.drawio.desktop
 flatpakx install com.github.qarmin.czkawka
 flatpakx install org.freefilesync.FreeFileSync
 flatpakx install com.usebottles.bottles
-flatpakx install io.crow_translate.CrowTranslate
+flatpakx install org.kde.CrowTranslate
 flatpakx install org.telegram.desktop
+flatpakx install org.geogebra.GeoGebra
 ```
 
 ### CrowTranslate
