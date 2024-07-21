@@ -2236,7 +2236,7 @@ sudo systemctl enable pbh --now
 <span class="c1">#本脚本用于 Peerbanhelper 的日常维护</span>
 
 <span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;PeerBanHelper Service: Stop/Reload/Update/Degrade/Read Log/Clear/Quit (s/r/u/d/l/c/q)? &#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;PeerBanHelper Service: Stop(s), Reload(r), Update(u), Degrade(d), Read Log(l), Clear(c), Clear output(o) or Quit(q)&#39;</span>
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span>answer
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;S&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
@@ -2271,6 +2271,7 @@ sudo systemctl enable pbh --now
 <span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
 <span class="w">        </span><span class="c1">#读取状态</span>
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#降级更新</span>
 <span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>pbh
 <span class="w">        </span><span class="c1">#关闭服务</span>
 <span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
@@ -2292,15 +2293,19 @@ sudo systemctl enable pbh --now
 <span class="w">        </span>cat<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
 <span class="w">        </span><span class="c1">#读取最新日志</span>
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#删除有问题的文件</span>
 <span class="w">        </span>rm<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.error
-<span class="w">        </span><span class="c1">#删除有问题的文件</span>
 <span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Problematic versions of files have been cleaned up.&quot;</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;O&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#清理输出</span>
+<span class="w">        </span>clear
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Q&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;q&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#清理并推出</span>
+<span class="w">    </span><span class="c1">#清理并退出</span>
 <span class="w">        </span>clear
 <span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Process End.&quot;</span>
 <span class="w">        </span><span class="nb">exit</span>
 <span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="c1">#重新开始循环</span>
 <span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR! Invalid input.&quot;</span>
 <span class="w">        </span><span class="k">continue</span>
 <span class="w">    </span><span class="k">fi</span>
