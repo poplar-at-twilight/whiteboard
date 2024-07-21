@@ -309,11 +309,12 @@ while true; do
         #删除有问题的文件
         echo "Problematic versions of files have been cleaned up."
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
-    #清理并推出
+    #清理并退出
         clear
         echo "Process End."
         exit
     else
+    #重新开始循环
         echo "ERROR! Invalid input."
         continue
     fi
