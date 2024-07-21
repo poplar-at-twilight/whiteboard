@@ -25,7 +25,7 @@
         <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../feed_rss_updated.xml">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -2198,9 +2198,10 @@
 <li><a href="https://github.com/Ghost-chu/PeerBanHelper">Ghost-chu/PeerBanHelper</a></li>
 </ul>
 <p>我使用的是 <code>Ghost-chu/PeerBanHelper</code>。</p>
-<p><code>PeerBanHelper.jar</code> 启动脚本：</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash
-java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
+<p><code>PeerBanHelper.jar</code> 启动测试脚本 <code>test-start.sh</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#启动 PeerBanHelper.jar，同时设置代理</span>
+java<span class="w"> </span>-jar<span class="w"> </span>-Xmx256M<span class="w"> </span>-XX:+UseG1GC<span class="w"> </span>-XX:+UseStringDeduplication<span class="w"> </span>-XX:+ShrinkHeapInSteps<span class="w"> </span><span class="s2">&quot;-Dhttp.proxyHost=127.0.0.1&quot;</span><span class="w"> </span><span class="s2">&quot;-Dhttp.proxyPort=7890&quot;</span><span class="w"> </span><span class="s2">&quot;-Dhttps.proxyHost=127.0.0.1&quot;</span><span class="w"> </span><span class="s2">&quot;-Dhttps.proxyPort=7890&quot;</span><span class="w"> </span>-jar<span class="w"> </span>PeerBanHelper.jar<span class="w"> </span>nogui
 </code></pre></div>
 <p>用于让 <code>PeerBanHelper</code> 开机自启动的 systemd 服务文件：</p>
 <div class="highlight"><pre><span></span><code>[Unit]
@@ -2219,16 +2220,6 @@ WantedBy=multi-user.target
 <div class="highlight"><pre><span></span><code>sudo systemctl daemon-reload
 sudo systemctl enable pbh --now
 </code></pre></div>
-<p>用于重启 PeerBanHelper 服务的脚本：</p>
-<div class="highlight"><pre><span></span><code>poplar@c004-h1:~/bin/command&gt; cat pbh-s
-#!/bin/sh
-#重启 pbh
-sudo systemctl restart pbh
-#暂停 5 秒
-sleep 5
-#读取最新的日志
-cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
-</code></pre></div>
 <p>初次启动后，在 <code>/data/config</code> 目录下，打开 <code>config.yml</code>，修改配置：</p>
 <ul>
 <li>修改 webui 地址</li>
@@ -2239,6 +2230,82 @@ cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
 <ul>
 <li><a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></li>
 </ul>
+<hr />
+<p>用于管理 PeerBanHelper 服务的脚本 <code>pbh</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="c1">#本脚本用于 Peerbanhelper 的日常维护</span>
+
+<span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;PeerBanHelper Service: Stop/Reload/Update/Degrade/Read Log/Clear/Quit (s/r/u/d/l/c/q)? &#39;</span>
+<span class="w">    </span><span class="nb">read</span><span class="w"> </span>answer
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;S&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;s&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#暂停服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#读取状态</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>pbh
+<span class="w">        </span><span class="c1">#关闭服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#读取状态</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;R&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#重载服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>pbh
+<span class="w">        </span><span class="c1">#重启服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#读取状态</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;U&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;u&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#更新服务</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Please make sure the update file is in ~/Downloads folder!&quot;</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>pbh
+<span class="w">        </span><span class="c1">#关闭服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#读取状态</span>
+<span class="w">        </span>mv<span class="w"> </span>-f<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.old
+<span class="w">        </span><span class="c1">#强制备份旧文件</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Backup files complete!&quot;</span>
+<span class="w">        </span>cp<span class="w"> </span>/home/poplar/Downloads/PeerBanHelper.jar<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper
+<span class="w">        </span><span class="c1">#拷贝新文件</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Update files completed!&quot;</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>pbh
+<span class="w">        </span><span class="c1">#重启服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#读取状态</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>pbh
+<span class="w">        </span><span class="c1">#关闭服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#读取状态</span>
+<span class="w">        </span>mv<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.error
+<span class="w">        </span><span class="c1">#停用有问题的文件</span>
+<span class="w">        </span>mv<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.old<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar
+<span class="w">        </span><span class="c1">#更换至旧版文件</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Changed to old version files&quot;</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>pbh
+<span class="w">        </span><span class="c1">#重启服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#读取状态</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;L&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;l&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#读取日志及状态</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#读取状态</span>
+<span class="w">        </span><span class="nb">echo</span>
+<span class="w">        </span>cat<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
+<span class="w">        </span><span class="c1">#读取最新日志</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>rm<span class="w"> </span>/home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.error
+<span class="w">        </span><span class="c1">#删除有问题的文件</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Problematic versions of files have been cleaned up.&quot;</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Q&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;q&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#清理并推出</span>
+<span class="w">        </span>clear
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Process End.&quot;</span>
+<span class="w">        </span><span class="nb">exit</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR! Invalid input.&quot;</span>
+<span class="w">        </span><span class="k">continue</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+</code></pre></div>
 
 
 

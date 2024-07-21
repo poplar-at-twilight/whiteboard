@@ -25,7 +25,7 @@
         <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../feed_rss_updated.xml">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -2305,24 +2305,46 @@ sudo systemctl enable aria2 --now
 <h3 id="_6">日志清理</h3>
 <p>在 <code>~/bin/command</code> 下新建一个名为 <code>aria2-clean</code> 的 shell 脚本：</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="c1">#本脚本用于清理 aria2 日志文件</span>
+
 touch<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
 <span class="c1">#创建日志文件</span>
-ls<span class="w"> </span>-lh<span class="w"> </span>~/bin/aria2/aria2.log<span class="w">  </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
-<span class="c1">#读取文件大小</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
-<span class="c1">#查询状态</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>aria2
-<span class="c1">#关闭服务</span>
-rm<span class="w"> </span>~/bin/aria2/aria2.log<span class="p">;</span><span class="w"> </span>touch<span class="w"> </span>~/bin/aria2/aria2.log
-<span class="c1">#清理日志文件</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>aria2
-<span class="c1">#重启服务</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
-<span class="c1">#查询状态</span>
-clear
-<span class="c1">#清理输出</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Log cleanup completed! For details on cleaning task logs, see the files in the desktop folder.&quot;</span>
-<span class="c1">#打印结果</span>
+
+<span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Do you want to clear the log files? (y/n)? &#39;</span>
+<span class="nb">read</span><span class="w"> </span>answer
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">answer</span><span class="p">#[Yy]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="k">then</span>
+<span class="w">    </span>ls<span class="w"> </span>-lh<span class="w"> </span>~/bin/aria2/aria2.log<span class="w">  </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
+<span class="w">    </span><span class="c1">#读取文件大小</span>
+<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
+<span class="w">    </span><span class="c1">#查询状态</span>
+<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>aria2
+<span class="w">    </span><span class="c1">#关闭服务</span>
+<span class="w">    </span>rm<span class="w"> </span>~/bin/aria2/aria2.log<span class="p">;</span><span class="w"> </span>touch<span class="w"> </span>~/bin/aria2/aria2.log
+<span class="w">    </span><span class="c1">#清理日志文件</span>
+<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>aria2
+<span class="w">    </span><span class="c1">#重启服务</span>
+<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
+<span class="w">    </span><span class="c1">#查询状态</span>
+<span class="w">    </span>clear
+<span class="w">    </span><span class="c1">#清理输出</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Log cleanup completed! For details on cleaning task logs, see the files in the desktop folder.&quot;</span>
+<span class="w">    </span><span class="c1">#打印结果</span>
+<span class="k">else</span>
+<span class="w">    </span>rm<span class="w"> </span>/home/poplar/Desktop/clean-log.txt
+<span class="w">    </span><span class="c1">#清理任务日志文件</span>
+<span class="w">    </span>ls<span class="w"> </span>-lh<span class="w"> </span>~/bin/aria2/aria2.log
+<span class="w">    </span><span class="c1">#打印日志文件大小</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Do you want to read the aria2 service status? (y/n)? &#39;</span>
+<span class="w">    </span><span class="nb">read</span><span class="w"> </span>answer
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">answer</span><span class="p">#[Yy]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="k">then</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2
+<span class="w">        </span><span class="c1">#查询状态</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">exit</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">fi</span>
 </code></pre></div>
 <hr />
 <h2 id="_7">参考资料</h2>
