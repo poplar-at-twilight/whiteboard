@@ -242,42 +242,80 @@ sudo systemctl enable pbh --now
 
 ----
 
-用于重启 PeerBanHelper 服务的脚本 `pbh-start`：
+用于管理 PeerBanHelper 服务的脚本 `pbh`：
 
 ```shell
-poplar@c004-h1:~/bin/command> cat pbh-s
 #!/bin/sh
-#重启 pbh
-sudo systemctl restart pbh
-#暂停 7 秒
-sleep 7
-#读取最新的日志
-cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
-```
+#本脚本用于 Peerbanhelper 的日常维护
 
-用于停止 PeerBanHelper 服务的脚本 `pbh-stop`：
+while true; do
+    printf 'PeerBanHelper Service: Stop/Reload/Update/Degrade/Read Log/Clear/Quit (s/r/u/d/l/c/q)? '
+    read answer
 
-```shell
-poplar@c004-h1:~/bin/command$ cat pbh-stop
-#!/bin/sh
-#关闭 pbh
-sudo systemctl stop pbh
-#读取最新状态
-sudo systemctl status pbh
-```
-
-用于读取当前最新日志的脚本 `pbh-stat`：
-
-```shell
-poplar@c004-h1:~/bin/command$ cat pbh-stat
-#!/bin/sh
-#查看 Peerbanhelper 状态
-printf 'Do you want to read the log? (y/n)? '
-read answer
-
-if [ "$answer" != "${answer#[Yy]}" ] ;then
-    cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
-else
-    ls -lh /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
-fi
+    if [ "$answer" = "S" ] || [ "$answer" = "s" ]; then
+    #暂停服务
+        sudo systemctl status pbh | grep "Active"
+        #读取状态
+        sudo systemctl stop pbh
+        #关闭服务
+        sudo systemctl status pbh | grep "Active"
+        #读取状态
+    elif [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
+    #重载服务
+        sudo systemctl restart pbh
+        #重启服务
+        sudo systemctl status pbh | grep "Active"
+        #读取状态
+    elif [ "$answer" = "U" ] || [ "$answer" = "u" ]; then
+    #更新服务
+        echo "Please make sure the update file is in ~/Downloads folder!"
+        sudo systemctl stop pbh
+        #关闭服务
+        sudo systemctl status pbh | grep "Active"
+        #读取状态
+        mv -f /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.old
+        #强制备份旧文件
+        echo "Backup files complete!"
+        cp /home/poplar/Downloads/PeerBanHelper.jar /home/poplar/bin/qbee/peerbanhelper
+        #拷贝新文件
+        echo "Update files completed!"
+        sudo systemctl restart pbh
+        #重启服务
+        sudo systemctl status pbh | grep "Active"
+        #读取状态
+    elif [ "$answer" = "D" ] || [ "$answer" = "d" ]; then
+        sudo systemctl stop pbh
+        #关闭服务
+        sudo systemctl status pbh | grep "Active"
+        #读取状态
+        mv /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.error
+        #停用有问题的文件
+        mv /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.old /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar
+        #更换至旧版文件
+        echo "Changed to old version files"
+        sudo systemctl restart pbh
+        #重启服务
+        sudo systemctl status pbh | grep "Active"
+        #读取状态
+    elif [ "$answer" = "L" ] || [ "$answer" = "l" ]; then
+    #读取日志及状态
+        sudo systemctl status pbh | grep "Active"
+        #读取状态
+        echo
+        cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
+        #读取最新日志
+    elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
+        rm /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.error
+        #删除有问题的文件
+        echo "Problematic versions of files have been cleaned up."
+    elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
+    #清理并推出
+        clear
+        echo "Process End."
+        exit
+    else
+        echo "ERROR! Invalid input."
+        continue
+    fi
+done
 ```
