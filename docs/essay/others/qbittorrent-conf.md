@@ -249,7 +249,7 @@ sudo systemctl enable pbh --now
 #本脚本用于 Peerbanhelper 的日常维护
 
 while true; do
-    printf 'PeerBanHelper Service: Stop/Reload/Update/Degrade/Read Log/Clear/Quit (s/r/u/d/l/c/q)? '
+    printf 'PeerBanHelper Service: Stop(s), Reload(r), Update(u), Degrade(d), Read Log(l), Clear(c), Clear output(o) or Quit(q)'
     read answer
 
     if [ "$answer" = "S" ] || [ "$answer" = "s" ]; then
@@ -284,6 +284,7 @@ while true; do
         sudo systemctl status pbh | grep "Active"
         #读取状态
     elif [ "$answer" = "D" ] || [ "$answer" = "d" ]; then
+    #降级更新
         sudo systemctl stop pbh
         #关闭服务
         sudo systemctl status pbh | grep "Active"
@@ -305,9 +306,12 @@ while true; do
         cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
         #读取最新日志
     elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
+    #删除有问题的文件
         rm /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.error
-        #删除有问题的文件
         echo "Problematic versions of files have been cleaned up."
+    elif [ "$answer" = "O" ] || [ "$answer" = "o" ]; then
+    #清理输出
+        clear
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
     #清理并退出
         clear
