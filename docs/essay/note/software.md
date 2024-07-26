@@ -99,23 +99,30 @@ https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=soc
 ```
 poplar@c004-h1:~> zypper ll
 
-#  | Name                       | Type    | Repository | Comment
----+----------------------------+---------+------------+--------
-1  | MozillaFirefox             | package | （任意）   | 
-2  | PackageKit                 | package | （任意）   | 
-3  | discover6                  | package | （任意）   | 
-4  | fcitx                      | package | （任意）   | 
-5  | games                      | pattern | （任意）   | 
-6  | ibus                       | package | （任意）   | 
-7  | kmousetool                 | package | （任意）   | 
-8  | kompare                    | package | （任意）   | 
-9  | konversation               | package | （任意）   | 
-10 | opensuse-welcome           | package | （任意）   | 
-11 | patterns-games-games       | package | （任意）   | 
-12 | patterns-gnome-gnome_games | package | （任意）   | 
-13 | patterns-kde-kde_games     | package | （任意）   | 
-14 | patterns-kde-kde_pim       | package | （任意）   | 
-15 | skanlite                   | package | （任意）   | 
+#  | Name                   | Type    | Repository | Comment
+---+------------------------+---------+------------+--------
+1  | MozillaFirefox         | package | （任意）   | 
+2  | PackageKit             | package | （任意）   | 
+3  | discover6              | package | （任意）   | 
+4  | fcitx                  | package | （任意）   | 
+5  | ibus                   | package | （任意）   | 
+6  | kmousetool             | package | （任意）   | 
+7  | kompare                | package | （任意）   | 
+8  | konversation           | package | （任意）   | 
+9  | opensuse-welcome       | package | （任意）   | 
+10 | patterns-games-games   | package | （任意）   | 
+11 | patterns-kde-kde_games | package | （任意）   | 
+12 | patterns-kde-kde_pim   | package | （任意）   | 
+13 | skanlite               | package | （任意）   |
+```
+
+快捷命令：
+
+```
+sudo zypper rm -u MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+```
+```
+sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 ```
 
 ## 安装软件包
