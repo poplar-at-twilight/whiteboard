@@ -216,9 +216,9 @@ save-session=/home/poplar/bin/aria2/aria2.session
 
 #### systemd 服务
 
-使用 systemd 服务启动 aria2：
+设置使用 systemd 启动 aria2 的服务文件 `aria2.service`：
 
-```
+```shell
 [Unit]
 Description=Start aria2 daemon
 After=multi-user.target
@@ -232,11 +232,24 @@ WorkingDirectory=/home/poplar/bin/aria2
 WantedBy=multi-user.target
 ```
 
-将 `aria2.service` 文件放置到 `/etc/systemd/system` 文件夹下，然后使用
+用于设置 systemd 服务的脚本 `~/bin/services`：
 
-```
+```shell
+#!/bin/sh
+#本脚本用于注册 systemd 服务
+
+echo "Registering systemd services for aria2 and pbh..."
+
+sudo cp /home/poplar/bin/aria2/aria2.service /etc/systemd/system
+sudo cp /home/poplar/bin/qbee/peerbanhelper/pbh.service /etc/systemd/system
+echo "The service files have been copied to /etc/systemd/system."
+#拷贝 service 文件
+
 sudo systemctl daemon-reload
 sudo systemctl enable aria2 --now
+#sudo systemctl enable pbh --now
+echo "Service started!"
+#启动服务
 ```
 
 ### 日志清理
@@ -247,32 +260,25 @@ sudo systemctl enable aria2 --now
 #!/bin/sh
 #本脚本用于清理 aria2 日志文件
 
-touch /home/poplar/Desktop/clean-log.txt
-#创建日志文件
-
 printf 'Do you want to clear the log files? (y/n)? '
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-    ls -lh ~/bin/aria2/aria2.log  | tee -a -p /home/poplar/Desktop/clean-log.txt
+    ls -lh ~/bin/aria2/aria2.log
     #读取文件大小
-    sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
+    sudo systemctl status aria2 | grep "Active"
     #查询状态
     sudo systemctl stop aria2
     #关闭服务
     rm ~/bin/aria2/aria2.log; touch ~/bin/aria2/aria2.log
+    echo "Logs cleaned"
     #清理日志文件
     sudo systemctl restart aria2
     #重启服务
-    sudo systemctl status aria2 | tee -a -p /home/poplar/Desktop/clean-log.txt
+    sudo systemctl status aria2 | grep "Active"
+    ls -lh ~/bin/aria2/aria2.log
     #查询状态
-    clear
-    #清理输出
-    echo "Log cleanup completed! For details on cleaning task logs, see the files in the desktop folder."
-    #打印结果
 else
-    rm /home/poplar/Desktop/clean-log.txt
-    #清理任务日志文件
     ls -lh ~/bin/aria2/aria2.log
     #打印日志文件大小
     printf 'Do you want to read the aria2 service status? (y/n)? '
