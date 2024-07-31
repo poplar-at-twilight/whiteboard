@@ -90,6 +90,15 @@ Bottles 的 desktop 文件的环境变量可设置为：
 https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 ```
 
+### fcitx5 皮肤没有正确显示（Wayland 会话）
+
+关闭所有 flatpak 应用，然后运行：
+
+```shell
+flatpak override --env=QT_IM_MODULE= --user
+flatpak override --env=GTK_IM_MODULE= --user
+```
+
 ----
 
 ## 删除软件包
@@ -128,6 +137,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare
 ## 安装软件包
 
 - `aria2`
+- `audacious`
 - `fcitx5`
 - `filelight`
 - `google-noto-sans-mono-fonts`
@@ -143,7 +153,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare
 快捷命令：
 
 ```
-sudo zypper in fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
+sudo zypper in audacious fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
 ```
 ```
 sudo zypper in steam

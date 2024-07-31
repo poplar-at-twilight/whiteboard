@@ -72,7 +72,7 @@ sudo zypper refresh
 sudo zypper dist-upgrade --from packman --allow-vendor-change
 ```
 ```
-sudo zypper in vlc ffmpeg-7 deadbeef
+sudo zypper in vlc ffmpeg-7
 ```
 
 ## 安装基本工具
