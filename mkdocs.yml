@@ -13,18 +13,22 @@ theme:
     #custom_dir: overrides
     highlightjs: true
     palette:
-      - scheme: default
+    # Palette toggle for light mode
+      - media: "(prefers-color-scheme: light)"
+        scheme: default
         primary: green
         accent: blue
         toggle:
           icon: material/weather-night
-          name: 切换到深色模式
-      - scheme: slate
+          name: Switch to dark mode
+    # Palette toggle for dark mode
+      - media: "(prefers-color-scheme: dark)"
+        scheme: slate
         primary: green
         accent: blue
         toggle:
           icon: material/weather-sunny
-          name: 切换到浅色模式
+          name: Switch to light mode
     features:
       - navigation.tabs
       - content.tabs.link #启用内容页
