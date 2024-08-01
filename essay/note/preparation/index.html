@@ -1078,6 +1078,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="切换引导启动项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      备份文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1206,6 +1221,27 @@
   
   <span class="md-ellipsis">
     重装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell-script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell 脚本
   </span>
   
 
@@ -1886,6 +1922,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="切换引导启动项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      备份文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1927,12 +1978,12 @@
 <li><a href="https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/">https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/</a></li>
 </ul>
 <p>另见：<a href="https://mirrors.cernet.edu.cn/list">校园网联合镜像站</a></p>
+<p>Live 环境可以使用 Fedora KDE spin 或者 openSUSE Tumbleweed KDE Live DVD。</p>
 <h2 id="_2">校验文件</h2>
 <h3 id="_3">下载证书</h3>
-<p>openSUSE 项目的公钥下载地址：</p>
-<ul>
-<li><a href="https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07e22.asc">https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07e22.asc</a></li>
-</ul>
+<p>下载 openSUSE 项目的公钥：</p>
+<div class="highlight"><pre><span></span><code>wget https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07e22.asc
+</code></pre></div>
 <p>该公钥的指纹应当为：</p>
 <div class="highlight"><pre><span></span><code>pub   rsa4096 2022-06-20 [SC] [有效至：2026-06-19]
       AD48 5664 E901 B867 051A  B15F 35A2 F86E 29B7 00A4
@@ -1940,8 +1991,11 @@ uid             [ 完全 ] openSUSE Project Signing Key &lt;opensuse@opensuse.or
 </code></pre></div>
 <h3 id="iso_1">校验 ISO</h3>
 <p>使用下列命令计算校验和：</p>
-<div class="highlight"><pre><span></span><code>sha256sum -c openSUSE-Tumbleweed-DVD-x86_64-[快照序号]-Media.iso.sha256
+<div class="highlight"><pre><span></span><code>check-iso
 </code></pre></div>
+<ul>
+<li>shell 脚本源码另见<a href="../shell-script/">此处</a>。</li>
+</ul>
 <h3 id="_4">校验签名</h3>
 <p>安装工具：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper in gpg2
@@ -1950,7 +2004,7 @@ uid             [ 完全 ] openSUSE Project Signing Key &lt;opensuse@opensuse.or
 <div class="highlight"><pre><span></span><code>gpg --import gpg-pubkey-29b700a4-62b07e22.asc
 </code></pre></div>
 <p>检查证书：</p>
-<div class="highlight"><pre><span></span><code>gpg --fingerprint
+<div class="highlight"><pre><span></span><code>gpg -k
 </code></pre></div>
 <p>校验签名：</p>
 <div class="highlight"><pre><span></span><code>gpg --verify openSUSE-Tumbleweed-DVD-x86_64-[快照序号]-Media.iso.sha256.asc
@@ -1959,12 +2013,13 @@ uid             [ 完全 ] openSUSE Project Signing Key &lt;opensuse@opensuse.or
 <p>使用 <a href="https://github.com/ventoy/Ventoy">ventoy</a> 进行烧录，启动模式为正常启动。</p>
 <h2 id="rpm">额外的 RPM 包</h2>
 <ul>
-<li><a href="https://www.google.com/chrome/">https://www.google.com/chrome/</a></li>
 <li><a href="https://github.com/ilya-zlobintsev/LACT/releases">https://github.com/ilya-zlobintsev/LACT/releases</a></li>
 <li><a href="https://github.com/Clash-Verge-rev/clash-verge-rev/releases">https://github.com/Clash-Verge-rev/clash-verge-rev/releases</a></li>
 </ul>
 <h2 id="_5">切换引导启动项</h2>
 <p>关机后，按下开机键，同时按 <code>Esc</code> 进入 BIOS 界面，切换启动项。</p>
+<h3 id="_6">备份文件</h3>
+<p>使用 LiveCD 环境将旧用户文件夹 <code>poplar</code> 重命名 <code>poplar.old</code>。</p>
 
 
 
