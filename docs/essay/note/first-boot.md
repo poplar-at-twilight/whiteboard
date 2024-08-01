@@ -101,7 +101,7 @@ sudo zypper ar http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
 安装软件包：
 
 ```
-sudo rpm -i google-chrome-stable_current_x86_64.rpm
+sudo zypper in google-chrome-stable
 ```
 
 ## 更换语言

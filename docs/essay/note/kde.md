@@ -73,7 +73,7 @@ git clone https://github.com/tonyfettes/fcitx5-nord.git
 
 用户反馈：
 
-- 第三档
+- 第四档
 
 日期和时间：
 
@@ -93,12 +93,6 @@ git clone https://github.com/tonyfettes/fcitx5-nord.git
 用户：
 
 - 更换头像
-
-会话 > 后台服务，不运行：
-
-- 可移动设备自动挂载程序
-- 夜间色温自动定位
-- Wacom 数位板
 
 会话 > 桌面会话：
 
