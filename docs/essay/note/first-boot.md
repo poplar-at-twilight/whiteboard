@@ -166,6 +166,10 @@ proxy=http://localhost:7890
 `~/.bashrc`：
 
 ```shell
+unset GTK_IM_MODULE
+unset QT_IM_MODULE
+#针对 wayland 会话的 Fcitx5 环境变量
+
 export PATH=/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
 #自定义 $PATH 路径
 
@@ -215,4 +219,7 @@ alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
 
 alias javax="java -jar "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=7890" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=7890""
 #为 java 设置代理
+
+alias packman-update="sudo zypper dist-upgrade --from packman --allow-vendor-change"
+#从 packman 更新，并允许供应商切换
 ```
