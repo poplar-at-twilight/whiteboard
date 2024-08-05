@@ -62,18 +62,6 @@ flatpakx install org.telegram.desktop
 flatpakx install org.geogebra.GeoGebra
 ```
 
-### CrowTranslate
-
-从 [Traineddata Files for Version 4.00 +](https://tesseract-ocr.github.io/tessdoc/Data-Files.html) 下载所需文件。
-
-- chi_sim.traineddata
-- chi_sim_vert.traineddata
-- chi_tra.traineddata
-- chi_tra_vert.traineddata
-- eng.traineddata
-
-默认关闭 chi_tra 文件。
-
 ### Bottles
 
 创建容器后，需要安装一些前置依赖：
@@ -160,6 +148,18 @@ sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelig
 ```
 sudo zypper in steam
 ```
+
+### CrowTranslate
+
+从 [Traineddata Files for Version 4.00 +](https://tesseract-ocr.github.io/tessdoc/Data-Files.html) 下载所需文件。
+
+- chi_sim.traineddata
+- chi_sim_vert.traineddata
+- chi_tra.traineddata
+- chi_tra_vert.traineddata
+- eng.traineddata
+
+默认关闭 chi_tra 文件。
 
 ### steam
 
