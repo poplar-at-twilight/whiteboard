@@ -62,6 +62,12 @@ flatpakx install org.telegram.desktop
 flatpakx install org.geogebra.GeoGebra
 ```
 
+### 清理不再需要的库
+
+```
+flatpak uninstall --unused
+```
+
 ### Bottles
 
 创建容器后，需要安装一些前置依赖：
