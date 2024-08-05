@@ -2139,7 +2139,11 @@ proxy=http://localhost:7890
 </code></pre></div>
 <h3 id="bashrc">bashrc</h3>
 <p><code>~/.bashrc</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
+<div class="highlight"><pre><span></span><code><span class="nb">unset</span><span class="w"> </span>GTK_IM_MODULE
+<span class="nb">unset</span><span class="w"> </span>QT_IM_MODULE
+<span class="c1">#针对 wayland 会话的 Fcitx5 环境变量</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
 <span class="c1">#自定义 $PATH 路径</span>
 
 <span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR</span><span class="o">=</span>nano
@@ -2188,6 +2192,9 @@ proxy=http://localhost:7890
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">javax</span><span class="o">=</span><span class="s2">&quot;java -jar &quot;</span>-Dhttp.proxyHost<span class="o">=</span><span class="m">127</span>.0.0.1<span class="s2">&quot; &quot;</span>-Dhttp.proxyPort<span class="o">=</span><span class="m">7890</span><span class="s2">&quot; &quot;</span>-Dhttps.proxyHost<span class="o">=</span><span class="m">127</span>.0.0.1<span class="s2">&quot; &quot;</span>-Dhttps.proxyPort<span class="o">=</span><span class="m">7890</span><span class="s2">&quot;&quot;</span>
 <span class="c1">#为 java 设置代理</span>
+
+<span class="nb">alias</span><span class="w"> </span>packman-update<span class="o">=</span><span class="s2">&quot;sudo zypper dist-upgrade --from packman --allow-vendor-change&quot;</span>
+<span class="c1">#从 packman 更新，并允许供应商切换</span>
 </code></pre></div>
 
 
