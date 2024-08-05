@@ -57,11 +57,9 @@ flatpak --help
 flatpakx install com.calibre_ebook.calibre
 flatpakx install com.jgraph.drawio.desktop
 flatpakx install com.github.qarmin.czkawka
-flatpakx install org.freefilesync.FreeFileSync
 flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
 flatpakx install org.geogebra.GeoGebra
-flatpakx install io.gitlab.news_flash.NewsFlash
 ```
 
 ### CrowTranslate
@@ -115,23 +113,24 @@ poplar@c004-h1:~> zypper ll
 3  | discover6              | package | （任意）   | 
 4  | fcitx                  | package | （任意）   | 
 5  | ibus                   | package | （任意）   | 
-6  | kmousetool             | package | （任意）   | 
-7  | kompare                | package | （任意）   | 
-8  | konversation           | package | （任意）   | 
-9  | opensuse-welcome       | package | （任意）   | 
-10 | patterns-games-games   | package | （任意）   | 
-11 | patterns-kde-kde_games | package | （任意）   | 
-12 | patterns-kde-kde_pim   | package | （任意）   | 
-13 | skanlite               | package | （任意）   |
+6  | kcalc                  | package | （任意）   | 
+7  | kmousetool             | package | （任意）   | 
+8  | kompare                | package | （任意）   | 
+9  | konversation           | package | （任意）   | 
+10 | opensuse-welcome       | package | （任意）   | 
+11 | patterns-games-games   | package | （任意）   | 
+12 | patterns-kde-kde_games | package | （任意）   | 
+13 | patterns-kde-kde_pim   | package | （任意）   | 
+14 | skanlite               | package | （任意）   | 
 ```
 
 快捷命令：
 
 ```
-sudo zypper rm -u MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+sudo zypper rm -u MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 ```
 ```
-sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 ```
 
 ## 安装软件包
@@ -148,6 +147,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare
   - `goldendict-ng-lang`
 - `kfind`
 - `kleopatra`
+- `newsflash`
 - `peazip`
 - `pandoc`
 - `steam`
@@ -155,7 +155,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare
 快捷命令：
 
 ```
-sudo zypper in audacious crow-translate crow-translate-lang fcitx5 filelight FreeFileSync gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
+sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight FreeFileSync google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra newsflash peazip pandoc 
 ```
 ```
 sudo zypper in steam
