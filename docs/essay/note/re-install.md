@@ -50,9 +50,10 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),475(wheel),476(f
 /home/poplar/.local/share/kate
 /home/poplar/.local/share/kleopatra
 /home/poplar/.local/share/konsole
+/home/poplar/.local/share/news_flash
+/home/poplar/.local/share/news-flash
 /home/poplar/.local/share/qBittorrent
 /home/poplar/.local/share/Steam
-/home/poplar/.local/share/TelegramDesktop
 
 /home/poplar/.gnupg
 /home/poplar/.steam
