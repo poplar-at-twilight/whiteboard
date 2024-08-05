@@ -25,7 +25,6 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),475(wheel),476(f
 /home/poplar/.config/audacious
 /home/poplar/.config/fcitx
 /home/poplar/.config/fcitx5
-/home/poplar/.config/fluent-reader
 /home/poplar/.config/google-chrome
 /home/poplar/.config/goldendict
 /home/poplar/.config/keepassxc

@@ -62,6 +62,7 @@ flatpakx install com.usebottles.bottles
 flatpakx install org.kde.CrowTranslate
 flatpakx install org.telegram.desktop
 flatpakx install org.geogebra.GeoGebra
+flatpakx install io.gitlab.news_flash.NewsFlash
 ```
 
 ### CrowTranslate
