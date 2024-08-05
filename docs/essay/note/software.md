@@ -59,7 +59,6 @@ flatpakx install com.jgraph.drawio.desktop
 flatpakx install com.github.qarmin.czkawka
 flatpakx install org.freefilesync.FreeFileSync
 flatpakx install com.usebottles.bottles
-flatpakx install org.kde.CrowTranslate
 flatpakx install org.telegram.desktop
 flatpakx install org.geogebra.GeoGebra
 flatpakx install io.gitlab.news_flash.NewsFlash
@@ -139,6 +138,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare
 
 - `aria2`
 - `audacious`
+- `crow-translate`
 - `fcitx5`
 - `filelight`
 - `google-noto-sans-mono-fonts`
@@ -154,7 +154,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare
 快捷命令：
 
 ```
-sudo zypper in audacious fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
+sudo zypper in audacious crow-translate crow-translate-lang fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
 ```
 ```
 sudo zypper in steam
