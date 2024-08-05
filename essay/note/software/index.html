@@ -1094,9 +1094,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#crowtranslate" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      CrowTranslate
+      清理不再需要的库
     </span>
   </a>
   
@@ -1126,7 +1126,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       删除软件包
     </span>
@@ -1135,7 +1135,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       安装软件包
     </span>
@@ -1143,6 +1143,15 @@
   
     <nav class="md-nav" aria-label="安装软件包">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crowtranslate" class="md-nav__link">
+    <span class="md-ellipsis">
+      CrowTranslate
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#steam" class="md-nav__link">
@@ -1168,7 +1177,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       散装软件包
     </span>
@@ -1908,9 +1917,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#crowtranslate" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      CrowTranslate
+      清理不再需要的库
     </span>
   </a>
   
@@ -1940,7 +1949,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       删除软件包
     </span>
@@ -1949,7 +1958,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       安装软件包
     </span>
@@ -1957,6 +1966,15 @@
   
     <nav class="md-nav" aria-label="安装软件包">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crowtranslate" class="md-nav__link">
+    <span class="md-ellipsis">
+      CrowTranslate
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#steam" class="md-nav__link">
@@ -1982,7 +2000,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       散装软件包
     </span>
@@ -2070,16 +2088,9 @@ flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
 flatpakx install org.geogebra.GeoGebra
 </code></pre></div>
-<h3 id="crowtranslate">CrowTranslate</h3>
-<p>从 <a href="https://tesseract-ocr.github.io/tessdoc/Data-Files.html">Traineddata Files for Version 4.00 +</a> 下载所需文件。</p>
-<ul>
-<li>chi_sim.traineddata</li>
-<li>chi_sim_vert.traineddata</li>
-<li>chi_tra.traineddata</li>
-<li>chi_tra_vert.traineddata</li>
-<li>eng.traineddata</li>
-</ul>
-<p>默认关闭 chi_tra 文件。</p>
+<h3 id="_3">清理不再需要的库</h3>
+<div class="highlight"><pre><span></span><code>flatpak uninstall --unused
+</code></pre></div>
 <h3 id="bottles">Bottles</h3>
 <p>创建容器后，需要安装一些前置依赖：</p>
 <ul>
@@ -2096,7 +2107,7 @@ flatpakx install org.geogebra.GeoGebra
 flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class="o">=</span><span class="nv">GTK_IM_MODULE</span><span class="o">=</span><span class="w"> </span>--user
 </code></pre></div>
 <hr />
-<h2 id="_3">删除软件包</h2>
+<h2 id="_4">删除软件包</h2>
 <p>删除并锁定：</p>
 <div class="highlight"><pre><span></span><code>poplar@c004-h1:~&gt; zypper ll
 
@@ -2122,7 +2133,7 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 </code></pre></div></p>
-<h2 id="_4">安装软件包</h2>
+<h2 id="_5">安装软件包</h2>
 <ul>
 <li><code>aria2</code></li>
 <li><code>audacious</code></li>
@@ -2146,6 +2157,16 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo zypper in steam
 </code></pre></div></p>
+<h3 id="crowtranslate">CrowTranslate</h3>
+<p>从 <a href="https://tesseract-ocr.github.io/tessdoc/Data-Files.html">Traineddata Files for Version 4.00 +</a> 下载所需文件。</p>
+<ul>
+<li>chi_sim.traineddata</li>
+<li>chi_sim_vert.traineddata</li>
+<li>chi_tra.traineddata</li>
+<li>chi_tra_vert.traineddata</li>
+<li>eng.traineddata</li>
+</ul>
+<p>默认关闭 chi_tra 文件。</p>
 <h3 id="steam">steam</h3>
 <p>如果无法正常缩放，则设置变量：</p>
 <div class="highlight"><pre><span></span><code>STEAM_FORCE_DESKTOPUI_SCALING=1.5
@@ -2161,7 +2182,7 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 </code></pre></div>
 <p>注销重新登录。</p>
 <p>注意，不要使用默认的存储池。</p>
-<h2 id="_5">散装软件包</h2>
+<h2 id="_6">散装软件包</h2>
 <ul>
 <li><a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases">https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases</a></li>
 <li><a href="https://github.com/yang991178/fluent-reader/releases">https://github.com/yang991178/fluent-reader/releases</a></li>
