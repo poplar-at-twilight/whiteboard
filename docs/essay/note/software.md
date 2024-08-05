@@ -141,6 +141,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare
 - `crow-translate`
 - `fcitx5`
 - `filelight`
+- `FreeFileSync`
 - `google-noto-sans-mono-fonts`
 - `gimp`
 - `goldendict-ng`
@@ -154,7 +155,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kmousetool kompare
 快捷命令：
 
 ```
-sudo zypper in audacious crow-translate crow-translate-lang fcitx5 filelight gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
+sudo zypper in audacious crow-translate crow-translate-lang fcitx5 filelight FreeFileSync gimp goldendict-ng goldendict-ng-lang kfind kleopatra peazip pandoc  google-noto-sans-mono-fonts aria2
 ```
 ```
 sudo zypper in steam
