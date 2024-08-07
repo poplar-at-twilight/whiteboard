@@ -59,7 +59,6 @@ flatpakx install com.jgraph.drawio.desktop
 flatpakx install com.github.qarmin.czkawka
 flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
-flatpakx install org.geogebra.GeoGebra
 ```
 
 ### 清理不再需要的库
@@ -142,14 +141,13 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool k
 - `kfind`
 - `kleopatra`
 - `newsflash`
-- `peazip`
 - `pandoc`
 - `steam`
 
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight FreeFileSync google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra newsflash peazip pandoc 
+sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight FreeFileSync google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra newsflash pandoc 
 ```
 ```
 sudo zypper in steam
@@ -196,6 +194,10 @@ sudo usermod -aG libvirt $USER
 注销重新登录。
 
 注意，不要使用默认的存储池。
+
+关于与虚拟机共享文件，详见[此处]。
+
+[此处]: https://zh.opensuse.org/KVM#.E4.B8.8E.E8.99.9A.E6.8B.9F.E6.9C.BA.E5.85.B1.E4.BA.AB.E6.96.87.E4.BB.B6
 
 ## 散装软件包
 
