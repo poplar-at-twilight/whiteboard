@@ -29,7 +29,7 @@ source .venv/bin/activate
 ```
 [脚本的绝对路径]\.venv\Scripts\activate.bat
 
-#例如 D:\myfiles\misc\git\whiteboard\.venv\bin\activate
+#例如 D:\myfiles\misc\git\whiteboard\.venv\Scripts\activate.bat
 ```
 
 安装依赖：
