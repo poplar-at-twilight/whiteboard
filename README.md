@@ -1,6 +1,6 @@
 # whiteboard
 
-我的个人在线文档站；主要收纳一些开源组织的新闻稿或博客的译文，以及我感兴趣的东西。
+我的个人在线文档站；主要收纳一些我感兴趣的东西。
 
 - [Cloudflare Page](https://whiteboard-ui8.pages.dev/)
 
@@ -29,7 +29,7 @@ source .venv/bin/activate
 ```
 [脚本的绝对路径]\.venv\Scripts\activate.bat
 
-#例如 D:\Myfile\documents\git\whiteboard\.venv\Scripts\activate.bat
+#例如 D:\myfiles\misc\git\whiteboard\.venv\bin\activate
 ```
 
 安装依赖：
