@@ -215,7 +215,7 @@ D:\software\lib\python\Scripts
 
 ## 6、卸载无用软件
 
-使用 [Geek Uninstaller] 清理系统的 UWP 软件，仅保留（含厂商驱动）：
+使用 [Geek Uninstaller] 清理系统的 UWP 软件（包括 OneDrive），仅保留（含厂商驱动）：
 
 <center>
 
@@ -225,7 +225,7 @@ D:\software\lib\python\Scripts
 
 [Geek Uninstaller]: https://geekuninstaller.com/
 
-然后使用微软商店更新 UWP 应用（包括 OneDrive）。更新过程中，已删除的应用可能会被重新安装回来。
+然后使用微软商店更新 UWP 应用。更新过程中，已删除的应用可能会被重新安装回来。
 
 使用**强制删除**卸载无法卸载的 Edge 和 webview2 ，并使用 [Edge Blocker] 禁止系统再次安装 edge。
 
