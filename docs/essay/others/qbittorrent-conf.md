@@ -199,12 +199,39 @@ IP 过滤列表的示例：
 
 我使用的是 `Ghost-chu/PeerBanHelper`。
 
+----
+
+## PeerBanHelper
+
+### Windows 端
+
+一般地，下载自带 JDK 的 `PeerBanHelper.Windows.*.zip`。然后将它解压到 qbittorrent 的应用目录中。
+
+将 `x` 重命名为 `start-pbh.bat`，将此脚本的快捷方式拷贝到 `shell:startup` 目录。
+
+然后新建一个名为 `force-stop-task.cmd` 的文件用于终止进程：
+
+```
+taskkill /im javaw.exe /t /f
+```
+
+点击 `start-pbh.bat` 启动脚本，登录网页端完成初始步骤，然后结束进程，打开 `\data\config\config.yml` 文件编辑下列配置：
+
+- `language`：改为 `zh_CN`
+- `btn`：改为 `true`，并填入 `app-id` 和 `app-secret`
+- `ip-database`：填入申请的 `account-id` 和 `license-key`
+- `proxy`：将 `setting: 0` 改为 `setting: 2`，并检查服务器地址和端口是否正确。
+
+重新启动应用，检查 `data\logs\latest.log` 内容是否存在问题。
+
+### Linux 端
+
 `PeerBanHelper.jar` 启动测试脚本 `test-start.sh`：
 
 ```shell
 #!/bin/bash
-#启动 PeerBanHelper.jar，同时设置代理
-java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=7890" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=7890" -jar PeerBanHelper.jar nogui
+#启动 PeerBanHelper.jar
+java -Xmx386M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -Dconsole.encoding=UTF-8 -jar PeerBanHelper.jar nogui
 ```
 
 用于让 `PeerBanHelper` 开机自启动的 systemd 服务文件：
@@ -215,7 +242,7 @@ Description=Start PeerBanHelper jar file
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=7890" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=7890" -jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar nogui
+ExecStart=/usr/bin/java -Xmx386M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -Dconsole.encoding=UTF-8 -jar PeerBanHelper.jar nogui
 Type=simple
 WorkingDirectory=/home/poplar/bin/qbee/peerbanhelper
 
@@ -232,9 +259,10 @@ sudo systemctl enable pbh --now
 
 初次启动后，在 `/data/config` 目录下，打开 `config.yml`，修改配置：
 
-- 修改 webui 地址
-- 启用 IPDB
-- 启用并配置 BTN 网络
+- `language`：改为 `zh_CN`
+- `btn`：改为 `true`，并填入 `app-id` 和 `app-secret`
+- `ip-database`：填入申请的 `account-id` 和 `license-key`
+- `proxy`：将 `setting: 0` 改为 `setting: 2`，并检查服务器地址和端口是否正确。
 
 然后登录 <http://127.0.0.1:9898/>，添加需要连接的下载器，qBittorrent 一般是：
 
