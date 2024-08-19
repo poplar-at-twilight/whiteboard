@@ -712,6 +712,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#peerbanhelper" class="md-nav__link">
+    <span class="md-ellipsis">
+      PeerBanHelper
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PeerBanHelper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 端
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2029,6 +2062,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#peerbanhelper" class="md-nav__link">
+    <span class="md-ellipsis">
+      PeerBanHelper
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PeerBanHelper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 端
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2219,10 +2285,27 @@
 <li><a href="https://github.com/Ghost-chu/PeerBanHelper">Ghost-chu/PeerBanHelper</a></li>
 </ul>
 <p>我使用的是 <code>Ghost-chu/PeerBanHelper</code>。</p>
+<hr />
+<h2 id="peerbanhelper">PeerBanHelper</h2>
+<h3 id="windows">Windows 端</h3>
+<p>一般地，下载自带 JDK 的 <code>PeerBanHelper.Windows.*.zip</code>。然后将它解压到 qbittorrent 的应用目录中。</p>
+<p>将 <code>2) 以 GUI 模式启动（静默启动到托盘图标）.bat</code> 重命名为 <code>start-pbh.bat</code>，将此脚本的快捷方式拷贝到 <code>shell:startup</code> 目录。</p>
+<p>然后新建一个名为 <code>force-stop-task.cmd</code> 的文件用于终止进程：</p>
+<div class="highlight"><pre><span></span><code>taskkill /im javaw.exe /t /f
+</code></pre></div>
+<p>点击 <code>start-pbh.bat</code> 启动脚本，登录网页端完成初始步骤，然后结束进程，打开 <code>\data\config\config.yml</code> 文件编辑下列配置：</p>
+<ul>
+<li><code>language</code>：改为 <code>zh_CN</code></li>
+<li><code>btn</code>：改为 <code>true</code>，并填入 <code>app-id</code> 和 <code>app-secret</code></li>
+<li><code>ip-database</code>：填入申请的 <code>account-id</code> 和 <code>license-key</code></li>
+<li><code>proxy</code>：将 <code>setting: 0</code> 改为 <code>setting: 2</code>，并检查服务器地址和端口是否正确。</li>
+</ul>
+<p>重新启动应用，检查 <code>data\logs\latest.log</code> 内容是否存在问题。</p>
+<h3 id="linux">Linux 端</h3>
 <p><code>PeerBanHelper.jar</code> 启动测试脚本 <code>test-start.sh</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1">#启动 PeerBanHelper.jar，同时设置代理</span>
-java<span class="w"> </span>-jar<span class="w"> </span>-Xmx256M<span class="w"> </span>-XX:+UseG1GC<span class="w"> </span>-XX:+UseStringDeduplication<span class="w"> </span>-XX:+ShrinkHeapInSteps<span class="w"> </span><span class="s2">&quot;-Dhttp.proxyHost=127.0.0.1&quot;</span><span class="w"> </span><span class="s2">&quot;-Dhttp.proxyPort=7890&quot;</span><span class="w"> </span><span class="s2">&quot;-Dhttps.proxyHost=127.0.0.1&quot;</span><span class="w"> </span><span class="s2">&quot;-Dhttps.proxyPort=7890&quot;</span><span class="w"> </span>-jar<span class="w"> </span>PeerBanHelper.jar<span class="w"> </span>nogui
+<span class="c1">#启动 PeerBanHelper.jar</span>
+java<span class="w"> </span>-Xmx386M<span class="w"> </span>-XX:+UseG1GC<span class="w"> </span>-XX:+UseStringDeduplication<span class="w"> </span>-XX:+ShrinkHeapInSteps<span class="w"> </span>-Dfile.encoding<span class="o">=</span>UTF-8<span class="w"> </span>-Dstdout.encoding<span class="o">=</span>UTF-8<span class="w"> </span>-Dstderr.encoding<span class="o">=</span>UTF-8<span class="w"> </span>-Dconsole.encoding<span class="o">=</span>UTF-8<span class="w"> </span>-jar<span class="w"> </span>PeerBanHelper.jar<span class="w"> </span>nogui
 </code></pre></div>
 <p>用于让 <code>PeerBanHelper</code> 开机自启动的 systemd 服务文件：</p>
 <div class="highlight"><pre><span></span><code>[Unit]
@@ -2230,7 +2313,7 @@ Description=Start PeerBanHelper jar file
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/java -jar -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps &quot;-Dhttp.proxyHost=127.0.0.1&quot; &quot;-Dhttp.proxyPort=7890&quot; &quot;-Dhttps.proxyHost=127.0.0.1&quot; &quot;-Dhttps.proxyPort=7890&quot; -jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar nogui
+ExecStart=/usr/bin/java -Xmx386M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -Dconsole.encoding=UTF-8 -jar PeerBanHelper.jar nogui
 Type=simple
 WorkingDirectory=/home/poplar/bin/qbee/peerbanhelper
 
@@ -2243,9 +2326,10 @@ sudo systemctl enable pbh --now
 </code></pre></div>
 <p>初次启动后，在 <code>/data/config</code> 目录下，打开 <code>config.yml</code>，修改配置：</p>
 <ul>
-<li>修改 webui 地址</li>
-<li>启用 IPDB</li>
-<li>启用并配置 BTN 网络</li>
+<li><code>language</code>：改为 <code>zh_CN</code></li>
+<li><code>btn</code>：改为 <code>true</code>，并填入 <code>app-id</code> 和 <code>app-secret</code></li>
+<li><code>ip-database</code>：填入申请的 <code>account-id</code> 和 <code>license-key</code></li>
+<li><code>proxy</code>：将 <code>setting: 0</code> 改为 <code>setting: 2</code>，并检查服务器地址和端口是否正确。</li>
 </ul>
 <p>然后登录 <a href="http://127.0.0.1:9898/">http://127.0.0.1:9898/</a>，添加需要连接的下载器，qBittorrent 一般是：</p>
 <ul>
