@@ -267,16 +267,16 @@ D:\software\lib\python\Scripts
 
 <center>D:\software\portable</center>
 
-- [7-zip](https://www.7-zip.org/download.html)（本质是个便携软件）  
+- [7-zip](https://www.7-zip.org/download.html)（本质是个便携软件，需要管理员权限以便于重新注入 shell）  
     打开 **工具** → **选项**：  
     在 **7-Zip** 页面，取消勾选 **层叠右键菜单**、**压缩并邮寄**、**压缩<档案>.7z并邮寄** 和 **压缩<档案>.zip并邮寄**；  
     在 **显示** 页面，勾选 **显示 ⌜...⌟ 项**、**显示真实图标**、**整行选择**、**显示网格线**、**单击打开项目**。
 - [aria2](https://aria2.github.io/)  
     另见：[安装与使用 aria2](./aria2.md)
 - [Auto Night Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
-- [ContextMenuManager]
-- [Dism++]
-- [Everything]
+- [ContextMenuManager]（需要管理员权限）
+- [Dism++]（需要管理员权限）
+- [Everything]（需要管理员权限）
 - [FreeFileSync]（本质是个便携软件）  
     仅同步 git 仓库的压缩包文件
 - [GIMP]（本质是个便携软件）
@@ -287,17 +287,17 @@ D:\software\lib\python\Scripts
 - [KeePassXC]
 - music-toolkit:
     - [Foobox]  
-        - [foobar2000 Asion 汉化版]
+        - [foobar2000 Asion 汉化版]（关联格式需要管理员权限）
     - [MusicTag]  
         安装包解压密码：`www.coolapk.com`
     - [spek]
-- [Notepad3]
+- [Notepad3]（本质是个便携软件）
 - sordum toolkit
-    - [EdgeBlock][Edge Blocker]
-    - [W11ClassicMenu]
-    - [win update blocker]
+    - [EdgeBlock][Edge Blocker]（需要管理员权限）
+    - [W11ClassicMenu]（需要管理员权限）
+    - [win update blocker]（需要管理员权限）
 - [Telegram]
-- [v2rayN]
+- [v2rayN]（TUN 模式需要管理员权限）
 - [VLC]（本质是个便携软件）
 - [VSCode]  
     需要在应用目录中新建一个 `data` 文件夹。
@@ -325,17 +325,19 @@ D:\software\lib\python\Scripts
 - [Autoruns64]（需要管理器权限）
 - [BOOTICEx64]（已停更）
 - [Calibre Portable]
-- [CrystalDiskMark]
-- [DiskGenius]
+- [CrystalDiskMark]（需要管理员权限）
+- [DiskGenius]（需要管理员权限）
 - [draw.io]
-- [Geek Uninstaller]
+- [Geek Uninstaller]（需要管理员权限）
 - [HWiNFO]
-- [KMS-Cangshui.net.bat][沧水的 KMS 服务]
+- [KMS-Cangshui.net.bat][沧水的 KMS 服务]（需要管理员权限）
 - [Office Tool Plus]
-- [Rufus]
-- [SpaceSniffer]
+- [RaMMap]（需要管理员权限）  
+    用来清理 standby list，以缓解内存泄漏的问题。另见[此处]。
+- [Rufus]（需要管理员权限）
+- [SpaceSniffer]（需要管理员权限）
 - [Umi-OCR_Paddle]
-- [ventoy]
+- [ventoy]（需要管理员权限）
 
 [aegisub]: https://github.com/arch1t3cht/Aegisub
 [AMD CleanUp Utility]: https://www.amd.com/en/resources/support-articles/faqs/GPU-601.html
@@ -350,6 +352,8 @@ D:\software\lib\python\Scripts
 [Rufus]: https://rufus.ie/
 [SpaceSniffer]: http://www.uderzo.it/main_products/space_sniffer/
 [Umi-OCR_Paddle]: https://github.com/hiroi-sora/Umi-OCR
+[RaMMap]: https://learn.microsoft.com/en-us/sysinternals/downloads/rammap
+[此处]: https://cn.windows-office.net/?p=22621
 
 ----
 
