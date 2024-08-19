@@ -207,7 +207,7 @@ IP 过滤列表的示例：
 
 一般地，下载自带 JDK 的 `PeerBanHelper.Windows.*.zip`。然后将它解压到 qbittorrent 的应用目录中。
 
-将 `x` 重命名为 `start-pbh.bat`，将此脚本的快捷方式拷贝到 `shell:startup` 目录。
+将 `2) 以 GUI 模式启动（静默启动到托盘图标）.bat` 重命名为 `start-pbh.bat`，将此脚本的快捷方式拷贝到 `shell:startup` 目录。
 
 然后新建一个名为 `force-stop-task.cmd` 的文件用于终止进程：
 
