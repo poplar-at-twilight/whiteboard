@@ -5,7 +5,7 @@ tags:
   - python
 ---
 
-# 嵌入式 python（Windows）
+# 嵌入式 python
 
 首先，从 <https://www.python.org/downloads/windows/> 下载 python 的 **Windows embeddable package**。
 

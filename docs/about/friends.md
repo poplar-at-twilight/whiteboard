@@ -4,7 +4,7 @@ tags:
   - 站务
 ---
 
-# 友链
+# 关于友链
 
 如果你想出现在此页面中，你可以向博客的源代码仓库提交 PR 或者 issue。如果你要将我的网站添加至友链中，参考信息如下：
 
@@ -13,7 +13,7 @@ tags:
 - GitHub：<https://github.com/poplar-at-twilight>
 - 链接: <https://whiteboard-ui8.pages.dev/>
 - 头像: [点此下载](./images/one-last-neko-2.jpeg)
-- 简介: 鸽子/咸鱼/openSUSE 新闻译者
+- 简介: 鸽子/咸鱼/喜欢用 FOSS 软件
 
 !!! info "注意"
     1. 如果你没有提供自我介绍的描述，那我将直接在使用你在你的个人网站的所写的简介资料。  

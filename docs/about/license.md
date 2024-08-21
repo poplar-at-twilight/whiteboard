@@ -4,7 +4,7 @@ tags:
   - 站务
 ---
 
-# 许可证清单 | License list
+# 关于许可证 | About Licenses
 
 ## 基础部件 | Basic components
 

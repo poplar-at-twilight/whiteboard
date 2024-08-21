@@ -1,10 +1,10 @@
 site_name: 白杨的文档站
 site_url: https://whiteboard-ui8.pages.dev/
-site_description: 本站用于收纳一些站长的杂谈、笔记和博客等内容。
+site_description: 本站用于收纳站长的一些杂谈、笔记和博客等内容。
 site_author: Poplar at twilight
 
-repo_name: RSS Subscribe
-repo_url: https://whiteboard-ui8.pages.dev/feed_rss_created.xml  #RSS 链接
+repo_name: SRC
+repo_url: https://github.com/poplar-at-twilight/whiteboard
 edit_uri: ""
 
 theme:
@@ -16,16 +16,16 @@ theme:
     # Palette toggle for light mode
       - media: "(prefers-color-scheme: light)"
         scheme: default
-        primary: green
-        accent: blue
+        primary: white
+        accent: red
         toggle:
           icon: material/weather-night
           name: Switch to dark mode
     # Palette toggle for dark mode
       - media: "(prefers-color-scheme: dark)"
         scheme: slate
-        primary: green
-        accent: blue
+        primary: black
+        accent: red
         toggle:
           icon: material/weather-sunny
           name: Switch to light mode
@@ -35,9 +35,9 @@ theme:
       - navigation.footer
       - header.autohide  #公告栏
       - announce.dismiss #可关闭的公告栏
-    logo: assets/open-book.png
+    logo: assets/greyweb.svg
     icon:
-      repo: fontawesome/brands/linux
+      repo: fontawesome/brands/github
     font:
       text: Noto Sans
       code: Noto Sans Mono    
@@ -45,6 +45,7 @@ theme:
 nav:
     - 首页:
       - index.md
+      - tags.md
     - 站内杂谈: 
       - essay/about.md
       - 杂谈:
@@ -87,7 +88,6 @@ nav:
       - about/about-me.md
       - about/friends.md
       - about/license.md
-      - about/tags.md
 
 markdown_extensions:
   #启用工具提示
@@ -131,7 +131,7 @@ plugins:
       authors_file: blog/.authors.yml
       post_readtime: false
   - tags:
-      tags_file: about/tags.md
+      tags_file: tags.md
   - rss:
       abstract_chars_count: -1
       match_path: blog/posts/.* 
