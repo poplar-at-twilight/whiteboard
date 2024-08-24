@@ -12,13 +12,13 @@
         <meta name="author" content="Poplar at twilight">
       
       
-        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/essay/others/opencc/">
+        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/essay/main/adjust-win11-for-popurse/">
       
       
-        <link rel="prev" href="../2021-08/">
+        <link rel="prev" href="../use-rss-sub/">
       
       
-        <link rel="next" href="../alias-tips/">
+        <link rel="next" href="../opencc/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../feed_rss_created.xml">
@@ -29,7 +29,7 @@
     
     
       
-        <title>使用 OpenCC 进行简繁中文转换 - 白杨的文档站</title>
+        <title>Windows 11 安装与配置 - 白杨的文档站</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#opencc" class="md-skip">
+        <a href="#windows-11" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              使用 OpenCC 进行简繁中文转换
+              Windows 11 安装与配置
             
           </span>
         </div>
@@ -673,48 +673,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../adjust-win11-for-popurse/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Windows 11 安装与配置
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2021-08/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Linux distro in my view
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -731,7 +689,7 @@
           
   
   <span class="md-ellipsis">
-    使用 OpenCC 进行简繁中文转换
+    Windows 11 安装与配置
   </span>
   
 
@@ -742,7 +700,7 @@
         
   
   <span class="md-ellipsis">
-    使用 OpenCC 进行简繁中文转换
+    Windows 11 安装与配置
   </span>
   
 
@@ -766,26 +724,53 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      安装
+      流程概览
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1-iso" class="md-nav__link">
     <span class="md-ellipsis">
-      使用
+      1、获取 ISO 文件
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="使用">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ventoy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2、使用 ventoy 安装系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1、更新系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2、配置 Windows 系统设置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2、配置 Windows 系统设置">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#dism" class="md-nav__link">
     <span class="md-ellipsis">
-      配置文件
+      使用 Dism++ 调整系统
     </span>
   </a>
   
@@ -794,7 +779,80 @@
           <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
     <span class="md-ellipsis">
-      在 Windows 上使用
+      Windows 设置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows 设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      蓝牙和其他设备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      个性化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      账户
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      时间和语言
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      辅助功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      隐私和安全性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 更新：
     </span>
   </a>
   
@@ -804,11 +862,91 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3、安装基本的运行库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4、再次检查是否有更新
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5、安装显卡驱动
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6、卸载无用软件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7、安装软件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8、便携软件列表
+    </span>
+  </a>
+  
+</li>
       
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opencc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    使用 OpenCC 进行简繁中文转换
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -909,7 +1047,7 @@
             
   
   <span class="md-ellipsis">
-    随笔&日常
+    笔记
   </span>
   
 
@@ -918,94 +1056,6 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
-            随笔&日常
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../main/about/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    关于
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../main/misc/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    记事本
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    笔记
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             笔记
           </label>
@@ -1777,26 +1827,53 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      安装
+      流程概览
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1-iso" class="md-nav__link">
     <span class="md-ellipsis">
-      使用
+      1、获取 ISO 文件
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="使用">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ventoy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2、使用 ventoy 安装系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1、更新系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2、配置 Windows 系统设置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2、配置 Windows 系统设置">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#dism" class="md-nav__link">
     <span class="md-ellipsis">
-      配置文件
+      使用 Dism++ 调整系统
     </span>
   </a>
   
@@ -1805,7 +1882,80 @@
           <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
     <span class="md-ellipsis">
-      在 Windows 上使用
+      Windows 设置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows 设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      蓝牙和其他设备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      个性化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      账户
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      时间和语言
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      辅助功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      隐私和安全性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 更新：
     </span>
   </a>
   
@@ -1813,6 +1963,65 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3、安装基本的运行库
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4、再次检查是否有更新
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5、安装显卡驱动
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6、卸载无用软件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7、安装软件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8、便携软件列表
+    </span>
+  </a>
   
 </li>
       
@@ -1841,128 +2050,331 @@
     
     
     
-      <a href="../../../tags/#opencc" class="md-tag">openCC</a>
+      <a href="../../../tags/#windows" class="md-tag">Windows</a>
     
   
 </nav>
 
 
 
-<h1 id="opencc">使用 OpenCC 进行简繁中文转换</h1>
-<blockquote>
-<p><a href="https://github.com/BYVoid/OpenCC">开放中文转换</a>（OpenCC，开放中文转换）是一个开源项目，用于繁体中文、简体中文和日文汉字（Shinjitai）之间的转换。支持中国大陆、台湾和香港之间的字符级和短语级转换、字符变体转换和地区成语。这不是普通话和粤语等之间的翻译工具。</p>
-</blockquote>
-<h2 id="_1">安装</h2>
-<p>在 Tumbleweed 上安装 OpenCC</p>
-<div class="highlight"><pre><span></span><code>sudo zypper in opencc -y
-</code></pre></div>
-<h2 id="_2">使用</h2>
-<p>示例：</p>
-<div class="highlight"><pre><span></span><code>bh@c004-h1:~&gt;<span class="w"> </span>ls<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span>繁体中文.txt
-繁体中文.txt<span class="w">  </span>公共<span class="w">  </span>模板<span class="w">  </span>视频<span class="w">  </span>图片<span class="w">  </span>文档<span class="w">  </span>下载<span class="w">  </span>音乐<span class="w">  </span>桌面<span class="w">  </span>Applications<span class="w">  </span>BT-Network
-OpenCC<span class="w"> </span>是一個開源項目，用於繁體中文、簡體中文和日文漢字（Shinjitai）之間的轉換。支持中國大陸、臺灣和香港之間的字符級和短語級轉換、字符變體轉換和地區成語。這不是普通話和粵語等之間的翻譯工具。
-bh@c004-h1:~&gt;<span class="w"> </span>opencc<span class="w"> </span>-i<span class="w"> </span>繁体中文.txt<span class="w"> </span>-c<span class="w"> </span>t2s<span class="w"> </span>-o<span class="w"> </span>简体中文.txt
-bh@c004-h1:~&gt;<span class="w"> </span>cat<span class="w"> </span>简体中文.txt
-OpenCC<span class="w"> </span>是一个开源项目，用于繁体中文、简体中文和日文汉字（Shinjitai）之间的转换。支持中国大陆、台湾和香港之间的字符级和短语级转换、字符变体转换和地区成语。这不是普通话和粤语等之间的翻译工具。
-</code></pre></div>
-<p>在如上的示例中，我将繁体中文文本写入到名为 <code>繁体中文.txt</code> 的文件中，然后使用 opencc 读取该文件，并读取配置文件 <code>t2s</code> 进行转换，再输出一个名为 <code>简体中文.txt</code> 的文件。</p>
-<h3 id="_3">配置文件</h3>
-<p>有关 opencc 可用的配置文件如下：</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>s2t.json</code></td>
-<td>简体到繁体</td>
-</tr>
-<tr>
-<td><code>t2s.json</code></td>
-<td>繁体到简体</td>
-</tr>
-<tr>
-<td><code>s2tw.json</code></td>
-<td>简体到台湾正体</td>
-</tr>
-<tr>
-<td><code>tw2s.json</code></td>
-<td>台湾正体到简体</td>
-</tr>
-<tr>
-<td><code>s2hk.json</code></td>
-<td>简体到香港繁体</td>
-</tr>
-<tr>
-<td><code>hk2s.json</code></td>
-<td>香港繁体到简体</td>
-</tr>
-<tr>
-<td><code>s2twp.json</code></td>
-<td>简体到繁体（台湾正体标准）并转换为台湾常用词汇</td>
-</tr>
-<tr>
-<td><code>tw2sp.json</code></td>
-<td>繁体（台湾正体标准）到简体并转换为中国大陆常用词汇</td>
-</tr>
-<tr>
-<td><code>t2tw.json</code></td>
-<td>繁体（OpenCC 标准）到台湾正体</td>
-</tr>
-<tr>
-<td><code>hk2t.json</code></td>
-<td>香港繁体到繁体（OpenCC 标准）</td>
-</tr>
-<tr>
-<td><code>t2hk.json</code></td>
-<td>繁体（OpenCC 标准）到香港繁体</td>
-</tr>
-<tr>
-<td><code>t2jp.json</code></td>
-<td>繁体（OpenCC 标准，旧字体）到日文新字体</td>
-</tr>
-<tr>
-<td><code>jp2t.json</code></td>
-<td>日文新字体到繁体（OpenCC 标准，旧字体）</td>
-</tr>
-<tr>
-<td><code>tw2t.json</code></td>
-<td>台湾正体到繁体（OpenCC 标准）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="windows">在 Windows 上使用</h3>
-<p>Opencc 的开发者们已经提供了针对 Windows 的 64 位预编译软件包，解压后可以直接使用。</p>
+<h1 id="windows-11">Windows 11 安装与配置</h1>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<ul>
+<li>本文最后更新于 2024 年 8 月 19 日；</li>
+<li>本文适用于 Windows 11 23H2；</li>
+<li>本文优先使用便携软件；</li>
+<li>本文不具有普适性。</li>
+</ul>
+</div>
+<h2 id="_1">流程概览</h2>
 <ol>
-<li>请将全部文件放置在同一个目录中，如下：</li>
+<li>下载 ISO 文件；</li>
+<li>使用 ventoy 安装系统；</li>
+<li>等待 Windows Update 更新完毕；配置 Windows 系统设置，安装基本的运行库；</li>
+<li>再次检查是否有更新；</li>
+<li>安装显卡驱动；</li>
+<li>卸载无用软件；</li>
+<li>安装软件；</li>
+<li>便携软件列表。</li>
 </ol>
-<div class="highlight"><pre><span></span><code>PS D:\Software\Libs\OpenCC&gt; ls
-
-
-    目录: D:\Software\Libs\OpenCC
-
-
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d-----      2022.12.05   下午 1:11                include
-d-----      2022.12.05   下午 1:10                lib
-d-----      2022.12.05   下午 1:10                Release
-d-----      2022.12.05   下午 1:11                share
--a----      2022.12.05   下午 1:11         293888 benchmark.dll
--a----      2022.12.05   下午 1:11          10240 benchmark_main.dll
--a----      2022.12.05   下午 1:10         342016 opencc.dll
--a----      2022.12.05   下午 1:11         105472 opencc.exe
--a----      2022.12.05   下午 1:10          86528 opencc_dict.exe
--a----      2022.12.05   下午 1:11         101376 opencc_phrase_extract.exe
-</code></pre></div>
+<hr />
+<h2 id="1-iso">1、获取 ISO 文件</h2>
+<p>从<a href="https://www.microsoft.com/software-download/windows11">下载 Windows 11</a> 页面获取 <strong>Windows 11 安装助手</strong>。使用这个助手仅下载 <code>Windows.iso</code> 而不直接刻入到 U 盘。</p>
+<h2 id="2-ventoy">2、使用 ventoy 安装系统</h2>
+<p>使用 <a href="https://www.ventoy.net/cn/index.html">Ventoy</a> 将 U 盘或可移动设备转换为一个可启动的安装介质。</p>
+<p>使用 <code>VentoyPlugson.exe</code> 配置设备，在 <strong>全局控制插件</strong> 中，在 <strong>指定搜索目录</strong> 中设置 ISO 文件存放的文件夹。</p>
+<p>开机时连按 Esc 进入 BIOS，从 BIOS 启动 U 盘。安装系统时：</p>
+<ul>
+<li>断开网络</li>
+<li>使用本地账户</li>
+<li>不设置密码</li>
+<li>拒绝所有的微软服务</li>
+</ul>
+<h2 id="31">3.1、更新系统</h2>
+<p>在系统设置中，重命名此电脑。连接 WiFi，然后重启系统。</p>
+<p>启动 Windows update，此时并不建议卸载任何软件。</p>
+<p>Windows 和 Officee 激活见<a href="https://kms.cangshui.net/">沧水的 KMS 服务</a>。</p>
+<h2 id="32-windows">3.2、配置 Windows 系统设置</h2>
+<h3 id="dism">使用 Dism++ 调整系统</h3>
+<p>在启动 <a href="https://github.com/Chuyu-Team/Dism-Multi-language">Dism++</a> 后，点击左栏的<strong>系统优化</strong>，然后：</p>
 <ol>
-<li>请在文件所在目录中执行命令如：</li>
+<li>在 <strong>开始菜单及 Windows 体验</strong> 中，将除了 <strong>登录界面默认打开小键盘</strong> 和 <strong>关闭 Onedrive</strong> 以外的选项全部开启；注意每次编辑都需要重启一次 <code>explorer.exe</code>；  </li>
+<li>在 <strong>Explorer</strong> 中，打开<ul>
+<li><strong>打开资源管理器时显示此电脑</strong></li>
+<li><strong>显示所有文件扩展名</strong></li>
+<li><strong>创建快捷方式时不添加“快捷方式”文字</strong></li>
+<li><strong>此电脑中视频、照片、文档、下载、音手、卓面、3D 对象七个文件夹</strong></li>
+<li><strong>快速访问不显示常用文件夹</strong></li>
+<li><strong>快速访问不显示最近使用的文件</strong></li>
+<li><strong>禁用Win11加入的新右键菜单，默认显示更多的选项</strong></li>
+</ul>
+</li>
+<li>在 <strong>桌面图标管理中</strong> 隐藏全部的图标</li>
+<li>在 <strong>资源管理器导航窗口图标管理</strong> 中，打开 <ul>
+<li><strong>隐藏资源管理器导航窗口中的库</strong></li>
+<li><strong>隐藏资源管理器导航窗口中的收藏夹</strong>  </li>
+</ul>
+</li>
+<li>在 <strong>微软拼音输入法</strong> 中，打开<ul>
+<li><strong>微软拼音默认为英语输入</strong></li>
+</ul>
+</li>
 </ol>
-<div class="highlight"><pre><span></span><code>.\opencc -i &quot;D:\.R\小说\factory\epub-build\cache\a.txt&quot; -c t2s -o &quot;D:\.R\小说\factory\epub-build\cache\a.sc.txt&quot;
+<h3 id="windows">Windows 设置</h3>
+<h4 id="_2">系统</h4>
+<ul>
+<li>通知：</br>在 <strong>其他设置</strong> 中，取消勾选  <ul>
+<li><strong>更新以及登录后显示 Windows 欢迎体验以显示新增功能和建议内容</strong></li>
+<li><strong>建议我如何充分利用 Windows 并完成设置此设备</strong></li>
+<li><strong>当我使用 Windows 时获取提示和建议</strong></li>
+</ul>
+</li>
+<li>电源和电池：<br />
+<strong>屏幕和睡眠</strong> 设置为默认设置<sup id="fnref:sleep"><a class="footnote-ref" href="#fn:sleep">1</a></sup>。</li>
+<li>储存：<br />
+<strong>存储感知</strong> 应当是自动开启的。打开 <strong>优化驱动器</strong> 整理磁盘碎片。</li>
+<li>就近共享：<br />
+    关闭此功能</li>
+<li>剪贴板：<br />
+    打开 <strong>剪贴板历史记录</strong></li>
+<li>系统信息：  <ul>
+<li>在 <strong>高级系统设置</strong> → <strong>高级</strong> → <strong>环境变量</strong> → <strong>Path</strong> 中，点击 <code>编辑</code>，插入环境变量。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>D:\software\lib
+D:\software\lib\git
+D:\software\lib\git\cmd
+D:\software\lib\python
+D:\software\lib\python\Scripts
 </code></pre></div>
+<h4 id="_3">蓝牙和其他设备</h4>
+<ul>
+<li>触摸板：<br />
+    将 <strong>三指手势</strong> 的点击动作，修改为 <strong>鼠标中键</strong>  </li>
+</ul>
+<h4 id="_4">个性化</h4>
+<ul>
+<li>背景：<br />
+    将 <strong>个性化设置背景</strong> 修改为 <strong>幻灯片放映</strong>，打开 <strong>在使用电池供电时仍允许运行幻灯片放映</strong></li>
+<li>颜色：<br />
+    设置为 <code>钢蓝色</code></li>
+<li>锁屏界面：<br />
+<strong>个性化锁屏界面</strong> 修改为 <strong>图片</strong><br />
+    取消勾选 <strong>在锁屏界面上获取花絮、提示、技巧等</strong></li>
+<li>开始：  <ul>
+<li><strong>布局</strong> 选择为 <strong>更多固定项</strong>  </li>
+<li>关闭 <strong>布局</strong> 下方所有的选项  </li>
+<li>在 <strong>文件夹</strong> 中，只打开 <strong>设置</strong></li>
+</ul>
+</li>
+<li>任务栏：  <ul>
+<li>在 <strong>任务栏项</strong> 和 <strong>系统托盘图标</strong> 中关闭或隐藏全部选项，除了 <strong>任务视图</strong></li>
+<li>在 <strong>其他系统托盘图标</strong> 中，选择性开启所需应用图标。</li>
+<li>在 <strong>任务栏行为</strong> 中，勾选 <strong>单击任务栏右下角以显示桌面</strong></li>
+</ul>
+</li>
+<li>设备使用情况：<br />
+    关闭全部选项</li>
+</ul>
+<h4 id="_5">账户</h4>
+<p>在 <strong>登陆选项</strong> 中，设置密码和头像。</p>
+<h4 id="_6">时间和语言</h4>
+<p>在 <strong>语言和区域</strong> 中，修改 <strong>区域格式</strong>。</p>
+<p>修改 <strong>微软拼音输入法</strong>：</p>
+<ul>
+<li>在 <strong>按键</strong> 中，取消勾选 <strong>Shift</strong></li>
+<li>在 <strong>词库和自学习</strong> 中，启用全部的专业词典</li>
+</ul>
+<h4 id="_7">辅助功能</h4>
+<ul>
+<li><strong>键盘</strong>：<br />
+    关闭与粘滞键、过滤键和切换键相关的全部选项</li>
+</ul>
+<h4 id="_8">隐私和安全性</h4>
+<ul>
+<li>在 <strong>常规</strong> 中，关闭全部选项</li>
+<li>在 <strong>诊断和反馈</strong> 中，将反馈频率调成 <strong>从不</strong>。</li>
+<li>在 <strong>活动历史记录</strong> 中，关闭活动历史记录</li>
+<li>在 <strong>搜索权限</strong> 中，关闭所有选项</li>
+<li>在 <strong>搜索 Windows</strong> 中，打开 <strong>编制索引时遵从电源设置</strong></li>
+</ul>
+<h4 id="windows_1">Windows 更新：</h4>
+<p>在 <strong>高级选项</strong> 中，关闭 <strong>传递优化</strong>。</p>
+<h2 id="33">3.3、安装基本的运行库</h2>
+<ol>
+<li>安装 <a href="https://docs.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170">Microsoft Visual C++ 2015-2022 Redistributable</a> 和 <a href="https://www.google.com/chrome/">Chrome</a>。</li>
+<li>启动下列软件，将其集成到文件资源管理器中或关联文件格式：<ul>
+<li><a href="https://www.7-zip.org/">7-zip</a>（需要管理员权限）</li>
+<li><a href="https://www.bandisoft.com/honeyview/dl.php?portable">honeyview</a></li>
+<li><a href="https://www.voidtools.com/downloads/">Everything</a></li>
+</ul>
+</li>
+<li>启动 <a href="https://github.com/2dust/v2rayN">v2rayN</a> 并设置开机启动。</li>
+</ol>
+<p>使用 <a href="https://github.com/BluePointLilac/ContextMenuManager">ContextMenuManager</a> 编辑鼠标右键菜单，启用 <strong>其他规则</strong> 中的 <strong>新建文件夹</strong>、<strong>重启资源管理器</strong> 和 <strong>复制路径</strong>。</p>
+<h2 id="4">4、再次检查是否有更新</h2>
+<p>在更新完重启系统后，重新检查一下 Windows update 是否有可用更新。</p>
+<h2 id="5">5、安装显卡驱动</h2>
+<p>下载 <a href="https://www.amd.com/en/support">AMD Software</a>（<a href="https://www.amd.com/zh-cn/support/downloads/previous-drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7600m-xt.html">AMD Software 旧版本</a>）并安装。</p>
+<p>完成后调整音量和屏幕亮度。</p>
+<p>对于 AMD 驱动的设置，在 <strong>游戏</strong> → <strong>显卡</strong> 中，推荐选择 <strong>自定义</strong> 方案。并只开启：</p>
+<ul>
+<li>Radeon™ Anti-Lag</li>
+<li>Radeon™ 增强同步（仅对独显有效）</li>
+</ul>
+<p>在 <strong>游戏</strong> → <strong>显示器</strong> 中，</p>
+<ul>
+<li>关闭 Vari-Bright</li>
+<li>打开自定义颜色，将色温调整到 <code>6900</code></li>
+</ul>
+<p>在 <strong>系统</strong> → <strong>屏幕</strong> → <strong>显示卡</strong> 中，添加需要使用显卡的应用。</p>
+<p>按 <code>Alt</code> + <code>R</code> 启动 AMD Software 面板。</p>
+<h2 id="6">6、卸载无用软件</h2>
+<p>使用 <a href="https://geekuninstaller.com/">Geek Uninstaller</a> 清理系统的 UWP 软件（包括 OneDrive），仅保留（含厂商驱动）：</p>
+<p><center></p>
+<p><img alt="" src="../images/geek.png" width="50%" /></p>
+<p></center></p>
+<p>然后使用微软商店更新 UWP 应用。更新过程中，已删除的应用可能会被重新安装回来。</p>
+<p>使用<strong>强制删除</strong>卸载无法卸载的 Edge 和 webview2 ，并使用 <a href="https://www.sordum.org/9312/edge-blocker-v2-0/">Edge Blocker</a> 禁止系统再次安装 edge。</p>
+<h2 id="7">7、安装软件</h2>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>安装后会产生大量小文件的应用默认不以便携模式进行部署。</p>
+</div>
+<p>使用 <a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> 安装 Microsoft Office，并卸载 Office 2021 稍后自动安装的一个应用。</p>
+<p>安装：</p>
+<ul>
+<li><a href="https://github.com/AutoDarkMode/Windows-Auto-Night-Mode">Auto Night Mode</a></li>
+<li><a href="https://www.gimp.org/">GIMP</a></li>
+<li><a href="https://gpg4win.org/download.html">gpg4win</a>  <ul>
+<li>安装时只需要 Kleopatra 和 GpgEX 即可。</li>
+</ul>
+</li>
+<li><a href="https://store.steampowered.com/">steam</a>  <ul>
+<li>关闭开机启动</li>
+<li>修改默认库</li>
+<li>修改默认启动时显示的页面</li>
+<li>修改下载服务器</li>
+<li>修改按下控制器按钮时的操作</li>
+</ul>
+</li>
+<li><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a></li>
+<li><a href="https://www.videolan.org/vlc/">VLC</a></li>
+</ul>
+<p>无线与蓝牙驱动：</p>
+<ul>
+<li><a href="https://www.intel.com/content/www/us/en/products/sku/204836/intel-wifi-6e-ax210-gig/downloads.html">Intel® Wi-Fi 6E AX210</a></li>
+</ul>
+<h2 id="8">8、便携软件列表</h2>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>以下是以便携模式或类似状态使用的软件。</p>
+</div>
+<p><center>D:\software\portable</center></p>
+<ul>
+<li><a href="https://www.7-zip.org/download.html">7-zip</a>（本质是个便携软件，需要管理员权限以便于重新注入 shell）<br />
+    打开 <strong>工具</strong> → <strong>选项</strong>：  <ul>
+<li>在 <strong>7-Zip</strong> 页面，取消勾选 <strong>层叠右键菜单</strong>、<strong>压缩并邮寄</strong>、<strong>压缩&lt;档案&gt;.7z并邮寄</strong> 和 <strong>压缩&lt;档案&gt;.zip并邮寄</strong>；  </li>
+<li>在 <strong>显示</strong> 页面，勾选 <strong>显示 ⌜...⌟ 项</strong>、<strong>显示真实图标</strong>、<strong>整行选择</strong>、<strong>显示网格线</strong>、<strong>单击打开项目</strong>。</li>
+</ul>
+</li>
+<li><a href="https://aria2.github.io/">aria2</a><br />
+    另见：<a href="../aria2/">安装与使用 aria2</a></li>
+<li><a href="https://github.com/BluePointLilac/ContextMenuManager">ContextMenuManager</a>（需要管理员权限）</li>
+<li><a href="https://github.com/Chuyu-Team/Dism-Multi-language">Dism++</a>（需要管理员权限）</li>
+<li><a href="https://www.voidtools.com/downloads/">Everything</a>（需要管理员权限）</li>
+<li><a href="https://freefilesync.org/">FreeFileSync</a>（本质是个便携软件）<br />
+    仅同步 git 仓库的压缩包文件</li>
+<li><a href="https://github.com/xiaoyifang/goldendict-ng">GoldenDict-ng</a>  <ul>
+<li>需要在 <code>GoldenDict.exe</code> 所在目录新建一个名为 <code>portable</code> 的文件夹  </li>
+<li>便携模式下，词典文件只能放置在 <code>content</code> 文件夹中</li>
+</ul>
+</li>
+<li><a href="https://www.bandisoft.com/honeyview/dl.php?portable">honeyview</a></li>
+<li><a href="https://keepassxc.org/download/">KeePassXC</a></li>
+<li>music-toolkit:<ul>
+<li><a href="https://github.com/dream7180/foobox-cn/">Foobox</a>  <ul>
+<li><a href="https://www.cnblogs.com/asionwu">foobar2000 Asion 汉化版</a>（关联格式需要管理员权限）</li>
+</ul>
+</li>
+<li><a href="https://www.cnblogs.com/vinlxc/p/11347744.html">MusicTag</a><br />
+    安装包解压密码：<code>www.coolapk.com</code></li>
+<li><a href="https://www.spek.cc/p/download">spek</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/rizonesoft/Notepad3">Notepad3</a>（本质是个便携软件）</li>
+<li>sordum toolkit<ul>
+<li><a href="https://www.sordum.org/9312/edge-blocker-v2-0/">EdgeBlock</a>（需要管理员权限）</li>
+<li><a href="https://www.sordum.org/14479/windows-11-classic-context-menu-v1-2/">W11ClassicMenu</a>（需要管理员权限）</li>
+<li><a href="https://www.sordum.org/9470/windows-update-blocker-v1-8/">win update blocker</a>（需要管理员权限）</li>
+</ul>
+</li>
+<li><a href="https://telegram.org/dl/desktop/win64_portable">Telegram</a></li>
+<li><a href="https://github.com/2dust/v2rayN">v2rayN</a>（TUN 模式需要管理员权限）</li>
+<li><a href="https://code.visualstudio.com/">VSCode</a><br />
+    需要在应用目录中新建一个 <code>data</code> 文件夹。</li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://github.com/arch1t3cht/Aegisub">aegisub</a></li>
+<li><a href="https://www.amd.com/en/resources/support-articles/faqs/GPU-601.html">AMD CleanUp Utility</a>（会直接启动到安全模式）</li>
+<li><a href="https://github.com/ermig1979/AntiDupl/releases">AntiDupl.NET</a></li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns">Autoruns64</a>（需要管理器权限）</li>
+<li><a href="https://www.majorgeeks.com/files/details/bootice_64_bit.html">BOOTICEx64</a>（已停更）</li>
+<li><a href="https://calibre-ebook.com/download_portable">Calibre Portable</a></li>
+<li><a href="https://crystalmark.info/en/software/crystaldiskmark/">CrystalDiskMark</a>（需要管理员权限）</li>
+<li><a href="https://www.diskgenius.cn/">DiskGenius</a>（需要管理员权限）</li>
+<li><a href="https://github.com/jgraph/drawio-desktop/">draw.io</a></li>
+<li><a href="https://geekuninstaller.com/">Geek Uninstaller</a>（需要管理员权限）</li>
+<li><a href="https://www.hwinfo.com/">HWiNFO</a></li>
+<li><a href="https://kms.cangshui.net/">KMS-Cangshui.net.bat</a>（需要管理员权限）</li>
+<li><a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a></li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer">procexp64</a>（需要管理员权限）</li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/rammap">RaMMap</a>（需要管理员权限）<br />
+    用来清理 standby list，以缓解内存泄漏的问题。另见<a href="https://cn.windows-office.net/?p=22621">此处</a>。</li>
+<li><a href="https://rufus.ie/">Rufus</a>（需要管理员权限）</li>
+<li><a href="http://www.uderzo.it/main_products/space_sniffer/">SpaceSniffer</a>（需要管理员权限）</li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/tcpview">tcpview64</a>（需要管理员权限）</li>
+<li><a href="https://github.com/hiroi-sora/Umi-OCR">Umi-OCR_Paddle</a></li>
+<li><a href="https://www.ventoy.net/cn/index.html">ventoy</a>（需要管理员权限）</li>
+</ul>
+<hr />
+<p><center>D:\software\lib</center></p>
+<ul>
+<li><a href="https://git-scm.com/download/win">git</a>  <ul>
+<li>需要将它添加至环境变量中，详见上文。</li>
+<li>配置文件（C:\Users\Poplar.gitconfig）：
+<div class="highlight"><pre><span></span><code>[user]
+    name = Poplar at twilight
+    email = poplar.cubic@gmail.com
+[http]
+    proxy = http://127.0.0.1:7890
+</code></pre></div></li>
+</ul>
+</li>
+<li><a href="https://www.python.org/">python</a><br />
+    另见 <a href="../python-embed/">嵌入式 python（Windows）</a></li>
+<li><a href="https://pandoc.org/">pandoc</a></li>
+</ul>
+<hr />
+<p><center>D:\software\installed</center></p>
+<ul>
+<li><a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases">qBittorrent-Enhanced-Edition</a><ul>
+<li>详见：<a href="../qbittorrent-conf/">qBittorrent 配置备忘录</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/PBH-BTN/PeerBanHelper/issues">PeerBanHelper</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:sleep">
+<p>我的设备在睡眠状态下不会断开网络链接，所以此设置只需要遵循 Windows 的节能建议即可。&#160;<a class="footnote-backref" href="#fnref:sleep" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
@@ -1997,7 +2409,7 @@ d-----      2022.12.05   下午 1:11                share
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../2021-08/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Linux distro in my view">
+          <a href="../use-rss-sub/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 基于 RSS 的简单资讯聚合订阅">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2007,20 +2419,20 @@ d-----      2022.12.05   下午 1:11                share
                 上一页
               </span>
               <div class="md-ellipsis">
-                Linux distro in my view
+                基于 RSS 的简单资讯聚合订阅
               </div>
             </div>
           </a>
         
         
           
-          <a href="../alias-tips/" class="md-footer__link md-footer__link--next" aria-label="下一页: alias 命令小记">
+          <a href="../opencc/" class="md-footer__link md-footer__link--next" aria-label="下一页: 使用 OpenCC 进行简繁中文转换">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                alias 命令小记
+                使用 OpenCC 进行简繁中文转换
               </div>
             </div>
             <div class="md-footer__button md-icon">
