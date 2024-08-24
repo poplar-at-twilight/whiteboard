@@ -233,6 +233,10 @@ D:\software\lib\python\Scripts
 
 ## 7、安装软件
 
+!!! note "注意"
+
+    安装后会产生大量小文件的应用默认不以便携模式进行部署。
+
 使用 [Office Tool Plus] 安装 Microsoft Office，并卸载 Office 2021 稍后自动安装的一个应用。
 
 [Office Tool Plus]: https://otp.landian.vip/zh-cn/

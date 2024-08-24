@@ -49,22 +49,17 @@ nav:
     - 站内杂谈: 
       - essay/about.md
       - 杂谈:
-        - essay/others/qbittorrent-conf.md
-        - essay/others/aria2.md
-        - essay/others/md-epub.md
-        - essay/others/ainme.md
-        - essay/others/play-minecraft.md
-        - essay/others/use-rss-sub.md
-        - essay/others/adjust-win11-for-popurse.md
-        - essay/others/2021-08.md
-        - essay/others/opencc.md
-        - essay/others/alias-tips.md
-        - essay/others/eyecandy-kde.md
-        - essay/others/python-embed.md
-      - 随笔&日常:
-        - essay/main/about.md
-        #- essay/main/
-        - essay/main/misc.md
+        - essay/main/qbittorrent-conf.md
+        - essay/main/aria2.md
+        - essay/main/md-epub.md
+        - essay/main/ainme.md
+        - essay/main/play-minecraft.md
+        - essay/main/use-rss-sub.md
+        - essay/main/adjust-win11-for-popurse.md
+        - essay/main/opencc.md
+        - essay/main/alias-tips.md
+        - essay/main/eyecandy-kde.md
+        - essay/main/python-embed.md
       - 笔记:
         - essay/note/about.md
         - essay/note/preparation.md

@@ -73,7 +73,7 @@ zypper in calibre               #对于 openSUSE 用户
 zypper in opencc  #对于 openSUSE 用户
 ```
 
-另见[使用 OpenCC 进行简繁中文转换](./../others/opencc.md)。
+另见[使用 OpenCC 进行简繁中文转换](./opencc.md)。
 
 ### vscode
 
