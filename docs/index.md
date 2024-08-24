@@ -1,5 +1,9 @@
 # 首页
 
+!!! info "注意"
+
+    本站不再定期提供特定网站的翻译，详见[此处](./blog/posts/2024-0629.md)。
+
 ![cover](./assets/wp4883800-death-stranding-2019-wallpapers.jpg)
 
 === "主要内容"
