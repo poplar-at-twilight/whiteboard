@@ -239,15 +239,18 @@ D:\software\lib\python\Scripts
 
 安装：
 
+- [Auto Night Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
+- [GIMP]
 - [gpg4win]  
     - 安装时只需要 Kleopatra 和 GpgEX 即可。
-- [VirtualBox]
 - [steam]  
     - 关闭开机启动
     - 修改默认库
     - 修改默认启动时显示的页面
     - 修改下载服务器
     - 修改按下控制器按钮时的操作
+- [VirtualBox]
+- [VLC]
 
 [gpg4win]: https://gpg4win.org/download.html
 [VirtualBox]: https://www.virtualbox.org/wiki/Downloads
@@ -273,13 +276,11 @@ D:\software\lib\python\Scripts
     - 在 **显示** 页面，勾选 **显示 ⌜...⌟ 项**、**显示真实图标**、**整行选择**、**显示网格线**、**单击打开项目**。
 - [aria2](https://aria2.github.io/)  
     另见：[安装与使用 aria2](./aria2.md)
-- [Auto Night Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
 - [ContextMenuManager]（需要管理员权限）
 - [Dism++]（需要管理员权限）
 - [Everything]（需要管理员权限）
 - [FreeFileSync]（本质是个便携软件）  
     仅同步 git 仓库的压缩包文件
-- [GIMP]（本质是个便携软件）
 - [GoldenDict-ng]  
     - 需要在 `GoldenDict.exe` 所在目录新建一个名为 `portable` 的文件夹  
     - 便携模式下，词典文件只能放置在 `content` 文件夹中
@@ -298,7 +299,6 @@ D:\software\lib\python\Scripts
     - [win update blocker]（需要管理员权限）
 - [Telegram]
 - [v2rayN]（TUN 模式需要管理员权限）
-- [VLC]（本质是个便携软件）
 - [VSCode]  
     需要在应用目录中新建一个 `data` 文件夹。
 
@@ -332,10 +332,12 @@ D:\software\lib\python\Scripts
 - [HWiNFO]
 - [KMS-Cangshui.net.bat][沧水的 KMS 服务]（需要管理员权限）
 - [Office Tool Plus]
+- [procexp64]（需要管理员权限）
 - [RaMMap]（需要管理员权限）  
     用来清理 standby list，以缓解内存泄漏的问题。另见[此处]。
 - [Rufus]（需要管理员权限）
 - [SpaceSniffer]（需要管理员权限）
+- [tcpview64]（需要管理员权限）
 - [Umi-OCR_Paddle]
 - [ventoy]（需要管理员权限）
 
@@ -354,6 +356,8 @@ D:\software\lib\python\Scripts
 [Umi-OCR_Paddle]: https://github.com/hiroi-sora/Umi-OCR
 [RaMMap]: https://learn.microsoft.com/en-us/sysinternals/downloads/rammap
 [此处]: https://cn.windows-office.net/?p=22621
+[procexp64]: https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer
+[tcpview64]: https://learn.microsoft.com/en-us/sysinternals/downloads/tcpview
 
 ----
 
