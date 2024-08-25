@@ -62,7 +62,7 @@ tags:
 - 哥斯拉 奇异点（Godzilla Singular Point）
 - 赛马娘 Pretty Derby（Uma Musume Pretty Derby） S2
 - 某科学的超电磁炮（とある科学の超電磁砲）S1
-- 物语系列（Monogatari Series）
+- 物语系列[^mono]（Monogatari Series）
 - 魔法少女小圆（Puella Magi Madoka Magica）TV + M1~M3
 - 天元突破 红莲螺岩（天元突破グレンラガン）
 - 斩服少女（Kill la Kill）
@@ -78,6 +78,8 @@ tags:
 - 春宵苦短，少女前进吧！（Yoru wa Mijikashi Aruke yo Otome）
 - 葬送的芙莉莲（葬送のフリーレン）
 - 为美好的世界献上祝福（KonoSuba: God's Blessing on This Wonderful World!） S1~S3 + M
+
+[^mono]: 仅包含 1st season、2nd season、Final season 三个季度的动画。
 
 ### B 类
 
