@@ -344,6 +344,7 @@ D:\software\lib\python\Scripts
 - [tcpview64]（需要管理员权限）
 - [Umi-OCR_Paddle]
 - [ventoy]（需要管理员权限）
+- [WinMemoryCleaner]（需要管理员权限）
 
 [aegisub]: https://github.com/arch1t3cht/Aegisub
 [AMD CleanUp Utility]: https://www.amd.com/en/resources/support-articles/faqs/GPU-601.html
@@ -362,6 +363,7 @@ D:\software\lib\python\Scripts
 [此处]: https://cn.windows-office.net/?p=22621
 [procexp64]: https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer
 [tcpview64]: https://learn.microsoft.com/en-us/sysinternals/downloads/tcpview
+[WinMemoryCleaner]: https://github.com/IgorMundstein/WinMemoryCleaner
 
 ----
 
