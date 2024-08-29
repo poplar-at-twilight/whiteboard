@@ -9,7 +9,7 @@ tags:
 
 !!! note "注意"
  
-    * 本文最后更新于 2024 年 8 月 19 日；
+    * 本文最后更新于 2024 年 8 月 29 日；
     * 本文适用于 Windows 11 23H2；
     * 本文优先使用便携软件；
     * 本文不具有普适性。
@@ -280,6 +280,11 @@ D:\software\lib\python\Scripts
     - 在 **显示** 页面，勾选 **显示 ⌜...⌟ 项**、**显示真实图标**、**整行选择**、**显示网格线**、**单击打开项目**。
 - [aria2](https://aria2.github.io/)  
     另见：[安装与使用 aria2](./aria2.md)
+- benchmark-toolkit  
+    - [CPU-Z]（需要管理员权限）
+    - [CrystalDiskMark]（需要管理员权限）
+    - [Furmark]（需要管理员权限）
+    - [HWiNFO]（需要管理员权限）
 - [ContextMenuManager]（需要管理员权限）
 - [Dism++]（需要管理员权限）
 - [Everything]（需要管理员权限）
@@ -301,6 +306,11 @@ D:\software\lib\python\Scripts
     - [EdgeBlock][Edge Blocker]（需要管理员权限）
     - [W11ClassicMenu]（需要管理员权限）
     - [win update blocker]（需要管理员权限）
+- sysinternals  
+    - [Autoruns64]（需要管理器权限）
+    - [procexp64]（需要管理员权限）
+    - [RaMMap]（需要管理员权限）  
+    - [tcpview64]（需要管理员权限）
 - [Telegram]
 - [v2rayN]（TUN 模式需要管理员权限）
 - [VSCode]  
@@ -320,28 +330,23 @@ D:\software\lib\python\Scripts
 [VLC]: https://www.videolan.org/vlc/
 [VSCode]: https://code.visualstudio.com/
 [foobar2000 Asion 汉化版]: https://www.cnblogs.com/asionwu
+[Furmark]: https://geeks3d.com/furmark/
+[CPU-Z]: https://www.cpuid.com/softwares/cpu-z.html
 
 ----
 
 - [aegisub]
 - [AMD CleanUp Utility]（会直接启动到安全模式）
 - [AntiDupl.NET]
-- [Autoruns64]（需要管理器权限）
 - [BOOTICEx64]（已停更）
 - [Calibre Portable]
-- [CrystalDiskMark]（需要管理员权限）
 - [DiskGenius]（需要管理员权限）
 - [draw.io]
 - [Geek Uninstaller]（需要管理员权限）
-- [HWiNFO]
 - [KMS-Cangshui.net.bat][沧水的 KMS 服务]（需要管理员权限）
 - [Office Tool Plus]
-- [procexp64]（需要管理员权限）
-- [RaMMap]（需要管理员权限）  
-    用来清理 standby list，以缓解内存泄漏的问题。另见[此处]。
 - [Rufus]（需要管理员权限）
 - [SpaceSniffer]（需要管理员权限）
-- [tcpview64]（需要管理员权限）
 - [Umi-OCR_Paddle]
 - [ventoy]（需要管理员权限）
 - [WinMemoryCleaner]（需要管理员权限）
