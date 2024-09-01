@@ -171,14 +171,10 @@ D:\software\lib\python\Scripts
 1. 安装 [Microsoft Visual C++ 2015-2022 Redistributable] 和 [Chrome]。
 2. 启动下列软件，将其集成到文件资源管理器中或关联文件格式：
       - [7-zip]（需要管理员权限）
-      - [honeyview]
-      - [Everything]
 3. 启动 [v2rayN] 并设置开机启动。
 
 [chrome]: https://www.google.com/chrome/
 [7-zip]: https://www.7-zip.org/
-[honeyview]: https://www.bandisoft.com/honeyview/dl.php?portable
-[Everything]: https://www.voidtools.com/downloads/
 [Microsoft Visual C++ 2015-2022 Redistributable]: https://docs.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170
 [v2rayN]: https://github.com/2dust/v2rayN
 
@@ -243,7 +239,8 @@ D:\software\lib\python\Scripts
 
 安装：
 
-- [Auto Night Mode](https://github.com/AutoDarkMode/Windows-Auto-Night-Mode)
+- [Auto Night Mode]
+- [Bandiview]
 - [GIMP]
 - [gpg4win]  
     - 安装时只需要 Kleopatra 和 GpgEX 即可。
@@ -256,6 +253,8 @@ D:\software\lib\python\Scripts
 - [VirtualBox]
 - [VLC]
 
+[Auto Night Mode]: https://github.com/AutoDarkMode/Windows-Auto-Night-Mode
+[bandiview]: https://www.bandisoft.com/bandiview/
 [gpg4win]: https://gpg4win.org/download.html
 [VirtualBox]: https://www.virtualbox.org/wiki/Downloads
 [steam]: https://store.steampowered.com/
@@ -293,7 +292,6 @@ D:\software\lib\python\Scripts
 - [GoldenDict-ng]  
     - 需要在 `GoldenDict.exe` 所在目录新建一个名为 `portable` 的文件夹  
     - 便携模式下，词典文件只能放置在 `content` 文件夹中
-- [honeyview]
 - [KeePassXC]
 - music-toolkit:
     - [Foobox]  
@@ -316,6 +314,7 @@ D:\software\lib\python\Scripts
 - [VSCode]  
     需要在应用目录中新建一个 `data` 文件夹。
 
+[Everything]: https://www.voidtools.com/downloads/
 [GIMP]: https://www.gimp.org/
 [FreeFileSync]: https://freefilesync.org/
 [GoldenDict-ng]: https://github.com/xiaoyifang/goldendict-ng
