@@ -9,12 +9,11 @@ tags:
 
 shell 脚本一般放置在 `~/bin/command`
 
-```shell
-poplar@c004-h1:~> ls ~/bin/command
-aria2-clean  check-iso  pbh  services
-```
-
 * 在其他文件中已提及的 shell 脚本不会在此处列出。
+
+## aria2-clean
+
+详见[安装与使用 aria2](./../main/aria2.md)
 
 ## check-iso
 

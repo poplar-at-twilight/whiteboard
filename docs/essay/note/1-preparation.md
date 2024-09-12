@@ -13,9 +13,9 @@ tags:
 
 - <https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/>
 
-另见：[校园网联合镜像站](https://mirrors.cernet.edu.cn/list)
+Live 环境可以使用 [Fedora KDE spin] 或者 openSUSE Tumbleweed KDE Live DVD。
 
-Live 环境可以使用 Fedora KDE spin 或者 openSUSE Tumbleweed KDE Live DVD。
+[Fedora KDE spin]: https://spins.fedoraproject.org/kde/
 
 ## 校验文件
 
@@ -43,7 +43,7 @@ uid             [ 完全 ] openSUSE Project Signing Key <opensuse@opensuse.org>
 check-iso
 ```
 
-* shell 脚本源码另见[此处](./shell-script.md)。
+* shell 脚本源码另见[此处](./8-shell-script.md)。
 
 ### 校验签名
 
@@ -73,7 +73,7 @@ gpg --verify openSUSE-Tumbleweed-DVD-x86_64-[快照序号]-Media.iso.sha256.asc
 
 ## 烧录 ISO 文件
 
-使用 [ventoy] 进行烧录，启动模式为正常启动。
+使用 [ventoy] 创建可启动安装介质，启动模式为正常启动。
 
 [ventoy]: https://github.com/ventoy/Ventoy
 

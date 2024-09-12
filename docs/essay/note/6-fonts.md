@@ -7,6 +7,12 @@ tags:
 
 # 用户字体
 
+## Windows 字体包
+
+下载地址：[Windows 11 font list]
+
+[Windows 11 font list]: https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list
+
 ```
 poplar@c004-h1:~/.local/share/fonts> tree
 .

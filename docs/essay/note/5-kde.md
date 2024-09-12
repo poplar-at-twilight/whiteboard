@@ -13,14 +13,6 @@ tags:
 
 [Tela-icon-theme]: https://store.kde.org/p/1279924
 
-<!--
-
-- 光标图标主题：[Qogir cursors]
-
-[Qogir cursors]: https://store.kde.org/p/1366182
-
--->
-
 ### fcitx5 主题
 
 ```
@@ -79,7 +71,7 @@ git clone https://github.com/tonyfettes/fcitx5-nord.git
 
 - 自动设置日期和时间
 
-省电功能：
+电源管理：
 
 - 交流供电：
   - 不活动一段时间后：无操作

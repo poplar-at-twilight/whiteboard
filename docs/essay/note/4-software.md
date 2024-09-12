@@ -36,19 +36,13 @@ sudo zypper in flatpak
 添加远程仓库：
 
 ```
-flatpakx remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
 加入 Flatpak 用户组
 
 ```
 sudo usermod -aG flatpak $USER
-```
-
-查看用户手册：
-
-```
-flatpak --help
 ```
 
 ### 安装
@@ -59,6 +53,7 @@ flatpakx install com.jgraph.drawio.desktop
 flatpakx install com.github.qarmin.czkawka
 flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
+flatpakx install org.freefilesync.FreeFileSync
 ```
 
 ### 清理不再需要的库
@@ -140,14 +135,12 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool k
   - `goldendict-ng-lang`
 - `kfind`
 - `kleopatra`
-- `newsflash`
-- `pandoc`
 - `steam`
 
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight FreeFileSync google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra newsflash pandoc 
+sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight FreeFileSync google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra  
 ```
 ```
 sudo zypper in steam

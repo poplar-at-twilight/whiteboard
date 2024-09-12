@@ -16,14 +16,13 @@ tags:
 ## 系统信息
 
 ```
-Operating System: openSUSE Tumbleweed 20240621
-KDE Plasma Version: 6.0.5
-KDE Frameworks Version: 6.3.0
-Qt Version: 6.7.1
-Kernel Version: 6.9.5-1-default (64-bit)
+Operating System: openSUSE Tumbleweed 20240909
+KDE Plasma Version: 6.1.4
+KDE Frameworks Version: 6.5.0
+Qt Version: 6.7.2
+Kernel Version: 6.10.8-1-default (64-bit)
 Graphics Platform: Wayland
 Processors: 16 × AMD Ryzen 7 7840H w/ Radeon 780M Graphics
 Memory: 14.8 GiB of RAM
-Graphics Processor 0: AMD Radeon 780M
-Graphics Processor 1: AMD RX7600M XT
+Graphics Processor: AMD Radeon 780M
 ```

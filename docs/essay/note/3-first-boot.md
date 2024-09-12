@@ -7,7 +7,15 @@ tags:
 
 # 初次启动
 
-### 设置主机名
+## 变更所有权
+
+第二块硬盘在初始化后，默认属于 root 用户组，执行下列命令更换所有权：
+
+```
+cd home; sudo chown poplar:poplar bt
+```
+
+## 设置主机名
 
 ```
 sudo hostnamectl set-hostname --pretty "White-Poplar's Laptop"
@@ -104,7 +112,7 @@ sudo zypper ar http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
 sudo zypper in google-chrome-stable
 ```
 
-## 更换语言
+## 更换语言（可选操作）
 
 在 YaST Language 将首选语言修改为简体中文，同时选择英文作为第二语言。
 
@@ -199,9 +207,6 @@ alias pyc="proxychains4"
 alias flatpakx="proxychains4 flatpak --user"
 #对 flatpak 使用代理，并增加 --user 标签
 
-alias font-ref="fc-cache -fv"
-#刷新字体缓存
-
 alias pings="ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6"
 #测试网络连通性
 
@@ -217,9 +222,6 @@ alias venv="source .venv/bin/activate"
 alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
 #设置代理，并启动 steam（1440p）
 
-alias javax="java -jar "-Dhttp.proxyHost=127.0.0.1" "-Dhttp.proxyPort=7890" "-Dhttps.proxyHost=127.0.0.1" "-Dhttps.proxyPort=7890""
-#为 java 设置代理
-
-alias packman-update="sudo zypper dist-upgrade --from packman --allow-vendor-change"
+alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
 #从 packman 更新，并允许供应商切换
 ```

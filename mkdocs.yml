@@ -59,15 +59,15 @@ nav:
         - essay/main/eyecandy-kde.md
         - essay/main/python-embed.md
       - 笔记:
-        - essay/note/about.md
-        - essay/note/preparation.md
-        - essay/note/installation.md
-        - essay/note/first-boot.md
-        - essay/note/software.md
-        - essay/note/kde.md
-        - essay/note/fonts.md
-        - essay/note/re-install.md
-        - essay/note/shell-script.md
+        - essay/note/0-about.md
+        - essay/note/1-preparation.md
+        - essay/note/2-installation.md
+        - essay/note/3-first-boot.md
+        - essay/note/4-software.md
+        - essay/note/5-kde.md
+        - essay/note/6-fonts.md
+        - essay/note/7-re-install.md
+        - essay/note/8-shell-script.md
     - 站外归档:
       - archives/about.md
       - archives/external-index.md

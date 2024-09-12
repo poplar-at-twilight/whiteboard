@@ -21,7 +21,7 @@ tags:
 
 |分区名称|挂载点|分区大小|文件系统类型|
 |---|---|---|---|
-|root|`/`|虚拟机：16GiB 及以上<br />物理机：40GiB 或以上|推荐使用 `btrfs`|
+|root|`/`|虚拟机：16GiB 及以上<br />物理机：40GiB 或以上|推荐使用 `btrfs`（对于 SSD 而言）|
 |efi|`/boot/efi/`|不共用 ESP：100MiB<br />共用 ESP：256MiB|`fat32` 或 `vfat`|
 |swap|`swap`|依照实际情况而定|`swap`|
 |home|`/home`|依照实际情况而定|`xfs`、`ext4`、`btrfs` 等|
@@ -36,3 +36,25 @@ SWAP 分区推荐大小如下所示：
 |大于 64GB|基于实际工作负载而定|不推荐休眠|
 
 注意，第二块硬盘应当挂载到 `/home` 目录下。
+
+## 样例
+
+```
+poplar@c004-h1:~> lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+nvme1n1     259:0    0 953.9G  0 disk 
+├─nvme1n1p1 259:1    0   256M  0 part /boot/efi
+├─nvme1n1p2 259:2    0     8G  0 part [SWAP]
+├─nvme1n1p3 259:3    0    50G  0 part /var
+│                                     /usr/local
+│                                     /srv
+│                                     /opt
+│                                     /root
+│                                     /boot/grub2/x86_64-efi
+│                                     /boot/grub2/i386-pc
+│                                     /.snapshots
+│                                     /
+└─nvme1n1p4 259:4    0 895.6G  0 part /home
+nvme0n1     259:5    0   1.8T  0 disk 
+└─nvme0n1p1 259:6    0   1.8T  0 part /home/bt
+```
