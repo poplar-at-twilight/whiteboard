@@ -45,7 +45,7 @@ set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.
 sudo usermod -aG flatpak $USER
 ```
 
-### 安装
+### 安装 Flatpak 应用
 
 ```
 flatpakx install com.calibre_ebook.calibre
@@ -63,12 +63,6 @@ flatpak uninstall --unused
 ```
 
 ### Bottles
-
-创建容器后，需要安装一些前置依赖：
-
-- 系统字体包
-- CJK 字体包
-- VC++ 2015-2022
 
 Bottles 的 desktop 文件的环境变量可设置为：
 
@@ -115,10 +109,10 @@ poplar@c004-h1:~> zypper ll
 快捷命令：
 
 ```
-sudo zypper rm -u MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+sudo zypper rm -u MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 ```
 ```
-sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 ```
 
 ## 安装软件包
@@ -128,7 +122,6 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool k
 - `crow-translate`
 - `fcitx5`
 - `filelight`
-- `FreeFileSync`
 - `google-noto-sans-mono-fonts`
 - `gimp`
 - `goldendict-ng`
@@ -140,7 +133,7 @@ sudo zypper al MozillaFirefox PackageKit discover6 fcitx ibus kcalc kmousetool k
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight FreeFileSync google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra  
+sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra
 ```
 ```
 sudo zypper in steam
@@ -194,14 +187,19 @@ sudo usermod -aG libvirt $USER
 
 ## 散装软件包
 
-- <https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases>
-- <https://github.com/yang991178/fluent-reader/releases>
+可集成至开始菜单的 desktop 文件可通过 KDE 的右键新建菜单快速创建。
+
+注意编辑环境变量时不要引入换行符。
+
+### qBittorrent-Enhanced-Edition
+
+下载：<https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases>
+
+另见：[qBittorrent 配置备忘录](./../main/qbittorrent-conf.md)
 
 ### vscode
 
-下载：
-
-- <https://code.visualstudio.com/>
+下载：<https://code.visualstudio.com/Download>
 
 在与 `code` 同级文件夹中新建 `data`，启用便携模式。
 
@@ -209,4 +207,30 @@ sudo usermod -aG libvirt $USER
 
 ```
 'Noto Sans Mono', 'Noto Sans SC', monospace
+```
+
+### pandoc
+
+下载：<https://github.com/jgm/pandoc/releases/>
+
+将下载好的 pandoc 解压至 `~/bin/pandoc`。符号连接可以放置到 `~/bin/command` 中，保持目录的整洁。
+
+----
+
+## Fcitx5
+
+Fcitx5 的自定义词库文件（`*.dict`）：
+
+- [felixonmars/fcitx5-pinyin-zhwiki]
+- [wuhgit/CustomPinyinDictionary]
+
+[felixonmars/fcitx5-pinyin-zhwiki]: https://github.com/felixonmars/fcitx5-pinyin-zhwiki
+[wuhgit/CustomPinyinDictionary]: https://github.com/wuhgit/CustomPinyinDictionary
+
+词库文件夹：`~/.local/share/fcitx5/pinyin/dictionaries/`
+
+Fcitx5 皮肤：
+
+```
+git clone https://github.com/tonyfettes/fcitx5-nord.git
 ```

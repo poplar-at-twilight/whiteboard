@@ -122,17 +122,16 @@ sudo zypper in google-chrome-stable
 
 ## AMD GPU
 
-要使用 AMD GPU 运行程序，使用：
+以核显运行应用的环境变量：
+
+```
+DRI_PRIME=0
+```
+
+以独显运行程序的环境变量：
 
 ```
 DRI_PRIME=1
-```
-
-```
-poplar@c004-h1:~> DRI_PRIME=1 glxinfo | grep "OpenGL renderer"
-OpenGL renderer string: AMD Radeon RX 7600M XT (radeonsi, navi33, LLVM 18.1.6, DRM 3.57, 6.9.5-1-default)
-poplar@c004-h1:~> DRI_PRIME=0 glxinfo | grep "OpenGL renderer"
-OpenGL renderer string: AMD Radeon 780M (radeonsi, gfx1103_r1, LLVM 18.1.6, DRM 3.57, 6.9.5-1-default)
 ```
 
 ----

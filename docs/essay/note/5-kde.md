@@ -13,12 +13,6 @@ tags:
 
 [Tela-icon-theme]: https://store.kde.org/p/1279924
 
-### fcitx5 主题
-
-```
-git clone https://github.com/tonyfettes/fcitx5-nord.git
-```
-
 ----
 
 ## KDE 设置

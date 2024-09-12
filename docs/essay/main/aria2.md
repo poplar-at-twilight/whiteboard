@@ -186,13 +186,15 @@ sudo zypper in aria2
 在 `~/bin/aria2` 目录下新建文本文档：
 
 ```
-poplar@c004-h1:~/bin> tree aria2
-aria2
+poplar@c004-h1:~/bin/aria2> tree
+.
 ├── aria2.conf
 ├── aria2.log
 ├── aria2.service
 ├── aria2.session
-└── ariang.html
+└── index.html
+
+1 directory, 5 files
 ```
 
 #### aria2.conf
