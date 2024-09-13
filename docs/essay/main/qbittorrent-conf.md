@@ -238,13 +238,13 @@ java -Xmx386M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -D
 
 ```
 [Unit]
-Description=Start PeerBanHelper jar file
+Description=Start PeerBanHelper Service
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/java -Xmx386M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -Dconsole.encoding=UTF-8 -jar PeerBanHelper.jar nogui
+ExecStart=/usr/bin/java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
 Type=simple
-WorkingDirectory=/home/poplar/bin/qbee/peerbanhelper
+WorkingDirectory=/home/poplar/bin/qbee/pbh/
 
 [Install]
 WantedBy=multi-user.target
@@ -301,10 +301,10 @@ while true; do
         #关闭服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
-        mv -f /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.old
+        mv -f /home/poplar/bin/qbee/pbh/PeerBanHelper.jar /home/poplar/bin/qbee/pbh/PeerBanHelper.jar.old
         #强制备份旧文件
         echo "Backup files complete!"
-        cp /home/poplar/Downloads/PeerBanHelper.jar /home/poplar/bin/qbee/peerbanhelper
+        cp /home/poplar/Downloads/PeerBanHelper.jar /home/poplar/bin/qbee/pbh/
         #拷贝新文件
         echo "Update files completed!"
         sudo systemctl restart pbh
@@ -317,9 +317,9 @@ while true; do
         #关闭服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
-        mv /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.error
+        mv /home/poplar/bin/qbee/pbh/PeerBanHelper.jar /home/poplar/bin/qbee/pbh/PeerBanHelper.jar.error
         #停用有问题的文件
-        mv /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.old /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar
+        mv /home/poplar/bin/qbee/pbh/PeerBanHelper.jar.old /home/poplar/bin/qbee/pbh/PeerBanHelper.jar
         #更换至旧版文件
         echo "Changed to old version files"
         sudo systemctl restart pbh
@@ -331,11 +331,11 @@ while true; do
         sudo systemctl status pbh | grep "Active"
         #读取状态
         echo
-        cat /home/poplar/bin/qbee/peerbanhelper/data/logs/latest.log
+        cat /home/poplar/bin/qbee/pbh/data/logs/latest.log
         #读取最新日志
     elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
     #删除有问题的文件
-        rm /home/poplar/bin/qbee/peerbanhelper/PeerBanHelper.jar.error
+        rm /home/poplar/bin/qbee/pbh/PeerBanHelper.jar.error
         echo "Problematic versions of files have been cleaned up."
     elif [ "$answer" = "O" ] || [ "$answer" = "o" ]; then
     #清理输出
