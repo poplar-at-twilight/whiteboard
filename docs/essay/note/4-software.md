@@ -50,7 +50,6 @@ sudo usermod -aG flatpak $USER
 ```
 flatpakx install com.github.dynobo.normcap
 flatpakx install com.github.qarmin.czkawka
-flatpakx install com.jgraph.drawio.desktop
 flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
 ```
@@ -208,6 +207,10 @@ sudo usermod -aG libvirt $USER
 ```
 sudo zypper install libgthread-2_0-0
 ```
+
+### draw\.io
+
+下载：<https://github.com/jgraph/drawio-desktop/releases>
 
 ----
 
