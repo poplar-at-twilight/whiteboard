@@ -48,12 +48,11 @@ sudo usermod -aG flatpak $USER
 ### 安装 Flatpak 应用
 
 ```
-flatpakx install com.calibre_ebook.calibre
-flatpakx install com.jgraph.drawio.desktop
+flatpakx install com.github.dynobo.normcap
 flatpakx install com.github.qarmin.czkawka
+flatpakx install com.jgraph.drawio.desktop
 flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
-flatpakx install org.freefilesync.FreeFileSync
 ```
 
 ### 清理不再需要的库
@@ -140,18 +139,6 @@ sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelig
 sudo zypper in steam
 ```
 
-### CrowTranslate
-
-从 [Traineddata Files for Version 4.00 +](https://tesseract-ocr.github.io/tessdoc/Data-Files.html) 下载所需文件。
-
-- chi_sim.traineddata
-- chi_sim_vert.traineddata
-- chi_tra.traineddata
-- chi_tra_vert.traineddata
-- eng.traineddata
-
-默认关闭 chi_tra 文件。
-
 ### steam
 
 如果无法正常缩放，则设置变量：
@@ -209,6 +196,18 @@ sudo usermod -aG libvirt $USER
 下载：<https://github.com/jgm/pandoc/releases/>
 
 将下载好的 pandoc 解压至 `~/bin/pandoc`。符号连接可以放置到 `~/bin/command` 中，保持目录的整洁。
+
+### FreeFileSync
+
+下载：<https://freefilesync.org/download.php>
+
+安装时，修改安装的用户范围（仅安装至当前用户）、路径（至 `~/bin/FreeFileSync`）。
+
+然后安装缺失的依赖：
+
+```
+sudo zypper install libgthread-2_0-0
+```
 
 ----
 
