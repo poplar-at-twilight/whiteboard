@@ -40,12 +40,10 @@ mv openSUSE*.* /home/poplar/Downloads/ISO
 echo "Registering systemd services for aria2 and pbh..."
 
 sudo cp /home/poplar/bin/aria2/aria2.service /etc/systemd/system
-sudo cp /home/poplar/bin/qbee/peerbanhelper/pbh.service /etc/systemd/system
 echo "The service files have been copied to /etc/systemd/system."
 #拷贝 service 文件
 
 sudo systemctl daemon-reload
 sudo systemctl enable aria2 --now
-#sudo systemctl enable pbh --now
 echo "Service started!"
 ```

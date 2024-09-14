@@ -229,9 +229,9 @@ taskkill /im javaw.exe /t /f
 `PeerBanHelper.jar` 启动测试脚本 `test-start.sh`：
 
 ```shell
-#!/bin/bash
-#启动 PeerBanHelper.jar
-java -Xmx386M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -Dconsole.encoding=UTF-8 -jar PeerBanHelper.jar nogui
+#!/bin/sh
+#测试启动
+java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
 ```
 
 用于让 `PeerBanHelper` 开机自启动的 systemd 服务文件：
@@ -276,11 +276,37 @@ sudo systemctl enable pbh --now
 #!/bin/sh
 #本脚本用于 Peerbanhelper 的日常维护
 
+export PBH_DIR=/home/poplar/bin/qbee/pbh
+#PeerBanHelper jar 文件的主目录
+export PBH_UPDATE_DIR=/home/poplar/Downloads
+#PeerBanHelper jar 新版本文件的默认存放路径
+
+printf 'Hi! You are running pbh.sh, which is a script that simplifies the process of managing peerbanhelper with systemctl.\n'
+printf 'Please note:\n'
+printf '1. You can only enter one character at a time and the entry is not case sensitive.\n'
+printf '2. This script requires systemctl, please be aware of the risks.\n'
+printf '3. Please edit the script to set the correct PBH_DIR and PBH_UPGRADE_DIR.\n'
+printf '4. Downgrading and removing jar files both require the existence of the specified jar file in PBH_DIR\n'
+printf '5. The PeerBanHelper.jar.old file will not be deleted, because logically it should be stable (relative to the new version).\n' && echo
+
 while true; do
-    printf 'PeerBanHelper Service: Stop(s), Reload(r), Update(u), Degrade(d), Read Log(l), Clear(c), Clear output(o) or Quit(q)'
+    printf 'You can use the PeerBanHelper maintenance script for:\n'
+    printf 'A - Registering systemd Services\nS - Stop service\nR - Reload service\nU - Update Jar file\nD - Degrade jar file\nL - Read latest log\nC - Clear problematic jar file\nT - Clear terminal output\nq - End script task\n' && echo
     read answer
 
-    if [ "$answer" = "S" ] || [ "$answer" = "s" ]; then
+    if [ "$answer" = "A" ] || [ "$answer" = "a" ]; then
+    #注册 systemd 服务
+        echo "Make sure that the pbh.service file is in the PBH_DIR file."
+        sudo cp $PBH_DIR/pbh.service /etc/systemd/system
+        #复制文件
+        sudo systemctl daemon-reload
+        #重载 systemd
+        sudo systemctl enable pbh
+        #设置开机启动
+        echo "The PeerBanHelper service is registered and set to start at boot. You can start it by reloading the service."
+        printf -- '-%0.s' {1..100} && echo
+        #分隔符
+    elif [ "$answer" = "S" ] || [ "$answer" = "s" ]; then
     #暂停服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
@@ -288,62 +314,68 @@ while true; do
         #关闭服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
+        printf -- '-%0.s' {1..100} && echo
     elif [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
     #重载服务
         sudo systemctl restart pbh
         #重启服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
+        printf -- '-%0.s' {1..100} && echo
     elif [ "$answer" = "U" ] || [ "$answer" = "u" ]; then
     #更新服务
-        echo "Please make sure the update file is in ~/Downloads folder!"
+        echo "Please make sure the update file is in PBH_UPDATE_DIR folder!"
         sudo systemctl stop pbh
         #关闭服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
-        mv -f /home/poplar/bin/qbee/pbh/PeerBanHelper.jar /home/poplar/bin/qbee/pbh/PeerBanHelper.jar.old
+        mv -f $PBH_DIR/PeerBanHelper.jar $PBH_DIR/PeerBanHelper.jar.old
         #强制备份旧文件
         echo "Backup files complete!"
-        cp /home/poplar/Downloads/PeerBanHelper.jar /home/poplar/bin/qbee/pbh/
+        cp $PBH_UPDATE_DIR/PeerBanHelper.jar $PBH_DIR
         #拷贝新文件
         echo "Update files completed!"
         sudo systemctl restart pbh
         #重启服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
+        printf -- '-%0.s' {1..100} && echo
     elif [ "$answer" = "D" ] || [ "$answer" = "d" ]; then
     #降级更新
         sudo systemctl stop pbh
         #关闭服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
-        mv /home/poplar/bin/qbee/pbh/PeerBanHelper.jar /home/poplar/bin/qbee/pbh/PeerBanHelper.jar.error
+        mv $PBH_DIR/PeerBanHelper.jar $PBH_DIR/PeerBanHelper.jar.error
         #停用有问题的文件
-        mv /home/poplar/bin/qbee/pbh/PeerBanHelper.jar.old /home/poplar/bin/qbee/pbh/PeerBanHelper.jar
+        mv $PBH_DIR/PeerBanHelper.jar.old $PBH_DIR/PeerBanHelper.jar
         #更换至旧版文件
         echo "Changed to old version files"
         sudo systemctl restart pbh
         #重启服务
         sudo systemctl status pbh | grep "Active"
         #读取状态
+        printf -- '-%0.s' {1..100} && echo
     elif [ "$answer" = "L" ] || [ "$answer" = "l" ]; then
     #读取日志及状态
+        tail -n 30 $PBH_DIR/data/logs/latest.log
+        #读取最新日志
+        echo
         sudo systemctl status pbh | grep "Active"
         #读取状态
-        echo
-        cat /home/poplar/bin/qbee/pbh/data/logs/latest.log
-        #读取最新日志
+        printf -- '-%0.s' {1..100} && echo
     elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
     #删除有问题的文件
-        rm /home/poplar/bin/qbee/pbh/PeerBanHelper.jar.error
-        echo "Problematic versions of files have been cleaned up."
-    elif [ "$answer" = "O" ] || [ "$answer" = "o" ]; then
+        rm $PBH_DIR/PeerBanHelper.jar.error
+        echo "Problematic versions of files have been cleaned up.\n"
+        printf -- '-%0.s' {1..100} && echo
+    elif [ "$answer" = "T" ] || [ "$answer" = "t" ]; then
     #清理输出
         clear
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
     #清理并退出
         clear
-        echo "Process End."
+        echo "The script task has ended."
         exit
     else
     #重新开始循环
