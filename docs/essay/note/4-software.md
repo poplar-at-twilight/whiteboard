@@ -128,12 +128,13 @@ sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation o
   - `goldendict-ng-lang`
 - `kfind`
 - `kleopatra`
+- `qbittorrent`
 - `steam`
 
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra
+sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang kfind kleopatra qbittorrent
 ```
 ```
 sudo zypper in steam
@@ -190,12 +191,6 @@ sudo usermod -aG libvirt $USER
 可集成至开始菜单的 desktop 文件可通过 KDE 的右键新建菜单快速创建。
 
 注意编辑环境变量时不要引入换行符。
-
-### qBittorrent-Enhanced-Edition
-
-下载：<https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases>
-
-另见：[qBittorrent 配置备忘录](./../main/qbittorrent-conf.md)
 
 ### vscode
 
