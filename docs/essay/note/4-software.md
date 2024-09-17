@@ -52,6 +52,7 @@ flatpakx install com.github.dynobo.normcap
 flatpakx install com.github.qarmin.czkawka
 flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
+flatpakx install io.github.flattool.Warehouse
 ```
 
 ### 清理不再需要的库

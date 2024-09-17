@@ -15,13 +15,13 @@ git clone https://github.com/poplar-at-twilight/whiteboard.git && cd whiteboard
 创建容器：
 
 ```
-python3 -m venv .venv
+python3 -m venv venv
 ```
 
 激活容器：
 
 ```
-source .venv/bin/activate
+source venv/bin/activate
 ```
 
 对于 Windows 用户，则可在 Powershell 输入绝对路径，运行 `.venv/Script` 文件夹下的 `activate.bat` 脚本：
