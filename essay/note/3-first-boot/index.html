@@ -2019,6 +2019,8 @@ proxy=http://localhost:7890
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;proxychains4 flatpak --user&quot;</span>
 <span class="c1">#对 flatpak 使用代理，并增加 --user 标签</span>
+<span class="nb">alias</span><span class="w"> </span>flatpak-clear<span class="o">=</span><span class="s2">&quot;flatpak uninstall --unused&quot;</span>
+<span class="c1">#清理不需要的库</span>
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pings</span><span class="o">=</span><span class="s2">&quot;ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6&quot;</span>
 <span class="c1">#测试网络连通性</span>
@@ -2026,10 +2028,10 @@ proxy=http://localhost:7890
 <span class="nb">alias</span><span class="w"> </span><span class="nv">update</span><span class="o">=</span><span class="s2">&quot;sudo zypper ref; sudo zypper lu; flatpakx update&quot;</span>
 <span class="c1">#刷新软件源并列出可用的更新</span>
 
-<span class="nb">alias</span><span class="w"> </span>venv-setup<span class="o">=</span><span class="s2">&quot;python3 -m venv .venv&quot;</span>
+<span class="nb">alias</span><span class="w"> </span>venv-setup<span class="o">=</span><span class="s2">&quot;python3 -m venv venv&quot;</span>
 <span class="c1">#设置容器</span>
 
-<span class="nb">alias</span><span class="w"> </span><span class="nv">venv</span><span class="o">=</span><span class="s2">&quot;source .venv/bin/activate&quot;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">venv</span><span class="o">=</span><span class="s2">&quot;source venv/bin/activate&quot;</span>
 <span class="c1">#启动容器环境</span>
 
 <span class="nb">alias</span><span class="w"> </span>steam-proxy<span class="o">=</span><span class="s2">&quot;set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam&quot;</span>
