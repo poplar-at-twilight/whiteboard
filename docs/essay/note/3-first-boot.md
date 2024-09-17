@@ -205,6 +205,8 @@ alias pyc="proxychains4"
 
 alias flatpakx="proxychains4 flatpak --user"
 #对 flatpak 使用代理，并增加 --user 标签
+alias flatpak-clear="flatpak uninstall --unused"
+#清理不需要的库
 
 alias pings="ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6"
 #测试网络连通性
@@ -212,10 +214,10 @@ alias pings="ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 
 alias update="sudo zypper ref; sudo zypper lu; flatpakx update"
 #刷新软件源并列出可用的更新
 
-alias venv-setup="python3 -m venv .venv"
+alias venv-setup="python3 -m venv venv"
 #设置容器
 
-alias venv="source .venv/bin/activate"
+alias venv="source venv/bin/activate"
 #启动容器环境
 
 alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
