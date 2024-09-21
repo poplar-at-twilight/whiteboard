@@ -999,27 +999,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aria2-clean" class="md-nav__link">
+  <a href="#aria2-m" class="md-nav__link">
     <span class="md-ellipsis">
-      aria2-clean
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#check-iso" class="md-nav__link">
-    <span class="md-ellipsis">
-      check-iso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      service
+      aria2-m
     </span>
   </a>
   
@@ -1609,27 +1591,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#aria2-clean" class="md-nav__link">
+  <a href="#aria2-m" class="md-nav__link">
     <span class="md-ellipsis">
-      aria2-clean
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#check-iso" class="md-nav__link">
-    <span class="md-ellipsis">
-      check-iso
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      service
+      aria2-m
     </span>
   </a>
   
@@ -1672,34 +1636,66 @@
 <ul>
 <li>在其他文件中已提及的 shell 脚本不会在此处列出。</li>
 </ul>
-<h2 id="aria2-clean">aria2-clean</h2>
-<p>详见<a href="../../main/aria2/">安装与使用 aria2</a></p>
-<h2 id="check-iso">check-iso</h2>
+<h2 id="aria2-m">aria2-m</h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
-<span class="c1">#本脚本用于检查 openSUSE ISO 文件完整性</span>
+<span class="c1">#本脚本用于维护 aria2 及 ISO 的下载管理</span>
 
-<span class="nb">cd</span><span class="w"> </span>/home/poplar/Downloads/Aria2
-<span class="c1">#移动到默认下载目录</span>
-sha256sum<span class="w"> </span>-c<span class="w"> </span>openSUSE-Tumbleweed-*.iso.sha256
-<span class="c1">#校验哈希值</span>
-gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-*.sha256.asc
-<span class="c1">#校验签名</span>
-mv<span class="w"> </span>openSUSE*.*<span class="w"> </span>/home/poplar/Downloads/ISO
-<span class="c1">#将 ISO 文件移动到默认目录</span>
-</code></pre></div>
-<h2 id="service">service</h2>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
-<span class="c1">#本脚本用于注册 systemd 服务</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ISO_DL_DIR</span><span class="o">=</span>/home/poplar/Downloads/Aria2
+<span class="nb">export</span><span class="w"> </span><span class="nv">ISO_DIR</span><span class="o">=</span>/home/poplar/Downloads/ISO
+<span class="nb">export</span><span class="w"> </span><span class="nv">ARIA2_DIR</span><span class="o">=</span>/home/poplar/bin/aria2
+<span class="c1">#设定目录</span>
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Registering systemd services for aria2 and pbh...&quot;</span>
+<span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;You can use this script to verify ISO files, register Aria2 service and clean up aria2 logs.\n&#39;</span>
 
-sudo<span class="w"> </span>cp<span class="w"> </span>/home/poplar/bin/aria2/aria2.service<span class="w"> </span>/etc/systemd/system
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The service files have been copied to /etc/systemd/system.&quot;</span>
-<span class="c1">#拷贝 service 文件</span>
+<span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;V - Verify ISO files\nR - Register Aria2 service\nC - Clean up aria2 logs\nQ - Quit script&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
+<span class="w">    </span><span class="nb">read</span><span class="w"> </span>answer
 
-sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
-sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>aria2<span class="w"> </span>--now
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Service started!&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;V&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;v&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">#校验 ISO 文件</span>
+<span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DL_DIR</span><span class="p">;</span>ls<span class="w"> </span>-l<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
+<span class="w">        </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>openSUSE*.sha256
+<span class="w">        </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE*.asc
+<span class="w">        </span><span class="c1">#验证完整性</span>
+<span class="w">        </span>rm<span class="w"> </span><span class="nv">$ISO_DIR</span>/openSUSE*.*
+<span class="w">        </span>mv<span class="w"> </span><span class="nv">$ISO_DL_DIR</span>/openSUSE*.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
+<span class="w">        </span><span class="c1">#移动文件至默认位置</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ISO files updated!&quot;</span>
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
+<span class="w">        </span><span class="c1">#分隔符</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;R&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Registering systemd services for aria2...&quot;</span>
+<span class="w">        </span>sudo<span class="w"> </span>cp<span class="w"> </span><span class="nv">$ARIA2_DIR</span>/aria2.service<span class="w"> </span>/etc/systemd/system
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The service files have been copied to /etc.&quot;</span>
+<span class="w">        </span><span class="c1">#拷贝 service 文件</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>aria2<span class="w"> </span>--now
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Service started!&quot;</span>
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>ls<span class="w"> </span>-lh<span class="w"> </span><span class="nv">$ARIA2_DIR</span>/aria2.log
+<span class="w">        </span><span class="c1">#读取文件大小</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span><span class="c1">#查询状态</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>aria2
+<span class="w">        </span><span class="c1">#关闭服务</span>
+<span class="w">        </span>rm<span class="w"> </span><span class="nv">$ARIA2_DIR</span>/aria2.log<span class="p">;</span><span class="w"> </span>touch<span class="w"> </span><span class="nv">$ARIA2_DIR</span>/aria2.log
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Logs cleaned&quot;</span>
+<span class="w">        </span><span class="c1">#清理日志文件</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>aria2
+<span class="w">        </span><span class="c1">#重启服务</span>
+<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span>ls<span class="w"> </span>-lh<span class="w"> </span><span class="nv">$ARIA2_DIR</span>/aria2.log
+<span class="w">        </span><span class="c1">#查询状态</span>
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Q&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;q&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>clear<span class="p">;</span><span class="w"> </span><span class="nb">exit</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="c1">#重新开始循环</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR! Invalid input.&quot;</span>
+<span class="w">        </span><span class="k">continue</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
 </code></pre></div>
 
 

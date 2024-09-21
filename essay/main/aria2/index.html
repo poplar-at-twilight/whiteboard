@@ -764,7 +764,7 @@
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      日志清理
+      管理脚本
     </span>
   </a>
   
@@ -1897,7 +1897,7 @@
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      日志清理
+      管理脚本
     </span>
   </a>
   
@@ -2166,43 +2166,8 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">en
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Service started!&quot;</span>
 <span class="c1">#启动服务</span>
 </code></pre></div>
-<h3 id="_6">日志清理</h3>
-<p>在 <code>~/bin/command</code> 下新建一个名为 <code>aria2-clean</code> 的 shell 脚本：</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
-<span class="c1">#本脚本用于清理 aria2 日志文件</span>
-
-<span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Do you want to clear the log files? (y/n)? &#39;</span>
-<span class="nb">read</span><span class="w"> </span>answer
-
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">answer</span><span class="p">#[Yy]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="k">then</span>
-<span class="w">    </span>ls<span class="w"> </span>-lh<span class="w"> </span>~/bin/aria2/aria2.log
-<span class="w">    </span><span class="c1">#读取文件大小</span>
-<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
-<span class="w">    </span><span class="c1">#查询状态</span>
-<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>aria2
-<span class="w">    </span><span class="c1">#关闭服务</span>
-<span class="w">    </span>rm<span class="w"> </span>~/bin/aria2/aria2.log<span class="p">;</span><span class="w"> </span>touch<span class="w"> </span>~/bin/aria2/aria2.log
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Logs cleaned&quot;</span>
-<span class="w">    </span><span class="c1">#清理日志文件</span>
-<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>aria2
-<span class="w">    </span><span class="c1">#重启服务</span>
-<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
-<span class="w">    </span>ls<span class="w"> </span>-lh<span class="w"> </span>~/bin/aria2/aria2.log
-<span class="w">    </span><span class="c1">#查询状态</span>
-<span class="k">else</span>
-<span class="w">    </span>ls<span class="w"> </span>-lh<span class="w"> </span>~/bin/aria2/aria2.log
-<span class="w">    </span><span class="c1">#打印日志文件大小</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Do you want to read the aria2 service status? (y/n)? &#39;</span>
-<span class="w">    </span><span class="nb">read</span><span class="w"> </span>answer
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">answer</span><span class="p">#[Yy]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="k">then</span>
-<span class="w">        </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aria2
-<span class="w">        </span><span class="c1">#查询状态</span>
-<span class="w">    </span><span class="k">else</span>
-<span class="w">        </span><span class="nb">exit</span>
-<span class="w">    </span><span class="k">fi</span>
-<span class="k">fi</span>
-</code></pre></div>
+<h3 id="_6">管理脚本</h3>
+<p>另见，<a href="../../note/8-shell-script/">Shell 脚本</a></p>
 <hr />
 <h2 id="_7">参考资料</h2>
 <ul>
