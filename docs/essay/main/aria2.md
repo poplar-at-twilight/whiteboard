@@ -254,46 +254,9 @@ echo "Service started!"
 #启动服务
 ```
 
-### 日志清理
+### 管理脚本
 
-在 `~/bin/command` 下新建一个名为 `aria2-clean` 的 shell 脚本：
-
-```shell
-#!/bin/sh
-#本脚本用于清理 aria2 日志文件
-
-printf 'Do you want to clear the log files? (y/n)? '
-read answer
-
-if [ "$answer" != "${answer#[Yy]}" ] ;then
-    ls -lh ~/bin/aria2/aria2.log
-    #读取文件大小
-    sudo systemctl status aria2 | grep "Active"
-    #查询状态
-    sudo systemctl stop aria2
-    #关闭服务
-    rm ~/bin/aria2/aria2.log; touch ~/bin/aria2/aria2.log
-    echo "Logs cleaned"
-    #清理日志文件
-    sudo systemctl restart aria2
-    #重启服务
-    sudo systemctl status aria2 | grep "Active"
-    ls -lh ~/bin/aria2/aria2.log
-    #查询状态
-else
-    ls -lh ~/bin/aria2/aria2.log
-    #打印日志文件大小
-    printf 'Do you want to read the aria2 service status? (y/n)? '
-    read answer
-
-    if [ "$answer" != "${answer#[Yy]}" ] ;then
-        sudo systemctl status aria2
-        #查询状态
-    else
-        exit
-    fi
-fi
-```
+另见，[Shell 脚本](./../note/8-shell-script.md)
 
 ----
 
