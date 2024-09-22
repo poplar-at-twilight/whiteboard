@@ -52,7 +52,7 @@ flatpakx install com.github.dynobo.normcap
 flatpakx install com.github.qarmin.czkawka
 flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
-flatpakx install io.github.flattool.Warehouse
+flatpakx install com.github.johnfactotum.Foliate
 ```
 
 ### 清理不再需要的库
@@ -98,20 +98,21 @@ poplar@c004-h1:~> zypper ll
 7  | kmousetool             | package | （任意）   | 
 8  | kompare                | package | （任意）   | 
 9  | konversation           | package | （任意）   | 
-10 | opensuse-welcome       | package | （任意）   | 
-11 | patterns-games-games   | package | （任意）   | 
-12 | patterns-kde-kde_games | package | （任意）   | 
-13 | patterns-kde-kde_pim   | package | （任意）   | 
-14 | skanlite               | package | （任意）   | 
+10 | kuiviewer              | package | （任意）   | 
+11 | opensuse-welcome       | package | （任意）   | 
+12 | patterns-games-games   | package | （任意）   | 
+13 | patterns-kde-kde_games | package | （任意）   | 
+14 | patterns-kde-kde_pim   | package | （任意）   | 
+15 | skanlite               | package | （任意）   |
 ```
 
 快捷命令：
 
 ```
-sudo zypper rm -u MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+sudo zypper rm -u MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 ```
 ```
-sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 ```
 
 ## 安装软件包
