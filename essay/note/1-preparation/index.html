@@ -401,7 +401,7 @@
         
   
   <span class="md-ellipsis">
-    首页
+    一位 openSUSE 用户的个人站点
   </span>
   
 
@@ -867,43 +867,10 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="校验文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      下载证书
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iso_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      校验 ISO
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      校验签名
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#iso_2" class="md-nav__link">
+  <a href="#iso_1" class="md-nav__link">
     <span class="md-ellipsis">
       烧录 ISO 文件
     </span>
@@ -921,7 +888,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       切换引导启动项
     </span>
@@ -931,7 +898,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       备份文件
     </span>
@@ -1631,7 +1598,7 @@
         
   
   <span class="md-ellipsis">
-    关于许可证 | About Licenses
+    关于许可证 About Licenses
   </span>
   
 
@@ -1690,43 +1657,10 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="校验文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      下载证书
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iso_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      校验 ISO
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      校验签名
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#iso_2" class="md-nav__link">
+  <a href="#iso_1" class="md-nav__link">
     <span class="md-ellipsis">
       烧录 ISO 文件
     </span>
@@ -1744,7 +1678,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       切换引导启动项
     </span>
@@ -1754,7 +1688,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       备份文件
     </span>
@@ -1807,46 +1741,30 @@
 </ul>
 <p>Live 环境可以使用 <a href="https://spins.fedoraproject.org/kde/">Fedora KDE spin</a> 或者 openSUSE Tumbleweed KDE Live DVD。</p>
 <h2 id="_2">校验文件</h2>
-<h3 id="_3">下载证书</h3>
-<p>下载 openSUSE 项目的公钥：</p>
+<p>使用脚本<sup id="fnref:shell"><a class="footnote-ref" href="#fn:shell">1</a></sup>进行校验：</p>
+<div class="highlight"><pre><span></span><code>aria2-m
+</code></pre></div>
+<p>openSUSE 项目的公钥：</p>
 <div class="highlight"><pre><span></span><code>wget https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07e22.asc
 </code></pre></div>
-<p>该公钥的指纹应当为：</p>
-<div class="highlight"><pre><span></span><code>pub   rsa4096 2022-06-20 [SC] [有效至：2026-06-19]
-      AD48 5664 E901 B867 051A  B15F 35A2 F86E 29B7 00A4
-uid             [ 完全 ] openSUSE Project Signing Key &lt;opensuse@opensuse.org&gt;
-</code></pre></div>
-<h3 id="iso_1">校验 ISO</h3>
-<p>使用下列命令计算校验和：</p>
-<div class="highlight"><pre><span></span><code>check-iso
-</code></pre></div>
-<ul>
-<li>shell 脚本源码另见<a href="../8-shell-script/">此处</a>。</li>
-</ul>
-<h3 id="_4">校验签名</h3>
-<p>安装工具：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper in gpg2
-</code></pre></div>
-<p>导入证书：</p>
-<div class="highlight"><pre><span></span><code>gpg --import gpg-pubkey-29b700a4-62b07e22.asc
-</code></pre></div>
-<p>检查证书：</p>
-<div class="highlight"><pre><span></span><code>gpg -k
-</code></pre></div>
-<p>校验签名：</p>
-<div class="highlight"><pre><span></span><code>gpg --verify openSUSE-Tumbleweed-DVD-x86_64-[快照序号]-Media.iso.sha256.asc
-</code></pre></div>
-<h2 id="iso_2">烧录 ISO 文件</h2>
+<h2 id="iso_1">烧录 ISO 文件</h2>
 <p>使用 <a href="https://github.com/ventoy/Ventoy">ventoy</a> 创建可启动安装介质，启动模式为正常启动。</p>
 <h2 id="rpm">额外的 RPM 包</h2>
 <ul>
-<li><a href="https://github.com/ilya-zlobintsev/LACT/releases">https://github.com/ilya-zlobintsev/LACT/releases</a></li>
 <li><a href="https://github.com/Clash-Verge-rev/clash-verge-rev/releases">https://github.com/Clash-Verge-rev/clash-verge-rev/releases</a></li>
 </ul>
-<h2 id="_5">切换引导启动项</h2>
+<h2 id="_3">切换引导启动项</h2>
 <p>关机后，按下开机键，同时按 <code>Esc</code> 进入 BIOS 界面，切换启动项。</p>
-<h3 id="_6">备份文件</h3>
+<h3 id="_4">备份文件</h3>
 <p>使用 LiveCD 环境将旧用户文件夹 <code>poplar</code> 重命名 <code>poplar.old</code>。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:shell">
+<p>shell 脚本源码另见<a href="../8-shell-script/">此处</a>。&#160;<a class="footnote-backref" href="#fnref:shell" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
