@@ -1,5 +1,4 @@
 ---
-comments: true
 tags:
   - Linux
   - 笔记

@@ -58,7 +58,7 @@ nav:
         - essay/main/opencc.md
         - essay/main/eyecandy-kde.md
         - essay/main/python-embed.md
-      - 笔记:
+      - openSUSE 安装配置:
         - essay/note/0-about.md
         - essay/note/1-preparation.md
         - essay/note/2-installation.md
@@ -68,6 +68,11 @@ nav:
         - essay/note/6-fonts.md
         - essay/note/7-re-install.md
         - essay/note/8-shell-script.md
+      - Linux 资料库:
+        - essay/linux/0-about.md
+        #- essay/linux/0-zh-to-en-dict.md
+        - essay/linux/0-misc-of-unit.md
+        - essay/linux/1-fs-and-permission.md
     - 站外归档:
       - archives/about.md
       - archives/external-index.md

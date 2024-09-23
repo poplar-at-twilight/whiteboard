@@ -1,5 +1,4 @@
 ---
-comments: true
 tags:
   - RSS
   - 站外文档
