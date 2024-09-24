@@ -39,7 +39,7 @@ poplar@c004-h1:~> tree / -L 1
 
 根目录下，常见的文件夹的用途[^ref-fs]：
 
-[^ref-fs]: 参考《Linux Bible, 10th Edition》，第 94，95 页
+[^ref-fs]: 参考《Linux Bible, 10th Edition》Part II: Becoming a Linux Power User - Moving Around the Filesystem，第 94，95 页
 
 - `/bin`：存放常用的 Linux 用户命令，如 `ls`、`date`、`chmod` 等。
 - `/boot`：存放可引导 Linux 内核、初始化 RAM 磁盘和引导加载器配置文件（GRUB）
@@ -63,7 +63,8 @@ poplar@c004-h1:~> tree / -L 1
 
 XFS 与 Btrfs 都是 openSUSE 默认推荐使用的文件系统。openSUSE 推荐用户数据目录使用 XFS，操作系统目录使用 Btrfs。
 
-详细对比另见：[Btrfs vs XFS: An In-Depth Comparison of Linux File Systems](https://thelinuxcode.com/btrfs-vs-xfs-brief-comparison/)
+> Btrfs 和 XFS 代表了满足 Linux 文件系统需求的成熟且互补的选项。Btrfs 提供现代的写时复制功能，例如简单的快照和压缩以及灵活的存储增长。 XFS 专注于为超大容量提供坚如磐石的稳定性和巨大的可扩展性，并具有持续的高吞吐量。<br />
+> <em>详细对比另见：[Btrfs vs XFS: An In-Depth Comparison of Linux File Systems](https://thelinuxcode.com/btrfs-vs-xfs-brief-comparison/)</em>
 
 ## 文件所有权与文件权限
 

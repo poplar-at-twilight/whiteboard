@@ -70,9 +70,9 @@ nav:
         - essay/note/8-shell-script.md
       - Linux 资料库:
         - essay/linux/0-about.md
-        #- essay/linux/0-zh-to-en-dict.md
         - essay/linux/0-misc-of-unit.md
         - essay/linux/1-fs-and-permission.md
+        - essay/linux/1-kvm.md
     - 站外归档:
       - archives/about.md
       - archives/external-index.md
