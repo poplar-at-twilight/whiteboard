@@ -12,9 +12,13 @@
         <meta name="author" content="Poplar at twilight">
       
       
-        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/essay/linux/0-zh-to-en-dict/">
+        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/essay/linux/1-kvm/">
       
       
+        <link rel="prev" href="../1-fs-and-permission/">
+      
+      
+        <link rel="next" href="../../../archives/about/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../feed_rss_created.xml">
@@ -25,7 +29,7 @@
     
     
       
-        <title>中英对照表（部分） - 白杨的文档站</title>
+        <title>KVM 备忘录 - 白杨的文档站</title>
       
     
     
@@ -77,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#kvm" class="md-skip">
           跳转至
         </a>
       
@@ -110,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              中英对照表（部分）
+              KVM 备忘录
             
           </span>
         </div>
@@ -233,10 +237,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../about/" class="md-tabs__link">
           
   
@@ -437,23 +443,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -464,7 +475,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             站内杂谈
@@ -966,6 +977,8 @@
                 
   
   
+    
+  
   
   
     
@@ -975,11 +988,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
         
           
           <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
@@ -993,7 +1006,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Linux 资料库
@@ -1058,6 +1071,169 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    KVM 备忘录
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    KVM 备忘录
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主宿机文件共享
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主宿机文件共享">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D 图形加速
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      托盘图标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      鼠标捕获
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚拟机全屏显示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 虚拟机分辨率无法调节
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1631,6 +1807,116 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主宿机文件共享
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主宿机文件共享">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D 图形加速
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      托盘图标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      鼠标捕获
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚拟机全屏显示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 虚拟机分辨率无法调节
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1661,7 +1947,53 @@
 
 
 
-<h1 id="_1">中英对照表（部分）</h1>
+<h1 id="kvm">KVM 备忘录</h1>
+<h2 id="_1">安装</h2>
+<p>安装软件包：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>-t<span class="w"> </span>pattern<span class="w"> </span>kvm_server<span class="w"> </span>kvm_tools
+</code></pre></div>
+<p>加入用户组：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>libvirt<span class="w"> </span><span class="nv">$USER</span>
+</code></pre></div>
+<p>注销重新登录。</p>
+<p>注意，不要使用默认的存储池。</p>
+<h2 id="_2">主宿机文件共享</h2>
+<h3 id="windows">Windows</h3>
+<p>首先，在虚拟机安装完毕后，在虚拟机关机的情况下，打开虚拟机的详情页，点击 <strong>内存</strong>，勾选 <strong>Enable shared memory</strong>。</p>
+<p>然后，点击左下角的 <strong>添加新硬件</strong>，选择 <strong>文件系统</strong>，驱动程序保持默认（即 <strong>virtiofs</strong>），将 <strong>源路径</strong> 修改为要与虚拟机共享的文件夹路径，将 <strong>目标路径</strong> 命名为给定的名称，例如 <code>sharing-folder</code>，然后点击 <strong>完成</strong>。</p>
+<p>然后下载两个驱动文件：</p>
+<ul>
+<li>最新版的 <a href="https://winfsp.dev/rel/">winFSP</a></li>
+<li>最新稳定版的 <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/">virtio-win-guest-tools.exe</a></li>
+</ul>
+<p>将下载的文件打包成 ISO 文件，作为一个 SATA CDROM 存储设备添加到虚拟机中。</p>
+<div class="highlight"><pre><span></span><code>mkisofs<span class="w"> </span>-o<span class="w"> </span>文件名.iso<span class="w"> </span>/文/件/路/径
+</code></pre></div>
+<p>首先安装 <code>WinFSP</code> Core，然后安装 <code>virtio-win-guest-tools.exe</code>（<code>virtiofs</code>）</p>
+<p>安装完毕后，按下 <code>Win + R</code> 键唤出 CMD，输入 <code>services.msc</code>，然后找到并启动 <strong>VirtIO-FS Service</strong>。</p>
+<h3 id="linux">Linux</h3>
+<p>参考上文配置好虚拟机后，启动虚拟机，确认 <code>virtiofsd</code> 已安装。</p>
+<p>然后运行：</p>
+<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>-t<span class="w"> </span>virtiofs<span class="w"> </span>mount_tag<span class="w"> </span>/mnt/mount/path
+</code></pre></div>
+<p><code>mount_tag</code> 是上文中设定的 目标路径，<code>/mnt/mount/path</code> 则是要挂载 <code>virtiofs</code> 的路径，例如：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mount<span class="w"> </span>-t<span class="w"> </span>virtiofs<span class="w"> </span>sharing-folder<span class="w"> </span>/mnt<span class="w"> </span><span class="c1">#将 sharing-folder 文件夹挂载到 /mnt</span>
+</code></pre></div>
+<h2 id="3d">3D 图形加速</h2>
+<p>首先关闭虚拟机，然后将虚拟机的 <strong>显示协议 Spice</strong> 的 <strong>监听类型</strong> 修改为 <strong>无</strong>，然后勾选下方的 <strong>OpenGL</strong>。</p>
+<p>最后修改 <strong>显卡</strong>，将类型更换为 <strong>Virtio</strong>，并勾选 <strong>3D 加速</strong>。</p>
+<p>启动虚拟机即可。</p>
+<p>注意，如果独显不能稳定渲染，则使用核显进行 3D 加速渲染。</p>
+<h2 id="_3">常见问题</h2>
+<h3 id="_4">托盘图标</h3>
+<p>托盘图标可以清晰地显示 KVM 是否正在运行。</p>
+<p>要启用托盘图标，需要先打开虚拟机系统管理器，点击菜单栏的 <strong>编辑</strong> &gt; <strong>Preferences</strong>，勾选 <strong>启用系统托盘图标</strong>。</p>
+<h3 id="_5">鼠标捕获</h3>
+<p>要停止鼠标捕获至虚拟机，按下<code>左 Ctrl</code> + <code>左 Alt</code> 键即可。</p>
+<h3 id="_6">虚拟机全屏显示</h3>
+<p>虚拟机切换至全屏的按钮在右上方，切换至全屏后，如果要退出全屏，请将鼠标移动至屏幕正上方，会出现一个退出按钮。</p>
+<h3 id="windows_1">Windows 虚拟机分辨率无法调节</h3>
+<p>请安装 <code>virtio-win-guest-tools.exe</code></p>
 
 
 
@@ -1691,6 +2023,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../1-fs-and-permission/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 文件系统、文件所有权及文件权限">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                文件系统、文件所有权及文件权限
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../archives/about/" class="md-footer__link md-footer__link--next" aria-label="下一页: 关于">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                关于
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
