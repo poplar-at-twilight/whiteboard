@@ -84,6 +84,7 @@ sudo zypper in vlc ffmpeg-7
 
 ## 安装基本工具
 
+- `chromium`
 - `keepassxc`
 - `proxychains-ng`
 - `git-core`
@@ -91,21 +92,7 @@ sudo zypper in vlc ffmpeg-7
 快捷命令：
 
 ```
-sudo zypper in keepassxc proxychains-ng git-core
-```
-
-### chromium
-
-添加软件源：
-
-```
-sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm
-```
-
-安装软件包：
-
-```
-sudo zypper in google-chrome-stable
+sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepassxc proxychains-ng git-core 
 ```
 
 ## 更换语言（可选操作）
