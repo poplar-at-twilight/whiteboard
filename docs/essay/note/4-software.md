@@ -179,9 +179,9 @@ sudo usermod -aG libvirt $USER
 
 注意编辑环境变量时不要引入换行符。
 
-### vscode
+### vscodium
 
-下载：<https://code.visualstudio.com/Download>
+下载：<https://github.com/VSCodium/vscodium/releases>
 
 在与 `code` 同级文件夹中新建 `data`，启用便携模式。
 
@@ -190,6 +190,8 @@ sudo usermod -aG libvirt $USER
 ```
 'Noto Sans Mono', 'Noto Sans SC', monospace
 ```
+
+主题使用 `GitHub.github-vscode-theme`。
 
 ### pandoc
 

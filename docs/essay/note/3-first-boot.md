@@ -94,15 +94,12 @@ sudo zypper in vlc ffmpeg-7
 sudo zypper in keepassxc proxychains-ng git-core
 ```
 
-### chrome
+### chromium
 
 添加软件源：
 
 ```
-wget https://dl.google.com/linux/linux_signing_key.pub; sudo rpm --import linux_signing_key.pub
-```
-```
-sudo zypper ar http://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
+sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm
 ```
 
 安装软件包：
