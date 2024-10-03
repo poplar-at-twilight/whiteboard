@@ -114,6 +114,19 @@ sudo zypper rm -u MozillaFirefox fcitx ibus kcalc kmousetool kompare konversatio
 sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
 ```
 
+## 安装基本工具
+
+- `chromium`
+- `keepassxc`
+- `proxychains-ng`
+- `git-core`
+
+快捷命令：
+
+```
+sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepassxc proxychains-ng git-core 
+```
+
 ## 安装软件包
 
 - `aria2`
@@ -171,7 +184,7 @@ sudo usermod -aG libvirt $USER
 
 关于与虚拟机共享文件，详见[此处]。
 
-[此处]: https://zh.opensuse.org/KVM#.E4.B8.8E.E8.99.9A.E6.8B.9F.E6.9C.BA.E5.85.B1.E4.BA.AB.E6.96.87.E4.BB.B6
+[此处]: ./../linux/1-kvm.md
 
 ## 散装软件包
 

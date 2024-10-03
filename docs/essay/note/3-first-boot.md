@@ -6,13 +6,9 @@ tags:
 
 # 初次启动
 
-## 变更所有权
+## 切换默认会话
 
-第二块硬盘在初始化后，默认属于 root 用户组，执行下列命令更换所有权：
-
-```
-cd home; sudo chown poplar:poplar bt
-```
+点击左下角的按钮，将 KDE 默认会话从 X11 修改为 wayland。
 
 ## 设置主机名
 
@@ -29,26 +25,9 @@ sudo hostnamectl set-hostname --static c004-h1
 sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
 ```
 
-## 删除软件包与软件原
+## 删除软件包，更新系统
 
-删除多余的 openH264 软件源和 ISO 软件源。默认应该有如下软件源：
-
-```
-poplar@c004-h1:~> zypper lr
-软件源优先级已生效：                                                                                                                        (细节请参考 'zypper lr -P')
-      90 (更高的优先级) :  1 个软件源
-      99 (默认优先级)   :  4 个软件源
-
-# | Alias         | Name                        | Enabled | GPG Check | Refresh
---+---------------+-----------------------------+---------+-----------+--------
-1 | Google-Chrome | Google-Chrome               | 是      | (r ) 是   | 否
-2 | packman       | packman                     | 是      | (r ) 是   | 是
-3 | repo-debug    | openSUSE-Tumbleweed-Debug   | 否      | ----      | ----
-4 | repo-non-oss  | openSUSE-Tumbleweed-Non-Oss | 是      | (r ) 是   | 是
-5 | repo-oss      | openSUSE-Tumbleweed-Oss     | 是      | (r ) 是   | 是
-6 | repo-source   | openSUSE-Tumbleweed-Source  | 否      | ----      | ----
-7 | repo-update   | openSUSE-Tumbleweed-Update  | 是      | (r ) 是   | 是
-```
+删除多余的 `repo-openh264` 软件源和 ISO 软件源。
 
 更新系统：
 
@@ -82,18 +61,9 @@ sudo zypper dist-upgrade --from packman --allow-vendor-change
 sudo zypper in vlc ffmpeg-7
 ```
 
-## 安装基本工具
+## 音量非线性控制
 
-- `chromium`
-- `keepassxc`
-- `proxychains-ng`
-- `git-core`
-
-快捷命令：
-
-```
-sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepassxc proxychains-ng git-core 
-```
+如果播放器音量大小与系统设置的音量值不呈线性变化，则使用 `alsamixer` 将 `Base Speaker` 的值降到 0。
 
 ## 更换语言（可选操作）
 
