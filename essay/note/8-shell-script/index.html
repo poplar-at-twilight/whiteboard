@@ -29,7 +29,7 @@
     
     
       
-        <title>Shell 脚本 - 白杨的文档站</title>
+        <title>Shell 脚本与配置文件 - 白杨的文档站</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shell 脚本
+              Shell 脚本与配置文件
             
           </span>
         </div>
@@ -966,7 +966,7 @@
           
   
   <span class="md-ellipsis">
-    Shell 脚本
+    Shell 脚本与配置文件
   </span>
   
 
@@ -977,7 +977,7 @@
         
   
   <span class="md-ellipsis">
-    Shell 脚本
+    Shell 脚本与配置文件
   </span>
   
 
@@ -1004,6 +1004,57 @@
       aria2-m
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxychains-ng" class="md-nav__link">
+    <span class="md-ellipsis">
+      proxychains-ng
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bashrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      bashrc
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1729,6 +1780,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxychains-ng" class="md-nav__link">
+    <span class="md-ellipsis">
+      proxychains-ng
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bashrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      bashrc
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1761,7 +1863,7 @@
 
 
 
-<h1 id="shell">Shell 脚本</h1>
+<h1 id="shell">Shell 脚本与配置文件</h1>
 <p>shell 脚本一般放置在 <code>~/bin/command</code></p>
 <ul>
 <li>在其他文件中已提及的 shell 脚本不会在此处列出。</li>
@@ -1826,6 +1928,81 @@
 <span class="w">        </span><span class="k">continue</span>
 <span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
+</code></pre></div>
+<hr />
+<h2 id="_1">配置文件</h2>
+<h3 id="git">git</h3>
+<p>在 <code>~/.gitconfig</code> 中，写入：</p>
+<div class="highlight"><pre><span></span><code>[user]
+    name = Poplar at twilight
+    email = poplar.cubic@gmail.com
+[http]
+    proxy = http://127.0.0.1:7890
+</code></pre></div>
+<h3 id="proxychains-ng">proxychains-ng</h3>
+<p><code>/etc/proxychains.conf</code>：</p>
+<div class="highlight"><pre><span></span><code>quiet_mode
+http 127.0.0.1 7890
+</code></pre></div>
+<h3 id="python">python</h3>
+<p>设置代理（<code>~/.config/pip/pip.conf</code>）：</p>
+<div class="highlight"><pre><span></span><code>[global]
+proxy=http://localhost:7890
+</code></pre></div>
+<h3 id="bashrc">bashrc</h3>
+<p><code>~/.bashrc</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">unset</span><span class="w"> </span>GTK_IM_MODULE
+<span class="nb">unset</span><span class="w"> </span>QT_IM_MODULE
+<span class="c1">#针对 wayland 会话的 Fcitx5 环境变量</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
+<span class="c1">#自定义 $PATH 路径</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR</span><span class="o">=</span>nano
+<span class="c1">#将默认文本编辑器指定为 nano</span>
+
+<span class="nb">alias</span><span class="w"> </span>sha256sum-dir<span class="o">=</span><span class="s2">&quot;find . -type f -exec sha256sum {} \; &gt; ../checksum.sha256; mv ../checksum.sha256 .; echo &#39;Complete calculation!&#39;&quot;</span>
+<span class="c1">#自动计算当前文件夹内的全部文件的哈希，并将结果写入 sha256 文件</span>
+
+<span class="nb">alias</span><span class="w"> </span>git-repo-clean<span class="o">=</span><span class="s2">&quot;git remote prune origin &amp;&amp; git repack &amp;&amp; git prune-packed &amp;&amp; git reflog expire --expire=1.month.ago &amp;&amp; git gc --aggressive&quot;</span>
+<span class="c1">#清理并压缩 git 仓库</span>
+
+<span class="nb">alias</span><span class="w"> </span>set-proxy<span class="o">=</span><span class="s2">&quot;export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890&quot;</span>
+<span class="nb">alias</span><span class="w"> </span>unset-proxy<span class="o">=</span><span class="s2">&quot;unset http_proxy; unset https_proxy; unset all_proxy&quot;</span>
+<span class="c1">#环境变量开关</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">sudo</span><span class="o">=</span><span class="s2">&quot;sudo &quot;</span>
+<span class="c1">#对 sudo 后的字符启用别名</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pyc</span><span class="o">=</span><span class="s2">&quot;proxychains4&quot;</span>
+<span class="c1">#更短的别名</span>
+
+<span class="c1">#alias dnfx=&quot;proxychains4 dnf&quot;</span>
+<span class="c1">#alias zypper=&quot;proxychains4 zypper&quot;</span>
+<span class="c1">#对 zypper/dnf 使用代理</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;proxychains4 flatpak --user&quot;</span>
+<span class="c1">#对 flatpak 使用代理，并增加 --user 标签</span>
+<span class="nb">alias</span><span class="w"> </span>flatpak-clear<span class="o">=</span><span class="s2">&quot;flatpak uninstall --unused&quot;</span>
+<span class="c1">#清理不需要的库</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pings</span><span class="o">=</span><span class="s2">&quot;ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6&quot;</span>
+<span class="c1">#测试网络连通性</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">update</span><span class="o">=</span><span class="s2">&quot;sudo zypper ref; sudo zypper lu; flatpakx update&quot;</span>
+<span class="c1">#刷新软件源并列出可用的更新</span>
+
+<span class="nb">alias</span><span class="w"> </span>venv-setup<span class="o">=</span><span class="s2">&quot;python3 -m venv venv&quot;</span>
+<span class="c1">#设置容器</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">venv</span><span class="o">=</span><span class="s2">&quot;source venv/bin/activate&quot;</span>
+<span class="c1">#启动容器环境</span>
+
+<span class="nb">alias</span><span class="w"> </span>steam-proxy<span class="o">=</span><span class="s2">&quot;set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam&quot;</span>
+<span class="c1">#设置代理，并启动 steam（1440p）</span>
+
+<span class="nb">alias</span><span class="w"> </span>packman-update<span class="o">=</span><span class="s2">&quot;sudo zypper dup --from packman --allow-vendor-change&quot;</span>
+<span class="c1">#从 packman 更新，并允许供应商切换</span>
 </code></pre></div>
 
 
