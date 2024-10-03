@@ -80,6 +80,12 @@ tags:
 
 - 更换头像
 
+自动启动：
+
+- clash-verge
+- qBittorrent
+- telegram
+
 会话 > 桌面会话：
 
 - 位置：将默认未知重定向到当前文件夹
