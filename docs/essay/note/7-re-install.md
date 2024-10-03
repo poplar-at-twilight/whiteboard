@@ -8,7 +8,7 @@ tags:
 
 ```
 poplar@c004-h1:~> id
-uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),475(wheel),476(flatpak)
+uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 ```
 
 ## 文件备份清单

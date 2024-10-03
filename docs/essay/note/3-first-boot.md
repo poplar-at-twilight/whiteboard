@@ -10,6 +10,10 @@ tags:
 
 点击左下角的按钮，将 KDE 默认会话从 X11 修改为 wayland。
 
+## 手动创建用户
+
+如果出现需要手动创建用户时，若要使用户名与用户所属默认组组名相同，需要先创建新的用户组。
+
 ## 设置主机名
 
 ```
@@ -25,7 +29,7 @@ sudo hostnamectl set-hostname --static c004-h1
 sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
 ```
 
-## 删除软件包，更新系统
+## 删除软件源，更新系统
 
 删除多余的 `repo-openh264` 软件源和 ISO 软件源。
 
@@ -61,7 +65,7 @@ sudo zypper dist-upgrade --from packman --allow-vendor-change
 sudo zypper in vlc ffmpeg-7
 ```
 
-## 音量非线性控制
+## 音量控制故障
 
 如果播放器音量大小与系统设置的音量值不呈线性变化，则使用 `alsamixer` 将 `Base Speaker` 的值降到 0。
 
@@ -85,97 +89,4 @@ DRI_PRIME=0
 
 ```
 DRI_PRIME=1
-```
-
-----
-
-## 配置文件
-
-### git
-
-在 `~/.gitconfig` 中，写入：
-
-```
-[user]
-    name = Poplar at twilight
-    email = poplar.cubic@gmail.com
-[http]
-    proxy = http://127.0.0.1:7890
-```
-
-### proxychains-ng
-
-`/etc/proxychains.conf`：
-
-```
-quiet_mode
-http 127.0.0.1 7890
-```
-
-### python
-
-设置代理（`~/.config/pip/pip.conf`）：
-
-```
-[global]
-proxy=http://localhost:7890
-```
-
-### bashrc
-
-`~/.bashrc`：
-
-```shell
-unset GTK_IM_MODULE
-unset QT_IM_MODULE
-#针对 wayland 会话的 Fcitx5 环境变量
-
-export PATH=/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
-#自定义 $PATH 路径
-
-export EDITOR=nano
-#将默认文本编辑器指定为 nano
-
-alias sha256sum-dir="find . -type f -exec sha256sum {} \; > ../checksum.sha256; mv ../checksum.sha256 .; echo 'Complete calculation!'"
-#自动计算当前文件夹内的全部文件的哈希，并将结果写入 sha256 文件
-
-alias git-repo-clean="git remote prune origin && git repack && git prune-packed && git reflog expire --expire=1.month.ago && git gc --aggressive"
-#清理并压缩 git 仓库
-
-alias set-proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
-alias unset-proxy="unset http_proxy; unset https_proxy; unset all_proxy"
-#环境变量开关
-
-alias sudo="sudo "
-#对 sudo 后的字符启用别名
-
-alias pyc="proxychains4"
-#更短的别名
-
-#alias dnfx="proxychains4 dnf"
-#alias zypper="proxychains4 zypper"
-#对 zypper/dnf 使用代理
-
-alias flatpakx="proxychains4 flatpak --user"
-#对 flatpak 使用代理，并增加 --user 标签
-alias flatpak-clear="flatpak uninstall --unused"
-#清理不需要的库
-
-alias pings="ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6"
-#测试网络连通性
-
-alias update="sudo zypper ref; sudo zypper lu; flatpakx update"
-#刷新软件源并列出可用的更新
-
-alias venv-setup="python3 -m venv venv"
-#设置容器
-
-alias venv="source venv/bin/activate"
-#启动容器环境
-
-alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
-#设置代理，并启动 steam（1440p）
-
-alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
-#从 packman 更新，并允许供应商切换
 ```

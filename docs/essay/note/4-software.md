@@ -192,7 +192,7 @@ sudo usermod -aG libvirt $USER
 
 注意编辑环境变量时不要引入换行符。
 
-### vscodium
+### VSCodium
 
 下载：<https://github.com/VSCodium/vscodium/releases>
 
@@ -204,7 +204,15 @@ sudo usermod -aG libvirt $USER
 'Noto Sans Mono', 'Noto Sans SC', monospace
 ```
 
-主题使用 `GitHub.github-vscode-theme`。
+扩展列表：
+
+- `MS-CEINTL.vscode-language-pack-zh-hans`
+- `GitHub.vscode-pull-request-github`
+- `GitHub.github-vscode-theme`
+- `yzhang.markdown-all-in-one`
+- `PKief.material-icon-theme`
+- `alefragnani.project-manager`
+- `ms-python.python`
 
 ### pandoc
 
