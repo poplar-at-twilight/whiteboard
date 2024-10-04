@@ -29,6 +29,7 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 /home/poplar/.config/fcitx5
 /home/poplar/.config/goldendict
 /home/poplar/.config/keepassxc
+/home/poplar/.config/MangoHud
 /home/poplar/.config/pip
 /home/poplar/.config/qBittorrent
 
