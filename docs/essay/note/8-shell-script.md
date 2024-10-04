@@ -169,7 +169,10 @@ alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
 
 ### mangohud
 
-注意，不要在游戏启动时让 mangohud 读取游戏的平均帧和 1% low 帧
+注意：
+
+1. 不要在游戏启动时让 mangohud 读取游戏的平均帧和 1% low 帧
+1. 使用 Goverlay 时，如果有按钮被遮挡，可以把显示器缩放比例从 150% 调整为 100%
 
 - `/home/poplar/.config/MangoHud/MangoHud.conf`：
 
