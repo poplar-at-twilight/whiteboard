@@ -167,7 +167,9 @@ alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
 #从 packman 更新，并允许供应商切换
 ```
 
-### mangohud
+### mangohud & Goverlay
+
+对于 steam 游戏，使用 `mangohud %command%`。使用说明详见：`man mangohud`
 
 注意：
 

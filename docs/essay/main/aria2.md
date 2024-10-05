@@ -233,29 +233,7 @@ WorkingDirectory=/home/poplar/bin/aria2
 WantedBy=multi-user.target
 ```
 
-用于设置 systemd 服务的脚本 `~/bin/services`：
-
-```shell
-#!/bin/sh
-#本脚本用于注册 systemd 服务
-
-echo "Registering systemd services for aria2 and pbh..."
-
-sudo cp /home/poplar/bin/aria2/aria2.service /etc/systemd/system
-sudo cp /home/poplar/bin/qbee/peerbanhelper/pbh.service /etc/systemd/system
-echo "The service files have been copied to /etc/systemd/system."
-#拷贝 service 文件
-
-sudo systemctl daemon-reload
-sudo systemctl enable aria2 --now
-#sudo systemctl enable pbh --now
-echo "Service started!"
-#启动服务
-```
-
-### 管理脚本
-
-另见，[Shell 脚本](./../note/8-shell-script.md)
+用于设置 systemd 服务的脚本另见，[Shell 脚本 - aria2-m](./../note/8-shell-script.md)
 
 ----
 

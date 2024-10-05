@@ -6,12 +6,29 @@ tags:
 
 # KDE 相关
 
-## 图标主题
+## 杂项
+
+### TTY
+
+openSUSE 的图形界面在 TTY3。
+
+按下 Ctrl + Alt + F1 ~ F9 在不同的 TTY 中切换。
+
+### 启动动画
+
+要关闭应用的启动动画，可以在 desktop 文件中新增：`StartupNotify=false`，或在 **编辑应用程序** > **应用程序** > **高级选项**，关闭 **启用启动特效**。
+
+### 图标主题
 
 - [Tela-icon-theme]
     - 位置：`~/.local/share/icons`
 
 [Tela-icon-theme]: https://store.kde.org/p/1279924
+
+### 某些快捷键
+
+- 杀死窗口：**Super** + **Ctrl** + **Esc**
+- 切换窗口：**Alt** + **Tab**
 
 ----
 

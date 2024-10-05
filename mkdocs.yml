@@ -56,8 +56,8 @@ nav:
         - essay/main/play-minecraft.md
         - essay/main/adjust-win11-for-popurse.md
         - essay/main/opencc.md
-        #- essay/main/eyecandy-kde.md
         - essay/main/python-embed.md
+        - essay/main/graphs-setup.md
       - openSUSE 安装配置:
         - essay/note/0-about.md
         - essay/note/1-preparation.md
@@ -73,6 +73,7 @@ nav:
         - essay/linux/0-misc-of-unit.md
         - essay/linux/1-fs-and-permission.md
         - essay/linux/1-kvm.md
+        - essay/linux/1-check-sys-info.md
     - 站外归档:
       - archives/about.md
       - archives/external-index.md
