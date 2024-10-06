@@ -13,6 +13,8 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 
 ## 文件备份清单
 
+注意，GPG 密钥链需要手动重新导入。
+
 ```
 /home/poplar/bin
 /home/poplar/Desktop
@@ -45,7 +47,6 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 /home/poplar/.local/share/qBittorrent
 /home/poplar/.local/share/Steam
 
-/home/poplar/.gnupg
 /home/poplar/.steam
 /home/poplar/.var
 
@@ -55,4 +56,5 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 /home/poplar/.steampid
 
 /home/bt
+/home/swap
 ```
