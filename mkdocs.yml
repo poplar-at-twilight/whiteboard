@@ -68,6 +68,7 @@ nav:
         - essay/note/6-fonts.md
         - essay/note/7-re-install.md
         - essay/note/8-shell-script.md
+        - essay/note/9-swapfile-on-btrfs.md
       - Linux 资料库:
         - essay/linux/0-about.md
         - essay/linux/0-misc-of-unit.md

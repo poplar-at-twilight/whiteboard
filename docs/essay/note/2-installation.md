@@ -25,7 +25,7 @@ tags:
 |swap|`swap`|依照实际情况而定|`swap`|
 |home|`/home`|依照实际情况而定|`xfs`、`ext4`、`btrfs` 等|
 
-SWAP 分区推荐大小如下所示：
+swapfile/SWAP 分区推荐大小如下所示：
 
 |系统物理内存（RAM）大小|推荐的 swap 分区大小|推荐的 swap 分区大小（如果需要休眠）|
 |---|---|---|
@@ -43,17 +43,16 @@ poplar@c004-h1:~> lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 nvme1n1     259:0    0 953.9G  0 disk 
 ├─nvme1n1p1 259:1    0   256M  0 part /boot/efi
-├─nvme1n1p2 259:2    0     8G  0 part [SWAP]
-├─nvme1n1p3 259:3    0    50G  0 part /var
+├─nvme1n1p2 259:2    0    40G  0 part /var
 │                                     /usr/local
+│                                     /root
 │                                     /srv
 │                                     /opt
-│                                     /root
 │                                     /boot/grub2/x86_64-efi
 │                                     /boot/grub2/i386-pc
 │                                     /.snapshots
 │                                     /
-└─nvme1n1p4 259:4    0 895.6G  0 part /home
-nvme0n1     259:5    0   1.8T  0 disk 
-└─nvme0n1p1 259:6    0   1.8T  0 part /home/bt
+└─nvme1n1p3 259:3    0 913.6G  0 part /home
+nvme0n1     259:4    0   1.8T  0 disk 
+└─nvme0n1p1 259:5    0   1.8T  0 part /home/bt
 ```
