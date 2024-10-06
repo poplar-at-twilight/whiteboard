@@ -33,3 +33,9 @@ sudo swapon -s
 ```shell
 sudo swapoff /home/swap/swapfile
 ```
+
+将 `swapfile` 添加到 `/etc/fstab`：
+
+```shell
+/home/swap/swapfile                        none                    swap   defaults                      0  0
+```
