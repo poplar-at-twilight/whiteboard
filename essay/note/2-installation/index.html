@@ -1845,7 +1845,7 @@
 <td>root</td>
 <td><code>/</code></td>
 <td>虚拟机：16GiB 及以上<br />物理机：40GiB 或以上</td>
-<td>推荐使用 <code>btrfs</code>（对于 SSD 而言）</td>
+<td><code>btrfs</code></td>
 </tr>
 <tr>
 <td>efi</td>
@@ -1856,18 +1856,24 @@
 <tr>
 <td>swap</td>
 <td><code>swap</code></td>
-<td>依照实际情况而定</td>
+<td>参考下文</td>
 <td><code>swap</code></td>
+</tr>
+<tr>
+<td>swapfile</td>
+<td><code>/home/swap</code></td>
+<td>详见 <a href="../9-swapfile-on-btrfs/">在 btrfs 文件系统上使用 swapfile</a></td>
+<td>同左</td>
 </tr>
 <tr>
 <td>home</td>
 <td><code>/home</code></td>
 <td>依照实际情况而定</td>
-<td><code>xfs</code>、<code>ext4</code>、<code>btrfs</code> 等</td>
+<td><code>xfs</code>（对于 HDD 而言）、<code>btrfs</code>（对于 SSD 而言）</td>
 </tr>
 </tbody>
 </table>
-<p>swapfile/SWAP 分区推荐大小如下所示：</p>
+<p>swapfile/SWAP 分区参考大小如下所示<sup id="fnref:ref_rhel"><a class="footnote-ref" href="#fn:ref_rhel">1</a></sup>：</p>
 <table>
 <thead>
 <tr>
@@ -1878,23 +1884,23 @@
 </thead>
 <tbody>
 <tr>
-<td>小于 2GB</td>
+<td>⩽ 2 GiB</td>
 <td>RAM 的两倍</td>
 <td>RAM 的三倍</td>
 </tr>
 <tr>
-<td>2GB - 8GB</td>
+<td>&gt; 2 GiB – 8 GiB</td>
 <td>和 RAM 相同</td>
 <td>RAM 的两倍</td>
 </tr>
 <tr>
-<td>8GB - 64GB</td>
-<td>RAM 的 0.5 倍</td>
+<td>&gt; 8 GiB – 64 GiB</td>
+<td>至少 4GiB</td>
 <td>RAM 的 1.5 倍</td>
 </tr>
 <tr>
-<td>大于 64GB</td>
-<td>基于实际工作负载而定</td>
+<td>&gt; 64GiB</td>
+<td>至少 4GiB</td>
 <td>不推荐休眠</td>
 </tr>
 </tbody>
@@ -1918,6 +1924,14 @@ nvme1n1     259:0    0 953.9G  0 disk
 nvme0n1     259:4    0   1.8T  0 disk 
 └─nvme0n1p1 259:5    0   1.8T  0 part /home/bt
 </code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:ref_rhel">
+<p>参考 <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/managing_storage_devices/getting-started-with-swap_managing-storage-devices#recommended-system-swap-space_getting-started-with-swap">14.2. Recommended system swap space - redhat documentation</a>&#160;<a class="footnote-backref" href="#fnref:ref_rhel" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
