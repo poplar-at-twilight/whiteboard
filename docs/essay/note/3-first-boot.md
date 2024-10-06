@@ -47,10 +47,10 @@ sudo zypper inr
 
 ## 多媒体播放器
 
-添加 Packman 源：
+添加 Packman 源（详见 [bashrc](./8-shell-script.md)）：
 
 ```
-sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman
+add-packman
 ```
 
 更新并安装多媒体播放器：
@@ -59,7 +59,7 @@ sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumblew
 sudo zypper refresh
 ```
 ```
-sudo zypper dist-upgrade --from packman --allow-vendor-change
+update-packman
 ```
 ```
 sudo zypper in vlc ffmpeg-7

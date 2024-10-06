@@ -113,6 +113,9 @@ proxy=http://localhost:7890
 `~/.bashrc`：
 
 ```shell
+alias ls="ls --block-size=KiB"
+#以 KiB 为单位显示文件大小
+
 unset GTK_IM_MODULE
 unset QT_IM_MODULE
 #针对 wayland 会话的 Fcitx5 环境变量
@@ -163,8 +166,9 @@ alias venv="source venv/bin/activate"
 alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
 #设置代理，并启动 steam（1440p）
 
-alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
-#从 packman 更新，并允许供应商切换
+alias update-packman="sudo zypper dup --from packman --allow-vendor-change"
+alias add-packman="sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman"
+#packman 相关的命令
 ```
 
 ### mangohud & Goverlay
