@@ -218,7 +218,7 @@ sudo usermod -aG libvirt $USER
 - `MS-CEINTL.vscode-language-pack-zh-hans`
 - `GitHub.vscode-pull-request-github`
 - `GitHub.github-vscode-theme`
-- `yzhang.markdown-all-in-one`
+- `shd101wyy.markdown-preview-enhanced`
 - `PKief.material-icon-theme`
 - `alefragnani.project-manager`
 - `ms-python.python`
