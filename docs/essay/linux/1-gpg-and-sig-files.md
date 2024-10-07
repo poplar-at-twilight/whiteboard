@@ -67,7 +67,7 @@ poplar@c004-h1:~/Downloads/Aria2> ll
 -rw-r--r-- 1 poplar poplar 91346KiB  9月24日 15:39 vms.iso
 poplar@c004-h1:~/Downloads/Aria2> gpg --output vm.iso --decrypt vm.iso.gpg
 gpg: 签名建立于 2024年10月07日 星期一 14时50分31秒 CST
-gpg:               使用 EDDSA 密钥 
+gpg:               使用 EDDSA 密钥 2B429BB9098D7B218ECBD4DAF8FAE5B1001EFE63
 gpg: 完好的签名，来自于 “White Poplar <poplar.cubic@gmail.com>” [绝对]
 poplar@c004-h1:~/Downloads/Aria2> ll
 总计 354272KiB
@@ -94,7 +94,7 @@ poplar@c004-h1:~/Downloads/Aria2> ll
 -rw-r--r-- 1 poplar poplar 90179KiB 10月 7日 14:50 vm.iso.asc
 poplar@c004-h1:~/Downloads/Aria2> gpg --output vm.iso --decrypt vm.iso.asc
 gpg: 签名建立于 2024年10月07日 星期一 14时50分58秒 CST
-gpg:               使用 EDDSA 密钥 
+gpg:               使用 EDDSA 密钥 2B429BB9098D7B218ECBD4DAF8FAE5B1001EFE63
 gpg: 完好的签名，来自于 “White Poplar <poplar.cubic@gmail.com>” [绝对]
 poplar@c004-h1:~/Downloads/Aria2> ll
 总计 180300KiB
