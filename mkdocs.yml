@@ -75,6 +75,7 @@ nav:
         - essay/linux/1-fs-and-permission.md
         - essay/linux/1-kvm.md
         - essay/linux/1-check-sys-info.md
+        - essay/linux/1-gpg-and-sig-files.md
     - 站外归档:
       - archives/about.md
       - archives/external-index.md

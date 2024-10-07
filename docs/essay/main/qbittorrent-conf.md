@@ -6,88 +6,111 @@ tags:
 
 # qBittorrent 配置备忘录
 
-这是以反吸血为目的的 qBittorrent 配置备忘录。
+!!! info "说明"
 
-- 参考配置另见；
-    - [qBittorrent 参数详细设置教程](./../../archives/qbittorrent-confs.md)
-    - [libtorrent reference-Settings](https://www.libtorrent.org/reference-Settings.html)
+    这是我个人使用的 qBittorrent 配置。  
+    相关：[qBittorrent 参数详细设置教程](./../../archives/qbittorrent-confs.md)
 
 ## 安装
 
-使用：[c0re100/qBittorrent-Enhanced-Edition]
+```
+sudo zypper in qbittorrent
+```
 
-[c0re100/qBittorrent-Enhanced-Edition]: https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases
+## 相关文件
 
-对于 Windows，安装完成后，在 qbittorrent 的安装文件中，新建一个名为 `profile` 的文件夹，以便携模式启动 qbittorrent。
+配置文件：
 
-## 日志
+- `~/.config/qBittorrent`
+- `~/.local/share/qBittorrent`
 
-在菜单栏的 **视图** → **日志** 中，勾选全部类型的日志信息。
+下载的文件：
+
+```shell
+poplar@c004-h1:~> tree /home/bt/network -L 1
+/home/bt/network
+├── downloads1
+├── downloads2
+├── misc
+├── torrents1
+└── torrents2
+
+6 directories, 0 files
+```
+
+## 用户界面
+
+- 在菜单栏的 **视图** → **日志** 中，勾选全部类型的日志信息。
+- 调整列：
+    - 名称
+    - 选定大小
+    - 进度
+    - 状态
+    - 做种数
+    - 用户
+    - 下载速度
+    - 上传速度
+    - 剩余时间
+    - 比率
+    - **标签**
+    - **本次会话上传**
+    - **最近活动**
+- 分类：
+    - 完整下载：`/home/bt/network/downloads1`（默认分类）
+    - 非完整下载：`/home/bt/network/downloads2`
+    - 非分类：`/home/bt/network/misc`
+- 标签：
+    - `1 类`（长期做种）
+    - `2 类`（短期做种）
+    - `3 类`（临时下载）
+    - `电影`
+    - `动画`
+    - `其他`
+    - `特典`
+    - `未读`
+    - `新番`
+    - `音乐`
+    - `OVA`
 
 ## 软件设置
 
+在默认配置的基础上
+
 ### 行为
 
-![](./images/qbit/conf-1-1.png)
+修改：
 
-勾选：
-
-- 删除 Torrent 时提示
-- 确认 “暂停/继续所有” 操作
-- 使用交替的行颜色
-- 隐藏为 0 及无穷大的项：总是
-- 在 Windows 启动时启动 qBittorrent
-- 启动时的窗口状态：隐藏
-- 如果退出时由 Torrent 活动则提示确认
-
-![](./images/qbit/conf-1-2.png)
-
-勾选：
-
-- 下载完成并自动退出时提示确认
-  - 在通知区域显示 qBittorrent
-  - 最小化 qBittorrent 到通知区域
-  - 关闭 qBittorrent 到通知区域
-- 使用 qBittorrent 打开 .torrent 文件
-- 使用 qBittorrent 打开磁力链接
-- 检查程序更新
-
-由于当前系统不会因为睡眠而断开网络链接，所以不勾选：
-
-- 下载时禁止系统自动睡眠
-- 做种时禁止系统自动睡眠
+- 启动时窗口：隐藏
+- 在通知区域显示 qBittorrent
+    - 最小化 qBittorrent 到通知区域
+    - 关闭 qBittorrent 到通知区域
+- 托盘图表样式：单色（深色主题）
 
 ### 下载
 
-![](./images/qbit/conf-2-1.png)
+修改：
 
-勾选：
-
-- 显示 Torrent 内容和选项
-- 前置 torrent 对话框
-- 手动添加 torrent 时询问是否合并 trackers
 - 为所有文件预分配磁盘空间
-- 启用递归下载对话框
+- 默认 Torrent 管理模式：自动
+- 默认保存位置：`/home/bt/network/misc`
 
 ### 连接
 
-![](./images/qbit/conf-3-1.png)
+修改：
 
-- Peer 连接协议：TCP 和 µTP
+- 端口：大于 `10000` 的任意端口
+- 全局最大连接数：800
+- 每个 torrent 最大连接数：200
 
-勾选：
+不使用：
 
-- 使用我的路由器 UPnP / NAT-PMP 端口转发
-- 全局最大连接数：1000
-- 每个 torrent 最大连接数：500
-
-启用 IP 过滤
+- `使用我的路由器 UPnP / NAT-PMP 端口转发`（在路由器上另外设置端口转发）
+- 全局上传窗口限制
+- 每个 torrent 上传窗口限制
 
 ### 速度
 
-![](./images/qbit/conf-4-1.png)
-
-勾选：
+修改：
 
 - 对 µTP 协议进行速度限制
 - 对传送总开销进行速度限制
@@ -95,137 +118,53 @@ tags:
 
 ### BitTorret
 
-![](./images/qbit/conf-5-1.png)
+修改：
 
-勾选：
-
-- 启用 DHT（去中心化网络）以找到更多用户
-- 启用用户交换（PeX）以找到更多用户
-- 启用本地用户发现以找到更多用户
-- 加密模式：**允许加密**
-- Automatically update public trackers list
+- 自动附加这些 tracker 到新下载
     - <https://trackerslist.com>
 
 ### WebUI
 
-![](./images/qbit/conf-6-1.png)
-
-勾选：
+修改：
 
 - Web 用户界面（远程控制）
 - 对本地主机上的客户端跳过身份验证
-- 启用点击劫持保护
-- 启用跨站请求伪造（CSRF）保护
-- 启用 Host header 属性验证
 
 ### 高级
 
-![](./images/qbit/conf-7-1.png)
-
 修改：
 
+- 网络接口：`wlp6s0`（无线网卡）
 - 保存恢复数据的间隔：60 分钟
-- 网络接口设置为无线网卡或者以太网，以避免来自 TUN 模式的网络干扰。
-  
-额外勾选：
-
-- Auto Ban Unknown Peer from China
-- Auto Ban Bittorrent Media Player Peer
-- 当 IP 或端口更改时重新通知所有 Tracker
-
-![](./images/qbit/conf-7-2.png)
-
-修改：
-
-- 异步 I/O 线程数：64
-    - AMD 7840H
+- 异步 I/O 线程数：64（AMD 7840H）
 - 文件池大小：400
-- 校验时内存使用扩增量：1024 MiB
-- 磁盘缓存：-1
-
-![](./images/qbit/conf-7-3.png)
-
-额外勾选：
-
+- 校验时内存使用扩增量：256 MiB
 - 合并读写
 - 发送分块上传建议
-
-修改：
-
-- µTP-TCP 混合模式策略：按用户比重（抑制 TCP）
-
-![](./images/qbit/conf-7-4.png)
-
-额外勾选：
-
 - 禁止连接到特权端口上的 peer
 
-----
+## 部署 Peerbanhelper
 
-## 附加的反吸血措施
+获取 `PeerBanHelper.jar`：
 
-### IP 过滤列表
+- 下载地址：<https://github.com/Ghost-chu/PeerBanHelper>
+- 文档：<https://pbh-btn.github.io/pbh-docs/>
 
-要使用 IP 过滤列表，你需要新建一个名为 `ipfilter.dat` 的纯文本文件，并在 **设置** → **连接** → **IP 过滤** 中勾选此文件。
+```shell
+poplar@c004-h1:~> tree ~/bin/pbh -L 1
+/home/poplar/bin/pbh
+├── data
+├── key.txt
+├── latest.log -> /home/poplar/bin/pbh/data/logs/latest.log
+├── pbh.service
+├── PeerBanHelper.jar
+├── PeerBanHelper.jar.old
+└── test-start.sh
 
-IP 过滤列表的示例：
-
-```
-1.180.24.0-1.180.25.255
-240e:918:8008:4::0-240e:918:8008:4::ffff
-```
-
-### 客户端过滤列表
-
-要启用客户端过滤列表，请在 `profile/qBittorrent/data` 目录下新建名为 `peer_blacklist.txt` 的文件。
-
-格式为 `PeerIP 客户端名` 
-
-示例：
-
-```
--DT0001- dt/torrent/v1.00
--DT0001- dt/torrent/v1.01
--DT0001- DT\s0.0.0.1
+2 directories, 6 files
 ```
 
-### 辅助封禁工具
-
-目前有两个流行的工具：
-
-- [Simple-Tracker/qBittorrent-ClientBlocker](https://github.com/Simple-Tracker/qBittorrent-ClientBlocker)
-- [Ghost-chu/PeerBanHelper](https://github.com/Ghost-chu/PeerBanHelper)
-
-我使用的是 `Ghost-chu/PeerBanHelper`。
-
-----
-
-## PeerBanHelper
-
-### Windows 端
-
-一般地，下载自带 JDK 的 `PeerBanHelper.Windows.*.zip`。然后将它解压到 qbittorrent 的应用目录中。
-
-将 `2) 以 GUI 模式启动（静默启动到托盘图标）.bat` 重命名为 `start-pbh.bat`，将此脚本的快捷方式拷贝到 `shell:startup` 目录。
-
-然后新建一个名为 `force-stop-task.cmd` 的文件用于终止进程：
-
-```
-taskkill /im javaw.exe /t /f
-```
-
-点击 `start-pbh.bat` 启动脚本，登录网页端完成初始步骤，然后结束进程，打开 `\data\config\config.yml` 文件编辑下列配置：
-
-- `language`：改为 `zh_CN`
-- `btn`：改为 `true`，并填入 `app-id` 和 `app-secret`
-- `ip-database`：填入申请的 `account-id` 和 `license-key`
-- `proxy`：将 `setting: 0` 改为 `setting: 2`，并检查服务器地址和端口是否正确。
-
-重新启动应用，检查 `data\logs\latest.log` 内容是否存在问题。
-
-### Linux 端
-
-`PeerBanHelper.jar` 启动测试脚本 `test-start.sh`：
+`test-start.sh`：
 
 ```shell
 #!/bin/sh
@@ -233,9 +172,14 @@ taskkill /im javaw.exe /t /f
 java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
 ```
 
-用于让 `PeerBanHelper` 开机自启动的 systemd 服务文件：
+`pbh.service`：
 
-```
+```shell
+#!/bin/sh
+#测试启动
+java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
+
+poplar@c004-h1:~/bin/pbh> cat pbh.service
 [Unit]
 Description=Start PeerBanHelper Service
 After=multi-user.target
@@ -243,31 +187,26 @@ After=multi-user.target
 [Service]
 ExecStart=/usr/bin/java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
 Type=simple
-WorkingDirectory=/home/poplar/bin/qbee/pbh/
+WorkingDirectory=/home/poplar/bin/pbh/
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-服务文件需要放置到 `/etc/systemd/system/` 文件夹中，然后重载 systemd 守护进程，再开启服务：
+### 配置文件
 
-```
-sudo systemctl daemon-reload
-sudo systemctl enable pbh --now
-```
+使用 `test-start.sh` 启动服务，在 <http://127.0.0.1:8080> 生成 token 并添加 qBittorrent 下载器。然后关闭脚本。
 
-初次启动后，在 `/data/config` 目录下，打开 `config.yml`，修改配置：
+修改 `~/bin/pbh/data/config/config.yml`：
 
 - `language`：改为 `zh_CN`
 - `btn`：改为 `true`，并填入 `app-id` 和 `app-secret`
 - `ip-database`：填入申请的 `account-id` 和 `license-key`
 - `proxy`：将 `setting: 0` 改为 `setting: 2`，并检查服务器地址和端口是否正确。
 
-然后登录 <http://127.0.0.1:9898/>，添加需要连接的下载器，qBittorrent 一般是：
+然后使用 `pbh` 注册并重载 PeerBanHelper 服务。
 
-- <http://127.0.0.1:8080>
-
-----
+### 管理脚本
 
 用于管理 PeerBanHelper 服务的脚本 `pbh`：
 
