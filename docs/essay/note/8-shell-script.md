@@ -74,6 +74,23 @@ while true; do
 done
 ```
 
+### update-code
+
+```shell
+#!/bin/sh
+#本脚本用于更新 VScodium
+
+ls -l ~/Downloads && echo
+mv /home/poplar/bin/codium/data /home/poplar/bin/data
+rm -r /home/poplar/bin/codium/*
+echo 'Data backed up.'
+tar -xf /home/poplar/Downloads/VSCodium*.tar.gz -C /home/poplar/bin/codium
+echo 'Codium Updated.'
+mv /home/poplar/bin/data /home/poplar/bin/codium/data
+echo 'Data restored.'
+rm /home/poplar/Downloads/VSCodium*.tar.gz
+```
+
 ----
 
 ## 配置文件
