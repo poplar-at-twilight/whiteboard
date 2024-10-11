@@ -10,18 +10,12 @@ tags:
 
 下载：
 
-- <https://github.com/Clash-Verge-rev/clash-verge-rev/releases>
+- <https://github.com/mihomo-party-org/mihomo-party/releases>
 
 安装依赖：
 
 ```
-sudo zypper in libayatana-appindicator3-1 libwebkit2gtk-4_0-37
-```
-
-安装本体：
-
-```
-sudo rpm -i clash-verge-*.x86_64.rpm
+sudo rpm -i mihomo-party-linux-*-x86_64.rpm --nodeps
 ```
 
 ## Flatpak

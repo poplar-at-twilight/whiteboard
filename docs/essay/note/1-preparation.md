@@ -40,7 +40,7 @@ wget https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07
 
 ## 额外的 RPM 包
 
-- <https://github.com/Clash-Verge-rev/clash-verge-rev/releases>
+- <https://github.com/mihomo-party-org/mihomo-party/releases>
 
 ## 切换引导启动项
 
