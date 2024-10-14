@@ -46,6 +46,7 @@ flatpakx install com.github.qarmin.czkawka
 flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
 flatpakx install com.github.johnfactotum.Foliate
+flatpakx install io.github.xiaoyifang.goldendict_ng
 ```
 
 ### 清理不再需要的库
@@ -130,8 +131,6 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 - `filelight`
 - `google-noto-sans-mono-fonts`
 - `gimp`
-- `goldendict-ng`
-  - `goldendict-ng-lang`
 - `goverlay`
 - `kfind`
 - `kleopatra`
@@ -141,7 +140,7 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight google-noto-sans-mono-fonts gimp goldendict-ng goldendict-ng-lang goverlay kfind kleopatra qbittorrent
+sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight google-noto-sans-mono-fonts gimp goverlay kfind kleopatra qbittorrent
 ```
 ```
 sudo zypper in steam
