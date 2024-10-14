@@ -1005,6 +1005,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="aria2-m">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      update-code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1850,6 +1865,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="aria2-m">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      update-code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2009,6 +2039,20 @@
 <span class="w">        </span><span class="k">continue</span>
 <span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
+</code></pre></div>
+<h3 id="update-code">update-code</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="c1">#本脚本用于更新 VScodium</span>
+
+ls<span class="w"> </span>-l<span class="w"> </span>~/Downloads<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
+mv<span class="w"> </span>/home/poplar/bin/codium/data<span class="w"> </span>/home/poplar/bin/data
+rm<span class="w"> </span>-r<span class="w"> </span>/home/poplar/bin/codium/*
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Data backed up.&#39;</span>
+tar<span class="w"> </span>-xf<span class="w"> </span>/home/poplar/Downloads/VSCodium*.tar.gz<span class="w"> </span>-C<span class="w"> </span>/home/poplar/bin/codium
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Codium Updated.&#39;</span>
+mv<span class="w"> </span>/home/poplar/bin/data<span class="w"> </span>/home/poplar/bin/codium/data
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Data restored.&#39;</span>
+rm<span class="w"> </span>/home/poplar/Downloads/VSCodium*.tar.gz
 </code></pre></div>
 <hr />
 <h2 id="_1">配置文件</h2>
