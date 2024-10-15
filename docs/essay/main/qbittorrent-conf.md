@@ -14,8 +14,36 @@ tags:
 ## 安装
 
 ```
-sudo zypper in qbittorrent
+sudo zypper in qbittorrent-nox
 ```
+
+### systemd 服务
+
+用于启动服务的 `qb-nox.service`:
+
+```shell
+[Unit]
+Description=qBittorrent-nox daemon service
+
+[Service]
+Type=simple
+PrivateTmp=false
+ExecStart=/usr/bin/qbittorrent-nox
+TimeoutStopSec=1800
+
+[Install]
+WantedBy=default.target
+```
+
+启动步骤：
+
+```shell
+cp ~/bin/pbh/qb-nox.service ~/.config/systemd/user
+systemctl daemon-reload --user
+systemctl enable --user --now qb-nox 
+```
+
+默认的 WebUI 地址：<http://127.0.0.1:8080>
 
 ## 相关文件
 
