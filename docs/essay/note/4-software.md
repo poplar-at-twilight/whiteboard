@@ -72,6 +72,10 @@ Bottles 的 desktop 文件的环境变量可设置为：
 https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 ```
 
+### czkawka
+
+对比重复文件时，只需要添加一个文件夹就行了（不需要设置为参考文件夹）。
+
 ### fcitx5 皮肤没有正确显示（Wayland 会话）
 
 关闭所有 flatpak 应用，然后运行：
@@ -232,6 +236,7 @@ sudo usermod -aG libvirt $USER
 - `PKief.material-icon-theme`
 - `alefragnani.project-manager`
 - `ms-python.python`
+- `AaaaronZhou.vscode-auto-light-dark-theme`
 
 ### pandoc
 
