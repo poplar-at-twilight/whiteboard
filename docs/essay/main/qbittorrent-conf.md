@@ -177,7 +177,6 @@ java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -j
 ```shell
 [Unit]
 Description=Start PeerBanHelper Service
-After=multi-user.target
 
 [Service]
 ExecStart=/usr/bin/java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
@@ -185,7 +184,7 @@ Type=simple
 WorkingDirectory=/home/poplar/bin/pbh/
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 ```
 
 ### 配置文件

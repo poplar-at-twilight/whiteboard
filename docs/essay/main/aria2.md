@@ -142,7 +142,6 @@ rpc-secret=poplar
 ```shell
 [Unit]
 Description=Start aria2 daemon
-After=multi-user.target
 
 [Service]
 ExecStart=/usr/bin/aria2c --conf-path=/home/poplar/bin/aria2/aria2.conf
@@ -150,7 +149,7 @@ Type=simple
 WorkingDirectory=/home/poplar/bin/aria2
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 ```
 
 ### `index.html`
