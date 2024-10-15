@@ -2091,7 +2091,6 @@ rpc-secret<span class="o">=</span>poplar
 <p>设置使用 systemd 启动 aria2 的服务文件 <code>aria2.service</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
 <span class="nv">Description</span><span class="o">=</span>Start<span class="w"> </span>aria2<span class="w"> </span>daemon
-<span class="nv">After</span><span class="o">=</span>multi-user.target
 
 <span class="o">[</span>Service<span class="o">]</span>
 <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/aria2c<span class="w"> </span>--conf-path<span class="o">=</span>/home/poplar/bin/aria2/aria2.conf
@@ -2099,7 +2098,7 @@ rpc-secret<span class="o">=</span>poplar
 <span class="nv">WorkingDirectory</span><span class="o">=</span>/home/poplar/bin/aria2
 
 <span class="o">[</span>Install<span class="o">]</span>
-<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+<span class="nv">WantedBy</span><span class="o">=</span>default.target
 </code></pre></div>
 <h3 id="indexhtml"><code>index.html</code></h3>
 <ul>

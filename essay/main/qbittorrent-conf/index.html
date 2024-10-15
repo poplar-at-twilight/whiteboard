@@ -2240,7 +2240,6 @@ java<span class="w"> </span>-Xmx256M<span class="w"> </span>-XX:+UseG1GC<span cl
 <p><code>pbh.service</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
 <span class="nv">Description</span><span class="o">=</span>Start<span class="w"> </span>PeerBanHelper<span class="w"> </span>Service
-<span class="nv">After</span><span class="o">=</span>multi-user.target
 
 <span class="o">[</span>Service<span class="o">]</span>
 <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/java<span class="w"> </span>-Xmx256M<span class="w"> </span>-XX:+UseG1GC<span class="w"> </span>-XX:+UseStringDeduplication<span class="w"> </span>-XX:+ShrinkHeapInSteps<span class="w"> </span>-jar<span class="w"> </span>PeerBanHelper.jar<span class="w"> </span>nogui
@@ -2248,7 +2247,7 @@ java<span class="w"> </span>-Xmx256M<span class="w"> </span>-XX:+UseG1GC<span cl
 <span class="nv">WorkingDirectory</span><span class="o">=</span>/home/poplar/bin/pbh/
 
 <span class="o">[</span>Install<span class="o">]</span>
-<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+<span class="nv">WantedBy</span><span class="o">=</span>default.target
 </code></pre></div>
 <h3 id="_10">配置文件</h3>
 <p>使用 <code>test-start.sh</code> 启动服务，在 <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a> 生成 token 并添加 qBittorrent 下载器。然后关闭脚本。</p>
