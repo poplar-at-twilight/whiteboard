@@ -20,16 +20,16 @@ tags:
 
 |值|[公制]/[十进制]|值|[IEC]/[二进制]|
 |:---:|:---:|:---:|:---:|
-|1000B → 1kB|kilobyte|1024B → 1KiB|kibibyte|
-|1000^2^B → 1MB|megabyte|1024^2^B → 1MiB|mebibyte|
-|1000^3^B → 1GB|gigabyte|1024^3^B → 1GiB|gibibyte|
-|1000^4^B → 1TB|terabyte|1024^4^B → 1TiB|tebibyte|
-|1000^5^B → 1PB|petabyte|1024^5^B → 1PiB|pebibyte|
-|1000^6^B → 1EB|exabyte|1024^6^B → 1EiB|exbibyte|
-|1000^7^B → 1ZB|zettabyte|1024^7^B → 1ZiB|zebibyte|
-|1000^8^B → 1YB|yottabyte|1024^8^B → 1YiB|yobibyte|
-|1000^9^B → 1RB|ronnabyte|1024^9^B|-|
-|1000^10^B → 1QB|quettabyte|1024^10^B|-|
+|1000B = 1kB|kilobyte|1024B = 1KiB|kibibyte|
+|1000^2^B = 1MB|megabyte|1024^2^B = 1MiB|mebibyte|
+|1000^3^B = 1GB|gigabyte|1024^3^B = 1GiB|gibibyte|
+|1000^4^B = 1TB|terabyte|1024^4^B = 1TiB|tebibyte|
+|1000^5^B = 1PB|petabyte|1024^5^B = 1PiB|pebibyte|
+|1000^6^B = 1EB|exabyte|1024^6^B = 1EiB|exbibyte|
+|1000^7^B = 1ZB|zettabyte|1024^7^B = 1ZiB|zebibyte|
+|1000^8^B = 1YB|yottabyte|1024^8^B = 1YiB|yobibyte|
+|1000^9^B = 1RB|ronnabyte|1024^9^B|-|
+|1000^10^B = 1QB|quettabyte|1024^10^B|-|
 
 - 来源：[Multiple-byte units]
 
