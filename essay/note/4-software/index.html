@@ -945,7 +945,7 @@
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      清理不再需要的库
+      清理数据
     </span>
   </a>
   
@@ -964,6 +964,15 @@
   <a href="#fcitx5-wayland" class="md-nav__link">
     <span class="md-ellipsis">
       fcitx5 皮肤没有正确显示（Wayland 会话）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gtk" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用 GTK 主题与当前系统主题不匹配
     </span>
   </a>
   
@@ -1976,7 +1985,7 @@
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      清理不再需要的库
+      清理数据
     </span>
   </a>
   
@@ -1995,6 +2004,15 @@
   <a href="#fcitx5-wayland" class="md-nav__link">
     <span class="md-ellipsis">
       fcitx5 皮肤没有正确显示（Wayland 会话）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gtk" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用 GTK 主题与当前系统主题不匹配
     </span>
   </a>
   
@@ -2174,9 +2192,14 @@ flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
 flatpakx install com.github.johnfactotum.Foliate
 flatpakx install io.github.xiaoyifang.goldendict_ng
+flatpakx install com.github.tchx84.Flatseal
 </code></pre></div>
-<h3 id="_2">清理不再需要的库</h3>
+<h3 id="_2">清理数据</h3>
+<p>清理不再需要的库：</p>
 <div class="highlight"><pre><span></span><code>flatpak uninstall --unused
+</code></pre></div>
+<p>卸载时一并清理应用数据：</p>
+<div class="highlight"><pre><span></span><code>flatpak uninstall --delete-data
 </code></pre></div>
 <h3 id="bottles">Bottles</h3>
 <p>Bottles 的 desktop 文件的环境变量可设置为：</p>
@@ -2186,6 +2209,10 @@ flatpakx install io.github.xiaoyifang.goldendict_ng
 <p>关闭所有 flatpak 应用，然后运行：</p>
 <div class="highlight"><pre><span></span><code>flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class="o">=</span><span class="nv">QT_IM_MODULE</span><span class="o">=</span><span class="w"> </span>--user
 flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class="o">=</span><span class="nv">GTK_IM_MODULE</span><span class="o">=</span><span class="w"> </span>--user
+</code></pre></div>
+<h3 id="gtk">应用 GTK 主题与当前系统主题不匹配</h3>
+<p>使用 Flatseal 编辑应用，使其能访问主题文件夹（<code>/usr/share/themes</code>），然后为该应用设置如下环境变量：</p>
+<div class="highlight"><pre><span></span><code>GTK_THEME=Adwaita-dark
 </code></pre></div>
 <hr />
 <h2 id="_3">删除软件包</h2>
