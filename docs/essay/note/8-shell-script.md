@@ -66,7 +66,7 @@ proxy=http://localhost:7890
 `~/.bashrc`：
 
 ```shell
-alias ls="ls --block-size=KiB"
+alias ls="ls --block-size=KiB --color=auto"
 #以 KiB 为单位显示文件大小
 
 unset GTK_IM_MODULE
@@ -104,7 +104,7 @@ alias flatpakx="proxychains4 flatpak --user"
 alias flatpak-clear="flatpak uninstall --unused"
 #清理不需要的库
 
-alias pings="ping mirror.sjtu.edu.cn -c 6; ping baidu.com -c 6; ping 1.1.1.1 -c 6"
+alias pings="ping mirror.sjtu.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 6"
 #测试网络连通性
 
 alias update="sudo zypper ref; sudo zypper lu; flatpakx update"
