@@ -47,12 +47,21 @@ flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
 flatpakx install com.github.johnfactotum.Foliate
 flatpakx install io.github.xiaoyifang.goldendict_ng
+flatpakx install com.github.tchx84.Flatseal
 ```
 
-### 清理不再需要的库
+### 清理数据
+
+清理不再需要的库：
 
 ```
 flatpak uninstall --unused
+```
+
+卸载时一并清理应用数据：
+
+```
+flatpak uninstall --delete-data
 ```
 
 ### Bottles
@@ -70,6 +79,14 @@ https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=soc
 ```shell
 flatpak override --env=QT_IM_MODULE= --user
 flatpak override --env=GTK_IM_MODULE= --user
+```
+
+### 应用 GTK 主题与当前系统主题不匹配
+
+使用 Flatseal 编辑应用，使其能访问主题文件夹（`/usr/share/themes`），然后为该应用设置如下环境变量：
+
+```
+GTK_THEME=Adwaita-dark
 ```
 
 ----
