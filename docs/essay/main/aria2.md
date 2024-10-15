@@ -2,52 +2,50 @@
 tags:
   - 杂谈
   - aria2
-  - Windows
   - Linux
 ---
 
 # 安装与使用 aria2
 
-## for Windows 10
+## 安装
 
-### 下载
+```
+sudo zypper in aria2
+```
 
-- aria2: <https://github.com/aria2/aria2/releases>
-- AriaNg: <https://github.com/mayswind/AriaNg/releases>
+## 文件目录
 
-将下载完毕的 aria2 和 `AriaNg-*-AllInOne.zip` 放到同一个文件夹下，然后再创建如下几个空的文本文件：
+在 `~/bin/aria2` 目录下新建文本文档：
 
-- aria2.conf
-- aria2.log
-- aria2.session
-- HideRun.vbs
-- stop-demon.cmd
+```shell
+poplar@c004-h1:~> tree ~/bin/aria2
+/home/poplar/bin/aria2
+├── aria2.conf
+├── aria2.log
+├── aria2.service
+├── aria2.session
+└── index.html
 
-### 配置文件
+1 directory, 5 files
+```
 
-#### aria2.conf
-
-- 此配置文件省略了与 BT 相关的配置；
-- BT 下载推荐使用 [qBittorrent]，另见：[qBittorrent 配置指南]。
-
-[qBittorrent]: https://github.com/c0re100/qBittorrent-Enhanced-Edition
-[qBittorrent 配置指南]: ./../../archives/qbittorrent-confs.md
+### `aria2.conf`
 
 ```shell
 # 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
-dir=D:\Downloads
+dir=/home/poplar/Downloads/Aria2
 
 # 日志文件保存目录
-log=D:\Software\Toolkit\aria2\aria2.log
+log=/home/poplar/bin/aria2/aria2.log
 
 # 启用磁盘缓存, 0 为禁用缓存, 需 1.16 以上版本, 默认:16M
 disk-cache=50M
 
 # 文件预分配方式, 能有效降低磁盘碎片, 默认: prealloc
 # 预分配所需时间: none < falloc ? trunc < prealloc
-# falloc 和 trunc 则需要文件系统和内核支持, 
+# falloc 和 trunc 则需要文件系统和内核支持,
 # NTFS 建议使用 falloc, EXT3/4 建议 trunc, MAC 下需要注释此项
-file-allocation=falloc
+#file-allocation=falloc
 
 # 断点续传
 continue=true
@@ -96,10 +94,10 @@ split=32
 ## 进度保存相关 ##
 
 # 从会话文件中读取下载任务
-input-file=D:\Software\Toolkit\aria2\aria2.session
+input-file=/home/poplar/bin/aria2/aria2.session
 
 # 在 aria2 退出时保存`错误/未完成`的下载任务到会话文件
-save-session=D:\Software\Toolkit\aria2\aria2.session
+save-session=/home/poplar/bin/aria2/aria2.session
 
 # 定时保存会话, 0 为退出时才保存, 需 1.16.1 以上版本, 默认:0
 save-session-interval=120
@@ -137,85 +135,7 @@ rpc-secret=poplar
 #rpc-private-key=/path/to/certificate.key
 ```
 
-#### HideRun.vbs
-
-`HideRun.vbs` 的作用：
-
-- 用于启动 `aria2c.exe` 并指定参数和配置文件路径；
-- 可以让 aria2 启动时不会出现终端窗口。
-
-```shell
-CreateObject("WScript.Shell").Run "aria2c.exe --conf-path=aria2.conf --async-dns=false",0
-```
-
-#### stop-demon.cmd
-
-`stop-demon.cmd` 脚本用于停止 aria2 进程。
-
-```shell
-taskkill /im aria2c.exe /t /f
-```
-
-### AriaNG
-
-点击解压完毕的 AriaNG HTML 文件，即可在浏览器中打开 AriaNG。
-
-此时，点击 **AriaNG 设置** -> **RPC(localhost:6800)**，然后填入 `aria2.conf` 中已经设置的 Aria2 RPC 密钥。
-
-### 变更 UA
-
-要变更 user-agent，请在新建下载项时，在**选项**中，勾选 **HTTP**，然后在**自定义请求头（header）**中，添加 `User-Agent: <USER_AGENT>`，例如：适用于一些下载百度云文件的脚本所需的自定义 UA：`User-Agent: netdisk`。
-
-### 开机启动
-
-按下 `win` + `R`，输入 `shell:startup`。将 `HideRun.vbs` 的快捷方式拷贝到此处即可。
-
-----
-
-## for Linux
-
-### 安装
-
-```
-sudo zypper in aria2
-```
-
-### 配置文件
-
-在 `~/bin/aria2` 目录下新建文本文档：
-
-```
-poplar@c004-h1:~/bin/aria2> tree
-.
-├── aria2.conf
-├── aria2.log
-├── aria2.service
-├── aria2.session
-└── index.html
-
-1 directory, 5 files
-```
-
-#### aria2.conf
-
-此处使用的 aria2.conf 文件与上面的文件不同之处在于
-
-```shell
-# 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
-dir=/home/poplar/Downloads/Aria2
-
-# 日志文件保存目录
-log=/home/poplar/bin/aria2/aria2.log
-
-
-# 从会话文件中读取下载任务
-input-file=/home/poplar/bin/aria2/aria2.session
-
-# 在 aria2 退出时保存`错误/未完成`的下载任务到会话文件
-save-session=/home/poplar/bin/aria2/aria2.session
-```
-
-#### systemd 服务
+### `aria2.service`
 
 设置使用 systemd 启动 aria2 的服务文件 `aria2.service`：
 
@@ -233,7 +153,81 @@ WorkingDirectory=/home/poplar/bin/aria2
 WantedBy=multi-user.target
 ```
 
-用于设置 systemd 服务的脚本另见，[Shell 脚本 - aria2-m](./../note/8-shell-script.md)
+### `index.html`
+
+- 下载地址：<https://github.com/mayswind/AriaNg/releases>
+
+## 启动服务
+
+使用 `~/bin/command/aria2-m` 启动服务：
+
+```shell
+#!/bin/sh
+#本脚本用于维护 aria2 及 ISO 的下载管理
+
+export ISO_DL_DIR=/home/poplar/Downloads/Aria2
+export ISO_DIR=/home/poplar/Downloads/ISO
+export ARIA2_DIR=/home/poplar/bin/aria2
+#设定目录
+
+printf 'You can use this script to verify ISO files, register Aria2 service and clean up aria2 logs.\n'
+
+while true; do
+    printf 'V - Verify ISO files\nR - Register Aria2 service\nC - Clean up aria2 logs\nQ - Quit script' && echo
+    read answer
+
+    if [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
+    #校验 ISO 文件
+        cd $ISO_DL_DIR;ls -l && echo
+        sha256sum -c openSUSE*.sha256
+        gpg --verify openSUSE*.asc
+        #验证完整性
+        rm $ISO_DIR/openSUSE*.*
+        mv $ISO_DL_DIR/openSUSE*.* $ISO_DIR
+        #移动文件至默认位置
+        echo "ISO files updated!"
+        printf -- '-%0.s' {1..100} && echo
+        #分隔符
+    elif [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
+        echo "Registering systemd services for aria2..."
+        mkdir -p ~/.config/systemd/user
+        cp $ARIA2_DIR/aria2.service ~/.config/systemd/user
+        echo "The service files have been copied to systemd/user."
+        #拷贝 service 文件
+        systemctl daemon-reload --user
+        systemctl enable --now --user aria2
+        echo "Service started!"
+        printf -- '-%0.s' {1..100} && echo
+    elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
+        ls -lh $ARIA2_DIR/aria2.log
+        #读取文件大小
+        systemctl status aria2 --user | grep "Active"
+        #查询状态
+        systemctl stop aria2 --user
+        #关闭服务
+        rm $ARIA2_DIR/aria2.log; touch $ARIA2_DIR/aria2.log
+        echo "Logs cleaned"
+        #清理日志文件
+        systemctl restart aria2 --user
+        #重启服务
+        systemctl status aria2 --user | grep "Active"
+        ls -lh $ARIA2_DIR/aria2.log
+        #查询状态
+        printf -- '-%0.s' {1..100} && echo
+    elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
+        clear; exit
+    else
+    #重新开始循环
+        echo "ERROR! Invalid input."
+        continue
+    fi
+done
+```
+
+## 补充说明
+
+- 配置不包含 BT 下载功能，相关另见 [qBittorrent 配置备忘录](./qbittorrent-conf.md)。
+- aria2 只有在工作时才会读写日志。下载完文件后，记得要清理一下日志文件。
 
 ----
 
