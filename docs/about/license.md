@@ -19,11 +19,7 @@ tags:
 
 ## 其他 Others
 
-- 本站点使用的[图标]由 [Flaticon] 免费提供，创作者是 [Freepik]。许可证副本详见[此处]。<br />The [icons][图标] used on this site are provided free of charge by [Flaticon] and the creator is [Freepik]. A copy of the license is available [here][此处].
 - [归档]分类的文档的许可信息需要在文末单独一一说明，且不再此处重复声明。<br />The license information of [archived classified documents][归档] needs to be stated separately at the end of the article and will not be repeated here.
 
-[图标]: https://www.flaticon.com/free-icon/open-book_2702154
-[Flaticon]: https://www.flaticon.com/
-[Freepik]: https://www.flaticon.com/authors/freepik
 [此处]: ./assets/flaticon-license.pdf
 [归档]: ../archives/about.md
