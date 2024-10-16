@@ -602,6 +602,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      systemd 服务
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1919,6 +1934,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      systemd 服务
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2089,8 +2119,28 @@
 相关：<a href="../../../archives/qbittorrent-confs/">qBittorrent 参数详细设置教程</a></p>
 </div>
 <h2 id="_1">安装</h2>
-<div class="highlight"><pre><span></span><code>sudo zypper in qbittorrent
+<div class="highlight"><pre><span></span><code>sudo zypper in qbittorrent-nox
 </code></pre></div>
+<h3 id="systemd">systemd 服务</h3>
+<p>用于启动服务的 <code>qb-nox.service</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>qBittorrent-nox<span class="w"> </span>daemon<span class="w"> </span>service
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>simple
+<span class="nv">PrivateTmp</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/qbittorrent-nox
+<span class="nv">TimeoutStopSec</span><span class="o">=</span><span class="m">1800</span>
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>default.target
+</code></pre></div>
+<p>启动步骤：</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>~/bin/pbh/qb-nox.service<span class="w"> </span>~/.config/systemd/user
+systemctl<span class="w"> </span>daemon-reload<span class="w"> </span>--user
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--user<span class="w"> </span>--now<span class="w"> </span>qb-nox<span class="w"> </span>
+</code></pre></div>
+<p>默认的 WebUI 地址：<a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></p>
 <h2 id="_2">相关文件</h2>
 <p>配置文件：</p>
 <ul>
