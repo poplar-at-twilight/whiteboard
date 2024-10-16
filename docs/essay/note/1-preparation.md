@@ -30,7 +30,7 @@ openSUSE 项目的公钥：
 wget https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07e22.asc
 ```
 
-[^shell]: shell 脚本源码另见[此处](./8-shell-script.md)。
+[^shell]: shell 脚本源码另见[此处](./../main/aria2.md)。
 
 ## 烧录 ISO 文件
 
