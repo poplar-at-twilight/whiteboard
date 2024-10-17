@@ -169,10 +169,15 @@ export ISO_DIR=/home/poplar/Downloads/ISO
 export ARIA2_DIR=/home/poplar/bin/aria2
 #设定目录
 
+printf -- '-%0.s' {1..100} && echo
 printf 'You can use this script to verify ISO files, register Aria2 service and clean up aria2 logs.\n'
 
 while true; do
-    printf 'V - Verify ISO files\nR - Register Aria2 service\nC - Clean up aria2 logs\nQ - Quit script' && echo
+
+    printf 'V - Verify ISO files\n'
+    printf 'R - Register Aria2 service\n'
+    printf 'C - Clean up aria2 logs\n'
+    printf 'Q - Quit script\n\n'
     read answer
 
     if [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
@@ -184,19 +189,19 @@ while true; do
         rm $ISO_DIR/openSUSE*.*
         mv $ISO_DL_DIR/openSUSE*.* $ISO_DIR
         #移动文件至默认位置
-        echo "ISO files updated!"
-        printf -- '-%0.s' {1..100} && echo
-        #分隔符
+        printf 'ISO files updated!\n'
+
     elif [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
-        echo "Registering systemd services for aria2..."
+    #注册服务
+        printf 'Registering systemd services for aria2...\n'
         mkdir -p ~/.config/systemd/user
         cp $ARIA2_DIR/aria2.service ~/.config/systemd/user
-        echo "The service files have been copied to systemd/user."
+        printf 'The service files have been copied to systemd/user.\n'
         #拷贝 service 文件
         systemctl daemon-reload --user
         systemctl enable --now --user aria2
-        echo "Service started!"
-        printf -- '-%0.s' {1..100} && echo
+        printf 'Service started!\n'
+
     elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
         ls -lh $ARIA2_DIR/aria2.log
         #读取文件大小
@@ -205,20 +210,22 @@ while true; do
         systemctl stop aria2 --user
         #关闭服务
         rm $ARIA2_DIR/aria2.log; touch $ARIA2_DIR/aria2.log
-        echo "Logs cleaned"
+        printf 'Logs cleaned.\n'
         #清理日志文件
         systemctl restart aria2 --user
         #重启服务
         systemctl status aria2 --user | grep "Active"
         ls -lh $ARIA2_DIR/aria2.log
         #查询状态
-        printf -- '-%0.s' {1..100} && echo
+
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
         clear; exit
+
     else
     #重新开始循环
-        echo "ERROR! Invalid input."
+        printf 'ERROR! Invalid input.\n'
         continue
+
     fi
 done
 ```

@@ -16,15 +16,60 @@ shell 脚本一般放置在 `~/bin/command`
 #!/bin/sh
 #本脚本用于更新 VScodium
 
-ls -l ~/Downloads && echo
-mv /home/poplar/bin/codium/data /home/poplar/bin/data
-rm -r /home/poplar/bin/codium/*
-echo 'Data backed up.'
-tar -xf /home/poplar/Downloads/VSCodium*.tar.gz -C /home/poplar/bin/codium
-echo 'Codium Updated.'
-mv /home/poplar/bin/data /home/poplar/bin/codium/data
-echo 'Data restored.'
-rm /home/poplar/Downloads/VSCodium*.tar.gz
+FILE=/home/poplar/Downloads/VSCodium*.tar.gz
+
+if [ -f $FILE ]; then
+    mv /home/poplar/bin/codium/data /home/poplar/bin/data
+    printf 'Back up data: OK!\n'
+    rm -r /home/poplar/bin/codium/*
+    printf 'Remove old exc: OK!\n'
+    tar -xf /home/poplar/Downloads/VSCodium*.tar.gz -C /home/poplar/bin/codium
+    printf 'Software update: OK!\n'
+    mv /home/poplar/bin/data /home/poplar/bin/codium/data
+    printf 'Data restored: OK!\n'
+    rm /home/poplar/Downloads/VSCodium*.tar.gz
+    printf 'Clear tarball: OK!\n'
+
+else
+    printf 'ERROR: Update tarball no found!\n'
+fi
+```
+
+### update-clash
+
+```shell
+#!/bin/sh
+# 本脚本用于更新 mihomo-party
+
+FILE1=/home/poplar/Downloads/mihomo-party-*.rpm
+FILE2=/home/poplar/Others/linux-packages/mihomo-party-*.rpm
+
+printf 'Are you sure you want to update mihomo-party? (Y/n)\n\n'
+read answer
+
+if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
+    if [ -f $FILE1 ]; then
+        if [ -f $FILE2 ]; then
+            rm ~/Others/linux-packages/mihomo-party-*.rpm
+            printf 'Delete old rpm: OK!\n'
+        else
+            printf 'WARNING: No old rpm found to delete.\n'
+        fi
+
+        cd ~/Downloads
+        sudo zypper rm mihomo-party -y
+        printf 'Uninstall old rpm: OK!\n'
+        sudo rpm -i mihomo-party-*.rpm --nodeps
+        printf 'Install new rpm: OK!\n'
+        mv mihomo-party-*.rpm ~/Others/linux-packages
+        printf 'Archive file: OK!\n'
+    else
+        printf "ERROR: New rpm not found in Downloads!\n"
+    fi
+
+else
+    printf "Update canceled.\n"
+fi
 ```
 
 ----
