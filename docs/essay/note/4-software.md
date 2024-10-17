@@ -15,7 +15,13 @@ tags:
 安装依赖：
 
 ```
-sudo rpm -i mihomo-party-linux-*-x86_64.rpm --nodeps
+sudo zypper in libayatana-appindicator3 libwebkit2gtk-4_0-37
+```
+
+安装软件包：
+
+```
+sudo rpm -i clash-verge*.x86_64.rpm
 ```
 
 ## Flatpak
