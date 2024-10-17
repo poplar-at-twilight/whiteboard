@@ -1008,6 +1008,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#update-clash" class="md-nav__link">
+    <span class="md-ellipsis">
+      update-clash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       配置文件
@@ -1853,6 +1862,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#update-clash" class="md-nav__link">
+    <span class="md-ellipsis">
+      update-clash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       配置文件
@@ -1953,15 +1971,57 @@
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="c1">#本脚本用于更新 VScodium</span>
 
-ls<span class="w"> </span>-l<span class="w"> </span>~/Downloads<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
-mv<span class="w"> </span>/home/poplar/bin/codium/data<span class="w"> </span>/home/poplar/bin/data
-rm<span class="w"> </span>-r<span class="w"> </span>/home/poplar/bin/codium/*
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Data backed up.&#39;</span>
-tar<span class="w"> </span>-xf<span class="w"> </span>/home/poplar/Downloads/VSCodium*.tar.gz<span class="w"> </span>-C<span class="w"> </span>/home/poplar/bin/codium
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Codium Updated.&#39;</span>
-mv<span class="w"> </span>/home/poplar/bin/data<span class="w"> </span>/home/poplar/bin/codium/data
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Data restored.&#39;</span>
-rm<span class="w"> </span>/home/poplar/Downloads/VSCodium*.tar.gz
+<span class="nv">FILE</span><span class="o">=</span>/home/poplar/Downloads/VSCodium*.tar.gz
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$FILE</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>mv<span class="w"> </span>/home/poplar/bin/codium/data<span class="w"> </span>/home/poplar/bin/data
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Back up data: OK!\n&#39;</span>
+<span class="w">    </span>rm<span class="w"> </span>-r<span class="w"> </span>/home/poplar/bin/codium/*
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Remove old exc: OK!\n&#39;</span>
+<span class="w">    </span>tar<span class="w"> </span>-xf<span class="w"> </span>/home/poplar/Downloads/VSCodium*.tar.gz<span class="w"> </span>-C<span class="w"> </span>/home/poplar/bin/codium
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Software update: OK!\n&#39;</span>
+<span class="w">    </span>mv<span class="w"> </span>/home/poplar/bin/data<span class="w"> </span>/home/poplar/bin/codium/data
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Data restored: OK!\n&#39;</span>
+<span class="w">    </span>rm<span class="w"> </span>/home/poplar/Downloads/VSCodium*.tar.gz
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Clear tarball: OK!\n&#39;</span>
+
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: Update tarball no found!\n&#39;</span>
+<span class="k">fi</span>
+</code></pre></div>
+<h3 id="update-clash">update-clash</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
+<span class="c1"># 本脚本用于更新 mihomo-party</span>
+
+<span class="nv">FILE1</span><span class="o">=</span>/home/poplar/Downloads/mihomo-party-*.rpm
+<span class="nv">FILE2</span><span class="o">=</span>/home/poplar/Others/linux-packages/mihomo-party-*.rpm
+
+<span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Are you sure you want to update mihomo-party? (Y/n)\n\n&#39;</span>
+<span class="nb">read</span><span class="w"> </span>answer
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Y&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$FILE1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$FILE2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span>rm<span class="w"> </span>~/Others/linux-packages/mihomo-party-*.rpm
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete old rpm: OK!\n&#39;</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;WARNING: No old rpm found to delete.\n&#39;</span>
+<span class="w">        </span><span class="k">fi</span>
+
+<span class="w">        </span><span class="nb">cd</span><span class="w"> </span>~/Downloads
+<span class="w">        </span>sudo<span class="w"> </span>zypper<span class="w"> </span>rm<span class="w"> </span>mihomo-party<span class="w"> </span>-y
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Uninstall old rpm: OK!\n&#39;</span>
+<span class="w">        </span>sudo<span class="w"> </span>rpm<span class="w"> </span>-i<span class="w"> </span>mihomo-party-*.rpm<span class="w"> </span>--nodeps
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Install new rpm: OK!\n&#39;</span>
+<span class="w">        </span>mv<span class="w"> </span>mihomo-party-*.rpm<span class="w"> </span>~/Others/linux-packages
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Archive file: OK!\n&#39;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;ERROR: New rpm not found in Downloads!\n&quot;</span>
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;Update canceled.\n&quot;</span>
+<span class="k">fi</span>
 </code></pre></div>
 <hr />
 <h2 id="_1">配置文件</h2>
