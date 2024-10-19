@@ -10,6 +10,7 @@
 
 - 其他：[RSS]、[GitHub Pages 镜像]、[标签地图] & [朋友们]
 - 许可证清单详见[此处]。欢迎提交 [PR] 或 [issue] 以协助改进站点内容。<br />See [here][此处] for a list of licenses. Feel free to submit [PR] or [issue] to help improve site content. 
+    - <p xmlns:cc="http://creativecommons.org/ns#" ><a rel="cc:attributionURL" href="https://github.com/poplar-at-twilight/whiteboard">This work</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/poplar-at-twilight">Poplar.at.twilight</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
 
 [RSS]: ./blog/posts/hello-world.md
 [GitHub Pages 镜像]: https://poplar-at-twilight.github.io/whiteboard/
@@ -18,3 +19,4 @@
 [PR]: https://github.com/poplar-at-twilight/whiteboard/pulls
 [issue]: https://github.com/poplar-at-twilight/whiteboard/issues
 [此处]: ./about/license.md
+

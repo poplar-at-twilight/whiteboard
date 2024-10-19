@@ -71,6 +71,10 @@ nav:
         - essay/note/9-swapfile-on-btrfs.md
       - Linux 资料库:
         - essay/linux/0-about.md
+        - Bash 笔记:
+          - essay/linux/bash/0-about.md
+          - essay/linux/bash/2-definitions.md
+          - essay/linux/bash/3.1-syntax.md
         - essay/linux/0-misc-of-unit.md
         - essay/linux/1-fs-and-permission.md
         - essay/linux/1-kvm.md
@@ -146,11 +150,15 @@ extra:
   social:
     - icon: fontawesome/brands/suse
       link: https://forum.suse.org.cn/u/Aui/summary
-    - icon: fontawesome/brands/fedora
-      link: https://discussion.fedoraproject.org/u/bh
+    - icon: fontawesome/brands/opensuse
+      link: https://forums.opensuse.org/u/white-poplar/summary
     - icon: fontawesome/brands/wikipedia-w
       link: https://zh.opensuse.org/User:White-poplar
+    - icon: fontawesome/brands/fedora
+      link: https://discussion.fedoraproject.org/u/bh
+    - icon: fontawesome/brands/discourse
+      link: https://discuss.kde.org/u/white-poplar/summary
     - icon: fontawesome/brands/github
       link: https://github.com/poplar-at-twilight
 
-copyright: Copyleft; 2021-2024 Poplar_at_twilight
+copyright: Copyleft; Poplar.at.twilight, 2021-2024
