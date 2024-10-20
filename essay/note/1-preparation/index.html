@@ -854,18 +854,24 @@
         <li class="md-nav__item">
   <a href="#iso" class="md-nav__link">
     <span class="md-ellipsis">
-      下载 ISO 文件
+      下载、校验 ISO 文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="下载、校验 ISO 文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      openSUSE 项目的公钥
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      校验文件
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -888,7 +894,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       切换引导启动项
     </span>
@@ -898,7 +904,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       备份文件
     </span>
@@ -1946,18 +1952,24 @@
         <li class="md-nav__item">
   <a href="#iso" class="md-nav__link">
     <span class="md-ellipsis">
-      下载 ISO 文件
+      下载、校验 ISO 文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="下载、校验 ISO 文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      openSUSE 项目的公钥
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      校验文件
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1980,7 +1992,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       切换引导启动项
     </span>
@@ -1990,7 +2002,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       备份文件
     </span>
@@ -2036,17 +2048,10 @@
 
 
 <h1 id="_1">准备工作</h1>
-<h2 id="iso">下载 ISO 文件</h2>
-<p>下载地址：</p>
-<ul>
-<li><a href="https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/">https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/</a></li>
-</ul>
-<p>Live 环境可以使用 <a href="https://spins.fedoraproject.org/kde/">Fedora KDE spin</a> 或者 openSUSE Tumbleweed KDE Live DVD。</p>
-<h2 id="_2">校验文件</h2>
-<p>使用脚本<sup id="fnref:shell"><a class="footnote-ref" href="#fn:shell">1</a></sup>进行校验：</p>
-<div class="highlight"><pre><span></span><code>aria2-m
-</code></pre></div>
-<p>openSUSE 项目的公钥：</p>
+<h2 id="iso">下载、校验 ISO 文件</h2>
+<p>使用 <code>iso-m</code> 命令下载和校验文件。</p>
+<p>该命令详见 <a href="../8-shell-script/">Shell 脚本与配置文件</a>。</p>
+<h3 id="opensuse">openSUSE 项目的公钥</h3>
 <div class="highlight"><pre><span></span><code>wget https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07e22.asc
 </code></pre></div>
 <h2 id="iso_1">烧录 ISO 文件</h2>
@@ -2055,18 +2060,10 @@
 <ul>
 <li><a href="https://github.com/Clash-Verge-rev/clash-verge-rev/releases">https://github.com/Clash-Verge-rev/clash-verge-rev/releases</a></li>
 </ul>
-<h2 id="_3">切换引导启动项</h2>
+<h2 id="_2">切换引导启动项</h2>
 <p>关机后，按下开机键，同时按 <code>Esc</code> 进入 BIOS 界面，切换启动项。</p>
-<h3 id="_4">备份文件</h3>
+<h3 id="_3">备份文件</h3>
 <p>使用 LiveCD 环境将旧用户文件夹 <code>poplar</code> 重命名 <code>poplar.old</code>。</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:shell">
-<p>shell 脚本源码另见<a href="../../main/aria2/">此处</a>。&#160;<a class="footnote-backref" href="#fnref:shell" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
 
 

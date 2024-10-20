@@ -2223,10 +2223,10 @@ rpc-secret<span class="o">=</span>poplar
 <span class="nb">export</span><span class="w"> </span><span class="nv">ARIA2_DIR</span><span class="o">=</span>/home/poplar/bin/aria2
 <span class="c1">#设定目录</span>
 <span class="nv">SERVICES_FILE</span><span class="o">=</span>/home/poplar/bin/aria2/aria2.service
-<span class="nv">OPENSUSE_DVD</span><span class="o">=</span>/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD*.iso
-<span class="nv">OPENSUSE_DVD_OLD</span><span class="o">=</span>/home/poplar/Downloads/ISO/Aria2/openSUSE-Tumbleweed-DVD*.iso
-<span class="nv">OPENSUSE_LIVE_ISO</span><span class="o">=</span>/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed*Live*.iso
-<span class="nv">OPENSUSE_LIVE_ISO_OLD</span><span class="o">=</span>/home/poplar/Downloads/ISO/openSUSE-Tumbleweed*Live*.iso
+<span class="nv">OPENSUSE_DVD</span><span class="o">=</span>/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+<span class="nv">OPENSUSE_DVD_OLD</span><span class="o">=</span>/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+<span class="nv">OPENSUSE_LIVE_ISO</span><span class="o">=</span>/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+<span class="nv">OPENSUSE_LIVE_ISO_OLD</span><span class="o">=</span>/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
 
 <span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 
@@ -2235,8 +2235,10 @@ rpc-secret<span class="o">=</span>poplar
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;R - Register Aria2 service\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;C - Clean up aria2 logs\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;V - Verify openSUSE ISO files\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;1 - Download openSUSE DVD files\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;2 - Download openSUSE KDE LiveISO files\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Q - End script\n\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;==&gt;&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;==&gt; &#39;</span>
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span>answer
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;R&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
@@ -2268,8 +2270,10 @@ rpc-secret<span class="o">=</span>poplar
 <span class="w">    </span><span class="c1">#校验 ISO 文件</span>
 <span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DL_DIR</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$OPENSUSE_DVD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>openSUSE-Tumbleweed-DVD*.sha256
-<span class="w">            </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-DVD*.asc
+<span class="w">            </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+<span class="w">            </span>cat<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
+<span class="w">            </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
+<span class="w">            </span>rm<span class="w"> </span>temp.sha256
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$OPENSUSE_DVD_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Found the old DVD ISO file.&#39;</span>
 <span class="w">                </span>rm<span class="w"> </span><span class="nv">$ISO_DIR</span>/openSUSE-Tumbleweed-DVD*.*
@@ -2285,21 +2289,33 @@ rpc-secret<span class="o">=</span>poplar
 <span class="w">        </span><span class="k">fi</span>
 <span class="w">        </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$OPENSUSE_LIVE_ISO</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>openSUSE-Tumbleweed*Live*.sha256
-<span class="w">            </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed*Live*.asc
+<span class="w">            </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+<span class="w">            </span>cat<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
+<span class="w">            </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
+<span class="w">            </span>rm<span class="w"> </span>temp.sha256
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$OPENSUSE_LIVE_ISO_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Found the old Live ISO file.&#39;</span>
-<span class="w">                </span>rm<span class="w"> </span><span class="nv">$ISO_DIR</span>/openSUSE-Tumbleweed*Live*.*
-<span class="w">                </span>mv<span class="w"> </span><span class="nv">$ISO_DL_DIR</span>/openSUSE-Tumbleweed*Live*.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
+<span class="w">                </span>rm<span class="w"> </span><span class="nv">$ISO_DIR</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
+<span class="w">                </span>mv<span class="w"> </span><span class="nv">$ISO_DL_DIR</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
 <span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update Live ISO files: OK!\n&#39;</span>
 <span class="w">            </span><span class="k">else</span>
 <span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;No found the old Live ISO file.\n&#39;</span>
-<span class="w">                </span>mv<span class="w"> </span><span class="nv">$ISO_DL_DIR</span>/openSUSE-Tumbleweed*Live*.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
+<span class="w">                </span>mv<span class="w"> </span><span class="nv">$ISO_DL_DIR</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
 <span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update Live ISO files: OK!\n&#39;</span>
 <span class="w">            </span><span class="k">fi</span>
 <span class="w">        </span><span class="k">else</span>
 <span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;No found the new Live ISO files\n&#39;</span>
 <span class="w">        </span><span class="k">fi</span>
+
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>aria2c<span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DL_DIR</span><span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+<span class="w">        </span>aria2c<span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DL_DIR</span><span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
+<span class="w">        </span>aria2c<span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DL_DIR</span><span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>aria2c<span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DL_DIR</span><span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+<span class="w">        </span>aria2c<span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DL_DIR</span><span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
+<span class="w">        </span>aria2c<span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DL_DIR</span><span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
 
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Q&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;q&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="nb">exit</span>
