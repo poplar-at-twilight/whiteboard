@@ -39,29 +39,29 @@ fi
 
 ```shell
 #!/bin/sh
-# 本脚本用于更新 mihomo-party
+# 本脚本用于更新 Clash verge rev
 
-FILE1=/home/poplar/Downloads/mihomo-party-*.rpm
-FILE2=/home/poplar/Others/linux-packages/mihomo-party-*.rpm
+NEW=/home/poplar/Downloads/clash-verge-*.rpm
+OLD=/home/poplar/Others/linux-packages/clash-verge-*.rpm
 
-printf 'Are you sure you want to update mihomo-party? (Y/n)\n\n'
+printf 'Are you sure you want to update clash-verge-rev? (Y/n)\n\n'
 read answer
 
 if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
-    if [ -f $FILE1 ]; then
-        if [ -f $FILE2 ]; then
-            rm ~/Others/linux-packages/mihomo-party-*.rpm
+    if [ -f $NEW ]; then
+        if [ -f $OLD ]; then
+            rm ~/Others/linux-packages/clash-verge-*.rpm
             printf 'Delete old rpm: OK!\n'
         else
             printf 'WARNING: No old rpm found to delete.\n'
         fi
 
         cd ~/Downloads
-        sudo zypper rm mihomo-party -y
+        sudo zypper rm clash-verge -y
         printf 'Uninstall old rpm: OK!\n'
-        sudo rpm -i mihomo-party-*.rpm --nodeps
+        sudo rpm -i clash-verge-*.rpm --nodeps
         printf 'Install new rpm: OK!\n'
-        mv mihomo-party-*.rpm ~/Others/linux-packages
+        mv clash-verge-*.rpm ~/Others/linux-packages
         printf 'Archive file: OK!\n'
     else
         printf "ERROR: New rpm not found in Downloads!\n"
@@ -70,6 +70,94 @@ if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
 else
     printf "Update canceled.\n"
 fi
+```
+
+## iso-m
+
+```shell
+#!/bin/sh
+#本脚本用于下载、验证和归档 ISO 文件
+
+export ISO_DL_DIR=/home/poplar/Downloads/Aria2
+export ISO_DIR=/home/poplar/Downloads/ISO
+#设定目录
+OPENSUSE_DVD=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+OPENSUSE_DVD_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+OPENSUSE_LIVE_ISO=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+OPENSUSE_LIVE_ISO_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+#设定 ISO 检测标记
+
+while true; do
+
+    printf -- '-%0.s' {1..100} && echo
+    printf 'You can use the ISO files maintenance script for:\n\n'
+    printf 'V - Verify openSUSE ISO files\n'
+    printf '1 - Download openSUSE DVD files\n'
+    printf '2 - Download openSUSE KDE LiveISO files\n'
+    printf 'Q - End script\n\n'
+    printf '==> '
+    read answer
+
+    if [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
+    #校验 ISO 文件
+        cd $ISO_DL_DIR
+        if [ -f $OPENSUSE_DVD ]; then
+            gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+            cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' > temp.sha256
+            sha256sum -c temp.sha256
+            rm temp.sha256
+            if [ -f $OPENSUSE_DVD_OLD ]; then
+                printf 'Found the old DVD ISO file.'
+                rm $ISO_DIR/openSUSE-Tumbleweed-DVD*.*
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
+                printf 'Update DVD ISO files: OK!\n'
+            else
+                printf 'No found the old DVD ISO file.\n'
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
+                printf 'Update DVD ISO files: OK!\n'
+            fi
+        else
+            printf 'No found the new DVD ISO files\n'
+        fi
+        printf -- '-%0.s' {1..100} && echo
+        if [ -f $OPENSUSE_LIVE_ISO ]; then
+            gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+            cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' > temp.sha256
+            sha256sum -c temp.sha256
+            rm temp.sha256
+            if [ -f $OPENSUSE_LIVE_ISO_OLD ]; then
+                printf 'Found the old Live ISO file.'
+                rm $ISO_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
+                printf 'Update Live ISO files: OK!\n'
+            else
+                printf 'No found the old Live ISO file.\n'
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
+                printf 'Update Live ISO files: OK!\n'
+            fi
+        else
+            printf 'No found the new Live ISO files\n'
+        fi
+
+    elif [ $answer = 1 ]; then
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+    elif [ $answer = 2 ]; then
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+
+    elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
+        exit
+
+    else
+    #重新开始循环
+        printf 'ERROR: Invalid input!\n'
+        continue
+
+    fi
+done
 ```
 
 ----

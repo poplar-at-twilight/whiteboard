@@ -6,31 +6,19 @@ tags:
 
 # 准备工作
 
-## 下载 ISO 文件
+## 下载、校验 ISO 文件
 
-下载地址：
+使用 `iso-m` 命令下载和校验文件。
 
-- <https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/>
+该命令详见 [Shell 脚本与配置文件]。
 
-Live 环境可以使用 [Fedora KDE spin] 或者 openSUSE Tumbleweed KDE Live DVD。
+[Shell 脚本与配置文件]: ./8-shell-script.md
 
-[Fedora KDE spin]: https://spins.fedoraproject.org/kde/
-
-## 校验文件
-
-使用脚本[^shell]进行校验：
-
-```
-aria2-m
-```
-
-openSUSE 项目的公钥：
+### openSUSE 项目的公钥
 
 ```
 wget https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07e22.asc
 ```
-
-[^shell]: shell 脚本源码另见[此处](./../main/aria2.md)。
 
 ## 烧录 ISO 文件
 
