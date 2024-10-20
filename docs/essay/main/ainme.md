@@ -78,7 +78,7 @@ tags:
 - 为美好的世界献上祝福（KonoSuba: God's Blessing on This Wonderful World!） S1~S3 + M
 - 月刊少女野崎君（月刊少女野崎くん）
 
-[^mono]: 仅包含 1st season、2nd season、Final season 三个季度的动画。
+[^mono]: 仅包含 1st season、2nd season 和 Final season 三个季度的动画。
 
 ### B 类
 
@@ -86,7 +86,7 @@ tags:
 - 异种族风俗娘评鉴指南（異種族レビュアーズ）
 - 珈百璃的堕落（Gabriel Dropout）
 - 动物新世纪（BNA: Brand New Animal）
-- 巨兵长城传 S1
+- 巨兵长城传
 - 女子高中生的虚度日常（女子高生の無駄づかい）
 - 慎重勇者～这个勇者明明超强却过分慎重～（慎重勇者～この勇者が俺TUEEEくせに慎重すぎる～）
 - 辉夜大小姐想让我告白（Kaguya-sama: Love Is War） S1~S2
@@ -139,8 +139,8 @@ tags:
 - 笨拙之极的上野（上野さんは不器用）
 - Goku 午夜之眼（MIDNIGHT EYE ゴクウ） OVA
 - RWBY S4
-- 月刊少女野崎君
 - 乱马1/2 TV + OVA
+- 物语系列 外传季&怪物季（〈物語〉シリーズ オフ&モンスターシーズン）
 
 ### X 类
 
