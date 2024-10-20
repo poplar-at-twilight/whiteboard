@@ -162,68 +162,97 @@ WantedBy=default.target
 
 ```shell
 #!/bin/sh
-#本脚本用于维护 aria2 及 ISO 的下载管理
+#本脚本用于维护 aria2 及验证和归档 ISO 文件
 
 export ISO_DL_DIR=/home/poplar/Downloads/Aria2
 export ISO_DIR=/home/poplar/Downloads/ISO
 export ARIA2_DIR=/home/poplar/bin/aria2
 #设定目录
-
-printf -- '-%0.s' {1..100} && echo
-printf 'You can use this script to verify ISO files, register Aria2 service and clean up aria2 logs.\n'
+SERVICES_FILE=/home/poplar/bin/aria2/aria2.service
+OPENSUSE_DVD=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD*.iso
+OPENSUSE_DVD_OLD=/home/poplar/Downloads/ISO/Aria2/openSUSE-Tumbleweed-DVD*.iso
+OPENSUSE_LIVE_ISO=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed*Live*.iso
+OPENSUSE_LIVE_ISO_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed*Live*.iso
 
 while true; do
 
-    printf 'V - Verify ISO files\n'
+    printf -- '-%0.s' {1..100} && echo
+    printf 'You can use the aria2 & ISO files maintenance script for:\n\n'
     printf 'R - Register Aria2 service\n'
     printf 'C - Clean up aria2 logs\n'
-    printf 'Q - Quit script\n\n'
+    printf 'V - Verify openSUSE ISO files\n'
+    printf 'Q - End script\n\n'
+    printf '==>'
     read answer
 
-    if [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
-    #校验 ISO 文件
-        cd $ISO_DL_DIR;ls -l && echo
-        sha256sum -c openSUSE*.sha256
-        gpg --verify openSUSE*.asc
-        #验证完整性
-        rm $ISO_DIR/openSUSE*.*
-        mv $ISO_DL_DIR/openSUSE*.* $ISO_DIR
-        #移动文件至默认位置
-        printf 'ISO files updated!\n'
-
-    elif [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
+    if [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
     #注册服务
-        printf 'Registering systemd services for aria2...\n'
+        printf 'Start registering systemd service...\n'
         mkdir -p ~/.config/systemd/user
-        cp $ARIA2_DIR/aria2.service ~/.config/systemd/user
-        printf 'The service files have been copied to systemd/user.\n'
-        #拷贝 service 文件
-        systemctl daemon-reload --user
-        systemctl enable --now --user aria2
-        printf 'Service started!\n'
+        if [ -f $SERVICES_FILE ]; then
+            cp $SERVICES_FILE ~/.config/systemd/user
+            systemctl daemon-reload --user
+            printf 'Service file loaded: OK!\n'
+            systemctl enable --now --user aria2
+            printf 'Service status: Running.\n'
+        else
+            printf 'ERROR: Service file not found!\n'
+        fi
 
     elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
+    #清理日志
         ls -lh $ARIA2_DIR/aria2.log
-        #读取文件大小
         systemctl status aria2 --user | grep "Active"
-        #查询状态
         systemctl stop aria2 --user
-        #关闭服务
         rm $ARIA2_DIR/aria2.log; touch $ARIA2_DIR/aria2.log
-        printf 'Logs cleaned.\n'
-        #清理日志文件
+        printf 'Cleaning up logs: OK!\n'
         systemctl restart aria2 --user
-        #重启服务
         systemctl status aria2 --user | grep "Active"
         ls -lh $ARIA2_DIR/aria2.log
-        #查询状态
+
+    elif [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
+    #校验 ISO 文件
+        cd $ISO_DL_DIR
+        if [ -f $OPENSUSE_DVD ]; then
+            sha256sum -c openSUSE-Tumbleweed-DVD*.sha256
+            gpg --verify openSUSE-Tumbleweed-DVD*.asc
+            if [ -f $OPENSUSE_DVD_OLD ]; then
+                printf 'Found the old DVD ISO file.'
+                rm $ISO_DIR/openSUSE-Tumbleweed-DVD*.*
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
+                printf 'Update DVD ISO files: OK!\n'
+            else
+                printf 'No found the old DVD ISO file.\n'
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
+                printf 'Update DVD ISO files: OK!\n'
+            fi
+        else
+            printf 'No found the new DVD ISO files\n'
+        fi
+        printf -- '-%0.s' {1..100} && echo
+        if [ -f $OPENSUSE_LIVE_ISO ]; then
+            sha256sum -c openSUSE-Tumbleweed*Live*.sha256
+            gpg --verify openSUSE-Tumbleweed*Live*.asc
+            if [ -f $OPENSUSE_LIVE_ISO_OLD ]; then
+                printf 'Found the old Live ISO file.'
+                rm $ISO_DIR/openSUSE-Tumbleweed*Live*.*
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed*Live*.* $ISO_DIR
+                printf 'Update Live ISO files: OK!\n'
+            else
+                printf 'No found the old Live ISO file.\n'
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed*Live*.* $ISO_DIR
+                printf 'Update Live ISO files: OK!\n'
+            fi
+        else
+            printf 'No found the new Live ISO files\n'
+        fi
 
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
-        clear; exit
+        exit
 
     else
     #重新开始循环
-        printf 'ERROR! Invalid input.\n'
+        printf 'ERROR: Invalid input!\n'
         continue
 
     fi
