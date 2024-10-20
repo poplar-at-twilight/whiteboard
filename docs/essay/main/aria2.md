@@ -169,10 +169,10 @@ export ISO_DIR=/home/poplar/Downloads/ISO
 export ARIA2_DIR=/home/poplar/bin/aria2
 #设定目录
 SERVICES_FILE=/home/poplar/bin/aria2/aria2.service
-OPENSUSE_DVD=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD*.iso
-OPENSUSE_DVD_OLD=/home/poplar/Downloads/ISO/Aria2/openSUSE-Tumbleweed-DVD*.iso
-OPENSUSE_LIVE_ISO=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed*Live*.iso
-OPENSUSE_LIVE_ISO_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed*Live*.iso
+OPENSUSE_DVD=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+OPENSUSE_DVD_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+OPENSUSE_LIVE_ISO=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+OPENSUSE_LIVE_ISO_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
 
 while true; do
 
@@ -181,8 +181,10 @@ while true; do
     printf 'R - Register Aria2 service\n'
     printf 'C - Clean up aria2 logs\n'
     printf 'V - Verify openSUSE ISO files\n'
+    printf '1 - Download openSUSE DVD files\n'
+    printf '2 - Download openSUSE KDE LiveISO files\n'
     printf 'Q - End script\n\n'
-    printf '==>'
+    printf '==> '
     read answer
 
     if [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
@@ -214,8 +216,10 @@ while true; do
     #校验 ISO 文件
         cd $ISO_DL_DIR
         if [ -f $OPENSUSE_DVD ]; then
-            sha256sum -c openSUSE-Tumbleweed-DVD*.sha256
-            gpg --verify openSUSE-Tumbleweed-DVD*.asc
+            gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+            cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' > temp.sha256
+            sha256sum -c temp.sha256
+            rm temp.sha256
             if [ -f $OPENSUSE_DVD_OLD ]; then
                 printf 'Found the old DVD ISO file.'
                 rm $ISO_DIR/openSUSE-Tumbleweed-DVD*.*
@@ -231,21 +235,33 @@ while true; do
         fi
         printf -- '-%0.s' {1..100} && echo
         if [ -f $OPENSUSE_LIVE_ISO ]; then
-            sha256sum -c openSUSE-Tumbleweed*Live*.sha256
-            gpg --verify openSUSE-Tumbleweed*Live*.asc
+            gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+            cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' > temp.sha256
+            sha256sum -c temp.sha256
+            rm temp.sha256
             if [ -f $OPENSUSE_LIVE_ISO_OLD ]; then
                 printf 'Found the old Live ISO file.'
-                rm $ISO_DIR/openSUSE-Tumbleweed*Live*.*
-                mv $ISO_DL_DIR/openSUSE-Tumbleweed*Live*.* $ISO_DIR
+                rm $ISO_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
                 printf 'Update Live ISO files: OK!\n'
             else
                 printf 'No found the old Live ISO file.\n'
-                mv $ISO_DL_DIR/openSUSE-Tumbleweed*Live*.* $ISO_DIR
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
                 printf 'Update Live ISO files: OK!\n'
             fi
         else
             printf 'No found the new Live ISO files\n'
         fi
+
+    elif [ $answer = 1 ]; then
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+
+    elif [ $answer = 2 ]; then
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
 
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
         exit
