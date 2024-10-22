@@ -267,8 +267,6 @@ alias pyc="proxychains4"
 
 alias flatpakx="proxychains4 flatpak --user"
 #对 flatpak 使用代理，并增加 --user 标签
-alias flatpak-clear="flatpak uninstall --unused"
-#清理不需要的库
 
 alias pings="ping mirror.sjtu.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 6"
 #测试网络连通性
