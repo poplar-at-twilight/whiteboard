@@ -76,83 +76,116 @@ fi
 
 ```shell
 #!/bin/sh
-#本脚本用于下载、验证和归档 ISO 文件
+#本脚本用于下载、校验和归档 openSUSE Tumbleweed ISO 文件
 
-export ISO_DL_DIR=/home/poplar/Downloads/Aria2
 export ISO_DIR=/home/poplar/Downloads/ISO
-#设定目录
-OPENSUSE_DVD=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-OPENSUSE_DVD_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-OPENSUSE_LIVE_ISO=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-OPENSUSE_LIVE_ISO_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-#设定 ISO 检测标记
+export ISO_DIR_DL=/home/poplar/Downloads/Aria2
+#文件目录
+
+DVD_NEW=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+LIVE_NEW=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+DVD_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+LIVE_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+#要检测的 ISO 文件
 
 while true; do
 
     printf -- '-%0.s' {1..100} && echo
     printf 'You can use the ISO files maintenance script for:\n\n'
-    printf 'V - Verify openSUSE ISO files\n'
-    printf '1 - Download openSUSE DVD files\n'
-    printf '2 - Download openSUSE KDE LiveISO files\n'
-    printf 'Q - End script\n\n'
+    printf '1 - Download openSUSE DVD ISO files\n'
+    printf '2 - Download openSUSE KDE Live ISO files\n'
+    printf 'V - Verify New ISO files.\n'
+    printf 'C - Check old ISO files.\n'
+    printf 'U - Update ISO files\n'
+    printf 'Q - End task.\n\n'
     printf '==> '
     read answer
 
-    if [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
-    #校验 ISO 文件
-        cd $ISO_DL_DIR
-        if [ -f $OPENSUSE_DVD ]; then
+    #下载 ISO 文件
+    if [ $answer = 1 ]; then
+        aria2c -d $ISO_DIR_DL -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+        aria2c -d $ISO_DIR_DL -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
+        aria2c -d $ISO_DIR_DL -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+    elif [ $answer = 2 ]; then
+        aria2c -d $ISO_DIR_DL -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+        aria2c -d $ISO_DIR_DL -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
+        aria2c -d $ISO_DIR_DL -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+
+    elif [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
+    #校验新下载的 ISO 文件
+        cd $ISO_DIR_DL
+        if [ -f $DVD_NEW ]; then
             gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
             cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' > temp.sha256
             sha256sum -c temp.sha256
             rm temp.sha256
-            if [ -f $OPENSUSE_DVD_OLD ]; then
-                printf 'Found the old DVD ISO file.'
-                rm $ISO_DIR/openSUSE-Tumbleweed-DVD*.*
-                mv $ISO_DL_DIR/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
-                printf 'Update DVD ISO files: OK!\n'
-            else
-                printf 'No found the old DVD ISO file.\n'
-                mv $ISO_DL_DIR/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
-                printf 'Update DVD ISO files: OK!\n'
-            fi
         else
-            printf 'No found the new DVD ISO files\n'
+            printf 'ERROR: No found new DVD ISO files!\n'
         fi
         printf -- '-%0.s' {1..100} && echo
-        if [ -f $OPENSUSE_LIVE_ISO ]; then
+        if [ -f $LIVE_NEW ]; then
             gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
             cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' > temp.sha256
             sha256sum -c temp.sha256
             rm temp.sha256
-            if [ -f $OPENSUSE_LIVE_ISO_OLD ]; then
-                printf 'Found the old Live ISO file.'
-                rm $ISO_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
-                mv $ISO_DL_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
-                printf 'Update Live ISO files: OK!\n'
-            else
-                printf 'No found the old Live ISO file.\n'
-                mv $ISO_DL_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
-                printf 'Update Live ISO files: OK!\n'
-            fi
         else
-            printf 'No found the new Live ISO files\n'
+            printf 'ERROR: No found new Live ISO files!\n'
         fi
 
-    elif [ $answer = 1 ]; then
-        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
-        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
-    elif [ $answer = 2 ]; then
-        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
-        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+    elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
+    #校验旧版 ISO 文件
+        cd $ISO_DIR
+        if [ -f $DVD_OLD ]; then
+            gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+            cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' > temp.sha256
+            sha256sum -c temp.sha256
+            rm temp.sha256
+        else
+            printf 'ERROR: No found old DVD ISO files!\n'
+        fi
+        printf -- '-%0.s' {1..100} && echo
+        if [ -f $LIVE_OLD ]; then
+            gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+            cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' > temp.sha256
+            sha256sum -c temp.sha256
+            rm temp.sha256
+        else
+            printf 'ERROR: No found old Live ISO files!\n'
+        fi
+
+    elif [ "$answer" = "U" ] || [ "$answer" = "u" ]; then
+    #更新 ISO 文件
+        if [ -f $DVD_NEW ]; then
+            printf 'Found the new DVD ISO files: OK!\n'
+            if [ -f $DVD_OLD ]; then
+                rm $ISO_DIR/openSUSE-Tumbleweed-DVD*.*
+                printf 'Delete the old DVD ISO files: OK!\n'
+            else
+                printf 'ERROR: No found the old DVD ISO files!\n'
+            fi
+            mv $ISO_DIR_DL/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
+            printf 'Update the DVD ISO files: OK!\n'
+        else
+            printf 'ERROR: No found the new DVD ISO files!\n'
+        fi
+        if [ -f $LIVE_NEW ]; then
+            printf 'Found the new Live ISO files: OK!\n'
+            if [ -f $LIVE_OLD ]; then
+                rm $ISO_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
+                printf 'Delete the old Live ISO files: OK!\n'
+            else
+                printf 'ERROR: No found the old Live ISO files!\n'
+            fi
+            mv $ISO_DIR_DL/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
+            printf 'Update the Live ISO files: OK!\n'
+        else
+            printf 'ERROR: No found the new Live ISO files!\n'
+        fi
 
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
         exit
 
     else
-    #重新开始循环
         printf 'ERROR: Invalid input!\n'
         continue
 
