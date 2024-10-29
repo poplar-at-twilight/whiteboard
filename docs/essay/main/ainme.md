@@ -189,6 +189,7 @@ tags:
 - 盗梦空间（Inception）
 - 奥本海默（Oppenheimer）
 - 猫鼠游戏（Catch Me If You Can）
+- 白日梦想家（The Secret Life of Walter Mitty）
 
 ### B 类
 

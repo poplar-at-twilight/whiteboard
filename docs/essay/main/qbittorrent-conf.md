@@ -4,7 +4,7 @@ tags:
   - qBittorrent
 ---
 
-# qBittorrent-nox & PeerBanHelper 配置备忘录
+# qBittorrent & PeerBanHelper 配置备忘录
 
 !!! info "说明"
 
@@ -15,30 +15,12 @@ tags:
 ## 安装
 
 ```
-sudo zypper in qbittorrent-nox
+sudo zypper in qbittorrent
 ```
 
-### systemd 服务
+### 开机启动
 
-用于启动服务的 `qb-nox.service`:
-
-```shell
-[Unit]
-Description=qBittorrent-nox daemon service
-
-[Service]
-Type=simple
-PrivateTmp=false
-ExecStart=/usr/bin/qbittorrent-nox
-TimeoutStopSec=1800
-
-[Install]
-WantedBy=default.target
-```
-
-使用 `bt-m` 注册并重载 qbittorrent-nox 服务。
-
-默认的 WebUI 地址：<http://127.0.0.1:8080>
+在 KDE 的系统设置中，把 qbittorrent 添加至开机启动的列表中。
 
 ## 相关文件
 
@@ -222,32 +204,29 @@ WantedBy=default.target
 - `ip-database`：填入申请的 `account-id` 和 `license-key`
 - `proxy`：将 `setting: 0` 改为 `setting: 2`，并检查服务器地址和端口是否正确。
 
-然后使用 `bt-m` 注册并重载 PeerBanHelper 服务。
+然后使用 `pbh` 注册并重载 PeerBanHelper 服务。
 
 ## 集成管理脚本
 
-用于管理 PeerBanHelper 和 qBittorrent-nox 的脚本 `bt-m`：
+用于管理 PeerBanHelper 的脚本 `pbh`：
 
 ```shell
 #!/bin/sh
-#本脚本用于 Peerbanhelper 和 qBittorrent-nox 的日常维护
+#本脚本用于 Peerbanhelper 的日常维护
 
 export PBH_DIR=/home/poplar/bin/pbh
 #PeerBanHelper jar 文件的主目录
 export PBH_DIR_U=/home/poplar/Downloads
 #PeerBanHelper jar 新版本文件的默认存放路径
 
+LOG_FILE=/home/poplar/bin/pbh/data/logs/*.log.gz
+
 while true; do
     printf -- '-%0.s' {1..100} && echo
-    printf 'You can use the PeerBanHelper & qBittorrent-nox maintenance script for:\n\n'
+    printf 'You can use the PeerBanHelper maintenance script for:\n\n'
     printf 'A - Set up systemd services\n'
     printf 'B - Start systemd service\n'
     printf 'C - Stop systemd service\n\n'
-    printf '1 - Stop PeerBanHelper alone\n'
-    printf '2 - Stop qBittorrent alone\n'
-    printf '3 - Start PeerBanHelper alone\n'
-    printf '4 - Start qBittorrent alone\n'
-    printf '5 - systemd unit status\n\n'
     printf 'D - Update PeerBanHelper\n'
     printf 'E - Degrade PeerBanHelper\n'
     printf 'F - Delete unused jar and logs\n'
@@ -270,50 +249,16 @@ while true; do
         else
             printf 'ERROR: pbh.service not found!\n'
         fi
-        if [ -f $PBH_DIR/qb-nox.service ]; then
-            cp $PBH_DIR/qb-nox.service ~/.config/systemd/user
-            systemctl daemon-reload --user
-            systemctl enable --user qb-nox
-            systemctl status --user qb-nox | grep "Loaded"
-            #注册 qBittorrent-nox
-        else
-            printf 'ERROR: qb-nox.service not found!\n'
-        fi
 
     elif [ "$answer" = "B" ] || [ "$answer" = "b" ]; then
-    #同时启动服务
-        systemctl start --user qb-nox
+    #启动服务
         systemctl start --user pbh
-        #启动服务
-        systemctl status --user qb-nox | grep "Active"
         systemctl status --user pbh | grep "Active"
-        #打印状态
 
     elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
-    #同时关闭服务
-        systemctl stop --user pbh
-        systemctl stop --user qb-nox
-        #启动服务
-        systemctl status --user pbh | grep "Active"
-        systemctl status --user qb-nox | grep "Active"
-        #打印状态
-
-    #分离启动
-    elif [ $answer = 1 ] ; then
+    #关闭服务
         systemctl stop --user pbh
         systemctl status --user pbh | grep "Active"
-    elif [ $answer = 2 ] ; then
-        systemctl stop --user qb-nox
-        systemctl status --user qb-nox | grep "Active"
-    elif [ $answer = 3 ] ; then
-        systemctl start --user pbh
-        systemctl status --user pbh | grep "Active"
-    elif [ $answer = 4 ] ; then
-        systemctl start --user qb-nox
-        systemctl status --user qb-nox | grep "Active"
-    elif [ $answer = 5 ] ; then
-        systemctl status --user qb-nox && echo 
-        systemctl status --user pbh
 
     elif [ "$answer" = "D" ] || [ "$answer" = "d" ]; then
     #更新 Peerbanhelper
@@ -352,12 +297,11 @@ while true; do
     #删除有问题的旧版文件和日志
         printf 'Start deleting files...\n'
         rm $PBH_DIR/data/logs/*.log.gz
-        #删除归档日志文件
         printf 'Remove archive logs: OK!\n'
         if [ -f $PBH_DIR/PeerBanHelper.jar.error ]; then
+        #删除 PeerBanHelper.jar.error
             rm $PBH_DIR/PeerBanHelper.jar.error
             printf 'Remove PeerBanHelper.jar.error: OK!\n'
-            #删除 PeerBanHelper.jar.error
         else
             printf 'ERROR: PeerBanHelper.jar.error not found!\n'
         fi
