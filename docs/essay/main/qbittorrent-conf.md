@@ -150,7 +150,7 @@ poplar@c004-h1:~> tree /home/bt/network -L 1
 
 ## 部署 Peerbanhelper
 
-获取 `PeerBanHelper.jar`：
+获取 `PeerBanHelper.jar` 和 `libraries.tar.gz`：
 
 - 下载地址：<https://github.com/Ghost-chu/PeerBanHelper>
 - 文档：<https://pbh-btn.github.io/pbh-docs/>
@@ -161,13 +161,13 @@ poplar@c004-h1:~> tree ~/bin/pbh -L 1
 ├── data
 ├── key.txt
 ├── latest.log -> /home/poplar/bin/pbh/data/logs/latest.log
+├── libraries
 ├── pbh.service
 ├── PeerBanHelper.jar
-├── PeerBanHelper.jar.old
 ├── qb-nox.service
 └── test-start.sh
 
-2 directories, 7 files
+3 directories, 6 files
 ```
 
 `test-start.sh`：
@@ -175,7 +175,7 @@ poplar@c004-h1:~> tree ~/bin/pbh -L 1
 ```shell
 #!/bin/sh
 #测试启动
-java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
+java -Xmx512M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
 ```
 
 `pbh.service`：
@@ -185,7 +185,7 @@ java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -j
 Description=Start PeerBanHelper Service
 
 [Service]
-ExecStart=/usr/bin/java -Xmx256M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
+ExecStart=/usr/bin/java -jar -Xmx512M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps PeerBanHelper.jar nogui
 Type=simple
 WorkingDirectory=/home/poplar/bin/pbh/
 
@@ -262,10 +262,22 @@ while true; do
 
     elif [ "$answer" = "D" ] || [ "$answer" = "d" ]; then
     #更新 Peerbanhelper
+        systemctl stop --user pbh
+        systemctl status --user pbh | grep "Active"
+        #服务中止
         if [ -f $PBH_DIR_U/PeerBanHelper.jar ]; then
-            systemctl stop --user pbh
-            systemctl status --user pbh | grep "Active"
-            #服务中止
+            if [ -f $PBH_DIR_U/libraries.tar.gz ]; then
+            #更新库文件
+                mkdir -p $PBH_DIR_U/temp
+                tar -xf /home/poplar/Downloads/libraries.tar.gz -C /home/poplar/Downloads/temp
+                rm -r $PBH_DIR/libraries
+                printf 'Delete old libraries: OK!\n'
+                mv $PBH_DIR_U/temp/target/libraries $PBH_DIR
+                rm -r $PBH_DIR_U/temp
+                printf 'Update libraries: OK!\n'
+            else
+                printf 'ERROR: No found new libraries!\n'
+            fi
             mv -f $PBH_DIR/PeerBanHelper.jar $PBH_DIR/PeerBanHelper.jar.old
             printf 'Backup files: OK!\n'
             mv $PBH_DIR_U/PeerBanHelper.jar $PBH_DIR
