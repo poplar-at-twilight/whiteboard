@@ -6,23 +6,11 @@ tags:
 
 # 软件包
 
-## clash-verge-rev
+## v2rayN
 
 下载：
 
-- <https://github.com/mihomo-party-org/mihomo-party/releases>
-
-安装依赖：
-
-```
-sudo zypper in libayatana-appindicator3 libwebkit2gtk-4_0-37
-```
-
-安装软件包：
-
-```
-sudo rpm -i clash-verge*.x86_64.rpm
-```
+- <https://github.com/2dust/v2rayN/releases>
 
 ## Flatpak
 
@@ -49,7 +37,6 @@ sudo usermod -aG flatpak $USER
 ```
 flatpakx install com.github.dynobo.normcap
 flatpakx install com.github.qarmin.czkawka
-flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
 flatpakx install com.github.johnfactotum.Foliate
 flatpakx install io.github.xiaoyifang.goldendict_ng
@@ -68,14 +55,6 @@ flatpak uninstall --unused
 
 ```
 flatpak uninstall --delete-data
-```
-
-### Bottles
-
-Bottles 的 desktop 文件的环境变量可设置为：
-
-```
-https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 ```
 
 ### czkawka
@@ -215,6 +194,30 @@ sudo usermod -aG libvirt $USER
 
 [此处]: ./../linux/1-kvm.md
 
+### mpv
+
+另见：<https://github.com/tomasklaen/uosc>
+
+## Fcitx5
+
+Fcitx5 的自定义词库文件（`*.dict`）：
+
+- [felixonmars/fcitx5-pinyin-zhwiki]
+- [wuhgit/CustomPinyinDictionary]
+
+[felixonmars/fcitx5-pinyin-zhwiki]: https://github.com/felixonmars/fcitx5-pinyin-zhwiki
+[wuhgit/CustomPinyinDictionary]: https://github.com/wuhgit/CustomPinyinDictionary
+
+词库文件夹：`~/.local/share/fcitx5/pinyin/dictionaries/`
+
+Fcitx5 皮肤：
+
+```
+git clone https://github.com/tonyfettes/fcitx5-nord.git
+```
+
+----
+
 ## 散装软件包
 
 可集成至开始菜单的 desktop 文件可通过 KDE 的右键新建菜单快速创建。
@@ -265,23 +268,3 @@ sudo zypper install libgthread-2_0-0
 ### draw\.io
 
 下载：<https://github.com/jgraph/drawio-desktop/releases>
-
-----
-
-## Fcitx5
-
-Fcitx5 的自定义词库文件（`*.dict`）：
-
-- [felixonmars/fcitx5-pinyin-zhwiki]
-- [wuhgit/CustomPinyinDictionary]
-
-[felixonmars/fcitx5-pinyin-zhwiki]: https://github.com/felixonmars/fcitx5-pinyin-zhwiki
-[wuhgit/CustomPinyinDictionary]: https://github.com/wuhgit/CustomPinyinDictionary
-
-词库文件夹：`~/.local/share/fcitx5/pinyin/dictionaries/`
-
-Fcitx5 皮肤：
-
-```
-git clone https://github.com/tonyfettes/fcitx5-nord.git
-```

@@ -64,7 +64,7 @@ sudo zypper refresh
 update-packman
 ```
 ```
-sudo zypper in vlc ffmpeg-7
+sudo zypper in mpv ffmpeg-7
 ```
 
 ## 音量控制故障

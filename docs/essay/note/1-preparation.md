@@ -26,10 +26,6 @@ wget https://download.opensuse.org/tumbleweed/repo/oss/gpg-pubkey-29b700a4-62b07
 
 [ventoy]: https://github.com/ventoy/Ventoy
 
-## 额外的 RPM 包
-
-- <https://github.com/Clash-Verge-rev/clash-verge-rev/releases>
-
 ## 切换引导启动项
 
 关机后，按下开机键，同时按 `Esc` 进入 BIOS 界面，切换启动项。

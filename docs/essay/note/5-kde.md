@@ -103,9 +103,9 @@ openSUSE 的图形界面在 TTY3。
 
 自动启动：
 
-- clash-verge
 - qBittorrent
 - telegram
+- v2rayN
 
 会话 > 桌面会话：
 

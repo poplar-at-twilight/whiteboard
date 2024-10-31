@@ -35,43 +35,6 @@ else
 fi
 ```
 
-### update-clash
-
-```shell
-#!/bin/sh
-# 本脚本用于更新 Clash verge rev
-
-NEW=/home/poplar/Downloads/clash-verge-*.rpm
-OLD=/home/poplar/Others/linux-packages/clash-verge-*.rpm
-
-printf 'Are you sure you want to update clash-verge-rev? (Y/n)\n\n'
-read answer
-
-if [ "$answer" = "Y" ] || [ "$answer" = "y" ]; then
-    if [ -f $NEW ]; then
-        if [ -f $OLD ]; then
-            rm ~/Others/linux-packages/clash-verge-*.rpm
-            printf 'Delete old rpm: OK!\n'
-        else
-            printf 'WARNING: No old rpm found to delete.\n'
-        fi
-
-        cd ~/Downloads
-        sudo zypper rm clash-verge -y
-        printf 'Uninstall old rpm: OK!\n'
-        sudo rpm -i clash-verge-*.rpm --nodeps
-        printf 'Install new rpm: OK!\n'
-        mv clash-verge-*.rpm ~/Others/linux-packages
-        printf 'Archive file: OK!\n'
-    else
-        printf "ERROR: New rpm not found in Downloads!\n"
-    fi
-
-else
-    printf "Update canceled.\n"
-fi
-```
-
 ## iso-m
 
 ```shell
