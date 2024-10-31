@@ -915,9 +915,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#clash-verge-rev" class="md-nav__link">
+  <a href="#v2rayn" class="md-nav__link">
     <span class="md-ellipsis">
-      clash-verge-rev
+      v2rayN
     </span>
   </a>
   
@@ -946,15 +946,6 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       清理数据
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bottles" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bottles
     </span>
   </a>
   
@@ -1038,8 +1029,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#mpv" class="md-nav__link">
+    <span class="md-ellipsis">
+      mpv
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fcitx5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fcitx5
+    </span>
+  </a>
   
 </li>
       
@@ -1091,15 +1100,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fcitx5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fcitx5
-    </span>
-  </a>
   
 </li>
       
@@ -2073,9 +2073,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#clash-verge-rev" class="md-nav__link">
+  <a href="#v2rayn" class="md-nav__link">
     <span class="md-ellipsis">
-      clash-verge-rev
+      v2rayN
     </span>
   </a>
   
@@ -2104,15 +2104,6 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       清理数据
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bottles" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bottles
     </span>
   </a>
   
@@ -2196,8 +2187,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#mpv" class="md-nav__link">
+    <span class="md-ellipsis">
+      mpv
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fcitx5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fcitx5
+    </span>
+  </a>
   
 </li>
       
@@ -2252,15 +2261,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#fcitx5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fcitx5
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2294,17 +2294,11 @@
 
 
 <h1 id="_1">软件包</h1>
-<h2 id="clash-verge-rev">clash-verge-rev</h2>
+<h2 id="v2rayn">v2rayN</h2>
 <p>下载：</p>
 <ul>
-<li><a href="https://github.com/mihomo-party-org/mihomo-party/releases">https://github.com/mihomo-party-org/mihomo-party/releases</a></li>
+<li><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></li>
 </ul>
-<p>安装依赖：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper in libayatana-appindicator3 libwebkit2gtk-4_0-37
-</code></pre></div>
-<p>安装软件包：</p>
-<div class="highlight"><pre><span></span><code>sudo rpm -i clash-verge*.x86_64.rpm
-</code></pre></div>
 <h2 id="flatpak">Flatpak</h2>
 <p>安装：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper in flatpak
@@ -2318,7 +2312,6 @@
 <h3 id="flatpak_1">安装 Flatpak 应用</h3>
 <div class="highlight"><pre><span></span><code>flatpakx install com.github.dynobo.normcap
 flatpakx install com.github.qarmin.czkawka
-flatpakx install com.usebottles.bottles
 flatpakx install org.telegram.desktop
 flatpakx install com.github.johnfactotum.Foliate
 flatpakx install io.github.xiaoyifang.goldendict_ng
@@ -2330,10 +2323,6 @@ flatpakx install com.github.tchx84.Flatseal
 </code></pre></div>
 <p>卸载时一并清理应用数据：</p>
 <div class="highlight"><pre><span></span><code>flatpak uninstall --delete-data
-</code></pre></div>
-<h3 id="bottles">Bottles</h3>
-<p>Bottles 的 desktop 文件的环境变量可设置为：</p>
-<div class="highlight"><pre><span></span><code>https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 </code></pre></div>
 <h3 id="czkawka">czkawka</h3>
 <p>对比重复文件时，只需要添加一个文件夹就行了（不需要设置为参考文件夹）。</p>
@@ -2428,6 +2417,19 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <p>注销重新登录。</p>
 <p>注意，不要使用默认的存储池。</p>
 <p>关于与虚拟机共享文件，详见<a href="../../linux/1-kvm/">此处</a>。</p>
+<h3 id="mpv">mpv</h3>
+<p>另见：<a href="https://github.com/tomasklaen/uosc">https://github.com/tomasklaen/uosc</a></p>
+<h2 id="fcitx5">Fcitx5</h2>
+<p>Fcitx5 的自定义词库文件（<code>*.dict</code>）：</p>
+<ul>
+<li><a href="https://github.com/felixonmars/fcitx5-pinyin-zhwiki">felixonmars/fcitx5-pinyin-zhwiki</a></li>
+<li><a href="https://github.com/wuhgit/CustomPinyinDictionary">wuhgit/CustomPinyinDictionary</a></li>
+</ul>
+<p>词库文件夹：<code>~/.local/share/fcitx5/pinyin/dictionaries/</code></p>
+<p>Fcitx5 皮肤：</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/tonyfettes/fcitx5-nord.git
+</code></pre></div>
+<hr />
 <h2 id="_6">散装软件包</h2>
 <p>可集成至开始菜单的 desktop 文件可通过 KDE 的右键新建菜单快速创建。</p>
 <p>注意编辑环境变量时不要引入换行符。</p>
@@ -2459,17 +2461,6 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 </code></pre></div>
 <h3 id="drawio">draw.io</h3>
 <p>下载：<a href="https://github.com/jgraph/drawio-desktop/releases">https://github.com/jgraph/drawio-desktop/releases</a></p>
-<hr />
-<h2 id="fcitx5">Fcitx5</h2>
-<p>Fcitx5 的自定义词库文件（<code>*.dict</code>）：</p>
-<ul>
-<li><a href="https://github.com/felixonmars/fcitx5-pinyin-zhwiki">felixonmars/fcitx5-pinyin-zhwiki</a></li>
-<li><a href="https://github.com/wuhgit/CustomPinyinDictionary">wuhgit/CustomPinyinDictionary</a></li>
-</ul>
-<p>词库文件夹：<code>~/.local/share/fcitx5/pinyin/dictionaries/</code></p>
-<p>Fcitx5 皮肤：</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/tonyfettes/fcitx5-nord.git
-</code></pre></div>
 
 
 
