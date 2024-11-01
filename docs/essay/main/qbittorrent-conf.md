@@ -265,28 +265,24 @@ while true; do
         systemctl stop --user pbh
         systemctl status --user pbh | grep "Active"
         #服务中止
-        if [ -f $PBH_DIR_U/PeerBanHelper.jar ]; then
-            if [ -f $PBH_DIR_U/libraries.tar.gz ]; then
-            #更新库文件
-                mkdir -p $PBH_DIR_U/temp
-                tar -xf /home/poplar/Downloads/libraries.tar.gz -C /home/poplar/Downloads/temp
-                rm -r $PBH_DIR/libraries
-                printf 'Delete old libraries: OK!\n'
-                mv $PBH_DIR_U/temp/target/libraries $PBH_DIR
-                rm -r $PBH_DIR_U/temp
-                printf 'Update libraries: OK!\n'
-            else
-                printf 'ERROR: No found new libraries!\n'
-            fi
+        if [ -f $PBH_DIR_U/PeerBanHelper*.zip ]; then
+            cd $PBH_DIR_U
+            7z x PeerBanHelper*.zip
+            rm -r $PBH_DIR/libraries
+            printf 'Delete old libraries: OK!\n'
+            mv $PBH_DIR_U/PeerBanHelper/libraries $PBH_DIR
+            printf 'Update libraries: OK!\n'
+            #更新库
             mv -f $PBH_DIR/PeerBanHelper.jar $PBH_DIR/PeerBanHelper.jar.old
             printf 'Backup files: OK!\n'
-            mv $PBH_DIR_U/PeerBanHelper.jar $PBH_DIR
-            #替换文件
+            mv $PBH_DIR_U/PeerBanHelper/PeerBanHelper.jar $PBH_DIR
             printf 'Update files: OK!\n'
+            #更新 jar 文件
             systemctl restart --user pbh
             systemctl status --user pbh | grep "Active"
+            rm -r $PBH_DIR_U/PeerBanHelper
         else
-            printf 'ERROR: PeerBanHelper.jar not found!\n'
+            printf 'ERROR: PeerBanHelper*.zip not found!\n'
         fi
 
     elif [ "$answer" = "E" ] || [ "$answer" = "e" ]; then
