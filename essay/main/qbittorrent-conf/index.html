@@ -2462,28 +2462,24 @@ java<span class="w"> </span>-Xmx512M<span class="w"> </span>-XX:+UseG1GC<span cl
 <span class="w">        </span>systemctl<span class="w"> </span>stop<span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">        </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
 <span class="w">        </span><span class="c1">#服务中止</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper.jar<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/libraries.tar.gz<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="c1">#更新库文件</span>
-<span class="w">                </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/temp
-<span class="w">                </span>tar<span class="w"> </span>-xf<span class="w"> </span>/home/poplar/Downloads/libraries.tar.gz<span class="w"> </span>-C<span class="w"> </span>/home/poplar/Downloads/temp
-<span class="w">                </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$PBH_DIR</span>/libraries
-<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete old libraries: OK!\n&#39;</span>
-<span class="w">                </span>mv<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/temp/target/libraries<span class="w"> </span><span class="nv">$PBH_DIR</span>
-<span class="w">                </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/temp
-<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update libraries: OK!\n&#39;</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found new libraries!\n&#39;</span>
-<span class="w">            </span><span class="k">fi</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper*.zip<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PBH_DIR_U</span>
+<span class="w">            </span>7z<span class="w"> </span>x<span class="w"> </span>PeerBanHelper*.zip
+<span class="w">            </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$PBH_DIR</span>/libraries
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete old libraries: OK!\n&#39;</span>
+<span class="w">            </span>mv<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper/libraries<span class="w"> </span><span class="nv">$PBH_DIR</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update libraries: OK!\n&#39;</span>
+<span class="w">            </span><span class="c1">#更新库</span>
 <span class="w">            </span>mv<span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar.old
 <span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Backup files: OK!\n&#39;</span>
-<span class="w">            </span>mv<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper.jar<span class="w"> </span><span class="nv">$PBH_DIR</span>
-<span class="w">            </span><span class="c1">#替换文件</span>
+<span class="w">            </span>mv<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper/PeerBanHelper.jar<span class="w"> </span><span class="nv">$PBH_DIR</span>
 <span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update files: OK!\n&#39;</span>
+<span class="w">            </span><span class="c1">#更新 jar 文件</span>
 <span class="w">            </span>systemctl<span class="w"> </span>restart<span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">            </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">            </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper
 <span class="w">        </span><span class="k">else</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: PeerBanHelper.jar not found!\n&#39;</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: PeerBanHelper*.zip not found!\n&#39;</span>
 <span class="w">        </span><span class="k">fi</span>
 
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;E&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
