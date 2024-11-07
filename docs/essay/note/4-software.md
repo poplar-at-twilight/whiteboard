@@ -6,11 +6,12 @@ tags:
 
 # 软件包
 
-## v2rayN
+## 代理软件
 
-下载：
+- [ ] v2rayN: <https://github.com/2dust/v2rayN/releases>
+- [x] nekoray: <https://github.com/MatsuriDayo/nekoray/releases>
 
-- <https://github.com/2dust/v2rayN/releases>
+steam 会自动读取系统代理设置。
 
 ## Flatpak
 
@@ -35,12 +36,13 @@ sudo usermod -aG flatpak $USER
 ### 安装 Flatpak 应用
 
 ```
-flatpakx install com.github.dynobo.normcap
 flatpakx install com.github.qarmin.czkawka
-flatpakx install org.telegram.desktop
+flatpakx install com.github.tchx84.Flatseal
 flatpakx install com.github.johnfactotum.Foliate
 flatpakx install io.github.xiaoyifang.goldendict_ng
-flatpakx install com.github.tchx84.Flatseal
+flatpakx install com.dec05eba.gpu_screen_recorder
+flatpakx install com.github.dynobo.normcap
+flatpakx install org.telegram.desktop
 ```
 
 ### 清理数据
@@ -54,7 +56,7 @@ flatpak uninstall --unused
 卸载时一并清理应用数据：
 
 ```
-flatpak uninstall --delete-data
+flatpak uninstall <package id> --delete-data
 ```
 
 ### czkawka
@@ -103,16 +105,18 @@ poplar@c004-h1:~> zypper ll
 12 | patterns-games-games   | package | （任意）   | 
 13 | patterns-kde-kde_games | package | （任意）   | 
 14 | patterns-kde-kde_pim   | package | （任意）   | 
-15 | skanlite               | package | （任意）   |
+15 | skanlite               | package | （任意）   | 
+16 | spectacle              | package | （任意）   | 
+17 | vlc                    | package | （任意）   |
 ```
 
 快捷命令：
 
 ```
-sudo zypper rm -u MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+sudo zypper rm -u MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite spectacle vlc
 ```
 ```
-sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite
+sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite spectacle vlc
 ```
 
 ## 安装基本工具
@@ -132,9 +136,11 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 
 - `aria2`
 - `audacious`
+- `amdgpu_top`
 - `crow-translate`
 - `fcitx5`
 - `filelight`
+- `flameshot`
 - `google-noto-sans-mono-fonts`
 - `gimp`
 - `goverlay`
@@ -146,7 +152,7 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious crow-translate crow-translate-lang fcitx5 filelight google-noto-sans-mono-fonts gimp goverlay kfind kleopatra qbittorrent
+sudo zypper in aria2 audacious amdgpu_top crow-translate crow-translate-lang fcitx5 filelight flameshot google-noto-sans-mono-fonts gimp goverlay kfind kleopatra qbittorrent
 ```
 ```
 sudo zypper in steam
@@ -188,9 +194,7 @@ sudo usermod -aG libvirt $USER
 
 注销重新登录。
 
-注意，不要使用默认的存储池。
-
-关于与虚拟机共享文件，详见[此处]。
+注意，不要使用默认的存储池。关于与虚拟机共享文件，详见[此处]。
 
 [此处]: ./../linux/1-kvm.md
 
@@ -215,6 +219,10 @@ Fcitx5 皮肤：
 ```
 git clone https://github.com/tonyfettes/fcitx5-nord.git
 ```
+
+### flameshot
+
+打开 KDE 的快捷键设置，添加 flameshot，然后将截图的快捷键绑定到 `PrtSc`。
 
 ----
 
@@ -268,3 +276,5 @@ sudo zypper install libgthread-2_0-0
 ### draw\.io
 
 下载：<https://github.com/jgraph/drawio-desktop/releases>
+
+appimage 文件存放至 `~/bin/appimages`

@@ -105,7 +105,7 @@ openSUSE 的图形界面在 TTY3。
 
 - qBittorrent
 - telegram
-- v2rayN
+- nekoray
 
 会话 > 桌面会话：
 

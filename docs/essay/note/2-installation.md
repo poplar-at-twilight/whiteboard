@@ -6,9 +6,7 @@ tags:
 
 # 安装系统
 
-如果出现 CJK 字符乱码，则语言选择 `en_US`。
-
-或者按 **E** 编辑 grub 条目，在 linux 所在行的末尾添加 `lang=zh_CN`，再按 **Ctrl** + **X** 重新引导启动 YaST2。
+如果出现 CJK 字符乱码，则语言选择 `en_US`。或者按 **E** 编辑 grub 条目，在 linux 所在行的末尾添加 `lang=zh_CN`，再按 **Ctrl** + **X** 重新引导启动 YaST2。
 
 注意：
 
