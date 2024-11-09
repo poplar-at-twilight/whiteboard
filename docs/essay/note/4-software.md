@@ -255,6 +255,8 @@ git clone https://github.com/tonyfettes/fcitx5-nord.git
 - `ms-python.python`
 - `AaaaronZhou.vscode-auto-light-dark-theme`
 
+图标另见： <https://github.com/VSCodium/icons>
+
 ### pandoc
 
 下载：<https://github.com/jgm/pandoc/releases/>
