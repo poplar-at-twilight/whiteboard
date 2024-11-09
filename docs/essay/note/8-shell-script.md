@@ -238,17 +238,19 @@ alias update="sudo zypper ref; sudo zypper lu; flatpakx update"
 #刷新软件源并列出可用的更新
 
 alias venv-setup="python3 -m venv venv"
-#设置容器
-
 alias venv="source venv/bin/activate"
-#启动容器环境
+#启动 python 容器环境
 
 alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
 #设置代理，并启动 steam（1440p）
 
-alias update-packman="sudo zypper dup --from packman --allow-vendor-change"
-alias add-packman="sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman"
+alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
+alias packman-add="sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman"
 #packman 相关的命令
+
+alias apu-top="amdgpu_top --dark --apu"
+alias gpu-top="amdgpu_top --dark --single"
+#amdgpu_top 快捷命令
 ```
 
 ### mangohud & Goverlay
