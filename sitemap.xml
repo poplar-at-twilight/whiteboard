@@ -2,182 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://whiteboard-ui8.pages.dev/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/about/about-me/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/about/friends/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/about/license/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/archives/about/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/archives/external-index/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/archives/pandoc%27s-markdwon-spec/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/archives/qbittorrent-confs/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/archives/rss-refresh/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/blog/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/blog/2024/06/29/%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99%E5%86%85%E5%AE%B9%E7%9A%84%E5%8F%98%E6%9B%B4/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/blog/2023/09/08/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/about/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/0-about/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/0-misc-of-unit/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/1-check-sys-info/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
+    </url>
+    <url>
+         <loc>https://whiteboard-ui8.pages.dev/essay/linux/1-custom-kde/</loc>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/1-fs-and-permission/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/1-gpg-and-sig-files/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/1-kvm/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/bash/0-about/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/bash/2-definitions/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/linux/bash/3.1-syntax/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/adjust-win11-for-popurse/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/ainme/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/aria2/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/graphs-setup/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/md-epub/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/opencc/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/play-minecraft/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/python-embed/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/main/qbittorrent-conf/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/0-about/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/1-preparation/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/2-installation/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/3-first-boot/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/4-software/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/5-kde/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/6-fonts/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/7-re-install/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/8-shell-script/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/essay/note/9-swapfile-on-btrfs/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/blog/archive/2024/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/blog/archive/2023/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/blog/category/%E5%8D%9A%E5%AE%A2/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
     <url>
          <loc>https://whiteboard-ui8.pages.dev/tags/</loc>
-         <lastmod>2024-11-07</lastmod>
+         <lastmod>2024-11-10</lastmod>
     </url>
 </urlset>
