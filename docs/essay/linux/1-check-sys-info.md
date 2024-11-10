@@ -2,6 +2,7 @@
 tags:
   - 资料库
   - Linux
+  - shell
 ---
 
 # 检查系统信息

@@ -2,6 +2,7 @@
 tags:
   - 杂谈
   - python
+  - Windows
 ---
 
 # 嵌入式 python

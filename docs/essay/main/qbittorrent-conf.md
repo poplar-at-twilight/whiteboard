@@ -2,6 +2,7 @@
 tags:
   - 杂谈
   - qBittorrent
+  - PeerBanHelper
 ---
 
 # qBittorrent & PeerBanHelper 配置备忘录

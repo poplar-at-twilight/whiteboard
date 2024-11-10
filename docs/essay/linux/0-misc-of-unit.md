@@ -2,6 +2,7 @@
 tags:
   - 资料库
   - Linux
+  - shell
 ---
 
 # 混乱的计量单位

@@ -2,6 +2,8 @@
 tags:
   - 资料库
   - Linux
+  - KVM
+  - Windows
 ---
 
 # KVM 备忘录
