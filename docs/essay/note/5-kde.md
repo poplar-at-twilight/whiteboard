@@ -20,12 +20,12 @@ openSUSE 的图形界面在 TTY3。
 
 ### 图标主题
 
-- [Qogir-icon-theme]
+- [Qogir-cursors-theme]
 - [Tela-icon-theme]
     - 位置：`~/.local/share/icons`
 
 [Tela-icon-theme]: https://store.kde.org/p/1279924
-[Qogir-cursors]: https://www.pling.com/p/1366182/
+[Qogir-cursors-theme]: https://www.pling.com/p/1366182/
 
 ### 某些快捷键
 
