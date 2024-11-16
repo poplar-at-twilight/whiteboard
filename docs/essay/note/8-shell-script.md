@@ -22,6 +22,7 @@ if [ -f $FILE ]; then
     rm /home/poplar/bin/codium/vscodium.appimage
     printf 'Remove the old appimage: OK!\n'
     mv /home/poplar/Downloads/VSCodium*.appimage /home/poplar/Downloads/vscodium.appimage
+    chmod +x /home/poplar/Downloads/vscodium.appimage
     mv /home/poplar/Downloads/vscodium.appimage /home/poplar/bin/codium
     printf 'Update the appimage: OK!\n'
 
