@@ -2080,22 +2080,17 @@
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="c1">#本脚本用于更新 VScodium</span>
 
-<span class="nv">FILE</span><span class="o">=</span>/home/poplar/Downloads/VSCodium*.tar.gz
+<span class="nv">FILE</span><span class="o">=</span>/home/poplar/Downloads/VSCodium*.appimage
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$FILE</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span>mv<span class="w"> </span>/home/poplar/bin/codium/data<span class="w"> </span>/home/poplar/bin/data
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Back up data: OK!\n&#39;</span>
-<span class="w">    </span>rm<span class="w"> </span>-r<span class="w"> </span>/home/poplar/bin/codium/*
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Remove old exc: OK!\n&#39;</span>
-<span class="w">    </span>tar<span class="w"> </span>-xf<span class="w"> </span>/home/poplar/Downloads/VSCodium*.tar.gz<span class="w"> </span>-C<span class="w"> </span>/home/poplar/bin/codium
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Software update: OK!\n&#39;</span>
-<span class="w">    </span>mv<span class="w"> </span>/home/poplar/bin/data<span class="w"> </span>/home/poplar/bin/codium/data
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Data restored: OK!\n&#39;</span>
-<span class="w">    </span>rm<span class="w"> </span>/home/poplar/Downloads/VSCodium*.tar.gz
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Clear tarball: OK!\n&#39;</span>
+<span class="w">    </span>rm<span class="w"> </span>/home/poplar/bin/codium/vscodium.appimage
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Remove the old appimage: OK!\n&#39;</span>
+<span class="w">    </span>mv<span class="w"> </span>/home/poplar/Downloads/VSCodium*.appimage<span class="w"> </span>/home/poplar/Downloads/vscodium.appimage
+<span class="w">    </span>mv<span class="w"> </span>/home/poplar/Downloads/vscodium.appimage<span class="w"> </span>/home/poplar/bin/codium
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update the appimage: OK!\n&#39;</span>
 
 <span class="k">else</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: Update tarball no found!\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: Update files no found!\n&#39;</span>
 <span class="k">fi</span>
 </code></pre></div>
 <h2 id="iso-m">iso-m</h2>

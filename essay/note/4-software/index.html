@@ -2471,8 +2471,29 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <p>可集成至开始菜单的 desktop 文件可通过 KDE 的右键新建菜单快速创建。</p>
 <p>注意编辑环境变量时不要引入换行符。</p>
 <h3 id="vscodium">VSCodium</h3>
-<p>下载：<a href="https://github.com/VSCodium/vscodium/releases">https://github.com/VSCodium/vscodium/releases</a></p>
-<p>在与 <code>code</code> 同级文件夹中新建 <code>data</code>，启用便携模式。</p>
+<p>下载 appimage 文件：<a href="https://github.com/VSCodium/vscodium/releases">https://github.com/VSCodium/vscodium/releases</a></p>
+<p>在与 <code>VSCodium*.appimage</code> 同级文件夹中新建 <code>data/extensions</code> 和 <code>data/user-data</code>。</p>
+<p>desktop 文件模板：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>Desktop<span class="w"> </span>Entry<span class="o">]</span>
+<span class="nv">Categories</span><span class="o">=</span>Development<span class="p">;</span>
+Comment<span class="o">[</span>zh_CN<span class="o">]=</span>
+<span class="nv">Comment</span><span class="o">=</span>
+<span class="nv">Exec</span><span class="o">=</span>/home/poplar/bin/codium/vscodium.appimage<span class="w"> </span>--user-data-dir<span class="w"> </span>/home/poplar/bin/codium/data/user-data<span class="w"> </span>--extensions-dir<span class="w"> </span>/home/poplar/bin/codium/data/extensions
+GenericName<span class="o">[</span>zh_CN<span class="o">]=</span>
+<span class="nv">GenericName</span><span class="o">=</span>
+<span class="nv">Icon</span><span class="o">=</span>/home/poplar/bin/codium/data/paulo22s.png
+<span class="nv">MimeType</span><span class="o">=</span>
+Name<span class="o">[</span>zh_CN<span class="o">]=</span>VSCodium
+<span class="nv">Name</span><span class="o">=</span>VSCodium
+<span class="nv">Path</span><span class="o">=</span>/home/poplar/bin/codium
+<span class="nv">StartupNotify</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">Terminal</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">TerminalOptions</span><span class="o">=</span>
+<span class="nv">Type</span><span class="o">=</span>Application
+X-KDE-SubstituteUID<span class="o">=</span><span class="nb">false</span>
+X-KDE-Username<span class="o">=</span>
+</code></pre></div>
+<p>Logo 文件可从 <a href="https://github.com/VSCodium/icons">VSCodium/icons</a> 仓库下载获得。</p>
 <p>字体设置：</p>
 <div class="highlight"><pre><span></span><code>&#39;Noto Sans Mono&#39;, &#39;Noto Sans SC&#39;, monospace
 </code></pre></div>
@@ -2488,6 +2509,7 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <li><code>AaaaronZhou.vscode-auto-light-dark-theme</code></li>
 </ul>
 <p>图标另见： <a href="https://github.com/VSCodium/icons">https://github.com/VSCodium/icons</a></p>
+<p>更新脚本 <code>update-code</code> 另见 <a href="../8-shell-script/">shell-script</a>。</p>
 <h3 id="pandoc">pandoc</h3>
 <p>下载：<a href="https://github.com/jgm/pandoc/releases/">https://github.com/jgm/pandoc/releases/</a></p>
 <p>将下载好的 pandoc 解压至 <code>~/bin/pandoc</code>。符号连接可以放置到 <code>~/bin/command</code> 中，保持目录的整洁。</p>
