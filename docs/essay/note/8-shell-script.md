@@ -16,22 +16,17 @@ shell 脚本一般放置在 `~/bin/command`
 #!/bin/sh
 #本脚本用于更新 VScodium
 
-FILE=/home/poplar/Downloads/VSCodium*.tar.gz
+FILE=/home/poplar/Downloads/VSCodium*.appimage
 
 if [ -f $FILE ]; then
-    mv /home/poplar/bin/codium/data /home/poplar/bin/data
-    printf 'Back up data: OK!\n'
-    rm -r /home/poplar/bin/codium/*
-    printf 'Remove old exc: OK!\n'
-    tar -xf /home/poplar/Downloads/VSCodium*.tar.gz -C /home/poplar/bin/codium
-    printf 'Software update: OK!\n'
-    mv /home/poplar/bin/data /home/poplar/bin/codium/data
-    printf 'Data restored: OK!\n'
-    rm /home/poplar/Downloads/VSCodium*.tar.gz
-    printf 'Clear tarball: OK!\n'
+    rm /home/poplar/bin/codium/vscodium.appimage
+    printf 'Remove the old appimage: OK!\n'
+    mv /home/poplar/Downloads/VSCodium*.appimage /home/poplar/Downloads/vscodium.appimage
+    mv /home/poplar/Downloads/vscodium.appimage /home/poplar/bin/codium
+    printf 'Update the appimage: OK!\n'
 
 else
-    printf 'ERROR: Update tarball no found!\n'
+    printf 'ERROR: Update files no found!\n'
 fi
 ```
 

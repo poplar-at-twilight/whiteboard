@@ -234,9 +234,36 @@ git clone https://github.com/tonyfettes/fcitx5-nord.git
 
 ### VSCodium
 
-下载：<https://github.com/VSCodium/vscodium/releases>
+下载 appimage 文件：<https://github.com/VSCodium/vscodium/releases>
 
-在与 `code` 同级文件夹中新建 `data`，启用便携模式。
+在与 `VSCodium*.appimage` 同级文件夹中新建 `data/extensions` 和 `data/user-data`。
+
+desktop 文件模板：
+
+```shell
+[Desktop Entry]
+Categories=Development;
+Comment[zh_CN]=
+Comment=
+Exec=/home/poplar/bin/codium/vscodium.appimage --user-data-dir /home/poplar/bin/codium/data/user-data --extensions-dir /home/poplar/bin/codium/data/extensions
+GenericName[zh_CN]=
+GenericName=
+Icon=/home/poplar/bin/codium/data/paulo22s.png
+MimeType=
+Name[zh_CN]=VSCodium
+Name=VSCodium
+Path=/home/poplar/bin/codium
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+```
+
+Logo 文件可从 [VSCodium/icons] 仓库下载获得。
+
+[VSCodium/icons]: https://github.com/VSCodium/icons
 
 字体设置：
 
@@ -256,6 +283,10 @@ git clone https://github.com/tonyfettes/fcitx5-nord.git
 - `AaaaronZhou.vscode-auto-light-dark-theme`
 
 图标另见： <https://github.com/VSCodium/icons>
+
+更新脚本 `update-code` 另见 [shell-script]。
+
+[shell-script]: ./8-shell-script.md
 
 ### pandoc
 
