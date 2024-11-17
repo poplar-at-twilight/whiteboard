@@ -234,9 +234,9 @@ git clone https://github.com/tonyfettes/fcitx5-nord.git
 
 ### VSCodium
 
-下载 appimage 文件：<https://github.com/VSCodium/vscodium/releases>
+下载文件：<https://github.com/VSCodium/vscodium/releases>
 
-在与 `VSCodium*.appimage` 同级文件夹中新建 `data/extensions` 和 `data/user-data`。
+在与 `VSCodium*.tar.gz` 同级文件夹中新建 `data/extensions` 和 `data/user-data`。
 
 desktop 文件模板：
 
@@ -245,7 +245,7 @@ desktop 文件模板：
 Categories=Development;
 Comment[zh_CN]=
 Comment=
-Exec=/home/poplar/bin/codium/vscodium.appimage --user-data-dir /home/poplar/bin/codium/data/user-data --extensions-dir /home/poplar/bin/codium/data/extensions
+Exec=/home/poplar/bin/codium/codium
 GenericName[zh_CN]=
 GenericName=
 Icon=/home/poplar/bin/codium/data/paulo22s.png
