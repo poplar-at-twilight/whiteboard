@@ -17,10 +17,10 @@ tags:
 ## 设置主机名
 
 ```
-sudo hostnamectl set-hostname --pretty "White-Poplar's Laptop"
+sudo hostnamectl set-hostname --pretty "C004-H1"
 ```
 ```
-sudo hostnamectl set-hostname --static c004-h1
+sudo hostnamectl set-hostname --static Greysia
 ```
 
 ## 删除 Packagekit 和 Discover
