@@ -18,7 +18,7 @@ sudo zypper in aria2
 在 `~/bin/aria2` 目录下新建文本文档：
 
 ```shell
-poplar@c004-h1:~> tree ~/bin/aria2
+poplar@Greysia:~> tree ~/bin/aria2
 /home/poplar/bin/aria2
 ├── aria2.conf
 ├── aria2.log

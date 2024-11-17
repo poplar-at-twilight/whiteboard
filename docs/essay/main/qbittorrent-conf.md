@@ -33,7 +33,7 @@ sudo zypper in qbittorrent
 下载的文件：
 
 ```shell
-poplar@c004-h1:~> tree /home/bt/network -L 1
+poplar@Greysia:~> tree /home/bt/network -L 1
 /home/bt/network
 ├── downloads1
 ├── downloads2
@@ -157,7 +157,7 @@ poplar@c004-h1:~> tree /home/bt/network -L 1
 - 文档：<https://pbh-btn.github.io/pbh-docs/>
 
 ```shell
-poplar@c004-h1:~> tree ~/bin/pbh -L 1
+poplar@Greysia:~> tree ~/bin/pbh -L 1
 /home/poplar/bin/pbh
 ├── data
 ├── key.txt

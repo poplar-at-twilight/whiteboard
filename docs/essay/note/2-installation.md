@@ -43,7 +43,7 @@ swapfile/SWAP 分区参考大小如下所示[^ref_rhel]：
 ## 样例
 
 ```
-poplar@c004-h1:~> lsblk
+poplar@Greysia:~> lsblk
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 nvme1n1     259:0    0 953.9G  0 disk 
 ├─nvme1n1p1 259:1    0   256M  0 part /boot/efi
@@ -59,7 +59,7 @@ nvme1n1     259:0    0 953.9G  0 disk
 └─nvme1n1p3 259:3    0 913.6G  0 part /home
 nvme0n1     259:4    0   1.8T  0 disk 
 └─nvme0n1p1 259:5    0   1.8T  0 part /home/bt
-poplar@c004-h1:~> sudo swapon -s
+poplar@Greysia:~> sudo swapon -s
 Filename                                Type            Size            Used            Priority
 /home/swap/swapfile                     file            4194300         873340          -2
 ```

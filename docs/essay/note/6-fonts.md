@@ -13,7 +13,7 @@ tags:
 [Windows 11 font list]: https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list
 
 ```
-poplar@c004-h1:~/.local/share/fonts> tree
+poplar@Greysia:~/.local/share/fonts> tree
 .
 └── win11-fonts-partial
     ├── arial

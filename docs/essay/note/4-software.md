@@ -87,7 +87,7 @@ GTK_THEME=Adwaita-dark
 删除并锁定：
 
 ```
-poplar@c004-h1:~> zypper ll
+poplar@Greysia:~> zypper ll
 
 #  | Name                   | Type    | Repository | Comment
 ---+------------------------+---------+------------+--------

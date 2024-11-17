@@ -7,7 +7,7 @@ tags:
 # 重装
 
 ```
-poplar@c004-h1:~> id
+poplar@Greysia:~> id
 uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 ```
 
