@@ -2471,14 +2471,14 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <p>可集成至开始菜单的 desktop 文件可通过 KDE 的右键新建菜单快速创建。</p>
 <p>注意编辑环境变量时不要引入换行符。</p>
 <h3 id="vscodium">VSCodium</h3>
-<p>下载 appimage 文件：<a href="https://github.com/VSCodium/vscodium/releases">https://github.com/VSCodium/vscodium/releases</a></p>
-<p>在与 <code>VSCodium*.appimage</code> 同级文件夹中新建 <code>data/extensions</code> 和 <code>data/user-data</code>。</p>
+<p>下载文件：<a href="https://github.com/VSCodium/vscodium/releases">https://github.com/VSCodium/vscodium/releases</a></p>
+<p>在与 <code>VSCodium*.tar.gz</code> 同级文件夹中新建 <code>data/extensions</code> 和 <code>data/user-data</code>。</p>
 <p>desktop 文件模板：</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>Desktop<span class="w"> </span>Entry<span class="o">]</span>
 <span class="nv">Categories</span><span class="o">=</span>Development<span class="p">;</span>
 Comment<span class="o">[</span>zh_CN<span class="o">]=</span>
 <span class="nv">Comment</span><span class="o">=</span>
-<span class="nv">Exec</span><span class="o">=</span>/home/poplar/bin/codium/vscodium.appimage<span class="w"> </span>--user-data-dir<span class="w"> </span>/home/poplar/bin/codium/data/user-data<span class="w"> </span>--extensions-dir<span class="w"> </span>/home/poplar/bin/codium/data/extensions
+<span class="nv">Exec</span><span class="o">=</span>/home/poplar/bin/codium/codium
 GenericName<span class="o">[</span>zh_CN<span class="o">]=</span>
 <span class="nv">GenericName</span><span class="o">=</span>
 <span class="nv">Icon</span><span class="o">=</span>/home/poplar/bin/codium/data/paulo22s.png
