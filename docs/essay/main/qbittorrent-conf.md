@@ -64,7 +64,7 @@ poplar@Greysia:~> tree /home/bt/network -L 1
 - 分类：
     - 完整下载：`/home/bt/network/downloads1`（默认分类）
     - 非完整下载：`/home/bt/network/downloads2`
-    - 非分类：`/home/bt/network/misc`
+    - 缓存：`/home/bt/network/misc`
 - 标签：
     - `1 类`（长期做种）
     - `2 类`（短期做种）
