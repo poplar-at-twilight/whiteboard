@@ -1899,16 +1899,16 @@
 <li><code>*.asc</code> 是可含有封装文档的 ASCII 加密签名，纯文本格式。</li>
 </ul>
 <p>一个操作实例<sup id="fnref:ref3"><a class="footnote-ref" href="#fn:ref3">3</a></sup>（签名，加密，解密，提取文件）：</p>
-<div class="highlight"><pre><span></span><code>poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
+<div class="highlight"><pre><span></span><code>poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 总计<span class="w"> </span>91348KiB
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>91346KiB<span class="w">  </span>9月24日<span class="w"> </span><span class="m">15</span>:39<span class="w"> </span>vm.iso
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>-s<span class="w"> </span>vm.iso
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>-b<span class="w"> </span>vm.iso
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--clear-sign<span class="w"> </span>vm.iso
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>-s<span class="w"> </span>vm.iso
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>-b<span class="w"> </span>vm.iso
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--clear-sign<span class="w"> </span>vm.iso
 gpg:<span class="w"> </span>输入行长度超过<span class="w"> </span><span class="m">19995</span><span class="w"> </span>字符
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>sha256sum<span class="w"> </span>vm.iso<span class="w"> </span>&gt;<span class="w"> </span>vm.iso.sha256
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--clear-sign<span class="w"> </span>vm.iso.sha256
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>sha256sum<span class="w"> </span>vm.iso<span class="w"> </span>&gt;<span class="w"> </span>vm.iso.sha256
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--clear-sign<span class="w"> </span>vm.iso.sha256
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 总计<span class="w"> </span>262924KiB
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>91346KiB<span class="w">  </span>9月24日<span class="w"> </span><span class="m">15</span>:39<span class="w"> </span>vm.iso
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>90179KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.asc
@@ -1916,7 +1916,7 @@ poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:51<span class="w"> </span>vm.iso.sha256
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:51<span class="w"> </span>vm.iso.sha256.asc
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.sig
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>cat<span class="w"> </span>vm.iso.sha256.asc
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>cat<span class="w"> </span>vm.iso.sha256.asc
 -----BEGIN<span class="w"> </span>PGP<span class="w"> </span>SIGNED<span class="w"> </span>MESSAGE-----
 Hash:<span class="w"> </span>SHA512
 
@@ -1928,8 +1928,8 @@ Y6SfAP4+aYK5q04517RUW61RLDvWOnroXa56qhp+q4k6Ug9k4AEAzJEHVyvFExOn
 2eQkaVVIXRvIc+CjCUyljSNFLQrOOwI<span class="o">=</span>
 <span class="o">=</span>nLki
 -----END<span class="w"> </span>PGP<span class="w"> </span>SIGNATURE-----
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>mv<span class="w"> </span>vm.iso<span class="w"> </span>vms.iso
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>mv<span class="w"> </span>vm.iso<span class="w"> </span>vms.iso
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 总计<span class="w"> </span>262924KiB
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>90179KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.asc
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>81383KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.gpg
@@ -1937,11 +1937,11 @@ poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:51<span class="w"> </span>vm.iso.sha256.asc
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.sig
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>91346KiB<span class="w">  </span>9月24日<span class="w"> </span><span class="m">15</span>:39<span class="w"> </span>vms.iso
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--output<span class="w"> </span>vm.iso<span class="w"> </span>--decrypt<span class="w"> </span>vm.iso.gpg
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--output<span class="w"> </span>vm.iso<span class="w"> </span>--decrypt<span class="w"> </span>vm.iso.gpg
 gpg:<span class="w"> </span>签名建立于<span class="w"> </span>2024年10月07日<span class="w"> </span>星期一<span class="w"> </span>14时50分31秒<span class="w"> </span>CST
 gpg:<span class="w">               </span>使用<span class="w"> </span>EDDSA<span class="w"> </span>密钥<span class="w"> </span>2B429BB9098D7B218ECBD4DAF8FAE5B1001EFE63
 gpg:<span class="w"> </span>完好的签名，来自于<span class="w"> </span>“White<span class="w"> </span>Poplar<span class="w"> </span>&lt;poplar.cubic@gmail.com&gt;”<span class="w"> </span><span class="o">[</span>绝对<span class="o">]</span>
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 总计<span class="w"> </span>354272KiB
 -rw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>91346KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:53<span class="w"> </span>vm.iso
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>90179KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.asc
@@ -1950,8 +1950,8 @@ poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:51<span class="w"> </span>vm.iso.sha256.asc
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.sig
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>91346KiB<span class="w">  </span>9月24日<span class="w"> </span><span class="m">15</span>:39<span class="w"> </span>vms.iso
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--output<span class="w"> </span>vm.iso2.sig<span class="w"> </span>--sign<span class="w"> </span>vm.iso
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--output<span class="w"> </span>vm.iso2.sig<span class="w"> </span>--sign<span class="w"> </span>vm.iso
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 总计<span class="w"> </span>435656KiB
 -rw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>91346KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:53<span class="w"> </span>vm.iso
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>81383KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:55<span class="w"> </span>vm.iso2.sig
@@ -1961,14 +1961,14 @@ poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:51<span class="w"> </span>vm.iso.sha256.asc
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w">     </span>1KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.sig
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>91346KiB<span class="w">  </span>9月24日<span class="w"> </span><span class="m">15</span>:39<span class="w"> </span>vms.iso
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 总计<span class="w"> </span>90180KiB
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>90179KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.asc
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--output<span class="w"> </span>vm.iso<span class="w"> </span>--decrypt<span class="w"> </span>vm.iso.asc
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>gpg<span class="w"> </span>--output<span class="w"> </span>vm.iso<span class="w"> </span>--decrypt<span class="w"> </span>vm.iso.asc
 gpg:<span class="w"> </span>签名建立于<span class="w"> </span>2024年10月07日<span class="w"> </span>星期一<span class="w"> </span>14时50分58秒<span class="w"> </span>CST
 gpg:<span class="w">               </span>使用<span class="w"> </span>EDDSA<span class="w"> </span>密钥<span class="w"> </span>2B429BB9098D7B218ECBD4DAF8FAE5B1001EFE63
 gpg:<span class="w"> </span>完好的签名，来自于<span class="w"> </span>“White<span class="w"> </span>Poplar<span class="w"> </span>&lt;poplar.cubic@gmail.com&gt;”<span class="w"> </span><span class="o">[</span>绝对<span class="o">]</span>
-poplar@c004-h1:~/Downloads/Aria2&gt;<span class="w"> </span>ll
+poplar@Greysia:~/Downloads/Aria2&gt;<span class="w"> </span>ll
 总计<span class="w"> </span>180300KiB
 -rw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>90120KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">15</span>:01<span class="w"> </span>vm.iso
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>poplar<span class="w"> </span>poplar<span class="w"> </span>90179KiB<span class="w"> </span>10月<span class="w"> </span>7日<span class="w"> </span><span class="m">14</span>:50<span class="w"> </span>vm.iso.asc

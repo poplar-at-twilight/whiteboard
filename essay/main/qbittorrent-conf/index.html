@@ -2249,8 +2249,8 @@
 <li><code>~/.config/qBittorrent</code></li>
 <li><code>~/.local/share/qBittorrent</code></li>
 </ul>
-<p>下载的文件：</p>
-<div class="highlight"><pre><span></span><code>poplar@c004-h1:~&gt;<span class="w"> </span>tree<span class="w"> </span>/home/bt/network<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
+<p>下载文件夹：</p>
+<div class="highlight"><pre><span></span><code>poplar@Greysia:~&gt;<span class="w"> </span>tree<span class="w"> </span>/home/bt/network<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
 /home/bt/network
 ├──<span class="w"> </span>downloads1
 ├──<span class="w"> </span>downloads2
@@ -2282,7 +2282,7 @@
 <li>分类：<ul>
 <li>完整下载：<code>/home/bt/network/downloads1</code>（默认分类）</li>
 <li>非完整下载：<code>/home/bt/network/downloads2</code></li>
-<li>非分类：<code>/home/bt/network/misc</code></li>
+<li>缓存：<code>/home/bt/network/misc</code>（临时下载）</li>
 </ul>
 </li>
 <li>标签：<ul>
@@ -2326,10 +2326,10 @@
 <li>端口：大于 <code>10000</code> 的任意端口</li>
 <li>全局最大连接数：800</li>
 <li>每个 torrent 最大连接数：200</li>
+<li>使用我的路由器的 UPnP/NAT-PMP 端口转发（当路由器没有将设备直接映射到公网的时候开启）</li>
 </ul>
 <p>不使用：</p>
 <ul>
-<li><code>使用我的路由器 UPnP / NAT-PMP 端口转发</code>（在路由器上另外设置端口转发）</li>
 <li>全局上传窗口限制</li>
 <li>每个 torrent 上传窗口限制</li>
 </ul>
@@ -2372,7 +2372,7 @@
 <li>下载地址：<a href="https://github.com/Ghost-chu/PeerBanHelper">https://github.com/Ghost-chu/PeerBanHelper</a></li>
 <li>文档：<a href="https://pbh-btn.github.io/pbh-docs/">https://pbh-btn.github.io/pbh-docs/</a></li>
 </ul>
-<div class="highlight"><pre><span></span><code>poplar@c004-h1:~&gt;<span class="w"> </span>tree<span class="w"> </span>~/bin/pbh<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
+<div class="highlight"><pre><span></span><code>poplar@Greysia:~&gt;<span class="w"> </span>tree<span class="w"> </span>~/bin/pbh<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
 /home/poplar/bin/pbh
 ├──<span class="w"> </span>data
 ├──<span class="w"> </span>key.txt
@@ -2407,9 +2407,12 @@ java<span class="w"> </span>-Xmx512M<span class="w"> </span>-XX:+UseG1GC<span cl
 <p>修改 <code>~/bin/pbh/data/config/config.yml</code>：</p>
 <ul>
 <li><code>language</code>：改为 <code>zh_CN</code></li>
-<li><code>btn</code>：改为 <code>true</code>，并填入 <code>app-id</code> 和 <code>app-secret</code></li>
-<li><code>ip-database</code>：填入申请的 <code>account-id</code> 和 <code>license-key</code></li>
+<li><code>btn</code>：改为 <code>true</code>，并填入 <code>app-id</code> 和 <code>app-secret</code><ul>
+<li>将 <code>config-url</code> 改为 <code>https://btn-prod.ghostchu-services.top/ping/config</code></li>
+</ul>
+</li>
 <li><code>proxy</code>：将 <code>setting: 0</code> 改为 <code>setting: 2</code>，并检查服务器地址和端口是否正确。</li>
+<li><code>logger</code>：将 <code>hide-finish-log</code> 改为 <code>true</code></li>
 </ul>
 <p>然后使用 <code>pbh</code> 注册并重载 PeerBanHelper 服务。</p>
 <h2 id="_12">集成管理脚本</h2>
