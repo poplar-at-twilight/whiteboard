@@ -30,7 +30,7 @@ sudo zypper in qbittorrent
 - `~/.config/qBittorrent`
 - `~/.local/share/qBittorrent`
 
-下载的文件：
+下载文件夹：
 
 ```shell
 poplar@Greysia:~> tree /home/bt/network -L 1
@@ -64,7 +64,7 @@ poplar@Greysia:~> tree /home/bt/network -L 1
 - 分类：
     - 完整下载：`/home/bt/network/downloads1`（默认分类）
     - 非完整下载：`/home/bt/network/downloads2`
-    - 缓存：`/home/bt/network/misc`
+    - 缓存：`/home/bt/network/misc`（临时下载）
 - 标签：
     - `1 类`（长期做种）
     - `2 类`（短期做种）
@@ -107,10 +107,10 @@ poplar@Greysia:~> tree /home/bt/network -L 1
 - 端口：大于 `10000` 的任意端口
 - 全局最大连接数：800
 - 每个 torrent 最大连接数：200
+- 使用我的路由器的 UPnP/NAT-PMP 端口转发（当路由器没有将设备直接映射到公网的时候开启）
 
 不使用：
 
-- `使用我的路由器 UPnP / NAT-PMP 端口转发`（在路由器上另外设置端口转发）
 - 全局上传窗口限制
 - 每个 torrent 上传窗口限制
 
@@ -202,8 +202,9 @@ WantedBy=default.target
 
 - `language`：改为 `zh_CN`
 - `btn`：改为 `true`，并填入 `app-id` 和 `app-secret`
-- `ip-database`：填入申请的 `account-id` 和 `license-key`
+    - 将 `config-url` 改为 `https://btn-prod.ghostchu-services.top/ping/config`
 - `proxy`：将 `setting: 0` 改为 `setting: 2`，并检查服务器地址和端口是否正确。
+- `logger`：将 `hide-finish-log` 改为 `true`
 
 然后使用 `pbh` 注册并重载 PeerBanHelper 服务。
 
