@@ -43,6 +43,7 @@ flatpakx install io.github.xiaoyifang.goldendict_ng
 flatpakx install com.dec05eba.gpu_screen_recorder
 flatpakx install com.github.dynobo.normcap
 flatpakx install org.telegram.desktop
+flatpakx install io.freetubeapp.FreeTube
 ```
 
 ### 清理数据
