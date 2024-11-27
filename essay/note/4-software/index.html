@@ -1105,9 +1105,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#drawio" class="md-nav__link">
+  <a href="#mangohud-goverlay" class="md-nav__link">
     <span class="md-ellipsis">
-      draw.io
+      mangohud &amp; Goverlay
     </span>
   </a>
   
@@ -2278,9 +2278,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#drawio" class="md-nav__link">
+  <a href="#mangohud-goverlay" class="md-nav__link">
     <span class="md-ellipsis">
-      draw.io
+      mangohud &amp; Goverlay
     </span>
   </a>
   
@@ -2341,6 +2341,7 @@
 <div class="highlight"><pre><span></span><code>sudo usermod -aG flatpak $USER
 </code></pre></div>
 <h3 id="flatpak_1">安装 Flatpak 应用</h3>
+<p>共 9 个：</p>
 <div class="highlight"><pre><span></span><code>flatpakx install com.github.qarmin.czkawka
 flatpakx install com.github.tchx84.Flatseal
 flatpakx install com.github.johnfactotum.Foliate
@@ -2348,6 +2349,8 @@ flatpakx install io.github.xiaoyifang.goldendict_ng
 flatpakx install com.dec05eba.gpu_screen_recorder
 flatpakx install com.github.dynobo.normcap
 flatpakx install org.telegram.desktop
+flatpakx install io.freetubeapp.FreeTube
+flatpakx install com.jgraph.drawio.desktop
 </code></pre></div>
 <h3 id="_3">清理数据</h3>
 <p>清理不再需要的库：</p>
@@ -2519,9 +2522,13 @@ X-KDE-Username<span class="o">=</span>
 <p>然后安装缺失的依赖：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper install libgthread-2_0-0
 </code></pre></div>
-<h3 id="drawio">draw.io</h3>
-<p>下载：<a href="https://github.com/jgraph/drawio-desktop/releases">https://github.com/jgraph/drawio-desktop/releases</a></p>
-<p>appimage 文件存放至 <code>~/bin/appimages</code></p>
+<h3 id="mangohud-goverlay">mangohud &amp; Goverlay</h3>
+<p>对于 steam 游戏，使用 <code>mangohud %command%</code>。使用说明详见：<code>man mangohud</code></p>
+<p>注意：</p>
+<ol>
+<li>不要在游戏启动时让 mangohud 读取游戏的平均帧和 1% low 帧</li>
+<li>使用 Goverlay 时，如果有按钮被遮挡，可以把显示器缩放比例从 150% 调整为 100%</li>
+</ol>
 
 
 
