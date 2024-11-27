@@ -49,6 +49,7 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 
 /home/poplar/.bashrc
 /home/poplar/.gitconfig
+/home/poplar/.nanorc
 /home/poplar/.steampath
 /home/poplar/.steampid
 

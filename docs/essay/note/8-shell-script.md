@@ -190,6 +190,16 @@ http 127.0.0.1 7890
 proxy=http://localhost:7890
 ```
 
+### nano
+
+如果 nano 编辑器没有语法高亮，则创建如下文件：
+
+- `~/.nanorc`
+
+```shell
+include /usr/share/nano/*.nanorc
+```
+
 ### bashrc
 
 `~/.bashrc`：
