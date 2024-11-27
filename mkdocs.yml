@@ -69,6 +69,7 @@ nav:
         - essay/note/7-re-install.md
         - essay/note/8-shell-script.md
         - essay/note/9-swapfile-on-btrfs.md
+        - essay/note/10-plymouth.md
       - Linux 资料库:
         - essay/linux/0-about.md
         - Bash 笔记:
