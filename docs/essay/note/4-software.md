@@ -35,6 +35,8 @@ sudo usermod -aG flatpak $USER
 
 ### 安装 Flatpak 应用
 
+共 9 个：
+
 ```
 flatpakx install com.github.qarmin.czkawka
 flatpakx install com.github.tchx84.Flatseal
@@ -44,6 +46,7 @@ flatpakx install com.dec05eba.gpu_screen_recorder
 flatpakx install com.github.dynobo.normcap
 flatpakx install org.telegram.desktop
 flatpakx install io.freetubeapp.FreeTube
+flatpakx install com.jgraph.drawio.desktop
 ```
 
 ### 清理数据
@@ -307,8 +310,11 @@ Logo 文件可从 [VSCodium/icons] 仓库下载获得。
 sudo zypper install libgthread-2_0-0
 ```
 
-### draw\.io
+### mangohud & Goverlay
 
-下载：<https://github.com/jgraph/drawio-desktop/releases>
+对于 steam 游戏，使用 `mangohud %command%`。使用说明详见：`man mangohud`
 
-appimage 文件存放至 `~/bin/appimages`
+注意：
+
+1. 不要在游戏启动时让 mangohud 读取游戏的平均帧和 1% low 帧
+1. 使用 Goverlay 时，如果有按钮被遮挡，可以把显示器缩放比例从 150% 调整为 100%

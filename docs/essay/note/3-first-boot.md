@@ -52,7 +52,7 @@ sudo zypper inr
 [bashrc]: ./8-shell-script.md
 
 ```
-add-packman
+packman-add
 ```
 
 更新并安装多媒体播放器：
@@ -61,7 +61,7 @@ add-packman
 sudo zypper refresh
 ```
 ```
-update-packman
+packman-update
 ```
 ```
 sudo zypper in mpv ffmpeg-7
