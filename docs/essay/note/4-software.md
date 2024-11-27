@@ -69,7 +69,7 @@ flatpak uninstall <package id> --delete-data
 
 ### fcitx5 皮肤没有正确显示（Wayland 会话）
 
-关闭所有 flatpak 应用，然后运行：
+**关闭所有 flatpak 应用**，然后运行：
 
 ```shell
 flatpak override --env=QT_IM_MODULE= --user
