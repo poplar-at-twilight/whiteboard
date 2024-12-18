@@ -13,10 +13,10 @@ tags:
 - 系统信息
 
 ```
-Operating System: openSUSE Tumbleweed 20241124
-KDE Plasma Version: 6.2.3
-KDE Frameworks Version: 6.8.0
-Qt Version: 6.8.0
+Operating System: openSUSE Tumbleweed 20241216
+KDE Plasma Version: 6.2.4
+KDE Frameworks Version: 6.9.0
+Qt Version: 6.8.1
 Kernel Version: 6.11.8-1-default (64-bit)
 Graphics Platform: Wayland
 Processors: 16 × AMD Ryzen 7 7840H w/ Radeon 780M Graphics
