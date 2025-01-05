@@ -78,6 +78,7 @@ tags:
 - 葬送的芙莉莲（葬送のフリーレン）
 - 为美好的世界献上祝福（KonoSuba: God's Blessing on This Wonderful World!） S1~S3 + M
 - 月刊少女野崎君（月刊少女野崎くん）
+- 胆大党（DAN DA DAN） S1
 
 [^mono]: 仅包含 1st season、2nd season 和 Final season 三个季度的动画。
 
