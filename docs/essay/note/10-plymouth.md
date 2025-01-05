@@ -28,6 +28,10 @@ sudo dracut -f
 sudo update-bootloader
 ```
 
+```
+sudo zypper al plymouth
+```
+
 ----
 
 参考文章：

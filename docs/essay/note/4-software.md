@@ -35,19 +35,14 @@ sudo usermod -aG flatpak $USER
 
 ### 安装 Flatpak 应用
 
-共 9 个：
-
-```
-flatpakx install com.github.qarmin.czkawka
-flatpakx install com.github.tchx84.Flatseal
-flatpakx install com.github.johnfactotum.Foliate
-flatpakx install io.github.xiaoyifang.goldendict_ng
-flatpakx install com.dec05eba.gpu_screen_recorder
-flatpakx install com.github.dynobo.normcap
-flatpakx install org.telegram.desktop
-flatpakx install io.freetubeapp.FreeTube
-flatpakx install com.jgraph.drawio.desktop
-```
+- `com.dec05eba.gpu_screen_recorder`
+- `com.github.dynobo.normcap`
+- `com.github.johnfactotum.Foliate`
+- `com.github.qarmin.czkawka`
+- `com.github.tchx84.Flatseal`
+- `com.jgraph.drawio.desktop`
+- `io.github.xiaoyifang.goldendict_ng`
+- `org.telegram.desktop`
 
 ### 清理数据
 
@@ -109,9 +104,10 @@ poplar@Greysia:~> zypper ll
 12 | patterns-games-games   | package | （任意）   | 
 13 | patterns-kde-kde_games | package | （任意）   | 
 14 | patterns-kde-kde_pim   | package | （任意）   | 
-15 | skanlite               | package | （任意）   | 
-16 | spectacle              | package | （任意）   | 
-17 | vlc                    | package | （任意）   |
+15 | plymouth               | package | （任意）   | 
+16 | skanlite               | package | （任意）   | 
+17 | spectacle              | package | （任意）   | 
+18 | vlc                    | package | （任意）   | 
 ```
 
 快捷命令：
@@ -122,6 +118,8 @@ sudo zypper rm -u MozillaFirefox fcitx ibus kcalc kmousetool kompare konversatio
 ```
 sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite spectacle vlc
 ```
+
+- 另见[删除 plymouth](./10-plymouth.md)。
 
 ## 安装基本工具
 
