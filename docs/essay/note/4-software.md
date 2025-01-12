@@ -8,8 +8,16 @@ tags:
 
 ## 代理软件
 
-- [ ] v2rayN: <https://github.com/2dust/v2rayN/releases>
-- [x] nekoray: <https://github.com/MatsuriDayo/nekoray/releases>
+- [ ] [v2rayN]
+- [ ] [nekoray]
+- [x] [Clash-Verge-rev]
+    - 依赖项：
+        - `libayatana-appindicator3`
+        - `libwebkit2gtk-4_1-0`
+
+[v2rayN]: https://github.com/2dust/v2rayN/releases
+[nekoray]: https://github.com/MatsuriDayo/nekoray/releases
+[Clash-Verge-rev]: https://github.com/clash-verge-rev/clash-verge-rev/releases
 
 steam 会自动读取系统代理设置。
 
