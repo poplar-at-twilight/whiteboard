@@ -26,8 +26,6 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 
 /home/poplar/.config/audacious
 /home/poplar/.config/chromium
-/home/poplar/.config/crow-translate
-/home/poplar/.config/fcitx
 /home/poplar/.config/fcitx5
 /home/poplar/.config/flameshot
 /home/poplar/.config/keepassxc
@@ -39,7 +37,6 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 /home/poplar/.local/share/applications
 /home/poplar/.local/share/fcitx5
 /home/poplar/.local/share/fonts
-/home/poplar/.local/share/icons
 /home/poplar/.local/share/konsole
 /home/poplar/.local/share/qBittorrent
 /home/poplar/.local/share/Steam

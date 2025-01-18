@@ -50,6 +50,7 @@ sudo usermod -aG flatpak $USER
 - `com.github.tchx84.Flatseal`
 - `com.jgraph.drawio.desktop`
 - `io.github.xiaoyifang.goldendict_ng`
+- `net.davidotek.pupgui2`
 - `org.telegram.desktop`
 
 ### 清理数据
@@ -147,7 +148,6 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 - `aria2`
 - `audacious`
 - `amdgpu_top`
-- `crow-translate`
 - `fcitx5`
 - `filelight`
 - `flameshot`
@@ -157,12 +157,13 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 - `kfind`
 - `kleopatra`
 - `qbittorrent`
+- `spek`
 - `steam`
 
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious amdgpu_top crow-translate crow-translate-lang fcitx5 filelight flameshot google-noto-sans-mono-fonts gimp goverlay kfind kleopatra qbittorrent
+sudo zypper in aria2 audacious amdgpu_top fcitx5 filelight flameshot google-noto-sans-mono-fonts gimp goverlay kfind kleopatra qbittorrent spek
 ```
 ```
 sudo zypper in steam
