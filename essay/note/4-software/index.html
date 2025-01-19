@@ -246,7 +246,7 @@
         <a href="../../about/" class="md-tabs__link">
           
   
-  站内杂谈
+  杂谈
 
         </a>
       </li>
@@ -264,7 +264,7 @@
         <a href="../../../archives/about/" class="md-tabs__link">
           
   
-  站外归档
+  备份
 
         </a>
       </li>
@@ -401,7 +401,7 @@
         
   
   <span class="md-ellipsis">
-    一位 openSUSE 用户的个人站点
+    何でもは知らないわよ。知ってることだけ。
   </span>
   
 
@@ -468,7 +468,7 @@
             
   
   <span class="md-ellipsis">
-    站内杂谈
+    杂谈
   </span>
   
 
@@ -478,7 +478,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            站内杂谈
+            杂谈
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1573,7 +1573,7 @@
             
   
   <span class="md-ellipsis">
-    站外归档
+    备份
   </span>
   
 
@@ -1583,7 +1583,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            站外归档
+            备份
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2347,8 +2347,16 @@
 <h1 id="_1">软件包</h1>
 <h2 id="_2">代理软件</h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> v2rayN: <a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> nekoray: <a href="https://github.com/MatsuriDayo/nekoray/releases">https://github.com/MatsuriDayo/nekoray/releases</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/2dust/v2rayN/releases">v2rayN</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/MatsuriDayo/nekoray/releases">nekoray</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases">Clash-Verge-rev</a><ul>
+<li>依赖项：<ul>
+<li><code>libayatana-appindicator3</code></li>
+<li><code>libwebkit2gtk-4_1-0</code></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p>steam 会自动读取系统代理设置。</p>
 <h2 id="flatpak">Flatpak</h2>
@@ -2370,6 +2378,7 @@
 <li><code>com.github.tchx84.Flatseal</code></li>
 <li><code>com.jgraph.drawio.desktop</code></li>
 <li><code>io.github.xiaoyifang.goldendict_ng</code></li>
+<li><code>net.davidotek.pupgui2</code></li>
 <li><code>org.telegram.desktop</code></li>
 </ul>
 <h3 id="_3">清理数据</h3>
@@ -2439,7 +2448,6 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <li><code>aria2</code></li>
 <li><code>audacious</code></li>
 <li><code>amdgpu_top</code></li>
-<li><code>crow-translate</code></li>
 <li><code>fcitx5</code></li>
 <li><code>filelight</code></li>
 <li><code>flameshot</code></li>
@@ -2449,10 +2457,11 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <li><code>kfind</code></li>
 <li><code>kleopatra</code></li>
 <li><code>qbittorrent</code></li>
+<li><code>spek</code></li>
 <li><code>steam</code></li>
 </ul>
 <p>快捷命令：</p>
-<p><div class="highlight"><pre><span></span><code>sudo zypper in aria2 audacious amdgpu_top crow-translate crow-translate-lang fcitx5 filelight flameshot google-noto-sans-mono-fonts gimp goverlay kfind kleopatra qbittorrent
+<p><div class="highlight"><pre><span></span><code>sudo zypper in aria2 audacious amdgpu_top fcitx5 filelight flameshot google-noto-sans-mono-fonts gimp goverlay kfind kleopatra qbittorrent spek
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo zypper in steam
 </code></pre></div></p>
