@@ -24,7 +24,7 @@ tags:
 |---|---|---|---|
 |![img](./images/friends-icons/paper-cut.webp){ width=100 }|[ImBearChild](https://github.com/ImBearChild)|<https://imbearchild.cyou/>|喜欢猫猫的技术爱好者，openSUSE 中文社区新闻网站维护者之一。|
 |![images](./images/friends-icons/zhul.png){ width=100 }|[竹林里有冰](https://github.com/zhullyb)|<https://zhul.in/>|Fedora 用户，但同时也在维护某些 AUR 的包，dipper 机型的 crDroid Official Maintainer。|
-|![images](./images/friends-icons/yang.jpg){ width=100 }|[杨蕙芷](https://github.com/qvshuo/)|<https://qvshuo.art/>|如果有人欺负你呢，就报我的名字。|
+|![images](./images/friends-icons/yang.jpg){ width=100 }|[安静](https://github.com/qvshuo/)|<https://anjing.art/>|每一个不曾起舞的日子，都是对生命的辜负。|
 |![image](./images/friends-icons/Karuboniru.webp){ width=100 }|[Karuboniru](https://github.com/karuboniru)|<https://yanqiyu.info>|就是个学物理的，懂个屁的计算机。|
 |![images](./images/friends-icons/30341059.png){ width=100 }|[一座桥在水上](https://github.com/yzqzss)|<https://blog.othing.xyz/>|我想冻住--</p>我的所见，所听，所想</p>他人所写，所创造</p>自然所变，所灭</p>冻住世界，冻住时间，冻住本就存在的一切！|
 |![images](./images/friends-icons/45143513.jpg){ width=100 }|[Blockcity](https://github.com/Ratizux)|<https://ratizux.github.io/about/>|Ratizux by Blockcity. 使用 Markdown|
