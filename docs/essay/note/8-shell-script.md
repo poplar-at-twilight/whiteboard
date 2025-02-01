@@ -39,17 +39,44 @@ fi
 
 ```shell
 #!/bin/sh
-#本脚本用于下载、校验和归档 openSUSE Tumbleweed ISO 文件
+# 本脚本用于管理 openSUSE Tumbleweed ISO 文件。
+#
+# 主要功能有：
+# 1. 下载 DVD/Live ISO 文件、sha256 文件和 asc 证书文件
+# 2. 校验新旧 ISO 文件（计算哈希，验证 GPG 签名）
+# 3. 更新替换旧版 ISO 文件
+#
+# 注意：
+# 1. 使用前请完整阅读一遍脚本，使用时风险自负。
+# 2. 用户需要自行修改需要修改的变量。
+# 3. 用户需要自己配置 gpg 工具。
 
-export ISO_DIR=/home/poplar/Downloads/ISO
-export ISO_DIR_DL=/home/poplar/Downloads/Aria2
-#文件目录
+printf 'Please modify the script before using it for the first time to make it work properly.\n'
 
-DVD_NEW=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-LIVE_NEW=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-DVD_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-LIVE_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-#要检测的 ISO 文件
+export ISO_DIR=$HOME/Downloads/ISO
+# 默认保存位置
+export ISO_DIR_TMEP=$HOME/Downloads/iso-m-temp
+# 默认缓存位置
+
+# 选择一个镜像站，一次只能选择一个
+export DL_URL=https://mirrors.zju.edu.cn/opensuse
+#export DL_URL=http://mirror.bjtu.edu.cn/opensuse
+#export DL_URL=https://mirror.nyist.edu.cn/opensuse
+#export DL_URL=https://ftp.sjtu.edu.cn/opensuse
+#export DL_URL=https://mirrors.163.com/openSUSE
+#export DL_URL=https://mirrors.bfsu.edu.cn/opensuse
+#export DL_URL=https://mirrors.tuna.tsinghua.edu.cn/opensuse
+#export DL_URL=https://mirrors.ustc.edu.cn/opensuse
+#export DL_URL=
+#export DL_URL=
+# 默认包含已加入 mirrors.opensuse.org，位于中国的镜像站
+
+DVD_NEW=$ISO_DIR_TMEP/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+LIVE_NEW=$ISO_DIR_TMEP/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+# 新文件检查位置
+DVD_OLD=$ISO_DIR/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+LIVE_OLD=$ISO_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+# 老文件检查位置
 
 while true; do
 
@@ -60,93 +87,141 @@ while true; do
     printf 'V - Verify New ISO files.\n'
     printf 'C - Check old ISO files.\n'
     printf 'U - Update ISO files\n'
+    printf 'R - Clear temp file.\n'
     printf 'Q - End task.\n\n'
     printf '==> '
     read answer
 
-    #下载 ISO 文件
-    cd $ISO_DIR_DL
+    # 下载 ISO 文件
     if [ $answer = 1 ]; then
-        wget https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-        wget https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
-        wget https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+        if [ -d $ISO_DIR_TMEP ]; then
+            printf 'INFO: Find the temp dir.\n'
+            cd $ISO_DIR_TMEP
+        else
+            mkdir -p $ISO_DIR_TMEP
+            printf 'INFO: The temp dir created.\n'
+            cd $ISO_DIR_TMEP
+        fi
+        wget -c $DL_URL/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+        wget -c $DL_URL/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
+        wget -c $DL_URL/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
     elif [ $answer = 2 ]; then
-        wget https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-        wget https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
-        wget https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+        if [ -d $ISO_DIR_TMEP ]; then
+            printf 'INFO: Find the temp dir.\n'
+            cd $ISO_DIR_TMEP
+        else
+            mkdir -p $ISO_DIR_TMEP
+            printf 'INFO: The temp dir created.\n'
+            cd $ISO_DIR_TMEP
+        fi
+        wget -c $DL_URL/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+        wget -c $DL_URL/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
+        wget -c $DL_URL/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
 
     elif [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
-    #校验新下载的 ISO 文件
-        cd $ISO_DIR_DL
-        if [ -f $DVD_NEW ]; then
-            gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
-            cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' > temp.sha256
-            sha256sum -c temp.sha256
-            rm temp.sha256
+    # 校验新下载的 ISO 文件
+        if [ -d $ISO_DIR_TMEP ]; then
+            cd $ISO_DIR_TMEP
+            if [ -f $DVD_NEW ]; then
+                gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+                cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' > temp.sha256
+                sha256sum -c temp.sha256
+                rm temp.sha256
+            else
+                printf 'ERROR: No found new DVD ISO files!\n'
+            fi
+            printf -- '-%0.s' {1..100} && echo
+            if [ -f $LIVE_NEW ]; then
+                gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+                cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' > temp.sha256
+                sha256sum -c temp.sha256
+                rm temp.sha256
+            else
+                printf 'ERROR: No found new Live ISO files!\n'
+            fi
         else
-            printf 'ERROR: No found new DVD ISO files!\n'
-        fi
-        printf -- '-%0.s' {1..100} && echo
-        if [ -f $LIVE_NEW ]; then
-            gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
-            cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' > temp.sha256
-            sha256sum -c temp.sha256
-            rm temp.sha256
-        else
-            printf 'ERROR: No found new Live ISO files!\n'
+            printf 'ERROR: No found the temp dir!\n'
         fi
 
+
     elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
-    #校验旧版 ISO 文件
-        cd $ISO_DIR
-        if [ -f $DVD_OLD ]; then
-            gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
-            cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' > temp.sha256
-            sha256sum -c temp.sha256
-            rm temp.sha256
+    # 校验旧版 ISO 文件
+        if [ -d $ISO_DIR ]; then
+            cd $ISO_DIR
+            if [ -f $DVD_OLD ]; then
+                gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+                cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' > temp.sha256
+                sha256sum -c temp.sha256
+                rm temp.sha256
+            else
+                printf 'ERROR: No found old DVD ISO files!\n'
+            fi
+            printf -- '-%0.s' {1..100} && echo
+            if [ -f $LIVE_OLD ]; then
+                gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+                cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' > temp.sha256
+                sha256sum -c temp.sha256
+                rm temp.sha256
+            else
+                printf 'ERROR: No found old Live ISO files!\n'
+            fi
         else
-            printf 'ERROR: No found old DVD ISO files!\n'
-        fi
-        printf -- '-%0.s' {1..100} && echo
-        if [ -f $LIVE_OLD ]; then
-            gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
-            cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' > temp.sha256
-            sha256sum -c temp.sha256
-            rm temp.sha256
-        else
-            printf 'ERROR: No found old Live ISO files!\n'
+            printf 'ERROR: No found the ISO dir!\n'
         fi
 
     elif [ "$answer" = "U" ] || [ "$answer" = "u" ]; then
     #更新 ISO 文件
-        if [ -f $DVD_NEW ]; then
-            printf 'Found the new DVD ISO files: OK!\n'
-            if [ -f $DVD_OLD ]; then
-                rm $ISO_DIR/openSUSE-Tumbleweed-DVD*.*
-                printf 'Delete the old DVD ISO files: OK!\n'
+        if [ -d $ISO_DIR_TMEP ]; then
+            if [ -f $DVD_NEW ]; then
+                printf 'Found the new DVD ISO files: OK!\n'
+                if [ -f $DVD_OLD ]; then
+                    rm $ISO_DIR/openSUSE-Tumbleweed-DVD*.*
+                    printf 'Delete the old DVD ISO files: OK!\n'
+                else
+                    printf 'ERROR: No found the old DVD ISO files!\n'
+                fi
+                mv $ISO_DIR_TMEP/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
+                printf 'Update the DVD ISO files: OK!\n'
             else
-                printf 'ERROR: No found the old DVD ISO files!\n'
+                printf 'ERROR: No found the new DVD ISO files!\n'
             fi
-            mv $ISO_DIR_DL/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
-            printf 'Update the DVD ISO files: OK!\n'
+            if [ -f $LIVE_NEW ]; then
+                printf 'Found the new Live ISO files: OK!\n'
+                if [ -f $LIVE_OLD ]; then
+                    rm $ISO_DIR_TMEP/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
+                    printf 'Delete the old Live ISO files: OK!\n'
+                else
+                    printf 'ERROR: No found the old Live ISO files!\n'
+                fi
+                mv $ISO_DIR_TMEP/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
+                printf 'Update the Live ISO files: OK!\n'
+            else
+                printf 'ERROR: No found the new Live ISO files!\n'
+            fi
         else
-            printf 'ERROR: No found the new DVD ISO files!\n'
+            printf 'ERROR: No found the temp dir!\n'
         fi
-        if [ -f $LIVE_NEW ]; then
-            printf 'Found the new Live ISO files: OK!\n'
-            if [ -f $LIVE_OLD ]; then
-                rm $ISO_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
-                printf 'Delete the old Live ISO files: OK!\n'
-            else
-                printf 'ERROR: No found the old Live ISO files!\n'
-            fi
-            mv $ISO_DIR_DL/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
-            printf 'Update the Live ISO files: OK!\n'
+
+    elif [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
+    # 手动删除缓存文件夹
+        if [ -d $ISO_DIR_TMEP ]; then
+            rm -rf $ISO_DIR_TMEP
+            printf 'Delete the temp dir: OK!\n'
         else
-            printf 'ERROR: No found the new Live ISO files!\n'
+            printf 'ERROR: NO found the temp dir!'
         fi
 
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
+        if [ -d "$ISO_DIR_TMEP" ]; then
+            if [ "$(ls -A $ISO_DIR_TMEP)" ]; then
+                printf "INFO: the temp dir isn't empty.\n"
+            else
+                rm -rf $ISO_DIR_TMEP
+                printf "INFO: Deleted empty temp dir.\n"
+            fi
+        else
+            printf 'INFO: No found the temp dir.\n'
+        fi
         exit
 
     else
