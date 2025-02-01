@@ -2121,17 +2121,44 @@
 </code></pre></div>
 <h2 id="iso-m">iso-m</h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
-<span class="c1">#本脚本用于下载、校验和归档 openSUSE Tumbleweed ISO 文件</span>
+<span class="c1"># 本脚本用于管理 openSUSE Tumbleweed ISO 文件。</span>
+<span class="c1">#</span>
+<span class="c1"># 主要功能有：</span>
+<span class="c1"># 1. 下载 DVD/Live ISO 文件、sha256 文件和 asc 证书文件</span>
+<span class="c1"># 2. 校验新旧 ISO 文件（计算哈希，验证 GPG 签名）</span>
+<span class="c1"># 3. 更新替换旧版 ISO 文件</span>
+<span class="c1">#</span>
+<span class="c1"># 注意：</span>
+<span class="c1"># 1. 使用前请完整阅读一遍脚本，使用时风险自负。</span>
+<span class="c1"># 2. 用户需要自行修改需要修改的变量。</span>
+<span class="c1"># 3. 用户需要自己配置 gpg 工具。</span>
 
-<span class="nb">export</span><span class="w"> </span><span class="nv">ISO_DIR</span><span class="o">=</span>/home/poplar/Downloads/ISO
-<span class="nb">export</span><span class="w"> </span><span class="nv">ISO_DIR_DL</span><span class="o">=</span>/home/poplar/Downloads/Aria2
-<span class="c1">#文件目录</span>
+<span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Please modify the script before using it for the first time to make it work properly.\n&#39;</span>
 
-<span class="nv">DVD_NEW</span><span class="o">=</span>/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-<span class="nv">LIVE_NEW</span><span class="o">=</span>/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-<span class="nv">DVD_OLD</span><span class="o">=</span>/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-<span class="nv">LIVE_OLD</span><span class="o">=</span>/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-<span class="c1">#要检测的 ISO 文件</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ISO_DIR</span><span class="o">=</span><span class="nv">$HOME</span>/Downloads/ISO
+<span class="c1"># 默认保存位置</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ISO_DIR_TMEP</span><span class="o">=</span><span class="nv">$HOME</span>/Downloads/iso-m-temp
+<span class="c1"># 默认缓存位置</span>
+
+<span class="c1"># 选择一个镜像站，一次只能选择一个</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DL_URL</span><span class="o">=</span>https://mirrors.zju.edu.cn/opensuse
+<span class="c1">#export DL_URL=http://mirror.bjtu.edu.cn/opensuse</span>
+<span class="c1">#export DL_URL=https://mirror.nyist.edu.cn/opensuse</span>
+<span class="c1">#export DL_URL=https://ftp.sjtu.edu.cn/opensuse</span>
+<span class="c1">#export DL_URL=https://mirrors.163.com/openSUSE</span>
+<span class="c1">#export DL_URL=https://mirrors.bfsu.edu.cn/opensuse</span>
+<span class="c1">#export DL_URL=https://mirrors.tuna.tsinghua.edu.cn/opensuse</span>
+<span class="c1">#export DL_URL=https://mirrors.ustc.edu.cn/opensuse</span>
+<span class="c1">#export DL_URL=</span>
+<span class="c1">#export DL_URL=</span>
+<span class="c1"># 默认包含已加入 mirrors.opensuse.org，位于中国的镜像站</span>
+
+<span class="nv">DVD_NEW</span><span class="o">=</span><span class="nv">$ISO_DIR_TMEP</span>/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+<span class="nv">LIVE_NEW</span><span class="o">=</span><span class="nv">$ISO_DIR_TMEP</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+<span class="c1"># 新文件检查位置</span>
+<span class="nv">DVD_OLD</span><span class="o">=</span><span class="nv">$ISO_DIR</span>/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+<span class="nv">LIVE_OLD</span><span class="o">=</span><span class="nv">$ISO_DIR</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+<span class="c1"># 老文件检查位置</span>
 
 <span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 
@@ -2142,93 +2169,141 @@
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;V - Verify New ISO files.\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;C - Check old ISO files.\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;U - Update ISO files\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;R - Clear temp file.\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Q - End task.\n\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;==&gt; &#39;</span>
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span>answer
 
-<span class="w">    </span><span class="c1">#下载 ISO 文件</span>
-<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR_DL</span>
+<span class="w">    </span><span class="c1"># 下载 ISO 文件</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span>wget<span class="w"> </span>https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-<span class="w">        </span>wget<span class="w"> </span>https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
-<span class="w">        </span>wget<span class="w"> </span>https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Find the temp dir.\n&#39;</span>
+<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: The temp dir created.\n&#39;</span>
+<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">        </span>wget<span class="w"> </span>-c<span class="w"> </span><span class="nv">$DL_URL</span>/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+<span class="w">        </span>wget<span class="w"> </span>-c<span class="w"> </span><span class="nv">$DL_URL</span>/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
+<span class="w">        </span>wget<span class="w"> </span>-c<span class="w"> </span><span class="nv">$DL_URL</span>/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span>wget<span class="w"> </span>https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
-<span class="w">        </span>wget<span class="w"> </span>https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
-<span class="w">        </span>wget<span class="w"> </span>https://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Find the temp dir.\n&#39;</span>
+<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: The temp dir created.\n&#39;</span>
+<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">        </span>wget<span class="w"> </span>-c<span class="w"> </span><span class="nv">$DL_URL</span>/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+<span class="w">        </span>wget<span class="w"> </span>-c<span class="w"> </span><span class="nv">$DL_URL</span>/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
+<span class="w">        </span>wget<span class="w"> </span>-c<span class="w"> </span><span class="nv">$DL_URL</span>/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
 
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;V&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;v&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#校验新下载的 ISO 文件</span>
-<span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR_DL</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$DVD_NEW</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
-<span class="w">            </span>cat<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
-<span class="w">            </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
-<span class="w">            </span>rm<span class="w"> </span>temp.sha256
+<span class="w">    </span><span class="c1"># 校验新下载的 ISO 文件</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$DVD_NEW</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+<span class="w">                </span>cat<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
+<span class="w">                </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
+<span class="w">                </span>rm<span class="w"> </span>temp.sha256
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found new DVD ISO files!\n&#39;</span>
+<span class="w">            </span><span class="k">fi</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$LIVE_NEW</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+<span class="w">                </span>cat<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
+<span class="w">                </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
+<span class="w">                </span>rm<span class="w"> </span>temp.sha256
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found new Live ISO files!\n&#39;</span>
+<span class="w">            </span><span class="k">fi</span>
 <span class="w">        </span><span class="k">else</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found new DVD ISO files!\n&#39;</span>
-<span class="w">        </span><span class="k">fi</span>
-<span class="w">        </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$LIVE_NEW</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
-<span class="w">            </span>cat<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
-<span class="w">            </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
-<span class="w">            </span>rm<span class="w"> </span>temp.sha256
-<span class="w">        </span><span class="k">else</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found new Live ISO files!\n&#39;</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the temp dir!\n&#39;</span>
 <span class="w">        </span><span class="k">fi</span>
 
+
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#校验旧版 ISO 文件</span>
-<span class="w">        </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$DVD_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
-<span class="w">            </span>cat<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
-<span class="w">            </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
-<span class="w">            </span>rm<span class="w"> </span>temp.sha256
+<span class="w">    </span><span class="c1"># 校验旧版 ISO 文件</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DIR</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$ISO_DIR</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$DVD_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+<span class="w">                </span>cat<span class="w"> </span>openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
+<span class="w">                </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
+<span class="w">                </span>rm<span class="w"> </span>temp.sha256
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found old DVD ISO files!\n&#39;</span>
+<span class="w">            </span><span class="k">fi</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$LIVE_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+<span class="w">                </span>cat<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
+<span class="w">                </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
+<span class="w">                </span>rm<span class="w"> </span>temp.sha256
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found old Live ISO files!\n&#39;</span>
+<span class="w">            </span><span class="k">fi</span>
 <span class="w">        </span><span class="k">else</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found old DVD ISO files!\n&#39;</span>
-<span class="w">        </span><span class="k">fi</span>
-<span class="w">        </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$LIVE_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span>gpg<span class="w"> </span>--verify<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
-<span class="w">            </span>cat<span class="w"> </span>openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>temp.sha256
-<span class="w">            </span>sha256sum<span class="w"> </span>-c<span class="w"> </span>temp.sha256
-<span class="w">            </span>rm<span class="w"> </span>temp.sha256
-<span class="w">        </span><span class="k">else</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found old Live ISO files!\n&#39;</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the ISO dir!\n&#39;</span>
 <span class="w">        </span><span class="k">fi</span>
 
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;U&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;u&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="c1">#更新 ISO 文件</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$DVD_NEW</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Found the new DVD ISO files: OK!\n&#39;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$DVD_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">                </span>rm<span class="w"> </span><span class="nv">$ISO_DIR</span>/openSUSE-Tumbleweed-DVD*.*
-<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete the old DVD ISO files: OK!\n&#39;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$DVD_NEW</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Found the new DVD ISO files: OK!\n&#39;</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$DVD_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                    </span>rm<span class="w"> </span><span class="nv">$ISO_DIR</span>/openSUSE-Tumbleweed-DVD*.*
+<span class="w">                    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete the old DVD ISO files: OK!\n&#39;</span>
+<span class="w">                </span><span class="k">else</span>
+<span class="w">                    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the old DVD ISO files!\n&#39;</span>
+<span class="w">                </span><span class="k">fi</span>
+<span class="w">                </span>mv<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>/openSUSE-Tumbleweed-DVD*.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update the DVD ISO files: OK!\n&#39;</span>
 <span class="w">            </span><span class="k">else</span>
-<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the old DVD ISO files!\n&#39;</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the new DVD ISO files!\n&#39;</span>
 <span class="w">            </span><span class="k">fi</span>
-<span class="w">            </span>mv<span class="w"> </span><span class="nv">$ISO_DIR_DL</span>/openSUSE-Tumbleweed-DVD*.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update the DVD ISO files: OK!\n&#39;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$LIVE_NEW</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Found the new Live ISO files: OK!\n&#39;</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$LIVE_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                    </span>rm<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
+<span class="w">                    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete the old Live ISO files: OK!\n&#39;</span>
+<span class="w">                </span><span class="k">else</span>
+<span class="w">                    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the old Live ISO files!\n&#39;</span>
+<span class="w">                </span><span class="k">fi</span>
+<span class="w">                </span>mv<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update the Live ISO files: OK!\n&#39;</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the new Live ISO files!\n&#39;</span>
+<span class="w">            </span><span class="k">fi</span>
 <span class="w">        </span><span class="k">else</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the new DVD ISO files!\n&#39;</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the temp dir!\n&#39;</span>
 <span class="w">        </span><span class="k">fi</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$LIVE_NEW</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Found the new Live ISO files: OK!\n&#39;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$LIVE_OLD</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">                </span>rm<span class="w"> </span><span class="nv">$ISO_DIR</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
-<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete the old Live ISO files: OK!\n&#39;</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the old Live ISO files!\n&#39;</span>
-<span class="w">            </span><span class="k">fi</span>
-<span class="w">            </span>mv<span class="w"> </span><span class="nv">$ISO_DIR_DL</span>/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*<span class="w"> </span><span class="nv">$ISO_DIR</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update the Live ISO files: OK!\n&#39;</span>
+
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;R&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1"># 手动删除缓存文件夹</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete the temp dir: OK!\n&#39;</span>
 <span class="w">        </span><span class="k">else</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found the new Live ISO files!\n&#39;</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: NO found the temp dir!&#39;</span>
 <span class="w">        </span><span class="k">fi</span>
 
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Q&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;q&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ISO_DIR_TMEP</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ls<span class="w"> </span>-A<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span><span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;INFO: the temp dir isn&#39;t empty.\n&quot;</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$ISO_DIR_TMEP</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;INFO: Deleted empty temp dir.\n&quot;</span>
+<span class="w">            </span><span class="k">fi</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: No found the temp dir.\n&#39;</span>
+<span class="w">        </span><span class="k">fi</span>
 <span class="w">        </span><span class="nb">exit</span>
 
 <span class="w">    </span><span class="k">else</span>
