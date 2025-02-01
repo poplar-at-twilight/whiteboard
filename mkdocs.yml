@@ -58,6 +58,7 @@ nav:
         - essay/main/opencc.md
         - essay/main/python-embed.md
         - essay/main/graphs-setup.md
+        - essay/main/mpv-config.md
       - openSUSE 安装配置:
         - essay/note/0-about.md
         - essay/note/1-preparation.md
