@@ -215,7 +215,7 @@ sudo usermod -aG libvirt $USER
 
 ### mpv
 
-另见：<https://github.com/tomasklaen/uosc>
+另见：[个人自用的 mpv 配置](./../main/mpv-config.md)
 
 ## Fcitx5
 
