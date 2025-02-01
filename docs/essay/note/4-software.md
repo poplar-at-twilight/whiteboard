@@ -48,10 +48,11 @@ sudo usermod -aG flatpak $USER
 - `com.github.johnfactotum.Foliate`
 - `com.github.qarmin.czkawka`
 - `com.github.tchx84.Flatseal`
-- `com.jgraph.drawio.desktop`
 - `io.github.xiaoyifang.goldendict_ng`
 - `net.davidotek.pupgui2`
 - `org.telegram.desktop`
+
+注意，使用 `net.davidotek.pupgui2` 安装 protonGE 时，需要 `set-proxy` 并关闭 steam 客户端。
 
 ### 清理数据
 
@@ -154,8 +155,11 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 - `google-noto-sans-mono-fonts`
 - `gimp`
 - `goverlay`
+- `jpegoptim`
 - `kfind`
 - `kleopatra`
+- `libgthread-2_0-0`
+- `optipng`
 - `qbittorrent`
 - `spek`
 - `steam`
@@ -163,7 +167,7 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious amdgpu_top fcitx5 filelight flameshot google-noto-sans-mono-fonts gimp goverlay kfind kleopatra qbittorrent spek
+sudo zypper in aria2 audacious amdgpu_top fcitx5 filelight flameshot google-noto-sans-mono-fonts gimp goverlay jpegoptim kfind kleopatra libgthread-2_0-0 optipng qbittorrent spek 
 ```
 ```
 sudo zypper in steam
@@ -311,11 +315,7 @@ Logo 文件可从 [VSCodium/icons] 仓库下载获得。
 
 安装时，修改安装的用户范围（仅安装至当前用户）、路径（至 `~/bin/FreeFileSync`）。
 
-然后安装缺失的依赖：
-
-```
-sudo zypper install libgthread-2_0-0
-```
+该软件包依赖 `libgthread-2_0-0`。
 
 ### mangohud & Goverlay
 
