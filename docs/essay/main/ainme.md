@@ -79,6 +79,7 @@ tags:
 - 为美好的世界献上祝福（KonoSuba: God's Blessing on This Wonderful World!） S1~S3 + M
 - 月刊少女野崎君（月刊少女野崎くん）
 - 胆大党（DAN DA DAN） S1
+- 四月是你的谎言（四月は君の嘘）
 
 [^mono]: 仅包含 1st season、2nd season 和 Final season 三个季度的动画。
 
