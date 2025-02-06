@@ -181,8 +181,6 @@ poplar@Greysia:~> tree ~/bin/pbh -L 1
 - `proxy`：将 `setting: 0` 改为 `setting: 2`，并检查服务器地址和端口是否正确。
 - `logger`：将 `hide-finish-log` 改为 `true`
 
-然后使用 `pbh` 注册并重载 PeerBanHelper 服务。
-
 ### 集成管理脚本
 
 用于管理 PeerBanHelper 的脚本 `pbh`：
