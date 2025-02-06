@@ -722,13 +722,22 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="部署 Peerbanhelper">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       配置文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      集成管理脚本
     </span>
   </a>
   
@@ -736,15 +745,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      集成管理脚本
-    </span>
-  </a>
   
 </li>
       
@@ -2205,13 +2205,22 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="部署 Peerbanhelper">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       配置文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      集成管理脚本
     </span>
   </a>
   
@@ -2219,15 +2228,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      集成管理脚本
-    </span>
-  </a>
   
 </li>
       
@@ -2409,7 +2409,7 @@
 <li>禁止连接到特权端口上的 peer</li>
 </ul>
 <h2 id="peerbanhelper">部署 Peerbanhelper</h2>
-<p>获取 <code>PeerBanHelper.jar</code> 和 <code>libraries.tar.gz</code>：</p>
+<p>将下载好的 <code>PeerBanHelper*.zip</code> 放置到 <code>pbh</code> 脚本设定的 <code>$PBH_UP</code> 文件夹中。</p>
 <ul>
 <li>下载地址：<a href="https://github.com/Ghost-chu/PeerBanHelper">https://github.com/Ghost-chu/PeerBanHelper</a></li>
 <li>文档：<a href="https://pbh-btn.github.io/pbh-docs/">https://pbh-btn.github.io/pbh-docs/</a></li>
@@ -2418,35 +2418,17 @@
 /home/poplar/bin/pbh
 ├──<span class="w"> </span>data
 ├──<span class="w"> </span>key.txt
-├──<span class="w"> </span>latest.log<span class="w"> </span>-&gt;<span class="w"> </span>/home/poplar/bin/pbh/data/logs/latest.log
 ├──<span class="w"> </span>libraries
-├──<span class="w"> </span>pbh.service
-├──<span class="w"> </span>PeerBanHelper.jar
-├──<span class="w"> </span>qb-nox.service
-└──<span class="w"> </span>test-start.sh
+└──<span class="w"> </span>PeerBanHelper.jar
 
-<span class="m">3</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">6</span><span class="w"> </span>files
+<span class="m">3</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">2</span><span class="w"> </span>files
 </code></pre></div>
-<p><code>test-start.sh</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
-<span class="c1">#测试启动</span>
-java<span class="w"> </span>-Xmx512M<span class="w"> </span>-XX:+UseG1GC<span class="w"> </span>-XX:+UseStringDeduplication<span class="w"> </span>-XX:+ShrinkHeapInSteps<span class="w"> </span>-jar<span class="w"> </span>PeerBanHelper.jar<span class="w"> </span>nogui
-</code></pre></div>
-<p><code>pbh.service</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
-<span class="nv">Description</span><span class="o">=</span>Start<span class="w"> </span>PeerBanHelper<span class="w"> </span>Service
-
-<span class="o">[</span>Service<span class="o">]</span>
-<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/java<span class="w"> </span>-jar<span class="w"> </span>-Xmx512M<span class="w"> </span>-XX:+UseG1GC<span class="w"> </span>-XX:+UseStringDeduplication<span class="w"> </span>-XX:+ShrinkHeapInSteps<span class="w"> </span>PeerBanHelper.jar<span class="w"> </span>nogui
-<span class="nv">Type</span><span class="o">=</span>simple
-<span class="nv">WorkingDirectory</span><span class="o">=</span>/home/poplar/bin/pbh/
-
-<span class="o">[</span>Install<span class="o">]</span>
-<span class="nv">WantedBy</span><span class="o">=</span>default.target
-</code></pre></div>
-<h3 id="_11">配置文件</h3>
-<p>使用 <code>test-start.sh</code> 启动服务，在 <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a> 生成 token 并添加 qBittorrent 下载器。然后关闭脚本。</p>
-<p>修改 <code>~/bin/pbh/data/config/config.yml</code>：</p>
+<h2 id="_11">配置文件</h2>
+<p>使用下文的 <code>pbh</code> 安装并启动服务，然后修改 <code>~/bin/pbh/data/config/config.yml</code>：</p>
+<ul>
+<li><code>server</code>: 将 <code>address</code> 的值设置为 <code>127.0.0.1</code></li>
+</ul>
+<p>然后在 <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a>。生成 token 并添加 qBittorrent 下载器，并修改 <code>~/bin/pbh/data/config/config.yml</code>：</p>
 <ul>
 <li><code>language</code>：改为 <code>zh_CN</code></li>
 <li><code>btn</code>：改为 <code>true</code>，并填入 <code>app-id</code> 和 <code>app-secret</code><ul>
@@ -2457,92 +2439,132 @@ java<span class="w"> </span>-Xmx512M<span class="w"> </span>-XX:+UseG1GC<span cl
 <li><code>logger</code>：将 <code>hide-finish-log</code> 改为 <code>true</code></li>
 </ul>
 <p>然后使用 <code>pbh</code> 注册并重载 PeerBanHelper 服务。</p>
-<h2 id="_12">集成管理脚本</h2>
+<h3 id="_12">集成管理脚本</h3>
 <p>用于管理 PeerBanHelper 的脚本 <code>pbh</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>
-<span class="c1">#本脚本用于 Peerbanhelper 的日常维护</span>
+<span class="c1"># 本脚本用于 Peerbanhelper 的日常维护</span>
+<span class="c1"># 注意，本脚本只适用于直接使用 PeerBanHelper_*.zip 文件进行部署的方式</span>
 
-<span class="nb">export</span><span class="w"> </span><span class="nv">PBH_DIR</span><span class="o">=</span>/home/poplar/bin/pbh
-<span class="c1">#PeerBanHelper jar 文件的主目录</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PBH_DIR_U</span><span class="o">=</span>/home/poplar/Downloads
-<span class="c1">#PeerBanHelper jar 新版本文件的默认存放路径</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PBH_DIR</span><span class="o">=</span><span class="nv">$HOME</span>/bin/pbh
+<span class="c1"># PeerBanHelper 主目录</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PBH_UP</span><span class="o">=</span><span class="nv">$HOME</span>/Downloads
+<span class="c1"># PeerBanHelper 更新包文件路径</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BIN_DIR</span><span class="o">=</span><span class="nv">$HOME</span>/bin
+<span class="c1"># PeerBanHelper 的父级目录</span>
 
-<span class="nv">LOG_FILE</span><span class="o">=</span>/home/poplar/bin/pbh/data/logs/*.log.gz
+<span class="nv">SER_FILE</span><span class="o">=</span><span class="nv">$HOME</span>/.config/systemd/user/pbh.service
 
 <span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span>--<span class="w"> </span><span class="s1">&#39;-%0.s&#39;</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..100<span class="o">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;You can use the PeerBanHelper maintenance script for:\n\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;A - Set up systemd services\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;B - Start systemd service\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;C - Stop systemd service\n\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;D - Update PeerBanHelper\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;E - Degrade PeerBanHelper\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;F - Delete unused jar and logs\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;G - Read logs of PeerBanHelper\n\n&#39;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;H - Clear terminal output\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;1 - Install PeerBanHelper\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;2 - Activate systemd service\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;3 - Stop systemd service\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;4 - Delete systemd service\n\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;U - Upgrade PeerBanHelper\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;D - Degrade PeerBanHelper\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;F - Delete unused old files\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;L - Read logs of PeerBanHelper\n\n&#39;</span>
+<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;C - Clear terminal output\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Q - Quit\n\n&#39;</span>
 <span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;==&gt; &#39;</span>
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span>answer
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#注册服务</span>
-<span class="w">        </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/systemd/user
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR</span>/pbh.service<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Found pbh.service file.\n&#39;</span>
-<span class="w">            </span>cp<span class="w"> </span><span class="nv">$PBH_DIR</span>/pbh.service<span class="w"> </span>~/.config/systemd/user
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1"># 安装 PeerBanHelper</span>
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;After installing the app, you need to manually edit the configuration file at: /data/config/config.yml \n&#39;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$SER_FILE</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="c1"># 检查 systemd 服务文件是否存在</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Found the systemd service file.\n&#39;</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: NO found the systemd service file.\n&#39;</span>
+<span class="w">            </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/systemd/user
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[Unit]&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Description=Start PeerBanHelper Service&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[Service]&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ExecStart=/usr/bin/java -jar -Xmx512M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps PeerBanHelper.jar nogui&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Type=simple&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;WorkingDirectory=</span><span class="nv">$PBH_DIR</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[Install]&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;WantedBy=default.target&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Systemd service file created.\n&#39;</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="c1"># 检查主程序是否存在</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Main program found.\n&#39;</span>
 <span class="w">            </span>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span>--user
 <span class="w">            </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">            </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Loaded&quot;</span>
-<span class="w">            </span><span class="c1">#注册 PeerBanHelper</span>
 <span class="w">        </span><span class="k">else</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: pbh.service not found!\n&#39;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_UP</span>/PeerBanHelper*.zip<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Found zip file to install.\n&#39;</span>
+<span class="w">                </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PBH_UP</span>
+<span class="w">                </span>7z<span class="w"> </span>x<span class="w"> </span>PeerBanHelper*.zip
+<span class="w">                </span>mv<span class="w"> </span><span class="nv">$PBH_UP</span>/PeerBanHelper<span class="w"> </span><span class="nv">$BIN_DIR</span>
+<span class="w">                </span>mv<span class="w"> </span><span class="nv">$BIN_DIR</span>/PeerBanHelper<span class="w"> </span><span class="nv">$BIN_DIR</span>/pbh
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: PeerBanHelper installed.\n&#39;</span>
+<span class="w">                </span>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span>--user
+<span class="w">                </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--user<span class="w"> </span>pbh
+<span class="w">                </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Loaded&quot;</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found zip file to install!\n&#39;</span>
+<span class="w">            </span><span class="k">fi</span>
 <span class="w">        </span><span class="k">fi</span>
 
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#启动服务</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1"># 启动服务</span>
 <span class="w">        </span>systemctl<span class="w"> </span>start<span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">        </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
 
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#关闭服务</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1"># 关闭服务</span>
 <span class="w">        </span>systemctl<span class="w"> </span>stop<span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">        </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
 
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#更新 Peerbanhelper</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1"># 删除服务</span>
+<span class="w">        </span>systemctl<span class="w"> </span>disable<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span>--now
+<span class="w">        </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
+<span class="w">        </span>rm<span class="w"> </span><span class="nv">$SER_FILE</span>
+<span class="w">        </span>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span>--user
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: systemd service deleted.\n&#39;</span>
+
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;U&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;u&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1"># 更新 PeerBanHelper</span>
 <span class="w">        </span>systemctl<span class="w"> </span>stop<span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">        </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
-<span class="w">        </span><span class="c1">#服务中止</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper*.zip<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PBH_DIR_U</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_UP</span>/PeerBanHelper*.zip<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Found zip file to upgrade.\n&#39;</span>
+<span class="w">            </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PBH_UP</span>
 <span class="w">            </span>7z<span class="w"> </span>x<span class="w"> </span>PeerBanHelper*.zip
 <span class="w">            </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$PBH_DIR</span>/libraries
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Delete old libraries: OK!\n&#39;</span>
-<span class="w">            </span>mv<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper/libraries<span class="w"> </span><span class="nv">$PBH_DIR</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update libraries: OK!\n&#39;</span>
-<span class="w">            </span><span class="c1">#更新库</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Delete old libraries.\n&#39;</span>
+<span class="w">            </span>mv<span class="w"> </span><span class="nv">$PBH_UP</span>/PeerBanHelper/libraries<span class="w"> </span><span class="nv">$PBH_DIR</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Update libraries.\n&#39;</span>
 <span class="w">            </span>mv<span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar.old
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Backup files: OK!\n&#39;</span>
-<span class="w">            </span>mv<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper/PeerBanHelper.jar<span class="w"> </span><span class="nv">$PBH_DIR</span>
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Update files: OK!\n&#39;</span>
-<span class="w">            </span><span class="c1">#更新 jar 文件</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Jar files back up.\n&#39;</span>
+<span class="w">            </span>mv<span class="w"> </span><span class="nv">$PBH_UP</span>/PeerBanHelper/PeerBanHelper.jar<span class="w"> </span><span class="nv">$PBH_DIR</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Update jar files.\n&#39;</span>
 <span class="w">            </span>systemctl<span class="w"> </span>restart<span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">            </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
-<span class="w">            </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$PBH_DIR_U</span>/PeerBanHelper
+<span class="w">            </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$PBH_UP</span>/PeerBanHelper
+<span class="w">            </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="nv">$PBH_UP</span>/PeerBanHelper*.zip
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Deleted the update tarball.\n&#39;</span>
 <span class="w">        </span><span class="k">else</span>
 <span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: PeerBanHelper*.zip not found!\n&#39;</span>
 <span class="w">        </span><span class="k">fi</span>
 
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;E&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#降级更新 Peerbanhelper</span>
+<span class="w">    </span><span class="c1"># 降级更新 Peerbanhelper</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar.old<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Found the backup files.\n&#39;</span>
 <span class="w">            </span>systemctl<span class="w"> </span>stop<span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">            </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
-<span class="w">            </span><span class="c1">#服务中止</span>
 <span class="w">            </span>mv<span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar.error
 <span class="w">            </span>mv<span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar.old<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Downgrade: OK!\n&#39;</span>
-<span class="w">            </span><span class="c1">#更换旧版文件</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Downgrade completed.\n&#39;</span>
 <span class="w">            </span>systemctl<span class="w"> </span>restart<span class="w"> </span>--user<span class="w"> </span>pbh
 <span class="w">            </span>systemctl<span class="w"> </span>status<span class="w"> </span>--user<span class="w"> </span>pbh<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Active&quot;</span>
 <span class="w">        </span><span class="k">else</span>
@@ -2550,41 +2572,38 @@ java<span class="w"> </span>-Xmx512M<span class="w"> </span>-XX:+UseG1GC<span cl
 <span class="w">        </span><span class="k">fi</span>
 
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;F&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;f&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#删除有问题的旧版文件和日志</span>
-<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Start deleting files...\n&#39;</span>
-<span class="w">        </span>rm<span class="w"> </span><span class="nv">$PBH_DIR</span>/data/logs/*.log.gz
-<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Remove archive logs: OK!\n&#39;</span>
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Start deleting files...\n&#39;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$PBH_DIR</span>/data/logs<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span>rm<span class="w"> </span><span class="nv">$PBH_DIR</span>/data/logs/*.gz
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Removed archive logs: OK!\n&#39;</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: No found log files.\n&#39;</span>
+<span class="w">        </span><span class="k">fi</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar.error<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="c1">#删除 PeerBanHelper.jar.error</span>
 <span class="w">            </span>rm<span class="w"> </span><span class="nv">$PBH_DIR</span>/PeerBanHelper.jar.error
-<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;Remove PeerBanHelper.jar.error: OK!\n&#39;</span>
+<span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;INFO: Removed PeerBanHelper.jar.error.\n&#39;</span>
 <span class="w">        </span><span class="k">else</span>
 <span class="w">            </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;ERROR: PeerBanHelper.jar.error not found!\n&#39;</span>
 <span class="w">        </span><span class="k">fi</span>
 
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;G&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;g&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#读取 Peerbanhelper 日志</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;L&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;l&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1"># 读取 Peerbanhelper 日志</span>
 <span class="w">        </span>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="nv">$PBH_DIR</span>/data/logs/latest.log
-<span class="w">        </span><span class="c1">#读取最新的 30 条日志</span>
-<span class="w">        </span><span class="c1">#也可以使用：</span>
+<span class="w">        </span><span class="c1"># 读取最新的 30 条日志</span>
+<span class="w">        </span><span class="c1"># 也可以使用：</span>
 <span class="w">        </span><span class="c1">#journalctl --user -u pbh</span>
 
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;H&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;h&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#清理并退出</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span>clear
 
 <span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Q&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;q&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1">#退出</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;The script task has ended.&quot;</span>
 <span class="w">        </span><span class="nb">exit</span>
 
 <span class="w">    </span><span class="k">else</span>
-<span class="w">    </span><span class="c1">#重新开始循环</span>
 <span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR: Invalid input!&quot;</span>
 <span class="w">        </span><span class="k">continue</span>
 
 <span class="w">    </span><span class="k">fi</span>
-
 <span class="k">done</span>
 </code></pre></div>
 
