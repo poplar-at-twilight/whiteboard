@@ -151,7 +151,7 @@ poplar@Greysia:~> tree /home/bt/network -L 1
 
 ## 部署 Peerbanhelper
 
-获取 `PeerBanHelper.jar` 和 `libraries.tar.gz`：
+将下载好的 `PeerBanHelper*.zip` 放置到 `pbh` 脚本设定的 `$PBH_UP` 文件夹中。
 
 - 下载地址：<https://github.com/Ghost-chu/PeerBanHelper>
 - 文档：<https://pbh-btn.github.io/pbh-docs/>
@@ -161,44 +161,19 @@ poplar@Greysia:~> tree ~/bin/pbh -L 1
 /home/poplar/bin/pbh
 ├── data
 ├── key.txt
-├── latest.log -> /home/poplar/bin/pbh/data/logs/latest.log
 ├── libraries
-├── pbh.service
-├── PeerBanHelper.jar
-├── qb-nox.service
-└── test-start.sh
+└── PeerBanHelper.jar
 
-3 directories, 6 files
+3 directories, 2 files
 ```
 
-`test-start.sh`：
+## 配置文件
 
-```shell
-#!/bin/sh
-#测试启动
-java -Xmx512M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps -jar PeerBanHelper.jar nogui
-```
+使用下文的 `pbh` 安装并启动服务，然后修改 `~/bin/pbh/data/config/config.yml`：
 
-`pbh.service`：
+- `server`: 将 `address` 的值设置为 `127.0.0.1`
 
-```shell
-[Unit]
-Description=Start PeerBanHelper Service
-
-[Service]
-ExecStart=/usr/bin/java -jar -Xmx512M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps PeerBanHelper.jar nogui
-Type=simple
-WorkingDirectory=/home/poplar/bin/pbh/
-
-[Install]
-WantedBy=default.target
-```
-
-### 配置文件
-
-使用 `test-start.sh` 启动服务，在 <http://127.0.0.1:8080> 生成 token 并添加 qBittorrent 下载器。然后关闭脚本。
-
-修改 `~/bin/pbh/data/config/config.yml`：
+然后在 <http://127.0.0.1:8080>。生成 token 并添加 qBittorrent 下载器，并修改 `~/bin/pbh/data/config/config.yml`：
 
 - `language`：改为 `zh_CN`
 - `btn`：改为 `true`，并填入 `app-id` 和 `app-secret`
@@ -208,95 +183,135 @@ WantedBy=default.target
 
 然后使用 `pbh` 注册并重载 PeerBanHelper 服务。
 
-## 集成管理脚本
+### 集成管理脚本
 
 用于管理 PeerBanHelper 的脚本 `pbh`：
 
 ```shell
 #!/bin/sh
-#本脚本用于 Peerbanhelper 的日常维护
+# 本脚本用于 Peerbanhelper 的日常维护
+# 注意，本脚本只适用于直接使用 PeerBanHelper_*.zip 文件进行部署的方式
 
-export PBH_DIR=/home/poplar/bin/pbh
-#PeerBanHelper jar 文件的主目录
-export PBH_DIR_U=/home/poplar/Downloads
-#PeerBanHelper jar 新版本文件的默认存放路径
+export PBH_DIR=$HOME/bin/pbh
+# PeerBanHelper 主目录
+export PBH_UP=$HOME/Downloads
+# PeerBanHelper 更新包文件路径
+export BIN_DIR=$HOME/bin
+# PeerBanHelper 的父级目录
 
-LOG_FILE=/home/poplar/bin/pbh/data/logs/*.log.gz
+SER_FILE=$HOME/.config/systemd/user/pbh.service
 
 while true; do
     printf -- '-%0.s' {1..100} && echo
     printf 'You can use the PeerBanHelper maintenance script for:\n\n'
-    printf 'A - Set up systemd services\n'
-    printf 'B - Start systemd service\n'
-    printf 'C - Stop systemd service\n\n'
-    printf 'D - Update PeerBanHelper\n'
-    printf 'E - Degrade PeerBanHelper\n'
-    printf 'F - Delete unused jar and logs\n'
-    printf 'G - Read logs of PeerBanHelper\n\n'
-    printf 'H - Clear terminal output\n'
+    printf '1 - Install PeerBanHelper\n'
+    printf '2 - Activate systemd service\n'
+    printf '3 - Stop systemd service\n'
+    printf '4 - Delete systemd service\n\n'
+    printf 'U - Upgrade PeerBanHelper\n'
+    printf 'D - Degrade PeerBanHelper\n'
+    printf 'F - Delete unused old files\n'
+    printf 'L - Read logs of PeerBanHelper\n\n'
+    printf 'C - Clear terminal output\n'
     printf 'Q - Quit\n\n'
     printf '==> '
     read answer
 
-    if [ "$answer" = "A" ] || [ "$answer" = "a" ]; then
-    #注册服务
-        mkdir -p ~/.config/systemd/user
-        if [ -f $PBH_DIR/pbh.service ]; then
-            printf 'Found pbh.service file.\n'
-            cp $PBH_DIR/pbh.service ~/.config/systemd/user
+    if [ $answer = 1 ]; then
+    # 安装 PeerBanHelper
+        printf 'After installing the app, you need to manually edit the configuration file at: /data/config/config.yml \n'
+        if [ -f $SER_FILE ]; then
+        # 检查 systemd 服务文件是否存在
+            printf 'INFO: Found the systemd service file.\n'
+        else
+            printf 'INFO: NO found the systemd service file.\n'
+            mkdir -p ~/.config/systemd/user
+            echo "[Unit]" > $SER_FILE
+            echo "Description=Start PeerBanHelper Service" >> $SER_FILE
+            echo >> $SER_FILE
+            echo "[Service]" >> $SER_FILE
+            echo "ExecStart=/usr/bin/java -jar -Xmx512M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps PeerBanHelper.jar nogui" >> $SER_FILE
+            echo "Type=simple" >> $SER_FILE
+            echo "WorkingDirectory=$PBH_DIR" >> $SER_FILE
+            echo >> $SER_FILE
+            echo "[Install]" >> $SER_FILE
+            echo "WantedBy=default.target" >> $SER_FILE
+            printf 'INFO: Systemd service file created.\n'
+        fi
+        if [ -f $PBH_DIR/PeerBanHelper.jar ]; then
+        # 检查主程序是否存在
+            printf 'INFO: Main program found.\n'
             systemctl daemon-reload --user
             systemctl enable --user pbh
             systemctl status --user pbh | grep "Loaded"
-            #注册 PeerBanHelper
         else
-            printf 'ERROR: pbh.service not found!\n'
+            if [ -f $PBH_UP/PeerBanHelper*.zip ]; then
+                printf 'INFO: Found zip file to install.\n'
+                cd $PBH_UP
+                7z x PeerBanHelper*.zip
+                mv $PBH_UP/PeerBanHelper $BIN_DIR
+                mv $BIN_DIR/PeerBanHelper $BIN_DIR/pbh
+                printf 'INFO: PeerBanHelper installed.\n'
+                systemctl daemon-reload --user
+                systemctl enable --user pbh
+                systemctl status --user pbh | grep "Loaded"
+            else
+                printf 'ERROR: No found zip file to install!\n'
+            fi
         fi
 
-    elif [ "$answer" = "B" ] || [ "$answer" = "b" ]; then
-    #启动服务
+    elif [ $answer = 2 ]; then
+    # 启动服务
         systemctl start --user pbh
         systemctl status --user pbh | grep "Active"
 
-    elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
-    #关闭服务
+    elif [ $answer = 3 ]; then
+    # 关闭服务
         systemctl stop --user pbh
         systemctl status --user pbh | grep "Active"
+    
+    elif [ $answer = 4 ]; then
+    # 删除服务
+        systemctl disable --user pbh --now
+        systemctl status --user pbh | grep "Active"
+        rm $SER_FILE
+        systemctl daemon-reload --user
+        printf 'INFO: systemd service deleted.\n'
 
-    elif [ "$answer" = "D" ] || [ "$answer" = "d" ]; then
-    #更新 Peerbanhelper
+    elif [ "$answer" = "U" ] || [ "$answer" = "u" ]; then
+    # 更新 PeerBanHelper
         systemctl stop --user pbh
         systemctl status --user pbh | grep "Active"
-        #服务中止
-        if [ -f $PBH_DIR_U/PeerBanHelper*.zip ]; then
-            cd $PBH_DIR_U
+        if [ -f $PBH_UP/PeerBanHelper*.zip ]; then
+            printf 'INFO: Found zip file to upgrade.\n'
+            cd $PBH_UP
             7z x PeerBanHelper*.zip
             rm -r $PBH_DIR/libraries
-            printf 'Delete old libraries: OK!\n'
-            mv $PBH_DIR_U/PeerBanHelper/libraries $PBH_DIR
-            printf 'Update libraries: OK!\n'
-            #更新库
+            printf 'INFO: Delete old libraries.\n'
+            mv $PBH_UP/PeerBanHelper/libraries $PBH_DIR
+            printf 'INFO: Update libraries.\n'
             mv -f $PBH_DIR/PeerBanHelper.jar $PBH_DIR/PeerBanHelper.jar.old
-            printf 'Backup files: OK!\n'
-            mv $PBH_DIR_U/PeerBanHelper/PeerBanHelper.jar $PBH_DIR
-            printf 'Update files: OK!\n'
-            #更新 jar 文件
+            printf 'INFO: Jar files back up.\n'
+            mv $PBH_UP/PeerBanHelper/PeerBanHelper.jar $PBH_DIR
+            printf 'INFO: Update jar files.\n'
             systemctl restart --user pbh
             systemctl status --user pbh | grep "Active"
-            rm -r $PBH_DIR_U/PeerBanHelper
+            rm -r $PBH_UP/PeerBanHelper
+            rm -r $PBH_UP/PeerBanHelper*.zip
+            printf 'INFO: Deleted the update tarball.\n'
         else
             printf 'ERROR: PeerBanHelper*.zip not found!\n'
         fi
 
     elif [ "$answer" = "E" ] || [ "$answer" = "e" ]; then
-    #降级更新 Peerbanhelper
+    # 降级更新 Peerbanhelper
         if [ -f $PBH_DIR/PeerBanHelper.jar.old ]; then
+            printf 'INFO: Found the backup files.\n'
             systemctl stop --user pbh
             systemctl status --user pbh | grep "Active"
-            #服务中止
             mv -f $PBH_DIR/PeerBanHelper.jar $PBH_DIR/PeerBanHelper.jar.error
             mv -f $PBH_DIR/PeerBanHelper.jar.old $PBH_DIR/PeerBanHelper.jar
-            printf 'Downgrade: OK!\n'
-            #更换旧版文件
+            printf 'INFO: Downgrade completed.\n'
             systemctl restart --user pbh
             systemctl status --user pbh | grep "Active"
         else
@@ -304,40 +319,37 @@ while true; do
         fi
 
     elif [ "$answer" = "F" ] || [ "$answer" = "f" ]; then
-    #删除有问题的旧版文件和日志
-        printf 'Start deleting files...\n'
-        rm $PBH_DIR/data/logs/*.log.gz
-        printf 'Remove archive logs: OK!\n'
+        printf 'INFO: Start deleting files...\n'
+        if [ -d $PBH_DIR/data/logs ]; then
+            rm $PBH_DIR/data/logs/*.gz
+            printf 'Removed archive logs: OK!\n'
+        else
+            printf 'ERROR: No found log files.\n'
+        fi
         if [ -f $PBH_DIR/PeerBanHelper.jar.error ]; then
-        #删除 PeerBanHelper.jar.error
             rm $PBH_DIR/PeerBanHelper.jar.error
-            printf 'Remove PeerBanHelper.jar.error: OK!\n'
+            printf 'INFO: Removed PeerBanHelper.jar.error.\n'
         else
             printf 'ERROR: PeerBanHelper.jar.error not found!\n'
         fi
 
-    elif [ "$answer" = "G" ] || [ "$answer" = "g" ]; then
-    #读取 Peerbanhelper 日志
+    elif [ "$answer" = "L" ] || [ "$answer" = "l" ]; then
+    # 读取 Peerbanhelper 日志
         tail -n 30 $PBH_DIR/data/logs/latest.log
-        #读取最新的 30 条日志
-        #也可以使用：
+        # 读取最新的 30 条日志
+        # 也可以使用：
         #journalctl --user -u pbh
 
-    elif [ "$answer" = "H" ] || [ "$answer" = "h" ]; then
-    #清理并退出
+    elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
         clear
 
     elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
-    #退出
-        echo "The script task has ended."
         exit
 
     else
-    #重新开始循环
         echo "ERROR: Invalid input!"
         continue
 
     fi
-
 done
 ```
