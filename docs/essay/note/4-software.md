@@ -325,3 +325,12 @@ Logo 文件可从 [VSCodium/icons] 仓库下载获得。
 
 1. 不要在游戏启动时让 mangohud 读取游戏的平均帧和 1% low 帧
 1. 使用 Goverlay 时，如果有按钮被遮挡，可以把显示器缩放比例从 150% 调整为 100%
+
+### nano
+
+如果 `nano` 没有启用语法高亮，则在用户目录下添加下列配置文件：
+
+```shell
+poplar@Greysia:~> cat .nanorc
+include /usr/share/nano/*.nanorc
+```

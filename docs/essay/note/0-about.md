@@ -13,7 +13,7 @@ tags:
 - 系统信息
 
 ```
-Operating System: openSUSE Tumbleweed 20250204
+Operating System: openSUSE Tumbleweed 20250207
 KDE Plasma Version: 6.2.5
 KDE Frameworks Version: 6.10.0
 Qt Version: 6.8.2
