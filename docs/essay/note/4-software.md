@@ -102,31 +102,37 @@ poplar@Greysia:~> zypper ll
 ---+------------------------+---------+------------+--------
 1  | MozillaFirefox         | package | （任意）   | 
 2  | PackageKit             | package | （任意）   | 
-3  | discover6              | package | （任意）   | 
-4  | fcitx                  | package | （任意）   | 
-5  | ibus                   | package | （任意）   | 
-6  | kcalc                  | package | （任意）   | 
-7  | kmousetool             | package | （任意）   | 
-8  | kompare                | package | （任意）   | 
-9  | konversation           | package | （任意）   | 
-10 | kuiviewer              | package | （任意）   | 
-11 | opensuse-welcome       | package | （任意）   | 
-12 | patterns-games-games   | package | （任意）   | 
-13 | patterns-kde-kde_games | package | （任意）   | 
-14 | patterns-kde-kde_pim   | package | （任意）   | 
-15 | plymouth               | package | （任意）   | 
-16 | skanlite               | package | （任意）   | 
-17 | spectacle              | package | （任意）   | 
-18 | vlc                    | package | （任意）   | 
+3  | akonadi                | package | （任意）   | 
+4  | chromium               | package | （任意）   | 
+5  | discover6              | package | （任意）   | 
+6  | elinks                 | package | （任意）   | 
+7  | falkon                 | package | （任意）   | 
+8  | fcitx                  | package | （任意）   | 
+9  | firefox-esr            | package | （任意）   | 
+10 | ibus                   | package | （任意）   | 
+11 | kcalc                  | package | （任意）   | 
+12 | kmousetool             | package | （任意）   | 
+13 | kompare                | package | （任意）   | 
+14 | konversation           | package | （任意）   | 
+15 | kuiviewer              | package | （任意）   | 
+16 | libdisplay-info-tools  | package | （任意）   | 
+17 | links                  | package | （任意）   | 
+18 | lynx                   | package | （任意）   | 
+19 | opensuse-welcome       | package | （任意）   | 
+20 | patterns-games-games   | package | （任意）   | 
+21 | patterns-kde-kde_games | package | （任意）   | 
+22 | patterns-kde-kde_pim   | package | （任意）   | 
+23 | plymouth               | package | （任意）   | 
+24 | seamonkey              | package | （任意）   | 
+25 | skanlite               | package | （任意）   | 
+26 | vlc                    | package | （任意）   | 
+27 | w3m                    | package | （任意）   |
 ```
 
 快捷命令：
 
 ```
-sudo zypper rm -u MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite spectacle vlc
-```
-```
-sudo zypper al MozillaFirefox fcitx ibus kcalc kmousetool kompare konversation kuiviewer opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim skanlite spectacle vlc
+sudo zypper rm -u MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m && sudo zypper al MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m
 ```
 
 - 另见[删除 plymouth](./10-plymouth.md)。
@@ -151,7 +157,6 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 - `amdgpu_top`
 - `fcitx5`
 - `filelight`
-- `flameshot`
 - `google-noto-sans-mono-fonts`
 - `gimp`
 - `goverlay`
@@ -167,7 +172,7 @@ sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepas
 快捷命令：
 
 ```
-sudo zypper in aria2 audacious amdgpu_top fcitx5 filelight flameshot google-noto-sans-mono-fonts gimp goverlay jpegoptim kfind kleopatra libgthread-2_0-0 optipng qbittorrent spek 
+sudo zypper in aria2 audacious amdgpu_top fcitx5 filelight google-noto-sans-mono-fonts gimp goverlay jpegoptim kfind kleopatra libgthread-2_0-0 optipng qbittorrent spek 
 ```
 ```
 sudo zypper in steam
@@ -234,10 +239,6 @@ Fcitx5 皮肤：
 ```
 git clone https://github.com/tonyfettes/fcitx5-nord.git
 ```
-
-### flameshot
-
-打开 KDE 的快捷键设置，添加 flameshot，然后将截图的快捷键绑定到 `PrtSc`。
 
 ----
 
