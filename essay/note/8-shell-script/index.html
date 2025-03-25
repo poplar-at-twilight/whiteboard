@@ -2451,8 +2451,10 @@ proxy=http://localhost:7890
 <span class="c1">#更短的别名</span>
 
 <span class="c1">#alias dnfx=&quot;proxychains4 dnf&quot;</span>
-<span class="c1">#alias zypper=&quot;proxychains4 zypper&quot;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">zypper</span><span class="o">=</span><span class="s2">&quot;proxychains4 zypper&quot;</span>
 <span class="c1">#对 zypper/dnf 使用代理</span>
+<span class="nb">alias</span><span class="w"> </span>sys-up<span class="o">=</span><span class="s1">&#39;sudo ZYPP_PCK_PRELOAD=1 proxychains4 zypper dup&#39;</span>
+<span class="c1">#启用并行下载</span>
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;proxychains4 flatpak --user&quot;</span>
 <span class="c1">#对 flatpak 使用代理，并增加 --user 标签</span>

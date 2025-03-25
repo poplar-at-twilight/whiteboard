@@ -1043,6 +1043,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="安装基本工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chrome
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2266,6 +2281,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="安装基本工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chrome
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2415,15 +2445,16 @@
 <h2 id="_2">代理软件</h2>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/2dust/v2rayN/releases">v2rayN</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/MatsuriDayo/nekoray/releases">nekoray</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases">Clash-Verge-rev</a><ul>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/Mahdi-zarei/nekoray">nekoray</a>（原版已归档，这是活跃的社区分支）</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases">Clash-Verge-rev</a><ul>
 <li>依赖项：<ul>
-<li><code>libayatana-appindicator3</code></li>
+<li><code>libayatana-appindicator3-1</code></li>
 <li><code>libwebkit2gtk-4_1-0</code></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/chen08209/FlClash">FlClash</a></li>
 </ul>
 <p>steam 会自动读取系统代理设置。</p>
 <h2 id="flatpak">Flatpak</h2>
@@ -2502,21 +2533,34 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 27 | w3m                    | package | （任意）   |
 </code></pre></div>
 <p>快捷命令：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper rm -u MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m &amp;&amp; sudo zypper al MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m
+<p><div class="highlight"><pre><span></span><code>sudo zypper rm -u MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo zypper al MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m
+</code></pre></div></p>
 <ul>
 <li>另见<a href="../10-plymouth/">删除 plymouth</a>。</li>
 </ul>
 <h2 id="_5">安装基本工具</h2>
 <ul>
-<li><code>chromium</code></li>
+<li><code>google-chrome-stable</code></li>
 <li><code>keepassxc</code></li>
 <li><code>proxychains-ng</code></li>
 <li><code>git-core</code></li>
 </ul>
 <p>快捷命令：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepassxc proxychains-ng git-core 
+<div class="highlight"><pre><span></span><code>sudo zypper in keepassxc proxychains-ng git-core 
 </code></pre></div>
+<h3 id="chrome">Chrome</h3>
+<p>添加软件源：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper ar -f http://dl.google.com/linux/chrome/rpm/stable/x86_64 google-chrome
+</code></pre></div>
+<p>导入证书：</p>
+<div class="highlight"><pre><span></span><code>sudo rpm -import https://dl-ssl.google.com/linux/linux_signing_key.pub
+</code></pre></div>
+<p>安装软件：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper in google-chrome-stable
+</code></pre></div>
+<p>或者直接从 <a href="https://www.google.com/chrome/">https://www.google.com/chrome/</a> 下载 rpm 软件包进行安装。</p>
 <h2 id="_6">安装软件包</h2>
 <ul>
 <li><code>aria2</code></li>
