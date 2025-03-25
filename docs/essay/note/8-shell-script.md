@@ -311,8 +311,10 @@ alias pyc="proxychains4"
 #更短的别名
 
 #alias dnfx="proxychains4 dnf"
-#alias zypper="proxychains4 zypper"
+alias zypper="proxychains4 zypper"
 #对 zypper/dnf 使用代理
+alias sys-up='sudo ZYPP_PCK_PRELOAD=1 proxychains4 zypper dup'
+#启用并行下载
 
 alias flatpakx="proxychains4 flatpak --user"
 #对 flatpak 使用代理，并增加 --user 标签

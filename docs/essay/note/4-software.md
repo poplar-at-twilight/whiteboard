@@ -9,15 +9,17 @@ tags:
 ## 代理软件
 
 - [ ] [v2rayN]
-- [ ] [nekoray]
-- [x] [Clash-Verge-rev]
+- [ ] [nekoray]（原版已归档，这是活跃的社区分支）
+- [ ] [Clash-Verge-rev]
     - 依赖项：
-        - `libayatana-appindicator3`
+        - `libayatana-appindicator3-1`
         - `libwebkit2gtk-4_1-0`
+- [x] [FlClash]
 
 [v2rayN]: https://github.com/2dust/v2rayN/releases
-[nekoray]: https://github.com/MatsuriDayo/nekoray/releases
+[nekoray]: https://github.com/Mahdi-zarei/nekoray
 [Clash-Verge-rev]: https://github.com/clash-verge-rev/clash-verge-rev/releases
+[FlClash]: https://github.com/chen08209/FlClash
 
 steam 会自动读取系统代理设置。
 
@@ -132,14 +134,17 @@ poplar@Greysia:~> zypper ll
 快捷命令：
 
 ```
-sudo zypper rm -u MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m && sudo zypper al MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m
+sudo zypper rm -u MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m
+```
+```
+sudo zypper al MozillaFirefox PackageKit akonadi chromium discover6 elinks falkon fcitx firefox-esr ibus kcalc kmousetool kompare konversation kuiviewer libdisplay-info-tools links lynx opensuse-welcome patterns-games-games patterns-kde-kde_games patterns-kde-kde_pim seamonkey skanlite vlc w3m
 ```
 
 - 另见[删除 plymouth](./10-plymouth.md)。
 
 ## 安装基本工具
 
-- `chromium`
+- `google-chrome-stable`
 - `keepassxc`
 - `proxychains-ng`
 - `git-core`
@@ -147,8 +152,30 @@ sudo zypper rm -u MozillaFirefox PackageKit akonadi chromium discover6 elinks fa
 快捷命令：
 
 ```
-sudo zypper in chromium chromium-ffmpeg-extra chromium-plugin-widevinecdm keepassxc proxychains-ng git-core 
+sudo zypper in keepassxc proxychains-ng git-core 
 ```
+
+### Chrome
+
+添加软件源：
+
+```
+sudo zypper ar -f http://dl.google.com/linux/chrome/rpm/stable/x86_64 google-chrome
+```
+
+导入证书：
+
+```
+sudo rpm -import https://dl-ssl.google.com/linux/linux_signing_key.pub
+```
+
+安装软件：
+
+```
+sudo zypper in google-chrome-stable
+```
+
+或者直接从 <https://www.google.com/chrome/> 下载 rpm 软件包进行安装。
 
 ## 安装软件包
 
