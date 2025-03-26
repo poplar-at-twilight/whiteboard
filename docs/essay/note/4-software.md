@@ -149,8 +149,6 @@ sudo zypper al MozillaFirefox PackageKit akonadi chromium discover6 elinks falko
 - `proxychains-ng`
 - `git-core`
 
-快捷命令：
-
 ```
 sudo zypper in keepassxc proxychains-ng git-core 
 ```

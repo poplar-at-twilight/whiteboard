@@ -284,6 +284,9 @@ include /usr/share/nano/*.nanorc
 alias ls="ls --block-size=KiB --color=auto"
 #以 KiB 为单位显示文件大小
 
+alias protonup="set-proxy; flatpak run net.davidotek.pupgui2"
+#设置代理以启动 Protonup-Qt
+
 unset GTK_IM_MODULE
 unset QT_IM_MODULE
 #针对 wayland 会话的 Fcitx5 环境变量
@@ -311,9 +314,9 @@ alias pyc="proxychains4"
 #更短的别名
 
 #alias dnfx="proxychains4 dnf"
-alias zypper="proxychains4 zypper"
-#对 zypper/dnf 使用代理
-alias sys-up='sudo ZYPP_PCK_PRELOAD=1 proxychains4 zypper dup'
+alias zypper='ZYPP_PCK_PRELOAD=1 proxychains4 zypper'
+#启用代理和并行下载
+#alias zypper='ZYPP_PCK_PRELOAD=1 zypper'
 #启用并行下载
 
 alias flatpakx="proxychains4 flatpak --user"
