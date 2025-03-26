@@ -2424,6 +2424,9 @@ proxy=http://localhost:7890
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s2">&quot;ls --block-size=KiB --color=auto&quot;</span>
 <span class="c1">#以 KiB 为单位显示文件大小</span>
 
+<span class="nb">alias</span><span class="w"> </span><span class="nv">protonup</span><span class="o">=</span><span class="s2">&quot;set-proxy; flatpak run net.davidotek.pupgui2&quot;</span>
+<span class="c1">#设置代理以启动 Protonup-Qt</span>
+
 <span class="nb">unset</span><span class="w"> </span>GTK_IM_MODULE
 <span class="nb">unset</span><span class="w"> </span>QT_IM_MODULE
 <span class="c1">#针对 wayland 会话的 Fcitx5 环境变量</span>
@@ -2451,9 +2454,9 @@ proxy=http://localhost:7890
 <span class="c1">#更短的别名</span>
 
 <span class="c1">#alias dnfx=&quot;proxychains4 dnf&quot;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">zypper</span><span class="o">=</span><span class="s2">&quot;proxychains4 zypper&quot;</span>
-<span class="c1">#对 zypper/dnf 使用代理</span>
-<span class="nb">alias</span><span class="w"> </span>sys-up<span class="o">=</span><span class="s1">&#39;sudo ZYPP_PCK_PRELOAD=1 proxychains4 zypper dup&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">zypper</span><span class="o">=</span><span class="s1">&#39;ZYPP_PCK_PRELOAD=1 proxychains4 zypper&#39;</span>
+<span class="c1">#启用代理和并行下载</span>
+<span class="c1">#alias zypper=&#39;ZYPP_PCK_PRELOAD=1 zypper&#39;</span>
 <span class="c1">#启用并行下载</span>
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;proxychains4 flatpak --user&quot;</span>
