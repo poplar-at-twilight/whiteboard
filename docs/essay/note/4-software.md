@@ -8,18 +8,14 @@ tags:
 
 ## 代理软件
 
-- [ ] [v2rayN]
-- [ ] [nekoray]（原版已归档，这是活跃的社区分支）
-- [ ] [Clash-Verge-rev]
+- [x] [Clash-Verge-rev]
     - 依赖项：
         - `libayatana-appindicator3-1`
         - `libwebkit2gtk-4_1-0`
-- [x] [FlClash]
 
-[v2rayN]: https://github.com/2dust/v2rayN/releases
-[nekoray]: https://github.com/Mahdi-zarei/nekoray
+安装时使用 zypper 安装该软件，可自动处理依赖。
+
 [Clash-Verge-rev]: https://github.com/clash-verge-rev/clash-verge-rev/releases
-[FlClash]: https://github.com/chen08209/FlClash
 
 steam 会自动读取系统代理设置。
 

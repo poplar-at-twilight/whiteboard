@@ -314,9 +314,9 @@ alias pyc="proxychains4"
 #更短的别名
 
 #alias dnfx="proxychains4 dnf"
-alias zypper='ZYPP_PCK_PRELOAD=1 proxychains4 zypper'
+alias zypper='ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 proxychains4 zypper'
 #启用代理和并行下载
-#alias zypper='ZYPP_PCK_PRELOAD=1 zypper'
+#alias zypper='ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 zypper'
 #启用并行下载
 
 alias flatpakx="proxychains4 flatpak --user"
