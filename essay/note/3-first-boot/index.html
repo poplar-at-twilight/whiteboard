@@ -2192,6 +2192,13 @@
 </code></pre></div>
 <h2 id="_5">删除软件源，更新系统</h2>
 <p>删除多余的 <code>repo-openh264</code> 软件源和 ISO 软件源。</p>
+<p>禁用全部的软件源：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper mr -da
+</code></pre></div>
+<p>然后添加镜像源：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper ar -cfg &#39;https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/oss/&#39; mirror-oss
+sudo zypper ar -cfg &#39;https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/non-oss/&#39; mirror-non-oss
+</code></pre></div>
 <p>更新系统：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper ref; sudo zypper dup
 </code></pre></div>

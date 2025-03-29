@@ -2454,9 +2454,9 @@ proxy=http://localhost:7890
 <span class="c1">#更短的别名</span>
 
 <span class="c1">#alias dnfx=&quot;proxychains4 dnf&quot;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">zypper</span><span class="o">=</span><span class="s1">&#39;ZYPP_PCK_PRELOAD=1 proxychains4 zypper&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">zypper</span><span class="o">=</span><span class="s1">&#39;ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 proxychains4 zypper&#39;</span>
 <span class="c1">#启用代理和并行下载</span>
-<span class="c1">#alias zypper=&#39;ZYPP_PCK_PRELOAD=1 zypper&#39;</span>
+<span class="c1">#alias zypper=&#39;ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 zypper&#39;</span>
 <span class="c1">#启用并行下载</span>
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;proxychains4 flatpak --user&quot;</span>
@@ -2476,7 +2476,7 @@ proxy=http://localhost:7890
 <span class="c1">#设置代理，并启动 steam（1440p）</span>
 
 <span class="nb">alias</span><span class="w"> </span>packman-update<span class="o">=</span><span class="s2">&quot;sudo zypper dup --from packman --allow-vendor-change&quot;</span>
-<span class="nb">alias</span><span class="w"> </span>packman-add<span class="o">=</span><span class="s2">&quot;sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman&quot;</span>
+<span class="nb">alias</span><span class="w"> </span>packman-add<span class="o">=</span><span class="s2">&quot;sudo zypper ar -cfp 90 https://mirror.nyist.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman&quot;</span>
 <span class="c1">#packman 相关的命令</span>
 
 <span class="nb">alias</span><span class="w"> </span>apu-top<span class="o">=</span><span class="s2">&quot;amdgpu_top --dark --apu&quot;</span>
