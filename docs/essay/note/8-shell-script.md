@@ -336,7 +336,7 @@ alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
 #设置代理，并启动 steam（1440p）
 
 alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
-alias packman-add="sudo zypper ar -cfp 90 https://mirrors.ustc.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman"
+alias packman-add="sudo zypper ar -cfp 90 https://mirror.nyist.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman"
 #packman 相关的命令
 
 alias apu-top="amdgpu_top --dark --apu"

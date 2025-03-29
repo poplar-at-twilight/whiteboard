@@ -33,6 +33,19 @@ sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
 
 删除多余的 `repo-openh264` 软件源和 ISO 软件源。
 
+禁用全部的软件源：
+
+```
+sudo zypper mr -da
+```
+
+然后添加镜像源：
+
+```
+sudo zypper ar -cfg 'https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/oss/' mirror-oss
+sudo zypper ar -cfg 'https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/non-oss/' mirror-non-oss
+```
+
 更新系统：
 
 ```
