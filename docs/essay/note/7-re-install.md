@@ -51,3 +51,7 @@ uid=1000(poplar) gid=1000(poplar) 组=1000(poplar),108(libvirt),476(flatpak)
 /home/bt
 /home/swap
 ```
+
+附注：
+
+- 如果出现问题，则删除 steam 的所有文件夹，让 steam 重新下载数据文件。

@@ -103,8 +103,7 @@ openSUSE 的图形界面在 TTY3。
 
 - qBittorrent
 - telegram
-- Clash-verge
-- 火焰截图
+- FlClash
 
 会话 > 桌面会话：
 

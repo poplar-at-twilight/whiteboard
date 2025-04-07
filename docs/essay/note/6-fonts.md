@@ -13,8 +13,8 @@ tags:
 [Windows 11 font list]: https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list
 
 ```
-poplar@Greysia:~/.local/share/fonts> tree
-.
+poplar@Greysia:~> tree ~/.local/share/fonts
+/home/poplar/.local/share/fonts
 └── win11-fonts-partial
     ├── arial
     │   ├── arialbd.ttf
@@ -26,6 +26,7 @@ poplar@Greysia:~/.local/share/fonts> tree
     │   ├── ARIALN.TTF
     │   ├── arial.ttf
     │   └── ariblk.ttf
+    ├── checksum.sha256
     ├── jhengHei
     │   ├── msjhbd.ttc
     │   ├── msjhl.ttc
@@ -49,5 +50,5 @@ poplar@Greysia:~/.local/share/fonts> tree
         ├── simsunb.ttf
         └── simsun.ttc
 
-7 directories, 27 files
+7 directories, 28 files
 ```
