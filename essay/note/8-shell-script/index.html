@@ -2421,67 +2421,65 @@ proxy=http://localhost:7890
 </code></pre></div>
 <h3 id="bashrc">bashrc</h3>
 <p><code>~/.bashrc</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s2">&quot;ls --block-size=KiB --color=auto&quot;</span>
-<span class="c1">#以 KiB 为单位显示文件大小</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## 代理设置</span>
 
-<span class="nb">alias</span><span class="w"> </span><span class="nv">protonup</span><span class="o">=</span><span class="s2">&quot;set-proxy; flatpak run net.davidotek.pupgui2&quot;</span>
-<span class="c1">#设置代理以启动 Protonup-Qt</span>
-
-<span class="nb">unset</span><span class="w"> </span>GTK_IM_MODULE
-<span class="nb">unset</span><span class="w"> </span>QT_IM_MODULE
-<span class="c1">#针对 wayland 会话的 Fcitx5 环境变量</span>
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
-<span class="c1">#自定义 $PATH 路径</span>
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR</span><span class="o">=</span>nano
-<span class="c1">#将默认文本编辑器指定为 nano</span>
-
-<span class="nb">alias</span><span class="w"> </span>sha256sum-dir<span class="o">=</span><span class="s2">&quot;find . -type f -exec sha256sum {} \; &gt; ../checksum.sha256; mv ../checksum.sha256 .; echo &#39;Complete calculation!&#39;&quot;</span>
-<span class="c1">#自动计算当前文件夹内的全部文件的哈希，并将结果写入 sha256 文件</span>
-
-<span class="nb">alias</span><span class="w"> </span>git-repo-clean<span class="o">=</span><span class="s2">&quot;git remote prune origin &amp;&amp; git repack &amp;&amp; git prune-packed &amp;&amp; git reflog expire --expire=1.month.ago &amp;&amp; git gc --aggressive&quot;</span>
-<span class="c1">#清理并压缩 git 仓库</span>
-
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pyx</span><span class="o">=</span><span class="s1">&#39;https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">zypper</span><span class="o">=</span><span class="s1">&#39;pyx ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 zypper&#39;</span>
+<span class="c1"># 启用代理和并行下载</span>
+<span class="c1">#alias zypper=&#39;ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 zypper&#39;</span>
+<span class="c1"># 启用并行下载</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">protonup</span><span class="o">=</span><span class="s2">&quot;pyx flatpak run net.davidotek.pupgui2&quot;</span>
+<span class="c1"># 设置代理以启动 Protonup-Qt</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;pyx flatpak --user&quot;</span>
+<span class="c1"># 对 flatpak 使用代理，并增加 --user 标签</span>
 <span class="nb">alias</span><span class="w"> </span>set-proxy<span class="o">=</span><span class="s2">&quot;export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890&quot;</span>
 <span class="nb">alias</span><span class="w"> </span>unset-proxy<span class="o">=</span><span class="s2">&quot;unset http_proxy; unset https_proxy; unset all_proxy&quot;</span>
-<span class="c1">#环境变量开关</span>
+<span class="c1"># 代理变量手动开关</span>
+<span class="nb">alias</span><span class="w"> </span>steam-proxy<span class="o">=</span><span class="s2">&quot;set-proxy; steam&quot;</span>
+<span class="c1"># 设置代理，并启动 steam</span>
+<span class="c1">#alias steam-proxy=&quot;set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam&quot;</span>
+<span class="c1"># 设置代理，并启动 steam（150% 缩放）</span>
 
+<span class="c1">## 软件源命令</span>
+
+<span class="nb">alias</span><span class="w"> </span>mirror-add<span class="o">=</span><span class="s2">&quot;sudo zypper mr -da; sudo zypper ar -cfg &#39;https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/oss/&#39; mirror-oss; sudo zypper ar -cfg &#39;https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/non-oss/&#39; mirror-non-oss&quot;</span>
+<span class="c1"># 添加软件源</span>
+<span class="nb">alias</span><span class="w"> </span>packman-update<span class="o">=</span><span class="s2">&quot;sudo zypper dup --from packman --allow-vendor-change&quot;</span>
+<span class="nb">alias</span><span class="w"> </span>packman-add<span class="o">=</span><span class="s2">&quot;sudo zypper ar -cfp 90 https://mirror.nyist.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman&quot;</span>
+<span class="c1"># packman 相关的命令</span>
+<span class="nb">alias</span><span class="w"> </span>flatpak-add<span class="o">=</span><span class="s2">&quot;set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo&quot;</span>
+<span class="c1"># 添加 flathub</span>
+
+<span class="c1">## shell 自定义</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s2">&quot;ls --block-size=KiB --color=auto&quot;</span>
+<span class="c1"># 以 KiB 为单位显示文件大小</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
+<span class="c1"># 自定义 $PATH 路径</span>
+<span class="nb">unset</span><span class="w"> </span>GTK_IM_MODULE
+<span class="nb">unset</span><span class="w"> </span>QT_IM_MODULE
+<span class="c1"># 针对 wayland 会话的 Fcitx5 环境变量</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">sudo</span><span class="o">=</span><span class="s2">&quot;sudo &quot;</span>
-<span class="c1">#对 sudo 后的字符启用别名</span>
+<span class="c1"># 对 sudo 后的字符启用别名</span>
+<span class="nb">alias</span><span class="w"> </span>set-hostname<span class="o">=</span><span class="s2">&quot;sudo hostnamectl set-hostname --pretty &#39;C004-H1&#39; &amp;&amp; sudo hostnamectl set-hostname --static Greysia&quot;</span>
+<span class="c1"># 设置主机名</span>
 
-<span class="nb">alias</span><span class="w"> </span><span class="nv">pyc</span><span class="o">=</span><span class="s2">&quot;proxychains4&quot;</span>
-<span class="c1">#更短的别名</span>
+<span class="c1">## 实用命令</span>
 
-<span class="c1">#alias dnfx=&quot;proxychains4 dnf&quot;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">zypper</span><span class="o">=</span><span class="s1">&#39;ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 proxychains4 zypper&#39;</span>
-<span class="c1">#启用代理和并行下载</span>
-<span class="c1">#alias zypper=&#39;ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 zypper&#39;</span>
-<span class="c1">#启用并行下载</span>
-
-<span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;proxychains4 flatpak --user&quot;</span>
-<span class="c1">#对 flatpak 使用代理，并增加 --user 标签</span>
-
-<span class="nb">alias</span><span class="w"> </span><span class="nv">pings</span><span class="o">=</span><span class="s2">&quot;ping mirror.sjtu.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 6&quot;</span>
-<span class="c1">#测试网络连通性</span>
-
+<span class="nb">alias</span><span class="w"> </span>sha256sum-dir<span class="o">=</span><span class="s2">&quot;find . -type f -exec sha256sum {} \; &gt; ../checksum.sha256; mv ../checksum.sha256 .; echo &#39;Complete calculation!&#39;&quot;</span>
+<span class="c1"># 自动计算当前文件夹内的全部文件的哈希，并将结果写入 sha256 文件</span>
+<span class="nb">alias</span><span class="w"> </span>git-repo-clean<span class="o">=</span><span class="s2">&quot;git remote prune origin &amp;&amp; git repack &amp;&amp; git prune-packed &amp;&amp; git reflog expire --expire=1.month.ago &amp;&amp; git gc --aggressive&quot;</span>
+<span class="c1"># 清理并压缩 git 仓库</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">pings</span><span class="o">=</span><span class="s2">&quot;ping mirror.nyist.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 6&quot;</span>
+<span class="c1"># 测试网络连通性</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">update</span><span class="o">=</span><span class="s2">&quot;sudo zypper ref; sudo zypper lu; flatpakx update&quot;</span>
-<span class="c1">#刷新软件源并列出可用的更新</span>
-
+<span class="c1"># 刷新软件源并列出可用的更新</span>
 <span class="nb">alias</span><span class="w"> </span>venv-setup<span class="o">=</span><span class="s2">&quot;python3 -m venv venv&quot;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">venv</span><span class="o">=</span><span class="s2">&quot;source venv/bin/activate&quot;</span>
 <span class="c1">#启动 python 容器环境</span>
-
-<span class="nb">alias</span><span class="w"> </span>steam-proxy<span class="o">=</span><span class="s2">&quot;set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam&quot;</span>
-<span class="c1">#设置代理，并启动 steam（1440p）</span>
-
-<span class="nb">alias</span><span class="w"> </span>packman-update<span class="o">=</span><span class="s2">&quot;sudo zypper dup --from packman --allow-vendor-change&quot;</span>
-<span class="nb">alias</span><span class="w"> </span>packman-add<span class="o">=</span><span class="s2">&quot;sudo zypper ar -cfp 90 https://mirror.nyist.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman&quot;</span>
-<span class="c1">#packman 相关的命令</span>
-
 <span class="nb">alias</span><span class="w"> </span>apu-top<span class="o">=</span><span class="s2">&quot;amdgpu_top --dark --apu&quot;</span>
 <span class="nb">alias</span><span class="w"> </span>gpu-top<span class="o">=</span><span class="s2">&quot;amdgpu_top --dark --single&quot;</span>
-<span class="c1">#amdgpu_top 快捷命令</span>
+<span class="c1"># amdgpu_top 快捷命令</span>
 </code></pre></div>
 
 

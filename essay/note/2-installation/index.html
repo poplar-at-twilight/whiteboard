@@ -2137,21 +2137,21 @@
 <p>注意，第二块硬盘应当挂载到 <code>/home</code> 目录下。</p>
 <h2 id="_3">样例</h2>
 <div class="highlight"><pre><span></span><code>poplar@Greysia:~&gt; lsblk
-NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-nvme1n1     259:0    0 953.9G  0 disk 
-├─nvme1n1p1 259:1    0   256M  0 part /boot/efi
-├─nvme1n1p2 259:2    0    40G  0 part /var
-│                                     /usr/local
-│                                     /root
-│                                     /srv
-│                                     /opt
-│                                     /boot/grub2/x86_64-efi
-│                                     /boot/grub2/i386-pc
-│                                     /.snapshots
-│                                     /
-└─nvme1n1p3 259:3    0 913.6G  0 part /home
-nvme0n1     259:4    0   1.8T  0 disk 
-└─nvme0n1p1 259:5    0   1.8T  0 part /home/bt
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+nvme1n1     259:0    0  1.8T  0 disk 
+├─nvme1n1p1 259:1    0  100M  0 part /boot/efi
+├─nvme1n1p2 259:2    0   40G  0 part /var
+│                                    /usr/local
+│                                    /srv
+│                                    /root
+│                                    /opt
+│                                    /boot/grub2/x86_64-efi
+│                                    /boot/grub2/i386-pc
+│                                    /.snapshots
+│                                    /
+└─nvme1n1p3 259:3    0  1.8T  0 part /home
+nvme0n1     259:4    0  1.8T  0 disk 
+└─nvme0n1p1 259:5    0  1.8T  0 part /home/bt
 poplar@Greysia:~&gt; sudo swapon -s
 Filename                                Type            Size            Used            Priority
 /home/swap/swapfile                     file            4194300         873340          -2

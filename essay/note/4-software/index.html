@@ -2444,14 +2444,8 @@
 <h1 id="_1">软件包</h1>
 <h2 id="_2">代理软件</h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases">Clash-Verge-rev</a><ul>
-<li>依赖项：<ul>
-<li><code>libayatana-appindicator3-1</code></li>
-<li><code>libwebkit2gtk-4_1-0</code></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases">Clash-Verge-rev</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <a href="https://github.com/chen08209/FlClash">FlClash</a></li>
 </ul>
 <p>安装时使用 zypper 安装该软件，可自动处理依赖。</p>
 <p>steam 会自动读取系统代理设置。</p>
@@ -2460,7 +2454,7 @@
 <div class="highlight"><pre><span></span><code>sudo zypper in flatpak
 </code></pre></div>
 <p>添加远程仓库：</p>
-<div class="highlight"><pre><span></span><code>set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+<div class="highlight"><pre><span></span><code>flatpak-add
 </code></pre></div>
 <p>加入 Flatpak 用户组</p>
 <div class="highlight"><pre><span></span><code>sudo usermod -aG flatpak $USER
@@ -2476,7 +2470,7 @@
 <li><code>net.davidotek.pupgui2</code></li>
 <li><code>org.telegram.desktop</code></li>
 </ul>
-<p>注意，使用 <code>net.davidotek.pupgui2</code> 安装 protonGE 时，需要 <code>set-proxy</code> 并关闭 steam 客户端。</p>
+<p>注意，使用 <code>protonup</code> 安装 protonGE 时，需要关闭 steam 客户端。</p>
 <h3 id="_3">清理数据</h3>
 <p>清理不再需要的库：</p>
 <div class="highlight"><pre><span></span><code>flatpak uninstall --unused
@@ -2552,8 +2546,10 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <div class="highlight"><pre><span></span><code>sudo zypper ar -f http://dl.google.com/linux/chrome/rpm/stable/x86_64 google-chrome
 </code></pre></div>
 <p>导入证书：</p>
-<div class="highlight"><pre><span></span><code>sudo rpm -import https://dl-ssl.google.com/linux/linux_signing_key.pub
+<p><div class="highlight"><pre><span></span><code>wget https://dl-ssl.google.com/linux/linux_signing_key.pub
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo rpm -import linux_signing_key.pub
+</code></pre></div></p>
 <p>安装软件：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper in google-chrome-stable
 </code></pre></div>
@@ -2590,11 +2586,11 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <p>如果存在连接性问题，则使用 <code>steam-proxy</code> 命令。</p>
 <p>配置：</p>
 <ul>
-<li>关闭着色器缓存</li>
-<li>更改下载服务器</li>
-<li>更改默认库位置</li>
-<li>更改默认打开的页面</li>
 <li>更改默认界面语言</li>
+<li>关闭着色器缓存</li>
+<li>更改默认打开的页面</li>
+<li>添加新的库</li>
+<li>启用 steam proton 兼容层</li>
 </ul>
 <h3 id="kvm">KVM</h3>
 <p>安装软件包：</p>
@@ -2617,6 +2613,11 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 <p>Fcitx5 皮肤：</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/tonyfettes/fcitx5-nord.git
 </code></pre></div>
+<p>附注：</p>
+<ul>
+<li>云输入法可以使用 Google 源，但需要设置代理。</li>
+<li>跟换皮肤后，如果没有正常地显示，可以重启一下系统。</li>
+</ul>
 <hr />
 <h2 id="_7">散装软件包</h2>
 <p>可集成至开始菜单的 desktop 文件可通过 KDE 的右键新建菜单快速创建。</p>

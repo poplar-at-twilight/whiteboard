@@ -2183,21 +2183,15 @@
 <h2 id="_3">手动创建用户</h2>
 <p>如果出现需要手动创建用户时，若要使用户名与用户所属默认组组名相同，需要先创建新的用户组。</p>
 <h2 id="_4">设置主机名</h2>
-<p><div class="highlight"><pre><span></span><code>sudo hostnamectl set-hostname --pretty &quot;C004-H1&quot;
+<div class="highlight"><pre><span></span><code>set-hostname
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo hostnamectl set-hostname --static Greysia
-</code></pre></div></p>
 <h2 id="packagekit-discover">删除 Packagekit 和 Discover</h2>
 <div class="highlight"><pre><span></span><code>sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
 </code></pre></div>
 <h2 id="_5">删除软件源，更新系统</h2>
 <p>删除多余的 <code>repo-openh264</code> 软件源和 ISO 软件源。</p>
-<p>禁用全部的软件源：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper mr -da
-</code></pre></div>
-<p>然后添加镜像源：</p>
-<div class="highlight"><pre><span></span><code>sudo zypper ar -cfg &#39;https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/oss/&#39; mirror-oss
-sudo zypper ar -cfg &#39;https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/non-oss/&#39; mirror-non-oss
+<p>添加镜像源：</p>
+<div class="highlight"><pre><span></span><code>mirror-add
 </code></pre></div>
 <p>更新系统：</p>
 <div class="highlight"><pre><span></span><code>sudo zypper ref; sudo zypper dup
@@ -2206,7 +2200,7 @@ sudo zypper ar -cfg &#39;https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/no
 <div class="highlight"><pre><span></span><code>sudo zypper inr
 </code></pre></div>
 <h2 id="_6">多媒体播放器</h2>
-<p>添加 Packman 源（详见 <a href="../8-shell-script/">bashrc</a>）：</p>
+<p>添加 Packman 源：</p>
 <div class="highlight"><pre><span></span><code>packman-add
 </code></pre></div>
 <p>更新并安装多媒体播放器：</p>
