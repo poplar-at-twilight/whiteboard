@@ -10,6 +10,11 @@ tags:
 
 [openSUSE Tumbleweed]: https://get.opensuse.org/tumbleweed/
 
+- 本文档提及的部分命令另见 [Shell 脚本与配置文件]。
+
+[Shell 脚本与配置文件]: ./8-shell-script.md
+
+
 - 系统信息
 
 ```

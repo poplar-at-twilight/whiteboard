@@ -8,11 +8,9 @@ tags:
 
 ## 下载、校验 ISO 文件
 
-使用 `iso-m` 命令下载和校验文件。
-
-该命令详见 [Shell 脚本与配置文件]。
-
-[Shell 脚本与配置文件]: ./8-shell-script.md
+```
+iso-m
+```
 
 ### openSUSE 项目的公钥
 

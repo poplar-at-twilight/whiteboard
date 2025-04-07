@@ -50,9 +50,7 @@ sudo zypper inr
 
 ## 多媒体播放器
 
-添加 Packman 源（详见 [bashrc]）：
-
-[bashrc]: ./8-shell-script.md
+添加 Packman 源：
 
 ```
 packman-add

@@ -307,6 +307,8 @@ alias mirror-add="sudo zypper mr -da; sudo zypper ar -cfg 'https://mirror.nyist.
 alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
 alias packman-add="sudo zypper ar -cfp 90 https://mirror.nyist.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman"
 # packman 相关的命令
+alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+# 添加 flathub
 
 ## shell 自定义
 
