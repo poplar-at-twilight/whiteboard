@@ -82,6 +82,7 @@ nav:
         - essay/linux/1-kvm.md
         - essay/linux/1-check-sys-info.md
         - essay/linux/1-gpg-and-sig-files.md
+        - essay/linux/1-prime-run.md
     - 备份:
       - archives/about.md
       - archives/external-index.md
