@@ -11,7 +11,7 @@ tags:
 
 </center>
 
-我是 [Poplar at twilight](https://github.com/poplar-at-twilight) (zh-Hans: `暮光的白杨`)，你可以简称我为**白杨**（en: `Poplar`）。我常用 openSUSE Tumbleweed，偶尔会使用 Fedora。
+我是 [Poplar at twilight](https://github.com/poplar-at-twilight) (zh-Hans: `暮光的白杨`)，你可以简称我为**白杨**（en: `Poplar`）。我常用 KDE，常用的系统是 openSUSE Tumbleweed 和 Fedora KDE Edition。
 
 ## OpenPGP 公钥
 
