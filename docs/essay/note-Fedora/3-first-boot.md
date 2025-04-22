@@ -212,3 +212,17 @@ sudo systemctl enable libvirtd --now
 ```
 sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim
 ```
+
+----
+
+## 散装软件包
+
+### FreeFileSync
+
+直接安装开发者提供的二进制文件。
+
+- <https://freefilesync.org/download.php>
+
+### vscodium & pandoc & mangohud & Goverlay
+
+参考 [软件包](./../note-openSUSE/4-software.md)。
