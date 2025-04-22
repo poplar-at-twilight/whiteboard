@@ -12,28 +12,28 @@
         <meta name="author" content="Poplar at twilight">
       
       
-        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/essay/note/0-about/">
+        <link rel="canonical" href="https://whiteboard-ui8.pages.dev/essay/note-openSUSE/3-first-boot/">
       
       
-        <link rel="prev" href="../../main/mpv-config/">
+        <link rel="prev" href="../2-installation/">
       
       
-        <link rel="next" href="../1-preparation/">
+        <link rel="next" href="../4-software/">
       
       
         <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../feed_rss_created.xml">
         <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../feed_rss_updated.xml">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>关于 - 白杨的文档站</title>
+        <title>初次启动 - 白杨的文档站</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              关于
+              初次启动
             
           </span>
         </div>
@@ -854,19 +854,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../0-about/" class="md-nav__link">
         
   
   
@@ -877,7 +868,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -933,10 +923,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../3-first-boot/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    初次启动
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -947,6 +959,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      切换默认会话
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      手动创建用户
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置主机名
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagekit-discover" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除 Packagekit 和 Discover
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除软件源，更新系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      多媒体播放器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      音量控制故障
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      更换语言（可选操作）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amd-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMD GPU
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1147,7 +1260,7 @@
   
   
   <span class="md-ellipsis">
-    Linux 资料库
+    Fedora 安装配置
     
   </span>
   
@@ -1157,6 +1270,170 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Fedora 安装配置
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../note-Fedora/0-about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    关于
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../note-Fedora/1-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    准备
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../note-Fedora/2-partition-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    安装系统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../note-Fedora/3-first-boot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    初次启动
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../note-Fedora/4-shell-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shell 脚本与配置文件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux 资料库
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             Linux 资料库
           </label>
@@ -1203,10 +1480,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
             
   
   
@@ -1219,8 +1496,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_4_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_2">
             <span class="md-nav__icon md-icon"></span>
             Bash 笔记
           </label>
@@ -2051,6 +2328,95 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      切换默认会话
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      手动创建用户
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置主机名
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagekit-discover" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除 Packagekit 和 Discover
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除软件源，更新系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      多媒体播放器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      音量控制故障
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      更换语言（可选操作）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amd-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMD GPU
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2081,26 +2447,51 @@
 
 
 
-<h1 id="_1">关于</h1>
-<p>该份笔记的主要内容是记录 <a href="https://get.opensuse.org/tumbleweed/">openSUSE Tumbleweed</a> 的安装与配置信息。</p>
-<ul>
-<li>
-<p>本文档提及的部分命令另见 <a href="../8-shell-script/">Shell 脚本与配置文件</a>。</p>
-</li>
-<li>
-<p>系统信息</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>Operating System: openSUSE Tumbleweed 20250411
-KDE Plasma Version: 6.3.4
-KDE Frameworks Version: 6.12.0
-Qt Version: 6.9.0
-Kernel Version: 6.14.1-1-default (64-bit)
-Graphics Platform: Wayland
-Processors: 16 × AMD Ryzen 7 7840H  w/ Radeon 780M Graphics
-Memory: 14.8 GiB of RAM
-Graphics Processor 1: AMD Radeon 780M
-Graphics Processor 2: AMD Radeon RX 7600M XT
+<h1 id="_1">初次启动</h1>
+<h2 id="_2">切换默认会话</h2>
+<p><strong>点击左下角的按钮，将 KDE 默认会话从 X11 修改为 wayland。</strong></p>
+<h2 id="_3">手动创建用户</h2>
+<p>如果出现需要手动创建用户时，若要使用户名与用户所属默认组组名相同，需要先创建新的用户组。</p>
+<h2 id="_4">设置主机名</h2>
+<div class="highlight"><pre><span></span><code>set-hostname
+</code></pre></div>
+<h2 id="packagekit-discover">删除 Packagekit 和 Discover</h2>
+<div class="highlight"><pre><span></span><code>sudo zypper rm -u PackageKit discover6; sudo zypper al discover6 PackageKit
+</code></pre></div>
+<h2 id="_5">删除软件源，更新系统</h2>
+<p>删除多余的 <code>repo-openh264</code> 软件源和 ISO 软件源。</p>
+<p>添加镜像源：</p>
+<div class="highlight"><pre><span></span><code>mirror-add
+</code></pre></div>
+<p>更新系统：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper ref; sudo zypper dup
+</code></pre></div>
+<p>补齐缺失的软件包：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper inr
+</code></pre></div>
+<h2 id="_6">多媒体播放器</h2>
+<p>添加 Packman 源：</p>
+<div class="highlight"><pre><span></span><code>packman-add
+</code></pre></div>
+<p>更新并安装多媒体播放器：</p>
+<p><div class="highlight"><pre><span></span><code>sudo zypper refresh
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>packman-update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo zypper in mpv ffmpeg-7
+</code></pre></div></p>
+<h2 id="_7">音量控制故障</h2>
+<p>如果播放器音量大小与系统设置的音量值不呈线性变化，则使用 <code>alsamixer</code> 将 <code>Base Speaker</code> 的值降到 0。</p>
+<h2 id="_8">更换语言（可选操作）</h2>
+<p>在 YaST Language 将首选语言修改为简体中文，同时选择英文作为第二语言。</p>
+<p>然后将 KDE 设置中的区域和语言更改为中文。</p>
+<p>等待更新完成，重启系统。</p>
+<h2 id="amd-gpu">AMD GPU</h2>
+<p>以核显运行应用的环境变量：</p>
+<div class="highlight"><pre><span></span><code>DRI_PRIME=0
+</code></pre></div>
+<p>以独显运行程序的环境变量：</p>
+<div class="highlight"><pre><span></span><code>DRI_PRIME=1
 </code></pre></div>
 
 
@@ -2136,7 +2527,7 @@ Graphics Processor 2: AMD Radeon RX 7600M XT
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../main/mpv-config/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 个人自用的 mpv 配置">
+          <a href="../2-installation/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 安装系统">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2146,20 +2537,20 @@ Graphics Processor 2: AMD Radeon RX 7600M XT
                 上一页
               </span>
               <div class="md-ellipsis">
-                个人自用的 mpv 配置
+                安装系统
               </div>
             </div>
           </a>
         
         
           
-          <a href="../1-preparation/" class="md-footer__link md-footer__link--next" aria-label="下一页: 准备工作">
+          <a href="../4-software/" class="md-footer__link md-footer__link--next" aria-label="下一页: 软件包">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                准备工作
+                软件包
               </div>
             </div>
             <div class="md-footer__button md-icon">
