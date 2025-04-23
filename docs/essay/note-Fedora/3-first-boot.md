@@ -178,6 +178,7 @@ flatpak override --env=GTK_IM_MODULE= --user
 需要安装的软件：
 
 - `org.telegram.desktop`
+- `cc.spek.Spek`
 
 ### KVM
 
