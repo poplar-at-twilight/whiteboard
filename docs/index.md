@@ -2,7 +2,7 @@
 
 ![cover]
 
-[cover]: ./assets/[@SHAFT]%20Nisemonogatari%20Animation%20Reference%20Materials%20Settei%20057%20setteidreams_net.jpg
+[cover]: ./assets/test-2.png
 
 这是一位 [KDE] ([Fedora]) 用户搭建的个人网站，主要包含一些说明文档和备忘录、随笔杂谈和一点有趣的东西。<br />
 This is a personal site built by an [KDE] ([Fedora]) user, containing mainly documentation and memos, essays, and a bit of fun stuff.
