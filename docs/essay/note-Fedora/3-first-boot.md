@@ -108,6 +108,12 @@ sudo dnf autoremove
 - 可用 `dnfx` 连接代理更新。
 - 详见 `dnf --help`。
 
+移除 geoclue2 服务：
+
+```
+sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
+```
+
 ## 更新并重启
 
 ```
