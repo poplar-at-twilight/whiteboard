@@ -157,17 +157,10 @@ plugins:
 
 extra:
   social:
-    - icon: fontawesome/brands/suse
-      link: https://forum.suse.org.cn/u/Aui/summary
-    - icon: fontawesome/brands/opensuse
-      link: https://forums.opensuse.org/u/white-poplar/summary
-    - icon: fontawesome/brands/wikipedia-w
-      link: https://zh.opensuse.org/User:White-poplar
-    - icon: fontawesome/brands/fedora
-      link: https://discussion.fedoraproject.org/u/bh
-    - icon: fontawesome/brands/discourse
-      link: https://discuss.kde.org/u/white-poplar/summary
     - icon: fontawesome/brands/github
       link: https://github.com/poplar-at-twilight
+    - icon: fontawesome/brands/suse
+      link: https://forum.suse.org.cn/u/Aui/summary
+
 
 copyright: Copyleft &#x1F12F Poplar.at.twilight, 2021-2025

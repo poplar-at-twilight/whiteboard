@@ -17,10 +17,7 @@ hide:
 关联内容：
 
 - [openSUSE 中文新闻站]
-- [whiteboard-old]：该仓库用于归档 whiteboard 不再收纳的译文文档。
-- openSUSE 中文维基：
-    - [Aua0880]（已停用的旧账户）
-    - [White-poplar]
+- openSUSE 中文维基：[White-poplar]
 
 [openSUSE 中文新闻站]: https://suse.org.cn/
 [Aua0880]: https://zh.opensuse.org/Special:%E7%94%A8%E6%88%B7%E8%B4%A1%E7%8C%AE/Aua0880

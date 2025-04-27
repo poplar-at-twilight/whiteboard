@@ -95,7 +95,7 @@ sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc
 - ibus
 
 ```
-sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus
+sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus
 ```
 
 自动移除不再使用的软件包：
@@ -220,9 +220,10 @@ sudo systemctl enable libvirtd --now
     - 添加新的库
     - 启用 steam proton 兼容层
 - jpegoptim
+- qbittorrent
 
 ```
-sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim
+sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent
 ```
 
 ----
