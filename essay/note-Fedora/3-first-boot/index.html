@@ -2625,6 +2625,7 @@
 <p>安装输入法、git-core 和 keepassxc：</p>
 <div class="highlight"><pre><span></span><code>sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc
 </code></pre></div>
+<p>fcitx5 的主题使用 <a href="https://github.com/Reverier-Xu/Fluent-fcitx5">Fluent-fcitx5</a>，其他见 <a href="../../note-openSUSE/4-software/">软件包 - #Fcitx5</a></p>
 <p>然后在 KDE 系统设置中，将虚拟键盘设置为 Fcitx5。</p>
 <h2 id="_5">清理无用软件包</h2>
 <ul>
@@ -2655,8 +2656,13 @@
 <li>PackageKit</li>
 <li>ibus</li>
 </ul>
-<div class="highlight"><pre><span></span><code>sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus
+<p><div class="highlight"><pre><span></span><code>sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo dnf in libreoffice-langpack-zh-Hans --setopt=install_weak_deps=False
+</code></pre></div></p>
+<ul>
+<li>附注：当不需要安装弱依赖时，可以选择使用 <code>--setopt=install_weak_deps=False</code> 选项。</li>
+</ul>
 <p>自动移除不再使用的软件包：</p>
 <div class="highlight"><pre><span></span><code>sudo dnf autoremove
 </code></pre></div>
@@ -2708,6 +2714,8 @@ flatpak override --env=GTK_IM_MODULE= --user
 </code></pre></div>
 <p>需要安装的软件：</p>
 <ul>
+<li><code>com.github.johnfactotum.Foliate</code></li>
+<li><code>com.github.qarmin.czkawka</code></li>
 <li><code>org.telegram.desktop</code></li>
 <li><code>cc.spek.Spek</code></li>
 </ul>
@@ -2721,17 +2729,17 @@ flatpak override --env=GTK_IM_MODULE= --user
 <p>重启系统。</p>
 <h3 id="_9">其他</h3>
 <ul>
-<li>gimp</li>
-<li>goverlay<ul>
+<li><code>gimp</code></li>
+<li><code>goverlay</code><ul>
 <li>详见 <code>man mangohud</code></li>
 </ul>
 </li>
-<li>kleopatra</li>
-<li>goldendict-ng<ul>
+<li><code>kleopatra</code></li>
+<li><code>goldendict-ng</code><ul>
 <li>如果出现问题则换成 flatpak 版</li>
 </ul>
 </li>
-<li>steam<ul>
+<li><code>steam</code><ul>
 <li>更改默认界面语言</li>
 <li>关闭着色器缓存</li>
 <li>更改默认打开的页面</li>
@@ -2739,8 +2747,8 @@ flatpak override --env=GTK_IM_MODULE= --user
 <li>启用 steam proton 兼容层</li>
 </ul>
 </li>
-<li>jpegoptim</li>
-<li>qbittorrent</li>
+<li><code>jpegoptim</code></li>
+<li><code>qbittorrent</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code>sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent
 </code></pre></div>
