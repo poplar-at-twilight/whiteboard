@@ -233,9 +233,10 @@ sudo systemctl enable libvirtd --now
     - 启用 steam proton 兼容层
 - `jpegoptim`
 - `qbittorrent`
+- `pandoc`
 
 ```
-sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent
+sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc
 ```
 
 ----
@@ -248,6 +249,6 @@ sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent
 
 - <https://freefilesync.org/download.php>
 
-### vscodium & pandoc & mangohud & Goverlay
+### vscodium & mangohud & Goverlay
 
 参考 [软件包](./../note-openSUSE/4-software.md)。
