@@ -166,7 +166,7 @@ sudo dnf install google-chrome-stable
 ### 多媒体播放器
 
 ```
-sudo dnf in audioucs mpv
+sudo dnf in audacious mpv
 ```
 
 ### flatpak
