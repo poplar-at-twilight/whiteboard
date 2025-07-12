@@ -72,8 +72,6 @@ sudo dnf in calibre               #对于 Fedora 用户
 sudo dnf in opencc  #对于 Fedora 用户
 ```
 
-另见[使用 OpenCC 进行简繁中文转换](./opencc.md)。
-
 ### vscode
 
 你可以前往 [vscode] 的开发者仓库下载可执行文件包或运行：

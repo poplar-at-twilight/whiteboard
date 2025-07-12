@@ -383,7 +383,6 @@ D:\software\lib\python\Scripts
         proxy = http://127.0.0.1:7890
     ``` 
 - [python]  
-    另见 [嵌入式 python（Windows）](./python-embed.md)
 - [pandoc]
 
 [git]: https://git-scm.com/download/win

@@ -378,7 +378,7 @@ Logo 文件可从 [VSCodium/icons] 仓库下载获得。
 
 更新脚本 `update-code` 另见 [shell-script]。
 
-[shell-script]: ./8-shell-script.md
+[shell-script]: ./4-shell-script.md
 
 ### FreeFileSync
 
