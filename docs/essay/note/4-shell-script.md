@@ -6,6 +6,20 @@ tags:
 
 # Shell 脚本与配置文件
 
+## AMD GPU
+
+以核显运行应用的环境变量：
+
+```
+DRI_PRIME=0
+```
+
+以独显运行程序的环境变量：
+
+```
+DRI_PRIME=1
+```
+
 ## bashrc
 
 ```shell
@@ -23,18 +37,9 @@ alias steam-proxy="set-proxy; steam"
 # 设置代理，并启动 steam
 #alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
 # 设置代理，并启动 steam（150% 缩放）
-#alias zypper='pyx ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 zypper'
-# 对 zypper 启用代理和并行下载
-#alias zypper='ZYPP_PCK_PRELOAD=1 ZYPP_CURL2=1 zypper'
-# 对 zypper 启用并行下载
 
 ## 软件源命令
 
-#alias mirror-add="sudo zypper mr -da; sudo zypper ar -cfg 'https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/oss/' mirror-oss; sudo zypper ar -cfg 'https://mirror.nyist.edu.cn/opensuse/tumbleweed/repo/non-oss/' mirror-non-oss"
-# 添加软件源
-#alias packman-update="sudo zypper dup --from packman --allow-vendor-change"
-#alias packman-add="sudo zypper ar -cfp 90 https://mirror.nyist.edu.cn/packman/suse/openSUSE_Tumbleweed/ packman"
-# packman 相关的命令
 alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
 # 添加 flathub
 
@@ -60,8 +65,6 @@ alias git-repo-clean="git remote prune origin && git repack && git prune-packed 
 # 清理并压缩 git 仓库
 alias pings="ping mirror.nyist.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 6"
 # 测试网络连通性
-alias update="sudo zypper ref; sudo zypper lu; flatpakx update"
-# 刷新软件源并列出可用的更新
 alias venv-setup="python3 -m venv venv"
 alias venv="source venv/bin/activate"
 #启动 python 容器环境

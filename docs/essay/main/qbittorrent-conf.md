@@ -16,7 +16,7 @@ tags:
 ## 安装
 
 ```
-sudo zypper in qbittorrent
+sudo dnf in qbittorrent
 ```
 
 ### 开机启动

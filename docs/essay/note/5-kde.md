@@ -10,8 +10,6 @@ tags:
 
 ### TTY
 
-openSUSE 的图形界面在 TTY3。
-
 按下 Ctrl + Alt + F1 ~ F9 在不同的 TTY 中切换。
 
 ### 启动动画
@@ -21,8 +19,9 @@ openSUSE 的图形界面在 TTY3。
 ### 图标主题
 
 - [Qogir-cursors-theme]
-- [Tela-icon-theme]
-    - 位置：`~/.local/share/icons`
+- [ ] [Tela-icon-theme]
+- [x] `papirus-icon-theme`
+    - 解压文件保存位置：`~/.local/share/icons`
 
 [Tela-icon-theme]: https://store.kde.org/p/1279924
 [Qogir-cursors-theme]: https://www.pling.com/p/1366182/

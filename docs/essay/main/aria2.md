@@ -10,7 +10,7 @@ tags:
 ## 安装
 
 ```
-sudo zypper in aria2
+sudo dnf in aria2
 ```
 
 ## 文件目录

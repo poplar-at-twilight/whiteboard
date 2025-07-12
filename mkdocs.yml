@@ -55,28 +55,16 @@ nav:
         - essay/main/ainme.md
         - essay/main/play-minecraft.md
         - essay/main/adjust-win11-for-popurse.md
-        - essay/main/opencc.md
-        - essay/main/python-embed.md
         - essay/main/graphs-setup.md
         - essay/main/mpv-config.md
-      - openSUSE 安装配置:
-        - essay/note-openSUSE/0-about.md
-        - essay/note-openSUSE/1-preparation.md
-        - essay/note-openSUSE/2-installation.md
-        - essay/note-openSUSE/3-first-boot.md
-        - essay/note-openSUSE/4-software.md
-        - essay/note-openSUSE/5-kde.md
-        - essay/note-openSUSE/6-fonts.md
-        - essay/note-openSUSE/7-re-install.md
-        - essay/note-openSUSE/8-shell-script.md
-        - essay/note-openSUSE/9-swapfile-on-btrfs.md
-        - essay/note-openSUSE/10-plymouth.md
       - Fedora 安装配置:
-        - essay/note-Fedora/0-about.md
-        - essay/note-Fedora/1-preparation.md
-        - essay/note-Fedora/2-partition-table.md
-        - essay/note-Fedora/3-first-boot.md
-        - essay/note-Fedora/4-shell-script.md
+        - essay/note/0-about.md
+        - essay/note/1-preparation.md
+        - essay/note/2-partition-table.md
+        - essay/note/3-first-boot.md
+        - essay/note/4-shell-script.md
+        - essay/note/5-kde.md
+        - essay/note/6-fonts.md
       - Linux 资料库:
         - essay/linux/0-about.md
         - Bash 笔记:

@@ -15,6 +15,9 @@ tags:
 ```shell
 sudo zypper install -t pattern kvm_server kvm_tools
 ```
+```
+sudo dnf in @virtualization
+```
 
 加入用户组：
 

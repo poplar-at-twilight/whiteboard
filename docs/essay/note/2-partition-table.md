@@ -25,17 +25,17 @@ nvme0n1     259:5    0  1.8T  0 disk
 └─nvme0n1p1 259:6    0  1.8T  0 part /home/bt
 ```
 
+!!! info "注意"
+
+    Fedora 使用 SwapOnZRAM，一般不需要手动创建 swap 分区/分区文件。
+
 一般地，需要手动创建：
 
-- ESP 分区：文件系统格式为 EFI，大小为 100MiB。
-- BOOT 分区：文件系统格式为 ext4，大小为 1GiB。
+- ESP 分区：文件系统格式为 `EFI`，大小为 100MiB。
+- BOOT 分区：文件系统格式为 `ext4`，大小为 1GiB。
 - SYS 分区：类型设置为 btrfs 卷，大于 20GiB 即可。
 
 挂载：
 
 - /home
 - /home/bt
-
-不需要手动创建的内容：
-
-- SWAP

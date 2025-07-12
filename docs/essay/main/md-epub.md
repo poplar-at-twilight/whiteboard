@@ -48,7 +48,7 @@ tags:
 
 ```shell
 winget install JohnMacFarlane.Pandoc  #对于 Windows 用户
-zypper install pandoc                 #对于 openSUSE 用户
+sudo dnf install pandoc                 #对于 Fedora 用户
 ```
 
 - [winget] 是微软推出的软件包管理器，使用它安装软件时记得在代理软件内开启系统代理。
@@ -61,7 +61,7 @@ zypper install pandoc                 #对于 openSUSE 用户
 
 ```shell
 winget install calibre.calibre  #对于 Windows 用户
-zypper in calibre               #对于 openSUSE 用户
+sudo dnf in calibre               #对于 Fedora 用户
 ```
 
 ### OpenCC
@@ -69,7 +69,7 @@ zypper in calibre               #对于 openSUSE 用户
 你可以前往 [opencc] 的开发者仓库下载可执行文件包或运行：
 
 ```shell
-zypper in opencc  #对于 openSUSE 用户
+sudo dnf in opencc  #对于 Fedora 用户
 ```
 
 另见[使用 OpenCC 进行简繁中文转换](./opencc.md)。
