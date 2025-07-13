@@ -12,7 +12,7 @@ tags:
 
 - [PCGameWiki](https://www.pcgamingwiki.com/wiki/Home)  
     游戏概览信息 wiki，可用于查询分辨率、HDR 支持和 DRM 保护信息等内容。
-- [初之图库](https://img.himiku.com/)  
+- [初之图库](https://liulipic.net/)  
     该图库保存了琉璃神社的每月壁纸包。
 - [XIU2/TrackersListCollection](https://trackerslist.com/#/zh)  
     每天更新！全网热门 BitTorrent Tracker 列表！  
@@ -29,4 +29,3 @@ tags:
 
 - [依云's Blog](http://blog.lilydjwg.me/)
 - [Farseerfc 的小窩](https://farseerfc.me/)
-- [Houge's Madness Blog](https://litterhougelangley.club/blog/)
