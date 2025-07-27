@@ -3,6 +3,7 @@ tags:
   - 杂谈
   - Pandoc
   - 笔记
+  - 归档
 ---
 
 # Pandoc’s Markdown spec

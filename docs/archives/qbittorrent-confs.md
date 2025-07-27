@@ -2,7 +2,7 @@
 tags:
   - qBittorrent
   - 教程
-  - 站外文档
+  - 归档
 ---
 
 # qBittorrent 参数详细设置教程
