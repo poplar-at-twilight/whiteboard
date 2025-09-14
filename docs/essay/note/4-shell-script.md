@@ -95,6 +95,190 @@ else
 fi
 ```
 
+## cab
+
+```shell
+#!/bin/sh
+# 本脚本用于 cbz 文件半自动化打包
+
+WD1=$HOME/Others/repository/img-main-repo/0-tmp1/0
+WD2=$HOME/Others/repository/img-main-repo/2-comic-mix/0-cache
+WD3=$HOME/Downloads
+# 可用工作目录列表
+
+echo ""
+printf 'Choose the working dir:\n'
+printf 'WD1: 0-tmp1/0\n'
+printf 'WD2: 2-comic-mix/0-cache\n'
+printf 'WD3: Downloads\n'
+printf 'Enter (1/2/3):'
+
+read -r user_choice
+
+default_wd=""
+
+# 手动选择工作目录
+case "$user_choice" in
+    1)
+        default_wd=$WD1
+        ;;
+    2)
+        default_wd=$WD2
+        ;;
+    3)
+        default_wd=$WD3
+        ;;
+    *)
+        default_wd=$WD2
+        printf 'Code: set_default_wd_to_wd2\n'
+        ;;
+esac
+
+cd $default_wd
+
+while true; do
+
+    echo ""
+    echo "Current working path: $default_wd"
+    printf '1. Initialize\n'
+    printf '2. Unzip the zip file\n'
+    printf '3  Edit src.md\n'
+    printf '4. Calculate the hash value\n'
+    printf '5. Pack the cbz file\n'
+    printf '6. Change to another wd\n'
+    printf '7. Exit(q)\n\n'
+    printf 'Please select an operation:'
+    read -r user_operation
+
+    zip_file_count=$(find $default_wd -name "*.zip" -print | wc -l)
+
+    # 初始化
+    if [ "$user_operation" = "1" ]; then
+        printf 'WARNING:\nThis will delete the files in the WD folder, do you want to continue? (y/n) '
+        read -r rm_duble_check
+        if [ "$rm_duble_check" = "Y" ] || [ "$rm_duble_check" = "y" ]; then
+            rm -f sha256sum.txt src.md
+            rm -rf ch* main
+            touch sha256sum.txt src.md
+            printf 'OK: init_completed\n'
+        elif [ "$rm_duble_check" = "N" ] || [ "$rm_duble_check" = "n" ]; then
+            printf 'INFO: stop_init\n'
+        else
+            printf 'ERROR: invalid_input\n'
+        fi
+
+    # 解压文件
+    elif [ "$user_operation" = "2" ]; then
+        if [ "$zip_file_count" -gt 1 ]; then
+            ls -l
+            read -p "Enter the name of the zip file to unzip: " zip_filename
+            if [ -f "$zip_filename" ] && [[ "$zip_filename" == *.zip ]]; then
+                read -p "Enter the chapter number: " chapter_number
+                unar "$zip_filename" -q -D -o ch$chapter_number
+                printf 'OK: unzip_tarballs\n'
+            else
+                printf 'ERROR: tarball_filename_not_match\n'
+            fi
+        else
+            if [ "$zip_file_count" -eq 1 ]; then
+                unar *.zip -q -D -o main
+                printf 'OK: unzip_single_tarball\n'
+            else
+                printf 'INFO: no_zipfile_to_extract\n'
+            fi
+        fi
+    
+    # 编辑 src.md
+    elif [ "$user_operation" = "3" ]; then
+        if [ "$zip_file_count" -eq 1 ]; then
+            read -p 'Enter author name of comic:' src_author
+            read -p 'Enter title of comic:' src_title
+            read -p 'Enter src url of comic:' src_url
+            echo "- [$src_author - $src_title]($src_url)" > src.md
+            printf 'OK: edit_src_md\n'
+        else
+            #nano src.md
+            kwrite src.md
+        fi
+
+    # 计算哈希值
+    elif [ "$user_operation" = "4" ]; then
+        if [ -d main ] && [ -f src.md ]; then
+            sha256sum main/* src.md > sha256sum.txt
+            printf 'OK: single_hash_calc\n'
+        else
+            printf 'INFO: file_not_match_when_calc_single_hash\n'
+            if [ -d ch1 ] && [ -f src.md ]; then
+                sha256sum ch*/* src.md > sha256sum.txt
+                printf 'OK: multi_hash_calc\n'
+            else
+                printf 'INFO: file_not_match_when_calc_multi_hash\n'
+            fi
+        fi
+
+    # 压缩文件
+    elif [ "$user_operation" = "5" ]; then
+        if [ -d main ] && [ -f src.md ] && [ -f sha256sum.txt ]; then
+            zip -q tmp.zip main/* sha256sum.txt src.md
+            mv tmp.zip tmp.cbz
+            printf 'OK: build_finished_single\n'
+        else
+            printf 'ERROR: file_not_match_single\n'
+            if [ -d ch1 ] && [ -f src.md ] && [ -f sha256sum.txt ]; then
+                zip -q tmp.zip ch*/* sha256sum.txt src.md
+                mv tmp.zip tmp.cbz
+                printf 'OK: build_finished_multiple\n'
+            else
+                printf 'ERROR: file_not_match_multiple\n'
+            fi
+        fi
+        if [ -f tmp.cbz ]; then
+            read -p 'Enter author name:' author_name
+            read -p 'Enter title name:' title_name
+            filename="[$author_name] $title_name"
+            mv tmp.cbz "$filename".cbz
+            ls -l
+        else
+            printf 'Info: tmp.cbz_no_found\n'
+        fi
+
+    elif [ "$user_operation" == "6" ]; then
+        printf 'Choose working dir:\n'
+        printf 'WD1: 0-tmp1\n'
+        printf 'WD2: 2-comic-mix/0-cache\n'
+        printf 'WD3: ~/Downloads\n'
+        printf 'Enter (1/2/3):'
+        read -r new_choice
+        case "$new_choice" in
+            1)
+                default_wd=$WD1
+                ;;
+            2)
+                default_wd=$WD2
+                ;;
+            3)
+                default_wd=$WD3
+                ;;
+            *)
+                default_wd=$WD2
+                printf 'ERROR:invalid_input\nINFO: set_default_wd_to_wd2\n'
+                ;;
+            esac
+        cd $default_wd
+
+    elif [ "$user_operation" == "7" ]; then
+        printf 'INFO: stop_and_quit\n'
+        break
+    elif [ "$user_operation" = "Q" ] || [ "$user_operation" = "q" ]; then
+        printf 'INFO: stop_and_quit\n'
+        break
+    else
+        printf 'ERROR: invalid_input'
+        continue
+    fi
+done
+```
+
 ----
 
 ## 配置文件
