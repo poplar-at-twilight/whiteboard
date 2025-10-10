@@ -16,10 +16,10 @@ tags:
 
 ```
 Operating System: Fedora Linux 42
-KDE Plasma Version: 6.4.2
-KDE Frameworks Version: 6.15.0
-Qt Version: 6.9.1
-Kernel Version: 6.15.4-200.fc42.x86_64 (64-bit)
+KDE Plasma Version: 6.4.5
+KDE Frameworks Version: 6.18.0
+Qt Version: 6.9.2
+Kernel Version: 6.16.10-200.fc42.x86_64 (64-bit)
 Graphics Platform: Wayland
 Processors: 16 × AMD Ryzen 7 7840H  w/ Radeon 780M Graphics
 Memory: 16 GiB of RAM (14.8 GiB usable)
