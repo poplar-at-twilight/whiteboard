@@ -27,7 +27,7 @@ source venv/bin/activate
 安装依赖：
 
 ```
-pip install mkdocs mkdocs-material mkdocs-rss-plugin
+pip install mkdocs mkdocs-material
 ```
 
 运行服务：

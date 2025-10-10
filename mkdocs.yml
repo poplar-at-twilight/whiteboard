@@ -80,7 +80,7 @@ nav:
     - 归档:
       - archives/about.md
       - archives/external-index.md
-      - archives/pandoc's-markdwon-spec.md
+      #- archives/pandoc's-markdwon-spec.md
       - archives/minecraft-wallpaper.md
       - 博客归档:
         - archives/qbittorrent-confs.md
@@ -135,14 +135,15 @@ plugins:
       post_readtime: false
   - tags:
       tags_file: tags.md
-  - rss:
-      abstract_chars_count: -1
-      match_path: blog/posts/.* 
-      date_from_meta:
-        as_creation: date
-      categories:
-        - categories
-        - tags
+
+#  - rss:
+#      abstract_chars_count: -1
+#      match_path: blog/posts/.* 
+#      date_from_meta:
+#        as_creation: date
+#      categories:
+#        - categories
+#        - tags
 
 extra:
   social:
