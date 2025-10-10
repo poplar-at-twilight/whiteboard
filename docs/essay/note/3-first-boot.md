@@ -337,7 +337,7 @@ desktop 文件模板：
 Categories=Development;
 Comment[zh_CN]=
 Comment=
-Exec=/home/poplar/bin/codium/codium
+Exec=/home/poplar/bin/codium/codium --ozone-platform-hint=auto --enable-wayland-ime --wayland-text-input-v3
 GenericName[zh_CN]=
 GenericName=
 Icon=/home/poplar/bin/codium/data/paulo22s.png
@@ -345,6 +345,7 @@ MimeType=
 Name[zh_CN]=VSCodium
 Name=VSCodium
 Path=/home/poplar/bin/codium
+PrefersNonDefaultGPU=false
 StartupNotify=false
 Terminal=false
 TerminalOptions=
