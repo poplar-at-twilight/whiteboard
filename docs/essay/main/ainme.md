@@ -76,7 +76,7 @@ tags:
 - 四叠半时光机布鲁斯（Yojouhan Time Machine Blues）
 - 春宵苦短，少女前进吧！（Yoru wa Mijikashi Aruke yo Otome）
 - 葬送的芙莉莲（葬送のフリーレン）
-- 为美好的世界献上祝福（KonoSuba: God's Blessing on This Wonderful World!） S1~S3 + M
+- 为美好的世界献上祝福（KonoSuba: God's Blessing on This Wonderful World!） S1~S3 + M + OVA
 - 月刊少女野崎君（月刊少女野崎くん）
 - 胆大党（DAN DA DAN） S1
 - 四月是你的谎言（四月は君の嘘）
