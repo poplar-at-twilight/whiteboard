@@ -28,9 +28,9 @@ DRI_PRIME=1
 alias pyx='https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890'
 alias dnfx='pyx dnf'
 # 对 dnf 设置代理
-alias flatpakx="pyx flatpak --user"
+#alias flatpakx="pyx flatpak --user"
 # 对 flatpak 使用代理，并增加 --user 标签
-alias set-proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
+alias set-proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=http://127.0.0.1:7890"
 alias unset-proxy="unset http_proxy; unset https_proxy; unset all_proxy"
 # 代理变量手动开关
 alias steam-proxy="set-proxy; steam"
@@ -40,13 +40,15 @@ alias steam-proxy="set-proxy; steam"
 
 ## 软件源命令
 
-alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+#alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
 # 添加 flathub
 
 ## shell 自定义
 
 alias ls="ls --block-size=KiB --color=auto"
 # 以 KiB 为单位显示文件大小
+alias l="ls --block-size=KiB --color=auto -lt"
+# 更简短的命令
 export PATH=/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
 # 自定义 $PATH 路径
 unset GTK_IM_MODULE
@@ -67,7 +69,9 @@ alias pings="ping mirror.nyist.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 
 # 测试网络连通性
 alias venv-setup="python3 -m venv venv"
 alias venv="source venv/bin/activate"
-#启动 python 容器环境
+# 启动 python 容器环境
+#alias furmark='DRI_PRIME=1 $HOME/bin/FurMark_linux64/FurMark_GUI'
+# 启动 GPU 压力测试
 ```
 
 ## update-code

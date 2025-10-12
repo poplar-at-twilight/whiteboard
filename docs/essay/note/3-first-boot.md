@@ -23,6 +23,7 @@ tags:
 /home/poplar/.config/fcitx5
 /home/poplar/.config/chromium
 /home/poplar/.config/goldendict
+/home/poplar/.config/htop
 /home/poplar/.config/MangoHud
 /home/poplar/.config/mpv
 /home/poplar/.config/pip
@@ -34,6 +35,7 @@ tags:
 /home/poplar/.local/share/konsole
 /home/poplar/.local/share/qBittorrent
 /home/poplar/.local/share/plasma-systemmonitor
+/home/poplar/.local/share/TelegramDesktop
 
 /home/poplar/.var
 
@@ -131,9 +133,10 @@ Fcitx5 的自定义词库文件（`*.dict`）：
 - skanpage
 - PackageKit
 - ibus
+- plasma-browser-integration
 
 ```
-sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus
+sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus plasma-browser-integration
 ```
 
 自动移除不再使用的软件包：
@@ -188,7 +191,7 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 
 ### 浏览器
 
-如果无法使用 fcitx 输入中文，在 chrome://flags 中打开 `#wayland-text-input-v3`，并将 `--ozone-platform-hint=auto --enable-wayland-ime` 添加至应用程序的环境变量中。
+如果无法使用 fcitx 输入中文，在 `chrome://flags` 中打开 `#wayland-text-input-v3`，并将 `--ozone-platform-hint=auto --enable-wayland-ime` 添加至应用程序的环境变量中。
 
 #### Chrome
 
@@ -202,7 +205,7 @@ sudo dnf config-manager setopt google-chrome.enabled=1
 
 !!! Tips
 
-    将上述命令的布尔值改为 0 可以禁用此第三方软件源。
+    将上述命令的布尔值改为 `0` 可以禁用此第三方软件源。
 
 ```
 sudo dnf install google-chrome-stable
@@ -281,7 +284,9 @@ sudo usermod -aG libvirt $USER
 sudo systemctl enable libvirtd --now
 ```
 
-重启系统。
+重启系统，另见：[KVM 备忘录]。
+
+[KVM 备忘录]: ./../linux/1-kvm.md
 
 ### 其他
 
