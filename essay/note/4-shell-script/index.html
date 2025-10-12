@@ -2157,9 +2157,9 @@
 <span class="nb">alias</span><span class="w"> </span><span class="nv">pyx</span><span class="o">=</span><span class="s1">&#39;https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">dnfx</span><span class="o">=</span><span class="s1">&#39;pyx dnf&#39;</span>
 <span class="c1"># 对 dnf 设置代理</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">flatpakx</span><span class="o">=</span><span class="s2">&quot;pyx flatpak --user&quot;</span>
+<span class="c1">#alias flatpakx=&quot;pyx flatpak --user&quot;</span>
 <span class="c1"># 对 flatpak 使用代理，并增加 --user 标签</span>
-<span class="nb">alias</span><span class="w"> </span>set-proxy<span class="o">=</span><span class="s2">&quot;export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890&quot;</span>
+<span class="nb">alias</span><span class="w"> </span>set-proxy<span class="o">=</span><span class="s2">&quot;export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=http://127.0.0.1:7890&quot;</span>
 <span class="nb">alias</span><span class="w"> </span>unset-proxy<span class="o">=</span><span class="s2">&quot;unset http_proxy; unset https_proxy; unset all_proxy&quot;</span>
 <span class="c1"># 代理变量手动开关</span>
 <span class="nb">alias</span><span class="w"> </span>steam-proxy<span class="o">=</span><span class="s2">&quot;set-proxy; steam&quot;</span>
@@ -2169,13 +2169,15 @@
 
 <span class="c1">## 软件源命令</span>
 
-<span class="nb">alias</span><span class="w"> </span>flatpak-add<span class="o">=</span><span class="s2">&quot;set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo&quot;</span>
+<span class="c1">#alias flatpak-add=&quot;set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo&quot;</span>
 <span class="c1"># 添加 flathub</span>
 
 <span class="c1">## shell 自定义</span>
 
 <span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s2">&quot;ls --block-size=KiB --color=auto&quot;</span>
 <span class="c1"># 以 KiB 为单位显示文件大小</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s2">&quot;ls --block-size=KiB --color=auto -lt&quot;</span>
+<span class="c1"># 更简短的命令</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
 <span class="c1"># 自定义 $PATH 路径</span>
 <span class="nb">unset</span><span class="w"> </span>GTK_IM_MODULE
@@ -2196,7 +2198,9 @@
 <span class="c1"># 测试网络连通性</span>
 <span class="nb">alias</span><span class="w"> </span>venv-setup<span class="o">=</span><span class="s2">&quot;python3 -m venv venv&quot;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">venv</span><span class="o">=</span><span class="s2">&quot;source venv/bin/activate&quot;</span>
-<span class="c1">#启动 python 容器环境</span>
+<span class="c1"># 启动 python 容器环境</span>
+<span class="c1">#alias furmark=&#39;DRI_PRIME=1 $HOME/bin/FurMark_linux64/FurMark_GUI&#39;</span>
+<span class="c1"># 启动 GPU 压力测试</span>
 </code></pre></div>
 <h2 id="update-code">update-code</h2>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/sh</span>

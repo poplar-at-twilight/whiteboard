@@ -2566,6 +2566,7 @@
 /home/poplar/.config/fcitx5
 /home/poplar/.config/chromium
 /home/poplar/.config/goldendict
+/home/poplar/.config/htop
 /home/poplar/.config/MangoHud
 /home/poplar/.config/mpv
 /home/poplar/.config/pip
@@ -2577,6 +2578,7 @@
 /home/poplar/.local/share/konsole
 /home/poplar/.local/share/qBittorrent
 /home/poplar/.local/share/plasma-systemmonitor
+/home/poplar/.local/share/TelegramDesktop
 
 /home/poplar/.var
 
@@ -2650,8 +2652,9 @@
 <li>skanpage</li>
 <li>PackageKit</li>
 <li>ibus</li>
+<li>plasma-browser-integration</li>
 </ul>
-<div class="highlight"><pre><span></span><code>sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus
+<div class="highlight"><pre><span></span><code>sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus plasma-browser-integration
 </code></pre></div>
 <p>自动移除不再使用的软件包：</p>
 <div class="highlight"><pre><span></span><code>sudo dnf autoremove
@@ -2685,7 +2688,7 @@ sudo dnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 </code></pre></div>
 <h3 id="_12">浏览器</h3>
-<p>如果无法使用 fcitx 输入中文，在 chrome://flags 中打开 <code>#wayland-text-input-v3</code>，并将 <code>--ozone-platform-hint=auto --enable-wayland-ime</code> 添加至应用程序的环境变量中。</p>
+<p>如果无法使用 fcitx 输入中文，在 <code>chrome://flags</code> 中打开 <code>#wayland-text-input-v3</code>，并将 <code>--ozone-platform-hint=auto --enable-wayland-ime</code> 添加至应用程序的环境变量中。</p>
 <h4 id="chrome">Chrome</h4>
 <div class="highlight"><pre><span></span><code>sudo dnf install fedora-workstation-repositories
 </code></pre></div>
@@ -2693,7 +2696,7 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 </code></pre></div>
 <div class="admonition tips">
 <p class="admonition-title">Tips</p>
-<p>将上述命令的布尔值改为 0 可以禁用此第三方软件源。</p>
+<p>将上述命令的布尔值改为 <code>0</code> 可以禁用此第三方软件源。</p>
 </div>
 <div class="highlight"><pre><span></span><code>sudo dnf install google-chrome-stable
 </code></pre></div>
@@ -2735,7 +2738,7 @@ flatpak<span class="w"> </span>override<span class="w"> </span>--env<span class=
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo systemctl enable libvirtd --now
 </code></pre></div></p>
-<p>重启系统。</p>
+<p>重启系统，另见：<a href="../../linux/1-kvm/">KVM 备忘录</a>。</p>
 <h3 id="_14">其他</h3>
 <ul>
 <li><code>gimp</code></li>
