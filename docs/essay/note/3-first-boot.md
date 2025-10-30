@@ -297,11 +297,15 @@ sudo systemctl enable libvirtd --now
 - `goldendict-ng`
     - 如果出现问题则换成 flatpak 版
 - `steam`
+    - 编辑 desktop 文件，设置：
+        ```
+        PrefersNonDefaultGPU=false
+        StartupNotify=false
+        ```
     - 更改默认界面语言
     - 关闭着色器缓存
     - 更改默认打开的页面
     - 添加新的库
-    - 启用 steam proton 兼容层
     - steam 会默认优先运行游戏的 Linux 原生版本。如果出现性能问题，请强制使用 steam proton 兼容工具。
     - 如果存在连接性问题，则使用 `steam-proxy` 命令。
     - 如果无法正常缩放，则设置变量：  

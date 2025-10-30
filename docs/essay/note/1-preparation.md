@@ -12,8 +12,8 @@ tags:
 
 下载：
 
-- <https://mirror.nyist.edu.cn/fedora/releases/42/KDE/x86_64/iso/Fedora-KDE-42-1.1-x86_64-CHECKSUM>
-- <https://mirror.nyist.edu.cn/fedora/releases/42/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-42-1.1.x86_64.iso>
+- <https://download.fedoraproject.org/pub/fedora/linux/releases/43/KDE/x86_64/iso/Fedora-KDE-43-1.6-x86_64-CHECKSUM>
+- <https://download.fedoraproject.org/pub/fedora/linux/releases/43/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-43-1.6.x86_64.iso>
 
 ## 校验文件
 
@@ -22,11 +22,11 @@ wget https://fedoraproject.org/fedora.gpg
 ```
 
 ```
-gpgv --keyring ./fedora.gpg Fedora-KDE-42-1.1-x86_64-CHECKSUM
+gpgv --keyring ./fedora.gpg Fedora-KDE-43-1.6-x86_64-CHECKSUM
 ```
 
 ```
-sha256sum --ignore-missing -c Fedora-KDE-42-1.1-x86_64-CHECKSUM
+sha256sum --ignore-missing -c Fedora-KDE-43-1.6-x86_64-CHECKSUM
 ```
 
 ## 烧录 ISO 文件

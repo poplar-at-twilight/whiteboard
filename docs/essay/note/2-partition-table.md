@@ -13,16 +13,15 @@ tags:
 ### 磁盘分区
 
 ```
-poplar@Greysia:~$ lsblk
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 zram0       251:0    0    8G  0 disk [SWAP]
 nvme1n1     259:0    0  1.8T  0 disk 
-├─nvme1n1p1 259:1    0  100M  0 part /boot/efi
-├─nvme1n1p2 259:2    0    1G  0 part /boot
-├─nvme1n1p3 259:3    0  1.8T  0 part /home
-└─nvme1n1p4 259:4    0   39G  0 part /
-nvme0n1     259:5    0  1.8T  0 disk 
-└─nvme0n1p1 259:6    0  1.8T  0 part /home/bt
+├─nvme1n1p1 259:1    0   95M  0 part /boot/efi
+├─nvme1n1p2 259:2    0  1.9G  0 part /boot
+└─nvme1n1p3 259:3    0  1.8T  0 part /home
+                                     /
+nvme0n1     259:4    0  1.8T  0 disk 
+└─nvme0n1p1 259:5    0  1.8T  0 part /bt
 ```
 
 !!! info "注意"
@@ -33,9 +32,11 @@ nvme0n1     259:5    0  1.8T  0 disk
 
 - ESP 分区：文件系统格式为 `EFI`，大小为 100MiB。
 - BOOT 分区：文件系统格式为 `ext4`，大小为 1GiB。
-- SYS 分区：类型设置为 btrfs 卷，大于 20GiB 即可。
 
-挂载：
+然后将剩余的空间新建一个 btrfs 文件系统，并新建三个子卷：
 
-- /home
-- /home/bt
+- ROOT：系统安装位置
+    - 该子卷要格式化，格式化操作不会影响到其他的子卷。
+- HOME：用于存储用户文件的子卷
+    - 设置挂载点时不要勾选格式化选项
+- BT：用于挂载 `/dev/nvme0n1p1`
