@@ -18,10 +18,10 @@ tags:
 
 ### 图标主题
 
-- [Qogir-cursors-theme]
+- [x] [Qogir-cursors-theme]
 - [ ] [Tela-icon-theme]
-- [x] `papirus-icon-theme`
     - 解压文件保存位置：`~/.local/share/icons`
+- [x] `papirus-icon-theme`
 
 [Tela-icon-theme]: https://store.kde.org/p/1279924
 [Qogir-cursors-theme]: https://www.pling.com/p/1366182/

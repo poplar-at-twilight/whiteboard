@@ -316,9 +316,10 @@ sudo systemctl enable libvirtd --now
 - `qbittorrent`
 - `pandoc`
 - `telegram-desktop`
+- `papirus-icon-theme`
 
 ```
-sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc telegram-desktop
+sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc telegram-desktop papirus-icon-theme
 ```
 
 !!! info
