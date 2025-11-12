@@ -332,7 +332,7 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 </code></pre>
 <h4 id="fcitx5-皮肤没有正确显示"><a class="header" href="#fcitx5-皮肤没有正确显示">fcitx5 皮肤没有正确显示</a></h4>
 <p>关闭所有 flatpak 应用，然后运行：</p>
-<pre><code class="language-shell">flatpak override --env=QT_IM_MODULE= --user
+<pre><code class="language-bash">flatpak override --env=QT_IM_MODULE= --user
 flatpak override --env=GTK_IM_MODULE= --user
 </code></pre>
 <h4 id="应用-gtk-主题与当前系统主题不匹配"><a class="header" href="#应用-gtk-主题与当前系统主题不匹配">应用 GTK 主题与当前系统主题不匹配</a></h4>
@@ -405,7 +405,7 @@ StartupNotify=false
 <li>右键点击 KDE 开始菜单，选择 <strong>编辑应用程序</strong>，可以快速新建一个 desktop 文件。</li>
 </ul>
 <p>desktop 文件模板：</p>
-<pre><code class="language-shell">[Desktop Entry]
+<pre><code class="language-bash">[Desktop Entry]
 Categories=Development;
 Comment[zh_CN]=
 Comment=
@@ -456,7 +456,7 @@ X-KDE-Username=
 </ol>
 <h3 id="nano"><a class="header" href="#nano">nano</a></h3>
 <p>如果 <code>nano</code> 没有启用语法高亮，则在用户目录下添加下列配置文件：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; cat .nanorc
+<pre><code class="language-bash">poplar@Greysia:~&gt; cat .nanorc
 include /usr/share/nano/*.nanorc
 </code></pre>
 <h3 id="czkawka"><a class="header" href="#czkawka">Czkawka</a></h3>

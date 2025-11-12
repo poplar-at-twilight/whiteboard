@@ -777,7 +777,7 @@ D:\software\lib\python\Scripts
 </code></pre>
 <h2 id="文件目录"><a class="header" href="#文件目录">文件目录</a></h2>
 <p>在 <code>~/bin/aria2</code> 目录下新建文本文档：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; tree ~/bin/aria2
+<pre><code class="language-bash">poplar@Greysia:~&gt; tree ~/bin/aria2
 /home/poplar/bin/aria2
 ├── aria2.conf
 ├── aria2.log
@@ -788,7 +788,7 @@ D:\software\lib\python\Scripts
 1 directory, 5 files
 </code></pre>
 <h3 id="aria2conf"><a class="header" href="#aria2conf"><code>aria2.conf</code></a></h3>
-<pre><code class="language-shell"># 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
+<pre><code class="language-bash"># 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
 dir=/home/poplar/Downloads/Aria2
 
 # 日志文件保存目录
@@ -892,7 +892,7 @@ rpc-secret=poplar
 </code></pre>
 <h3 id="aria2service"><a class="header" href="#aria2service"><code>aria2.service</code></a></h3>
 <p>设置使用 systemd 启动 aria2 的服务文件 <code>aria2.service</code>：</p>
-<pre><code class="language-shell">[Unit]
+<pre><code class="language-bash">[Unit]
 Description=Start aria2 daemon
 
 [Service]
@@ -909,7 +909,7 @@ WantedBy=default.target
 </ul>
 <h2 id="启动服务"><a class="header" href="#启动服务">启动服务</a></h2>
 <p>使用 <code>~/bin/command/aria2-m</code> 启动服务：</p>
-<pre><code class="language-shell">#!/bin/sh
+<pre><code class="language-bash">#!/bin/sh
 #本脚本用于维护 aria2 及验证和归档 ISO 文件
 
 export ISO_DL_DIR=/home/poplar/Downloads/Aria2
@@ -1110,7 +1110,7 @@ done
 <li><code>~/.local/share/qBittorrent</code></li>
 </ul>
 <p>下载文件夹：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; tree /home/bt/network -L 1
+<pre><code class="language-bash">poplar@Greysia:~&gt; tree /home/bt/network -L 1
 /home/bt/network
 ├── downloads1
 ├── downloads2
@@ -1237,7 +1237,7 @@ done
 <li>下载地址：<a href="https://github.com/Ghost-chu/PeerBanHelper">https://github.com/Ghost-chu/PeerBanHelper</a></li>
 <li>文档：<a href="https://pbh-btn.github.io/pbh-docs/">https://pbh-btn.github.io/pbh-docs/</a></li>
 </ul>
-<pre><code class="language-shell">poplar@Greysia:~&gt; tree ~/bin/pbh -L 1
+<pre><code class="language-bash">poplar@Greysia:~&gt; tree ~/bin/pbh -L 1
 /home/poplar/bin/pbh
 ├── data
 ├── key.txt
@@ -1264,7 +1264,7 @@ done
 </ul>
 <h3 id="集成管理脚本"><a class="header" href="#集成管理脚本">集成管理脚本</a></h3>
 <p>用于管理 PeerBanHelper 的脚本 <code>pbh</code>：</p>
-<pre><code class="language-shell">#!/bin/sh
+<pre><code class="language-bash">#!/bin/sh
 # 本脚本用于 Peerbanhelper 的日常维护
 # 注意，本脚本只适用于直接使用 PeerBanHelper_*.zip 文件进行部署的方式
 
@@ -1446,7 +1446,7 @@ done
 <p>所有东西都是文件，包括文件夹也是文件的一种。</p>
 <h2 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h2>
 <p>Linux 的文件系统树如下：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; tree / -L 1
+<pre><code class="language-bash">poplar@Greysia:~&gt; tree / -L 1
 /
 ├── bin -&gt; usr/bin
 ├── boot
@@ -1510,7 +1510,7 @@ done
 </ul>
 <h3 id="chmod"><a class="header" href="#chmod">chmod</a></h3>
 <p>一个典型的文件及文件夹应当具有如下的权限设置：</p>
-<pre><code>poplar@Greysia:~/1&gt; l
+<pre><code class="language-bash">poplar@Greysia:~/1&gt; l
 总计 0
 drwxr-xr-x  1 poplar poplar  12  9月24日 13:22 ./
 drwx--x---+ 1 poplar poplar 556  9月24日 13:22 ../
@@ -1521,7 +1521,7 @@ drwxr-xr-x  1 poplar poplar   0  9月24日 13:22 2/
 <p><code>-rw-r--r--</code> 共有十个字符，第一位字符表示文件的性质（文件/文件夹/符号链接），然后是三个字符一组，依次表示文件所有者、文件所有者所在组的其他用户和其他用户对这个文件的权限。</p>
 <p><code>chmod</code> 命令可以使用数字或字母组合更改文件权限。</p>
 <p>使用数字组合时，参考上文，对应的权限组合对应的数值，例如：</p>
-<pre><code>poplar@Greysia:~/1&gt; chmod 777 2.txt; ll
+<pre><code class="language-bash">poplar@Greysia:~/1&gt; chmod 777 2.txt; ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 -rwxrwxrwx 1 poplar poplar 0  9月24日 13:22 2.txt
@@ -1529,7 +1529,7 @@ drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 <p>使用字母组合时，使用 <code>字母 + 加减符号 + 权限</code> 的形式。</p>
 <p>针对所有用户时，使用 <code>a</code>（all），或者省略字母。添加权限使用加号，删除权限使用减号。</p>
 <p>两边的字母可以多个（同时指定多个对象），例如：</p>
-<pre><code>poplar@Greysia:~/1&gt; chmod go-wx 2.txt; ll
+<pre><code class="language-bash">poplar@Greysia:~/1&gt; chmod go-wx 2.txt; ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 -rwxr--r-- 1 poplar poplar 0  9月24日 13:22 2.txt
@@ -1537,7 +1537,7 @@ drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 <p>使用 <code>-R</code> 标志或者 <code>*</code> 可以将操作递归地（recursively）应用到该文件夹的所有文件（包括子文件和子文件夹）。</p>
 <h4 id="文件夹的可执行权限"><a class="header" href="#文件夹的可执行权限">文件夹的可执行权限</a></h4>
 <p>文件夹应当默认具有可执行权限（<code>drwxr-xr-x</code>）。文件目录具有的可执行权限允许用户访问目录内的项目，即使用户无法列出目录内容<sup class="footnote-reference" id="fr-ref-sur-1"><a href="#footnote-ref-sur">2</a></sup>。</p>
-<pre><code>poplar@Greysia:~/1&gt; ll
+<pre><code class="language-bash">poplar@Greysia:~/1&gt; ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 -rw-r--r-- 1 poplar poplar 0  9月24日 13:22 2.txt
@@ -1569,7 +1569,7 @@ d????????? ? ? ? ?              ? ../
 <pre><code>sudo dnf in @virtualization
 </code></pre>
 <p>加入用户组：</p>
-<pre><code class="language-shell">sudo usermod -aG libvirt $USER
+<pre><code class="language-bash">sudo usermod -aG libvirt $USER
 </code></pre>
 <p>注销重新登录。</p>
 <h2 id="主宿机文件共享"><a class="header" href="#主宿机文件共享">主宿机文件共享</a></h2>
@@ -1582,17 +1582,17 @@ d????????? ? ? ? ?              ? ../
 <li>最新稳定版的 <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/">virtio-win-guest-tools.exe</a></li>
 </ul>
 <p>将下载的文件打包成 ISO 文件，作为一个 SATA CDROM 存储设备添加到虚拟机中。</p>
-<pre><code class="language-shell">mkisofs -o 文件名.iso /文/件/路/径
+<pre><code class="language-bash">mkisofs -o 文件名.iso /文/件/路/径
 </code></pre>
 <p>首先安装 <code>WinFSP</code> Core，然后安装 <code>virtio-win-guest-tools.exe</code>（<code>virtiofs</code>）</p>
 <p>安装完毕后，按下 <code>Win + R</code> 键唤出 CMD，输入 <code>services.msc</code>，然后找到并启动 <strong>VirtIO-FS Service</strong>。</p>
 <h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
 <p>参考上文配置好虚拟机后，启动虚拟机，确认 <code>virtiofsd</code> 已安装。</p>
 <p>然后运行：</p>
-<pre><code class="language-shell">mount -t virtiofs mount_tag /mnt/mount/path
+<pre><code class="language-bash">mount -t virtiofs mount_tag /mnt/mount/path
 </code></pre>
 <p><code>mount_tag</code> 是上文中设定的 目标路径，<code>/mnt/mount/path</code> 则是要挂载 <code>virtiofs</code> 的路径，例如：</p>
-<pre><code class="language-shell">sudo mount -t virtiofs sharing-folder /mnt #将 sharing-folder 文件夹挂载到 /mnt
+<pre><code class="language-bash">sudo mount -t virtiofs sharing-folder /mnt #将 sharing-folder 文件夹挂载到 /mnt
 </code></pre>
 <h2 id="3d-图形加速"><a class="header" href="#3d-图形加速">3D 图形加速</a></h2>
 <p>首先关闭虚拟机，然后将虚拟机的 <strong>显示协议 Spice</strong> 的 <strong>监听类型</strong> 修改为 <strong>无</strong>，然后勾选下方的 <strong>OpenGL</strong>。</p>
@@ -1664,14 +1664,14 @@ d????????? ? ? ? ?              ? ../
 </ul>
 <h2 id="部分命令"><a class="header" href="#部分命令">部分命令</a></h2>
 <p>使用 <code>ls</code> 命令列出文件大小时，可以使用 <code>--block-size=</code> 的 flag 指定显示的大小，如：</p>
-<pre><code class="language-shell">poplar@Greysia:~/Downloads/ISO&gt; ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
+<pre><code class="language-bash">poplar@Greysia:~/Downloads/ISO&gt; ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
 -rw-r--r-- 1 root root 4594860032 10月 3日 09:24 openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
 poplar@Greysia:~/Downloads/ISO&gt; ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso --block-size=MiB
 -rw-r--r-- 1 root root 4382MiB 10月 3日 09:24 openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
 </code></pre>
 <p>详见 <code>man ls</code>。</p>
 <p>又如 <code>free -m</code> 的含义就是以 mebibyte 显示当前的内存信息：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; sudo free -m
+<pre><code class="language-bash">poplar@Greysia:~&gt; sudo free -m
 [sudo] root 的密码：
                total        used        free      shared  buff/cache   available
 内存：         15201        6875        2356         335        6634        8325
@@ -1684,7 +1684,7 @@ poplar@Greysia:~&gt; sudo free --mega
 <p>详见 <code>free --help</code>。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="个人自用的-mpv-配置"><a class="header" href="#个人自用的-mpv-配置">个人自用的 mpv 配置</a></h1>
-<pre><code class="language-shell">poplar@Greysia:~&gt; tree ~/.config/mpv
+<pre><code class="language-bash">poplar@Greysia:~&gt; tree ~/.config/mpv
 /home/poplar/.config/mpv
 ├── mpv.conf
 ├── shaders_cache
@@ -1796,7 +1796,7 @@ __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRA
 <li><code>*.asc</code> 是可含有封装文档的 ASCII 加密签名，纯文本格式。</li>
 </ul>
 <p>一个操作实例<sup class="footnote-reference" id="fr-ref3-1"><a href="#footnote-ref3">3</a></sup>（签名，加密，解密，提取文件）：</p>
-<pre><code class="language-shell">poplar@Greysia:~/Downloads/Aria2&gt; ll
+<pre><code class="language-bash">poplar@Greysia:~/Downloads/Aria2&gt; ll
 总计 91348KiB
 -rw-r--r-- 1 poplar poplar 91346KiB  9月24日 15:39 vm.iso
 poplar@Greysia:~/Downloads/Aria2&gt; gpg -s vm.iso
@@ -1888,7 +1888,7 @@ poplar@Greysia:~/Downloads/Aria2&gt; ll
 <li>参考：<a href="https://github.com/rust-lang/mdBook/wiki/Automated-Deployment%3A-GitHub-Pages-%28Deploy-from-branch%29">Automated Deployment: GitHub Pages (Deploy from branch)</a></li>
 </ul>
 <p>首次部署：</p>
-<pre><code class="language-shell">mdbook build
+<pre><code class="language-bash">mdbook build
 git worktree add --orphan -B gh-pages gh-pages
 cp -r book/* gh-pages
 git config user.name "Deploy from CI"
@@ -1899,7 +1899,7 @@ git commit -m 'deploy new book'
 git push origin +gh-pages
 </code></pre>
 <p>再次部署：</p>
-<pre><code class="language-shell">mdbook build
+<pre><code class="language-bash">mdbook build
 cp -r book/* gh-pages
 cd gh-pages
 git add -A
@@ -1910,7 +1910,7 @@ git push origin +gh-pages
 <ul>
 <li>注意，此脚本需要在有登陆授权的 git 终端中使用</li>
 </ul>
-<pre><code class="language-shell">#!/bin/sh
+<pre><code class="language-bash">#!/bin/sh
 # 本脚本用于将 mdbook 部署到 Pages
 
 work_dir=/home/poplar/Others/git/whiteboard
@@ -2177,7 +2177,7 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 </code></pre>
 <h4 id="fcitx5-皮肤没有正确显示"><a class="header" href="#fcitx5-皮肤没有正确显示">fcitx5 皮肤没有正确显示</a></h4>
 <p>关闭所有 flatpak 应用，然后运行：</p>
-<pre><code class="language-shell">flatpak override --env=QT_IM_MODULE= --user
+<pre><code class="language-bash">flatpak override --env=QT_IM_MODULE= --user
 flatpak override --env=GTK_IM_MODULE= --user
 </code></pre>
 <h4 id="应用-gtk-主题与当前系统主题不匹配"><a class="header" href="#应用-gtk-主题与当前系统主题不匹配">应用 GTK 主题与当前系统主题不匹配</a></h4>
@@ -2250,7 +2250,7 @@ StartupNotify=false
 <li>右键点击 KDE 开始菜单，选择 <strong>编辑应用程序</strong>，可以快速新建一个 desktop 文件。</li>
 </ul>
 <p>desktop 文件模板：</p>
-<pre><code class="language-shell">[Desktop Entry]
+<pre><code class="language-bash">[Desktop Entry]
 Categories=Development;
 Comment[zh_CN]=
 Comment=
@@ -2301,7 +2301,7 @@ X-KDE-Username=
 </ol>
 <h3 id="nano"><a class="header" href="#nano">nano</a></h3>
 <p>如果 <code>nano</code> 没有启用语法高亮，则在用户目录下添加下列配置文件：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; cat .nanorc
+<pre><code class="language-bash">poplar@Greysia:~&gt; cat .nanorc
 include /usr/share/nano/*.nanorc
 </code></pre>
 <h3 id="czkawka"><a class="header" href="#czkawka">Czkawka</a></h3>
@@ -2319,7 +2319,7 @@ include /usr/share/nano/*.nanorc
 <pre><code>DRI_PRIME=1
 </code></pre>
 <h2 id="bashrc"><a class="header" href="#bashrc">bashrc</a></h2>
-<pre><code class="language-shell">## 代理设置
+<pre><code class="language-bash">## 代理设置
 
 alias pyx='https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890'
 alias dnfx='pyx dnf'
@@ -2370,7 +2370,7 @@ alias venv="source venv/bin/activate"
 # 启动 GPU 压力测试
 </code></pre>
 <h2 id="update-code"><a class="header" href="#update-code">update-code</a></h2>
-<pre><code class="language-shell">#!/bin/sh
+<pre><code class="language-bash">#!/bin/sh
 #本脚本用于更新 VScodium
 
 FILE=/home/poplar/Downloads/VSCodium*.tar.gz
@@ -2392,7 +2392,7 @@ else
 fi
 </code></pre>
 <h2 id="cab"><a class="header" href="#cab">cab</a></h2>
-<pre><code class="language-shell">#!/bin/sh
+<pre><code class="language-bash">#!/bin/sh
 # 本脚本用于 cbz 文件半自动化打包
 
 WD1=$HOME/Others/repository/img-main-repo/0-tmp1/0

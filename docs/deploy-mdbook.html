@@ -179,7 +179,7 @@
 <li>参考：<a href="https://github.com/rust-lang/mdBook/wiki/Automated-Deployment%3A-GitHub-Pages-%28Deploy-from-branch%29">Automated Deployment: GitHub Pages (Deploy from branch)</a></li>
 </ul>
 <p>首次部署：</p>
-<pre><code class="language-shell">mdbook build
+<pre><code class="language-bash">mdbook build
 git worktree add --orphan -B gh-pages gh-pages
 cp -r book/* gh-pages
 git config user.name "Deploy from CI"
@@ -190,7 +190,7 @@ git commit -m 'deploy new book'
 git push origin +gh-pages
 </code></pre>
 <p>再次部署：</p>
-<pre><code class="language-shell">mdbook build
+<pre><code class="language-bash">mdbook build
 cp -r book/* gh-pages
 cd gh-pages
 git add -A
@@ -201,7 +201,7 @@ git push origin +gh-pages
 <ul>
 <li>注意，此脚本需要在有登陆授权的 git 终端中使用</li>
 </ul>
-<pre><code class="language-shell">#!/bin/sh
+<pre><code class="language-bash">#!/bin/sh
 # 本脚本用于将 mdbook 部署到 Pages
 
 work_dir=/home/poplar/Others/git/whiteboard

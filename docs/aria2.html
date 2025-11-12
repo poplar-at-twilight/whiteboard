@@ -180,7 +180,7 @@
 </code></pre>
 <h2 id="文件目录"><a class="header" href="#文件目录">文件目录</a></h2>
 <p>在 <code>~/bin/aria2</code> 目录下新建文本文档：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; tree ~/bin/aria2
+<pre><code class="language-bash">poplar@Greysia:~&gt; tree ~/bin/aria2
 /home/poplar/bin/aria2
 ├── aria2.conf
 ├── aria2.log
@@ -191,7 +191,7 @@
 1 directory, 5 files
 </code></pre>
 <h3 id="aria2conf"><a class="header" href="#aria2conf"><code>aria2.conf</code></a></h3>
-<pre><code class="language-shell"># 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
+<pre><code class="language-bash"># 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
 dir=/home/poplar/Downloads/Aria2
 
 # 日志文件保存目录
@@ -295,7 +295,7 @@ rpc-secret=poplar
 </code></pre>
 <h3 id="aria2service"><a class="header" href="#aria2service"><code>aria2.service</code></a></h3>
 <p>设置使用 systemd 启动 aria2 的服务文件 <code>aria2.service</code>：</p>
-<pre><code class="language-shell">[Unit]
+<pre><code class="language-bash">[Unit]
 Description=Start aria2 daemon
 
 [Service]
@@ -312,7 +312,7 @@ WantedBy=default.target
 </ul>
 <h2 id="启动服务"><a class="header" href="#启动服务">启动服务</a></h2>
 <p>使用 <code>~/bin/command/aria2-m</code> 启动服务：</p>
-<pre><code class="language-shell">#!/bin/sh
+<pre><code class="language-bash">#!/bin/sh
 #本脚本用于维护 aria2 及验证和归档 ISO 文件
 
 export ISO_DL_DIR=/home/poplar/Downloads/Aria2

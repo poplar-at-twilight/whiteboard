@@ -180,7 +180,7 @@
 <pre><code>sudo dnf in @virtualization
 </code></pre>
 <p>加入用户组：</p>
-<pre><code class="language-shell">sudo usermod -aG libvirt $USER
+<pre><code class="language-bash">sudo usermod -aG libvirt $USER
 </code></pre>
 <p>注销重新登录。</p>
 <h2 id="主宿机文件共享"><a class="header" href="#主宿机文件共享">主宿机文件共享</a></h2>
@@ -193,17 +193,17 @@
 <li>最新稳定版的 <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/">virtio-win-guest-tools.exe</a></li>
 </ul>
 <p>将下载的文件打包成 ISO 文件，作为一个 SATA CDROM 存储设备添加到虚拟机中。</p>
-<pre><code class="language-shell">mkisofs -o 文件名.iso /文/件/路/径
+<pre><code class="language-bash">mkisofs -o 文件名.iso /文/件/路/径
 </code></pre>
 <p>首先安装 <code>WinFSP</code> Core，然后安装 <code>virtio-win-guest-tools.exe</code>（<code>virtiofs</code>）</p>
 <p>安装完毕后，按下 <code>Win + R</code> 键唤出 CMD，输入 <code>services.msc</code>，然后找到并启动 <strong>VirtIO-FS Service</strong>。</p>
 <h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
 <p>参考上文配置好虚拟机后，启动虚拟机，确认 <code>virtiofsd</code> 已安装。</p>
 <p>然后运行：</p>
-<pre><code class="language-shell">mount -t virtiofs mount_tag /mnt/mount/path
+<pre><code class="language-bash">mount -t virtiofs mount_tag /mnt/mount/path
 </code></pre>
 <p><code>mount_tag</code> 是上文中设定的 目标路径，<code>/mnt/mount/path</code> 则是要挂载 <code>virtiofs</code> 的路径，例如：</p>
-<pre><code class="language-shell">sudo mount -t virtiofs sharing-folder /mnt #将 sharing-folder 文件夹挂载到 /mnt
+<pre><code class="language-bash">sudo mount -t virtiofs sharing-folder /mnt #将 sharing-folder 文件夹挂载到 /mnt
 </code></pre>
 <h2 id="3d-图形加速"><a class="header" href="#3d-图形加速">3D 图形加速</a></h2>
 <p>首先关闭虚拟机，然后将虚拟机的 <strong>显示协议 Spice</strong> 的 <strong>监听类型</strong> 修改为 <strong>无</strong>，然后勾选下方的 <strong>OpenGL</strong>。</p>

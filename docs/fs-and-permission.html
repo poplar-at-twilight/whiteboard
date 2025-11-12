@@ -178,7 +178,7 @@
 <p>所有东西都是文件，包括文件夹也是文件的一种。</p>
 <h2 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h2>
 <p>Linux 的文件系统树如下：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; tree / -L 1
+<pre><code class="language-bash">poplar@Greysia:~&gt; tree / -L 1
 /
 ├── bin -&gt; usr/bin
 ├── boot
@@ -242,7 +242,7 @@
 </ul>
 <h3 id="chmod"><a class="header" href="#chmod">chmod</a></h3>
 <p>一个典型的文件及文件夹应当具有如下的权限设置：</p>
-<pre><code>poplar@Greysia:~/1&gt; l
+<pre><code class="language-bash">poplar@Greysia:~/1&gt; l
 总计 0
 drwxr-xr-x  1 poplar poplar  12  9月24日 13:22 ./
 drwx--x---+ 1 poplar poplar 556  9月24日 13:22 ../
@@ -253,7 +253,7 @@ drwxr-xr-x  1 poplar poplar   0  9月24日 13:22 2/
 <p><code>-rw-r--r--</code> 共有十个字符，第一位字符表示文件的性质（文件/文件夹/符号链接），然后是三个字符一组，依次表示文件所有者、文件所有者所在组的其他用户和其他用户对这个文件的权限。</p>
 <p><code>chmod</code> 命令可以使用数字或字母组合更改文件权限。</p>
 <p>使用数字组合时，参考上文，对应的权限组合对应的数值，例如：</p>
-<pre><code>poplar@Greysia:~/1&gt; chmod 777 2.txt; ll
+<pre><code class="language-bash">poplar@Greysia:~/1&gt; chmod 777 2.txt; ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 -rwxrwxrwx 1 poplar poplar 0  9月24日 13:22 2.txt
@@ -261,7 +261,7 @@ drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 <p>使用字母组合时，使用 <code>字母 + 加减符号 + 权限</code> 的形式。</p>
 <p>针对所有用户时，使用 <code>a</code>（all），或者省略字母。添加权限使用加号，删除权限使用减号。</p>
 <p>两边的字母可以多个（同时指定多个对象），例如：</p>
-<pre><code>poplar@Greysia:~/1&gt; chmod go-wx 2.txt; ll
+<pre><code class="language-bash">poplar@Greysia:~/1&gt; chmod go-wx 2.txt; ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 -rwxr--r-- 1 poplar poplar 0  9月24日 13:22 2.txt
@@ -269,7 +269,7 @@ drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 <p>使用 <code>-R</code> 标志或者 <code>*</code> 可以将操作递归地（recursively）应用到该文件夹的所有文件（包括子文件和子文件夹）。</p>
 <h4 id="文件夹的可执行权限"><a class="header" href="#文件夹的可执行权限">文件夹的可执行权限</a></h4>
 <p>文件夹应当默认具有可执行权限（<code>drwxr-xr-x</code>）。文件目录具有的可执行权限允许用户访问目录内的项目，即使用户无法列出目录内容<sup class="footnote-reference" id="fr-ref-sur-1"><a href="#footnote-ref-sur">2</a></sup>。</p>
-<pre><code>poplar@Greysia:~/1&gt; ll
+<pre><code class="language-bash">poplar@Greysia:~/1&gt; ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 -rw-r--r-- 1 poplar poplar 0  9月24日 13:22 2.txt

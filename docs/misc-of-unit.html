@@ -228,14 +228,14 @@
 </ul>
 <h2 id="部分命令"><a class="header" href="#部分命令">部分命令</a></h2>
 <p>使用 <code>ls</code> 命令列出文件大小时，可以使用 <code>--block-size=</code> 的 flag 指定显示的大小，如：</p>
-<pre><code class="language-shell">poplar@Greysia:~/Downloads/ISO&gt; ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
+<pre><code class="language-bash">poplar@Greysia:~/Downloads/ISO&gt; ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
 -rw-r--r-- 1 root root 4594860032 10月 3日 09:24 openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
 poplar@Greysia:~/Downloads/ISO&gt; ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso --block-size=MiB
 -rw-r--r-- 1 root root 4382MiB 10月 3日 09:24 openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
 </code></pre>
 <p>详见 <code>man ls</code>。</p>
 <p>又如 <code>free -m</code> 的含义就是以 mebibyte 显示当前的内存信息：</p>
-<pre><code class="language-shell">poplar@Greysia:~&gt; sudo free -m
+<pre><code class="language-bash">poplar@Greysia:~&gt; sudo free -m
 [sudo] root 的密码：
                total        used        free      shared  buff/cache   available
 内存：         15201        6875        2356         335        6634        8325
