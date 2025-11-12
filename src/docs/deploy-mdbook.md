@@ -27,6 +27,11 @@ git commit -m 'deploy new book'
 git push origin +gh-pages
 ```
 
+## shell 脚本
+
+- 注意，此脚本需要在有登陆授权的 git 终端中使用
+
+
 ```shell
 #!/bin/sh
 # 本脚本用于将 mdbook 部署到 Pages
