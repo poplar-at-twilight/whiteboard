@@ -1,0 +1,2795 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>白杨的文档站</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-9dfbd86b.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-3f85e53b.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-11e482cc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">白杨的文档站</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="何でもは知らないわよ知ってることだけ"><a class="header" href="#何でもは知らないわよ知ってることだけ">何でもは知らないわよ。知ってることだけ。</a></h1>
+<p><img src="assets/test-2.png" alt="cover"></p>
+<p>这里是<a href="#关于我">我</a>，一个 <a href="https://fedoraproject.org/kde/">Fedora KDE</a> 用户，创建的个人站点，包含一些自用说明文档、备忘录和其他琐碎的东西。</p>
+<ul>
+<li>其他：<a href="https://poplar-at-twilight.github.io/whiteboard/">GitHub Mirror</a>、<a href="#about-licenses">license list</a>、<a href="https://github.com/poplar-at-twilight/whiteboard">源码</a> &amp; <a href="#关于友链">友链</a>。</li>
+<li>The copyright of the images used on this page belongs to the copyright holder of “Monogatari Series”.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="关于"><a class="header" href="#关于">关于</a></h1>
+<p>该部分的内容以杂谈为主。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="影视番剧记录单"><a class="header" href="#影视番剧记录单">影视&amp;番剧记录单</a></h1>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">符号</th><th style="text-align: center">名称</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center"><code>A</code></td><td style="text-align: center">特别推荐</td><td>个人觉得值得向阅读此文的人推荐的类别</td></tr>
+<tr><td style="text-align: center"><code>B</code></td><td style="text-align: center">推荐</td><td>个人观看体验满意的类别</td></tr>
+<tr><td style="text-align: center"><code>C</code></td><td style="text-align: center">一般</td><td>个人观看体验一般的类别</td></tr>
+<tr><td style="text-align: center"><code>D</code></td><td style="text-align: center">不推荐</td><td>个人观看体验不满意的类别</td></tr>
+<tr><td style="text-align: center"><code>X</code></td><td style="text-align: center">未定义</td><td>因为没有看懂，所以无法归类</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center"></td><td></td></tr>
+<tr><td style="text-align: center"><code>S</code></td><td style="text-align: center">季度</td><td>影视剧集或动画番剧的季度</td></tr>
+<tr><td style="text-align: center"><code>TV</code></td><td style="text-align: center">TV 版</td><td>在电视台上放送的动画版本</td></tr>
+<tr><td style="text-align: center"><code>OVA</code></td><td style="text-align: center">原创视频动画</td><td>映像特典、番外剧集等非主线内容</td></tr>
+<tr><td style="text-align: center"><code>M</code></td><td style="text-align: center">电影</td><td>电影、动画电影或剧场版动画</td></tr>
+<tr><td style="text-align: center"><code>+</code></td><td style="text-align: center">加号</td><td>表示“和”</td></tr>
+<tr><td style="text-align: center"><code>~</code></td><td style="text-align: center">波浪号</td><td>表示“至”</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>说明：</strong></p>
+<ol>
+<li>本文基于个人主观体验进行推荐；</li>
+<li>括号内为番剧名称的日文原文、日语罗马字或英文原名；</li>
+<li>符号后紧跟的数字表示其发布次序，例如 S2 表示第二季。</li>
+<li>没有特别注明季度时，默认为第一季或第一部。</li>
+</ol>
+<hr>
+<h2 id="动画"><a class="header" href="#动画">动画</a></h2>
+<h3 id="a-类"><a class="header" href="#a-类">A 类</a></h3>
+<ul>
+<li>日常（Nichijou）</li>
+<li>刺客五六七 S1~S3</li>
+<li>工作细胞 Black（はたらく細胞 Black）</li>
+<li>罗小黑战记 S1~S2 + M</li>
+<li>灵能百分百（モブサイコ100） S1~S2</li>
+<li>小魔女学园（Little Witch Academia）TV + OVA + M</li>
+<li>来自深渊（MADE IN ABYSS） S1</li>
+<li>魔术快斗（まじっく快斗）</li>
+<li>别对映像研出手!（映像研には手を出すな！）</li>
+<li>成龙历险记</li>
+<li>瑞克和莫蒂 S1~S3</li>
+<li>米老鼠（初代）</li>
+<li>海绵宝宝 S1~S4</li>
+<li>猫和老鼠</li>
+<li>摇曳露营△（ゆるキャン△） S1~S2 + OVA + M</li>
+<li>0 号宿舍</li>
+<li>大理寺日志 S1~S2</li>
+<li>新世纪福音战士（Neon Genesis Evangelion）TV 版</li>
+<li>EVA 新剧场版 1（EVANGELION: 1.0 YOU ARE (NOT) ALONE.）</li>
+<li>飞出个未来 S1~S7</li>
+<li>RWBY S1~S2</li>
+<li>白箱（SHIROBAKO） TV + OVA</li>
+<li>冰菓（Hyouka: Classic Literature Club series）</li>
+<li>SSSS.GRIDMAN</li>
+<li>奇巧计程车（Odd Taxi）</li>
+<li>哥斯拉 奇异点（Godzilla Singular Point）</li>
+<li>赛马娘 Pretty Derby（Uma Musume Pretty Derby） S2</li>
+<li>某科学的超电磁炮（とある科学の超電磁砲）S1</li>
+<li>物语系列<sup class="footnote-reference" id="fr-mono-1"><a href="#footnote-mono">1</a></sup>（Monogatari Series）</li>
+<li>魔法少女小圆（Puella Magi Madoka Magica）TV + M1~M3</li>
+<li>天元突破 红莲螺岩（天元突破グレンラガン）</li>
+<li>斩服少女（Kill la Kill）</li>
+<li>乒乓（Ping Pong The Animation v2）</li>
+<li>赛博朋克：边缘行者（Cyberpunk: Edgerunners）</li>
+<li>Gon 的旱獭 S1~S3 + OVA</li>
+<li>游戏三人娘（あそびあそばせ）</li>
+<li>男子高校生的日常（男子高校生の日常）</li>
+<li>鲁邦三世~名为峰不二子的女人~（Lupin the Third Mine Fujiko to Iu Onna）</li>
+<li>星际牛仔（Cowboy Bebop）</li>
+<li>四叠半神话大系（The Tatami Galaxy）</li>
+<li>四叠半时光机布鲁斯（Yojouhan Time Machine Blues）</li>
+<li>春宵苦短，少女前进吧！（Yoru wa Mijikashi Aruke yo Otome）</li>
+<li>葬送的芙莉莲（葬送のフリーレン）</li>
+<li>为美好的世界献上祝福（KonoSuba: God’s Blessing on This Wonderful World!） S1~S3
+<ul>
+<li>为美好的世界献上祝福！OAD（この素晴らしい世界に祝福を！ OAD）</li>
+<li>为美好的世界献上祝福！第三季 ーBONUS STAGEー</li>
+<li>为美好的世界献上祝福！红传说（この素晴らしい世界に祝福を！紅伝説）</li>
+</ul>
+</li>
+<li>月刊少女野崎君（月刊少女野崎くん）</li>
+<li>胆大党（DAN DA DAN） S1</li>
+<li>四月是你的谎言（四月は君の嘘）</li>
+</ul>
+<h3 id="b-类"><a class="header" href="#b-类">B 类</a></h3>
+<ul>
+<li>比翼之吻（Darling in the Franxx）</li>
+<li>异种族风俗娘评鉴指南（異種族レビュアーズ）</li>
+<li>珈百璃的堕落（Gabriel Dropout）</li>
+<li>动物新世纪（BNA: Brand New Animal）</li>
+<li>巨兵长城传</li>
+<li>女子高中生的虚度日常（女子高生の無駄づかい）</li>
+<li>慎重勇者～这个勇者明明超强却过分慎重～（慎重勇者～この勇者が俺TUEEEくせに慎重すぎる～）</li>
+<li>辉夜大小姐想让我告白（Kaguya-sama: Love Is War） S1~S2</li>
+<li>非洲的动物上班族（アフリカのサラリーマン）</li>
+<li>小林家的龙女仆（Miss Kobayashi’s Dragon Maid） S1</li>
+<li>请吃小红豆吧 S1~S4</li>
+<li>监狱学园（監獄学園）</li>
+<li>没有黄段子存在的无聊世界（下ネタという概念が存在しない退屈な世界）</li>
+<li>恋爱研究所（恋愛ラボ）</li>
+<li>瑞克和莫蒂 S4~S6</li>
+<li>十万分冷笑话 S1~S3 + M1~M2</li>
+<li>一拳超人（One-Punch Man） S1~S2</li>
+<li>EVA 新剧场版 4（Evangelion - 3.0+1.01 Thrice Upon a Time）</li>
+<li>英雄联盟：奥术（Arcane: League of Legends）</li>
+<li>RWBY S3</li>
+<li>更衣人偶坠入爱河（その着せ替え人形は恋をする）</li>
+<li>碧蓝之海（ぐらんぶる）S1~S2</li>
+<li>万圣街</li>
+<li>咸鱼哥</li>
+<li>轻音少女（K-ON!） S1~S2</li>
+<li>动物狂想曲（Beastar） S1~S2</li>
+<li>街角魔族（まちカドまぞく）S1~S2</li>
+<li>孤独摇滚（Bocchi the rock）</li>
+<li>甘城光辉游乐园（甘城ブリリアントパーク）</li>
+<li>异世界舅舅（異世界おじさん）</li>
+<li>梦想成为魔法少女（魔法少女にあこがれて）</li>
+<li>中年上班族转生恶役（悪役令嬢転生おじさん）</li>
+<li>路人女主的养成方法（冴えない彼女（ヒロイン）の育てかた） S1~S2</li>
+</ul>
+<h3 id="c-类"><a class="header" href="#c-类">C 类</a></h3>
+<ul>
+<li>非人哉</li>
+<li>埃罗芒阿老师（Eromanga Sensei）TV + OVA</li>
+<li>笨女孩（アホガール）</li>
+<li>埃及神明们的日常（とーとつにエジプト神）</li>
+<li>干物妹小埋（干物妹！うまるちゃん）</li>
+<li>我不是说了能力要平均值么！（私、能力は平均値でって言ったよね！）</li>
+<li>不正经的魔法讲师与禁忌教典（ロクでなし魔術講師と禁忌教典） S1</li>
+<li>在下坂本，有何贵干（坂本ですが？）</li>
+<li>EVA 新剧场版 2（EVANGELION: 2.0 YOU CAN (NOT) ADVANCE.）</li>
+<li>汉化日记 S1~S2</li>
+<li>转生恶役只好拔除破灭旗标（乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…） S1</li>
+<li>Endro!</li>
+<li>亚人酱有话要说（亜人ちゃんは語りたい）</li>
+<li>入间同学入魔了（魔入りました！入間くん） S1</li>
+<li>旗扬!兽道（旗揚！けものみち）</li>
+<li>这个美术社大有问题!（この美術部には問題がある！）</li>
+<li>默绘女高（女子かう生）</li>
+<li>餐桌上的世说新语 S1~S2</li>
+<li>成群逐队!西顿学园（群れなせ！シートン学園）</li>
+<li>关于我转生变成史莱姆这档事（転生したらスライムだった件） S1</li>
+<li>齐木楠雄的灾难（The Disastrous Life of Saiki K.） S1</li>
+<li>笨拙之极的上野（上野さんは不器用）</li>
+<li>Goku 午夜之眼（MIDNIGHT EYE ゴクウ） OVA</li>
+<li>RWBY S4</li>
+<li>乱马1/2 TV + OVA</li>
+<li>物语系列 外传季&amp;怪物季（〈物語〉シリーズ オフ&amp;モンスターシーズン）</li>
+</ul>
+<h3 id="x-类"><a class="header" href="#x-类">X 类</a></h3>
+<ul>
+<li>漂流少年（Sonny Boy）</li>
+<li>龙与虎（TIGER×DRAGON!）</li>
+<li>在盛夏等待（あの夏で待ってる） TV + OVA</li>
+<li>未闻花名（Anohana: The Flower We Saw That Day）</li>
+<li>EVA 剧场版 真心为你（The End of Evangelion）</li>
+</ul>
+<h3 id="d-类"><a class="header" href="#d-类">D 类</a></h3>
+<ul>
+<li>猫娘乐园（NEKOPARA）</li>
+<li>我的朋友很少（僕は友達が少ない）S1</li>
+<li>喂，看见耳朵啦（ほら、耳がみえてるよ！） S1</li>
+<li>仙王的日常生活</li>
+<li>关于完全听不懂老公在说什么的事 S1~S2</li>
+<li>EVA 新剧场版 3 （EVANGELION: 3.0 YOU CAN (NOT) REDO.）</li>
+<li>小林家的龙女仆 S</li>
+<li>我的朋友很少 S2</li>
+<li>Overflow</li>
+<li>淫乱的青酱不能学习</li>
+<li>贤惠幼妻仙狐小姐</li>
+<li>人马少女的烦恼</li>
+<li>公主连接! Re:Dive</li>
+<li>无彩限的怪灵世界</li>
+<li>贤者之孙</li>
+<li>关于我转生变成史莱姆这档事 S2</li>
+</ul>
+<hr>
+<h2 id="影视剧集"><a class="header" href="#影视剧集">影视剧集</a></h2>
+<h3 id="a-类-1"><a class="header" href="#a-类-1">A 类</a></h3>
+<ul>
+<li>女子警察的逆袭（ハコヅメ ～たたかう！交番女子～）</li>
+<li>新·奥特曼（シン・ウルトラマン）</li>
+<li>流浪地球 M1~M2</li>
+<li>正义联盟·导演剪辑版（Zack Snyder’s Justice League）</li>
+<li>阿甘正传（Forrest Gump）</li>
+<li>让子弹飞</li>
+<li>功夫</li>
+<li>红辣椒（パプリカ）</li>
+<li>千年女优（千年女優）</li>
+<li>东京教父（東京ゴッドファーザーズ）</li>
+<li>唐伯虎点秋香</li>
+<li>盗梦空间（Inception）</li>
+<li>奥本海默（Oppenheimer）</li>
+<li>猫鼠游戏（Catch Me If You Can）</li>
+<li>白日梦想家（The Secret Life of Walter Mitty）</li>
+</ul>
+<h3 id="b-类-1"><a class="header" href="#b-类-1">B 类</a></h3>
+<ul>
+<li>冰雪奇缘（Frozen） M1</li>
+<li>怪兽大学（Monsters University）</li>
+<li>怪兽电力公司（Monsters, Inc.）</li>
+<li>机器人总动员（WALL·E）</li>
+<li>疯狂动物城（Zootopia）</li>
+<li>阿凡达（Avatar）</li>
+<li>超能陆战队（Big Hero 6）</li>
+<li>头号玩家（Ready Player One）</li>
+<li>无敌破坏王（Wreck-It Ralph） M1~M2</li>
+<li>火星救援（The Martian）</li>
+<li>星际穿越（Interstellar）</li>
+<li>蜘蛛侠：纵横宇宙（Spider-Man: Across the Spider-Verse）</li>
+</ul>
+<h3 id="c-类-1"><a class="header" href="#c-类-1">C 类</a></h3>
+<h3 id="x-类-1"><a class="header" href="#x-类-1">X 类</a></h3>
+<ul>
+<li>未麻的部屋（Perfect Blue）</li>
+<li>你想活出怎样的人生（君たちはどう生きるか）</li>
+</ul>
+<h3 id="d-类-1"><a class="header" href="#d-类-1">D 类</a></h3>
+<ul>
+<li>冰雪奇缘（Frozen） M2</li>
+</ul>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-mono">
+<p>仅包含 1st season、2nd season 和 Final season 三个季度的动画。 <a href="#fr-mono-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="opensuse-tumbleweed-与-fedora-体验上的异同"><a class="header" href="#opensuse-tumbleweed-与-fedora-体验上的异同">openSUSE Tumbleweed 与 Fedora 体验上的异同</a></h1>
+<p>openSUSE Tumbleweed 和 Fedora KDE 我都用过一阵子。所以基于自己的使用体验，随意地聊一下两者的异同。</p>
+<h2 id="稳定性"><a class="header" href="#稳定性">稳定性</a></h2>
+<p><u>一般而言，两者的稳定度差异不大。</u>但它们遇到问题的情景会略有不同。</p>
+<p>Tumbleweed 会在上游发生某些变更，或没有被 OpenQA 检查出来的情况下发生问题。问题产生的可能性与快照大小没有必然联系，openSUSE 每月至少会有一个大型快照。有时候大半年都没有什么问题，也有时候一个无线驱动故障拖了大半个月才修好。</p>
+<p>Fedora 比较容易在新版本刚刚发布的时候因为测试并不充分而产生故障，新版本大概发布后一两个月就会稳定下来。</p>
+<p>就故障发生的频次而言，Tumbleweed 会比 Fedora 更频繁一点（毕竟是滚动发行版）。</p>
+<p>但很多 Tumbleweed 用户对此是无所畏惧的，因为有 btrfs 快照兜底，只要还能进 BIOS，大抵还是有救的。大概所有滚动发行版中也就 Tumbleweed 用户可以完全不看更新日志了。</p>
+<h2 id="更新内容"><a class="header" href="#更新内容">更新内容</a></h2>
+<p>Tumbleweed 追求为用户提供最新，最稳定的软件包。Fedora 基于它使命和原则<sup class="footnote-reference" id="fr-four-1"><a href="#footnote-four">1</a></sup>，则致力于为用户提供<strong>版本最新且技术最新</strong>的软件包。</p>
+<p>这个差异在 KDE wayland 上很明显地体现出来了，Fedora KDE 是最早抛弃 X11 的发行版，而 openSUSE 至今依旧提供 X11 会话。初次启动刚安装好的系统，且没有取消自动登陆，Tumbleweed 用户就会立即进入 KDE X11 会话。</p>
+<p>Tumbleweed 更新比 Fedora 更频繁，更新快照发布的频次为 1~2 日/次，这使得快照常常充满了各种小更新。</p>
+<h2 id="软件包"><a class="header" href="#软件包">软件包</a></h2>
+<p>理论上，Fedora 的软件包多于 openSUSE Tumbleweed，开发者给 RPM 系统打包会优先考虑 Fedora/RHEL。</p>
+<p>实际上，流行的软件包两者都有打包，我认识的开发者打包时多多少少也会考虑到 Tumbleweed。更有可能出现的问题是开发者只打包了 DEB，然后只能指望社区有没有人打包了 RPM、appimage 或者 Flathub。</p>
+<h2 id="管理工具"><a class="header" href="#管理工具">管理工具</a></h2>
+<p>openSUSE 的 YaST 之于 sysadmin，有些类似于 ArchLinux 之于 Linuxer。它很好用，对用户友好，对新手大概是友好的吧？当然负面效果就是 openSUSE 会比 Fedora 多了一个软件包组（我有时觉得这是冗余的，因为真的很少用它）。</p>
+<p>Fedora 就是很常规的 Linux 了，主要的管理工具都是 CLI，网上的教程也很多，比如著名的《Linux Bible》就是以和 Fedora 同源的 RHEL 作为示例系统。当然 Fedora KDE 也有预装一些图形化的软件包，比如防火墙。但总的来说，Fedora 是认为用户应使用 CLI 管理系统的。</p>
+<p>zypper 和 dnf 选一个的话，我大概会选 dnf。虽然我更喜欢 zypper 的 TUI，但我更想要 dnf 那稳定高速的并行下载体验。</p>
+<h2 id="kde-の风味"><a class="header" href="#kde-の风味">KDE の风味</a></h2>
+<p>Fedora KDE 比 Tumbleweed 预装了更多的 KDE 套件，但 KDE 上留有的 Fedora 特征并不多（就换了一下壁纸，塞了两三个红帽开发的 GUI 管理工具），体验类似于无印版。</p>
+<p>Tumbleweed KDE 留有的大蜥蜴特征就比较多，开始菜单里的 YaST 全家桶就引人注目，openSUSE 还专门做了一整套 KDE 主题。</p>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-four">
+<p><a href="https://docs.fedoraproject.org/en-US/project/c">Fedora’s Mission and Foundations</a> <a href="#fr-four-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="minecraft-壁纸归档"><a class="header" href="#minecraft-壁纸归档">Minecraft 壁纸归档</a></h1>
+<p><img src="misc/images/Minecraft%20Nature.png" alt=""></p>
+<ul>
+<li><a href="https://whiteboard-ui8.pages.dev/archives/minecraft-wallpaper/">Minecraft Nature</a> © 2019 by <a href="https://whiteboard-ui8.pages.dev/about/about-me/">Poplar</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="关于-1"><a class="header" href="#关于-1">关于</a></h1>
+<p>该部分的内容主要是作为一个可离线使用的参考资料库，以省略在不同的网站间跳跃的时间。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="windows-11-安装与配置"><a class="header" href="#windows-11-安装与配置">Windows 11 安装与配置</a></h1>
+<p><strong>注意：</strong></p>
+<ul>
+<li>本文最后更新于 2024 年 8 月 29 日；</li>
+<li>本文适用于 Windows 11 23H2；</li>
+<li>本文优先使用便携软件；</li>
+<li>本文不具有普适性。</li>
+</ul>
+<hr>
+<h2 id="流程概览"><a class="header" href="#流程概览">流程概览</a></h2>
+<ol>
+<li>下载 ISO 文件；</li>
+<li>使用 ventoy 安装系统；</li>
+<li>等待 Windows Update 更新完毕；配置 Windows 系统设置，安装基本的运行库；</li>
+<li>再次检查是否有更新；</li>
+<li>安装显卡驱动；</li>
+<li>卸载无用软件；</li>
+<li>安装软件；</li>
+<li>便携软件列表。</li>
+</ol>
+<hr>
+<h2 id="1获取-iso-文件"><a class="header" href="#1获取-iso-文件">1、获取 ISO 文件</a></h2>
+<p>从<a href="https://www.microsoft.com/software-download/windows11">下载 Windows 11</a> 页面获取 <strong>Windows 11 安装助手</strong>。使用这个助手仅下载 <code>Windows.iso</code> 而不直接刻入到 U 盘。</p>
+<h2 id="2使用-ventoy-安装系统"><a class="header" href="#2使用-ventoy-安装系统">2、使用 ventoy 安装系统</a></h2>
+<p>使用 <a href="https://www.ventoy.net/cn/index.html">Ventoy</a> 将 U 盘或可移动设备转换为一个可启动的安装介质。</p>
+<p>使用 <code>VentoyPlugson.exe</code> 配置设备，在 <strong>全局控制插件</strong> 中，在 <strong>指定搜索目录</strong> 中设置 ISO 文件存放的文件夹。</p>
+<p>开机时连按 Esc 进入 BIOS，从 BIOS 启动 U 盘。安装系统时：</p>
+<ul>
+<li>断开网络</li>
+<li>使用本地账户</li>
+<li>不设置密码</li>
+<li>拒绝所有的微软服务</li>
+</ul>
+<h2 id="31更新系统"><a class="header" href="#31更新系统">3.1、更新系统</a></h2>
+<p>在系统设置中，重命名此电脑。连接 WiFi，然后重启系统。</p>
+<p>启动 Windows update，此时并不建议卸载任何软件。</p>
+<p>Windows 和 Officee 激活见<a href="https://kms.cangshui.net/">沧水的 KMS 服务</a>。</p>
+<h2 id="32配置-windows-系统设置"><a class="header" href="#32配置-windows-系统设置">3.2、配置 Windows 系统设置</a></h2>
+<h3 id="使用-dism-调整系统"><a class="header" href="#使用-dism-调整系统">使用 Dism++ 调整系统</a></h3>
+<p>在启动 <a href="https://github.com/Chuyu-Team/Dism-Multi-language">Dism++</a> 后，点击左栏的<strong>系统优化</strong>，然后：</p>
+<ol>
+<li>在 <strong>开始菜单及 Windows 体验</strong> 中，将除了 <strong>登录界面默认打开小键盘</strong> 和 <strong>关闭 Onedrive</strong> 以外的选项全部开启；注意每次编辑都需要重启一次 <code>explorer.exe</code>；</li>
+<li>在 <strong>Explorer</strong> 中，打开
+<ul>
+<li><strong>打开资源管理器时显示此电脑</strong></li>
+<li><strong>显示所有文件扩展名</strong></li>
+<li><strong>创建快捷方式时不添加“快捷方式”文字</strong></li>
+<li><strong>此电脑中视频、照片、文档、下载、音手、卓面、3D 对象七个文件夹</strong></li>
+<li><strong>快速访问不显示常用文件夹</strong></li>
+<li><strong>快速访问不显示最近使用的文件</strong></li>
+<li><strong>禁用Win11加入的新右键菜单，默认显示更多的选项</strong></li>
+</ul>
+</li>
+<li>在 <strong>桌面图标管理中</strong> 隐藏全部的图标</li>
+<li>在 <strong>资源管理器导航窗口图标管理</strong> 中，打开
+<ul>
+<li><strong>隐藏资源管理器导航窗口中的库</strong></li>
+<li><strong>隐藏资源管理器导航窗口中的收藏夹</strong></li>
+</ul>
+</li>
+<li>在 <strong>微软拼音输入法</strong> 中，打开
+<ul>
+<li><strong>微软拼音默认为英语输入</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="windows-设置"><a class="header" href="#windows-设置">Windows 设置</a></h3>
+<h4 id="系统"><a class="header" href="#系统">系统</a></h4>
+<ul>
+<li>通知：<br />在 <strong>其他设置</strong> 中，取消勾选
+<ul>
+<li><strong>更新以及登录后显示 Windows 欢迎体验以显示新增功能和建议内容</strong></li>
+<li><strong>建议我如何充分利用 Windows 并完成设置此设备</strong></li>
+<li><strong>当我使用 Windows 时获取提示和建议</strong></li>
+</ul>
+</li>
+<li>电源和电池：<br><strong>屏幕和睡眠</strong> 设置为默认设置<sup class="footnote-reference" id="fr-sleep-1"><a href="#footnote-sleep">1</a></sup>。</li>
+<li>储存：<br><strong>存储感知</strong> 应当是自动开启的。打开 <strong>优化驱动器</strong> 整理磁盘碎片。</li>
+<li>就近共享：<br>关闭此功能</li>
+<li>剪贴板：<br>打开 <strong>剪贴板历史记录</strong></li>
+<li>系统信息：
+<ul>
+<li>在 <strong>高级系统设置</strong> → <strong>高级</strong> → <strong>环境变量</strong> → <strong>Path</strong> 中，点击 <code>编辑</code>，插入环境变量。</li>
+</ul>
+</li>
+</ul>
+<pre><code>D:\software\lib
+D:\software\lib\git
+D:\software\lib\git\cmd
+D:\software\lib\python
+D:\software\lib\python\Scripts
+</code></pre>
+<h4 id="蓝牙和其他设备"><a class="header" href="#蓝牙和其他设备">蓝牙和其他设备</a></h4>
+<ul>
+<li>触摸板：<br>将 <strong>三指手势</strong> 的点击动作，修改为 <strong>鼠标中键</strong></li>
+</ul>
+<h4 id="个性化"><a class="header" href="#个性化">个性化</a></h4>
+<ul>
+<li>背景：<br>将 <strong>个性化设置背景</strong> 修改为 <strong>幻灯片放映</strong>，打开 <strong>在使用电池供电时仍允许运行幻灯片放映</strong></li>
+<li>颜色：<br>设置为 <code>钢蓝色</code></li>
+<li>锁屏界面：<br><strong>个性化锁屏界面</strong> 修改为 <strong>图片</strong><br>取消勾选 <strong>在锁屏界面上获取花絮、提示、技巧等</strong></li>
+<li>开始：
+<ul>
+<li><strong>布局</strong> 选择为 <strong>更多固定项</strong></li>
+<li>关闭 <strong>布局</strong> 下方所有的选项</li>
+<li>在 <strong>文件夹</strong> 中，只打开 <strong>设置</strong></li>
+</ul>
+</li>
+<li>任务栏：
+<ul>
+<li>在 <strong>任务栏项</strong> 和 <strong>系统托盘图标</strong> 中关闭或隐藏全部选项，除了 <strong>任务视图</strong></li>
+<li>在 <strong>其他系统托盘图标</strong> 中，选择性开启所需应用图标。</li>
+<li>在 <strong>任务栏行为</strong> 中，勾选 <strong>单击任务栏右下角以显示桌面</strong></li>
+</ul>
+</li>
+<li>设备使用情况：<br>关闭全部选项</li>
+</ul>
+<h4 id="账户"><a class="header" href="#账户">账户</a></h4>
+<p>在 <strong>登陆选项</strong> 中，设置密码和头像。</p>
+<h4 id="时间和语言"><a class="header" href="#时间和语言">时间和语言</a></h4>
+<p>在 <strong>语言和区域</strong> 中，修改 <strong>区域格式</strong>。</p>
+<p>修改 <strong>微软拼音输入法</strong>：</p>
+<ul>
+<li>在 <strong>按键</strong> 中，取消勾选 <strong>Shift</strong></li>
+<li>在 <strong>词库和自学习</strong> 中，启用全部的专业词典</li>
+</ul>
+<h4 id="辅助功能"><a class="header" href="#辅助功能">辅助功能</a></h4>
+<ul>
+<li><strong>键盘</strong>：<br>关闭与粘滞键、过滤键和切换键相关的全部选项</li>
+</ul>
+<h4 id="隐私和安全性"><a class="header" href="#隐私和安全性">隐私和安全性</a></h4>
+<ul>
+<li>在 <strong>常规</strong> 中，关闭全部选项</li>
+<li>在 <strong>诊断和反馈</strong> 中，将反馈频率调成 <strong>从不</strong>。</li>
+<li>在 <strong>活动历史记录</strong> 中，关闭活动历史记录</li>
+<li>在 <strong>搜索权限</strong> 中，关闭所有选项</li>
+<li>在 <strong>搜索 Windows</strong> 中，打开 <strong>编制索引时遵从电源设置</strong></li>
+</ul>
+<h4 id="windows-更新"><a class="header" href="#windows-更新">Windows 更新：</a></h4>
+<p>在 <strong>高级选项</strong> 中，关闭 <strong>传递优化</strong>。</p>
+<h2 id="33安装基本的运行库"><a class="header" href="#33安装基本的运行库">3.3、安装基本的运行库</a></h2>
+<ol>
+<li>安装 <a href="https://docs.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170">Microsoft Visual C++ 2015-2022 Redistributable</a> 和 <a href="https://www.google.com/chrome/">Chrome</a>。</li>
+<li>启动下列软件，将其集成到文件资源管理器中或关联文件格式：
+<ul>
+<li><a href="https://www.7-zip.org/">7-zip</a>（需要管理员权限）</li>
+</ul>
+</li>
+<li>启动 <a href="https://github.com/2dust/v2rayN">v2rayN</a> 并设置开机启动。</li>
+</ol>
+<p>使用 <a href="https://github.com/BluePointLilac/ContextMenuManager">ContextMenuManager</a> 编辑鼠标右键菜单，启用 <strong>其他规则</strong> 中的 <strong>新建文件夹</strong>、<strong>重启资源管理器</strong> 和 <strong>复制路径</strong>。</p>
+<h2 id="4再次检查是否有更新"><a class="header" href="#4再次检查是否有更新">4、再次检查是否有更新</a></h2>
+<p>在更新完重启系统后，重新检查一下 Windows update 是否有可用更新。</p>
+<h2 id="5安装显卡驱动"><a class="header" href="#5安装显卡驱动">5、安装显卡驱动</a></h2>
+<p>下载 <a href="https://www.amd.com/en/support">AMD Software</a>（<a href="https://www.amd.com/zh-cn/support/downloads/previous-drivers.html/graphics/radeon-rx/radeon-rx-7000-series/amd-radeon-rx-7600m-xt.html">AMD Software 旧版本</a>）并安装。</p>
+<p>完成后调整音量和屏幕亮度。</p>
+<p>对于 AMD 驱动的设置，在 <strong>游戏</strong> → <strong>显卡</strong> 中，推荐选择 <strong>自定义</strong> 方案。并只开启：</p>
+<ul>
+<li>Radeon™ Anti-Lag</li>
+<li>Radeon™ 增强同步（仅对独显有效）</li>
+</ul>
+<p>在 <strong>游戏</strong> → <strong>显示器</strong> 中，</p>
+<ul>
+<li>关闭 Vari-Bright</li>
+<li>打开自定义颜色，将色温调整到 <code>6900</code></li>
+</ul>
+<p>在 <strong>系统</strong> → <strong>屏幕</strong> → <strong>显示卡</strong> 中，添加需要使用显卡的应用。</p>
+<p>按 <code>Alt</code> + <code>R</code> 启动 AMD Software 面板。</p>
+<h2 id="6卸载无用软件"><a class="header" href="#6卸载无用软件">6、卸载无用软件</a></h2>
+<p>使用 <a href="https://geekuninstaller.com/">Geek Uninstaller</a> 清理系统的 UWP 软件（包括 OneDrive），仅保留（含厂商驱动）：</p>
+<p><img src="docs/images/geek.png" width="400px" style="display: block; margin: 0 auto;" /></p>
+<p>然后使用微软商店更新 UWP 应用。更新过程中，已删除的应用可能会被重新安装回来。</p>
+<p>使用<strong>强制删除</strong>卸载无法卸载的 Edge 和 webview2 ，并使用 <a href="https://www.sordum.org/9312/edge-blocker-v2-0/">Edge Blocker</a> 禁止系统再次安装 edge。</p>
+<h2 id="7安装软件"><a class="header" href="#7安装软件">7、安装软件</a></h2>
+<ul>
+<li>注意：安装后会产生大量小文件的应用默认不以便携模式进行部署。</li>
+</ul>
+<p>使用 <a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> 安装 Microsoft Office，并卸载 Office 2021 稍后自动安装的一个应用。</p>
+<p>安装：</p>
+<ul>
+<li><a href="https://github.com/AutoDarkMode/Windows-Auto-Night-Mode">Auto Night Mode</a></li>
+<li><a href="https://www.bandisoft.com/bandiview/">Bandiview</a></li>
+<li><a href="https://www.gimp.org/">GIMP</a></li>
+<li><a href="https://gpg4win.org/download.html">gpg4win</a>
+<ul>
+<li>安装时只需要 Kleopatra 和 GpgEX 即可。</li>
+</ul>
+</li>
+<li><a href="https://store.steampowered.com/">steam</a>
+<ul>
+<li>关闭开机启动</li>
+<li>修改默认库</li>
+<li>修改默认启动时显示的页面</li>
+<li>修改下载服务器</li>
+<li>修改按下控制器按钮时的操作</li>
+</ul>
+</li>
+<li><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a></li>
+<li><a href="https://www.videolan.org/vlc/">VLC</a></li>
+</ul>
+<p>无线与蓝牙驱动：</p>
+<ul>
+<li><a href="https://www.intel.com/content/www/us/en/products/sku/204836/intel-wifi-6e-ax210-gig/downloads.html">Intel® Wi-Fi 6E AX210</a></li>
+</ul>
+<h2 id="8便携软件列表"><a class="header" href="#8便携软件列表">8、便携软件列表</a></h2>
+<p>注意：以下是以便携模式或类似状态使用的软件。</p>
+<center>D:\software\portable</center>
+<ul>
+<li><a href="https://www.7-zip.org/download.html">7-zip</a>（本质是个便携软件，需要管理员权限以便于重新注入 shell）<br>打开 <strong>工具</strong> → <strong>选项</strong>：
+<ul>
+<li>在 <strong>7-Zip</strong> 页面，取消勾选 <strong>层叠右键菜单</strong>、<strong>压缩并邮寄</strong>、<strong>压缩&lt;档案&gt;.7z并邮寄</strong> 和 <strong>压缩&lt;档案&gt;.zip并邮寄</strong>；</li>
+<li>在 <strong>显示</strong> 页面，勾选 <strong>显示 ⌜…⌟ 项</strong>、<strong>显示真实图标</strong>、<strong>整行选择</strong>、<strong>显示网格线</strong>、<strong>单击打开项目</strong>。</li>
+</ul>
+</li>
+<li><a href="https://aria2.github.io/">aria2</a><br>另见：<a href="#安装与使用-aria2">安装与使用 aria2</a></li>
+<li>benchmark-toolkit
+<ul>
+<li><a href="https://www.cpuid.com/softwares/cpu-z.html">CPU-Z</a>（需要管理员权限）</li>
+<li><a href="https://crystalmark.info/en/software/crystaldiskmark/">CrystalDiskMark</a>（需要管理员权限）</li>
+<li><a href="https://geeks3d.com/furmark/">Furmark</a>（需要管理员权限）</li>
+<li><a href="https://www.hwinfo.com/">HWiNFO</a>（需要管理员权限）</li>
+</ul>
+</li>
+<li><a href="https://github.com/BluePointLilac/ContextMenuManager">ContextMenuManager</a>（需要管理员权限）</li>
+<li><a href="https://github.com/Chuyu-Team/Dism-Multi-language">Dism++</a>（需要管理员权限）</li>
+<li><a href="https://www.voidtools.com/downloads/">Everything</a>（需要管理员权限）</li>
+<li><a href="https://freefilesync.org/">FreeFileSync</a>（本质是个便携软件）<br>仅同步 git 仓库的压缩包文件</li>
+<li><a href="https://github.com/xiaoyifang/goldendict-ng">GoldenDict-ng</a>
+<ul>
+<li>需要在 <code>GoldenDict.exe</code> 所在目录新建一个名为 <code>portable</code> 的文件夹</li>
+<li>便携模式下，词典文件只能放置在 <code>content</code> 文件夹中</li>
+</ul>
+</li>
+<li><a href="https://keepassxc.org/download/">KeePassXC</a></li>
+<li>music-toolkit:
+<ul>
+<li><a href="https://github.com/dream7180/foobox-cn/">Foobox</a>
+<ul>
+<li><a href="https://www.cnblogs.com/asionwu">foobar2000 Asion 汉化版</a>（关联格式需要管理员权限）</li>
+</ul>
+</li>
+<li><a href="https://www.cnblogs.com/vinlxc/p/11347744.html">MusicTag</a><br>安装包解压密码：<code>www.coolapk.com</code></li>
+<li><a href="https://www.spek.cc/p/download">spek</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/rizonesoft/Notepad3">Notepad3</a>（本质是个便携软件）</li>
+<li>sordum toolkit
+<ul>
+<li><a href="https://www.sordum.org/9312/edge-blocker-v2-0/">EdgeBlock</a>（需要管理员权限）</li>
+<li><a href="https://www.sordum.org/14479/windows-11-classic-context-menu-v1-2/">W11ClassicMenu</a>（需要管理员权限）</li>
+<li><a href="https://www.sordum.org/9470/windows-update-blocker-v1-8/">win update blocker</a>（需要管理员权限）</li>
+</ul>
+</li>
+<li>sysinternals
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns">Autoruns64</a>（需要管理器权限）</li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer">procexp64</a>（需要管理员权限）</li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/rammap">RaMMap</a>（需要管理员权限）</li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/tcpview">tcpview64</a>（需要管理员权限）</li>
+</ul>
+</li>
+<li><a href="https://telegram.org/dl/desktop/win64_portable">Telegram</a></li>
+<li><a href="https://github.com/2dust/v2rayN">v2rayN</a>（TUN 模式需要管理员权限）</li>
+<li><a href="https://code.visualstudio.com/">VSCode</a><br>需要在应用目录中新建一个 <code>data</code> 文件夹。</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://github.com/arch1t3cht/Aegisub">aegisub</a></li>
+<li><a href="https://www.amd.com/en/resources/support-articles/faqs/GPU-601.html">AMD CleanUp Utility</a>（会直接启动到安全模式）</li>
+<li><a href="https://github.com/ermig1979/AntiDupl/releases">AntiDupl.NET</a></li>
+<li><a href="https://www.majorgeeks.com/files/details/bootice_64_bit.html">BOOTICEx64</a>（已停更）</li>
+<li><a href="https://calibre-ebook.com/download_portable">Calibre Portable</a></li>
+<li><a href="https://www.diskgenius.cn/">DiskGenius</a>（需要管理员权限）</li>
+<li><a href="https://github.com/jgraph/drawio-desktop/">draw.io</a></li>
+<li><a href="https://geekuninstaller.com/">Geek Uninstaller</a>（需要管理员权限）</li>
+<li><a href="https://kms.cangshui.net/">KMS-Cangshui.net.bat</a>（需要管理员权限）</li>
+<li><a href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a></li>
+<li><a href="https://rufus.ie/">Rufus</a>（需要管理员权限）</li>
+<li><a href="http://www.uderzo.it/main_products/space_sniffer/">SpaceSniffer</a>（需要管理员权限）</li>
+<li><a href="https://github.com/hiroi-sora/Umi-OCR">Umi-OCR_Paddle</a></li>
+<li><a href="https://www.ventoy.net/cn/index.html">ventoy</a>（需要管理员权限）</li>
+<li><a href="https://github.com/IgorMundstein/WinMemoryCleaner">WinMemoryCleaner</a>（需要管理员权限）</li>
+</ul>
+<hr><center>D:\software\lib</center>
+<ul>
+<li><a href="https://git-scm.com/download/win">git</a>
+<ul>
+<li>需要将它添加至环境变量中，详见上文。</li>
+<li>配置文件（C:\Users\Poplar.gitconfig）：</li>
+</ul>
+<pre><code>[user]
+    name = Poplar at twilight
+    email = poplar.cubic@gmail.com
+[http]
+    proxy = http://127.0.0.1:7890
+</code></pre>
+</li>
+<li><a href="https://www.python.org/">python</a></li>
+<li><a href="https://pandoc.org/">pandoc</a></li>
+</ul>
+<hr><center>D:\software\installed</center>
+<ul>
+<li><a href="https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases">qBittorrent-Enhanced-Edition</a>
+<ul>
+<li>详见：<a href="#qbittorrent--peerbanhelper-配置备忘录">qBittorrent 配置备忘录</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/PBH-BTN/PeerBanHelper/issues">PeerBanHelper</a></li>
+</ul>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-sleep">
+<p>我的设备在睡眠状态下不会断开网络链接，所以此设置只需要遵循 Windows 的节能建议即可。 <a href="#fr-sleep-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="安装与使用-aria2"><a class="header" href="#安装与使用-aria2">安装与使用 aria2</a></h1>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<pre><code>sudo dnf in aria2
+</code></pre>
+<h2 id="文件目录"><a class="header" href="#文件目录">文件目录</a></h2>
+<p>在 <code>~/bin/aria2</code> 目录下新建文本文档：</p>
+<pre><code class="language-shell">poplar@Greysia:~&gt; tree ~/bin/aria2
+/home/poplar/bin/aria2
+├── aria2.conf
+├── aria2.log
+├── aria2.service
+├── aria2.session
+└── index.html
+
+1 directory, 5 files
+</code></pre>
+<h3 id="aria2conf"><a class="header" href="#aria2conf"><code>aria2.conf</code></a></h3>
+<pre><code class="language-shell"># 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
+dir=/home/poplar/Downloads/Aria2
+
+# 日志文件保存目录
+log=/home/poplar/bin/aria2/aria2.log
+
+# 启用磁盘缓存, 0 为禁用缓存, 需 1.16 以上版本, 默认:16M
+disk-cache=50M
+
+# 文件预分配方式, 能有效降低磁盘碎片, 默认: prealloc
+# 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc
+# falloc 和 trunc 则需要文件系统和内核支持,
+# NTFS 建议使用 falloc, EXT3/4 建议 trunc, MAC 下需要注释此项
+#file-allocation=falloc
+
+# 断点续传
+continue=true
+
+
+## 下载连接相关 ##
+
+# 最大同时下载任务数, 运行时可修改, 默认:5
+#max-concurrent-downloads=5
+
+# 同一服务器连接数, 添加时可指定, 默认:1
+max-connection-per-server=16
+
+# 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M
+# 假定 size=10M, 文件为 20MiB 则使用两个来源下载; 文件为 15MiB 则使用一个来源下载
+min-split-size=20M
+
+# 单个任务最大线程数, 添加时可指定, 默认:5
+split=32
+
+# 整体下载速度限制, 运行时可修改, 默认:0
+#max-overall-download-limit=0
+
+# 单个任务下载速度限制, 默认:0
+#max-download-limit=0
+
+# 整体上传速度限制, 运行时可修改, 默认:0
+#max-overall-upload-limit=0
+
+# 单个任务上传速度限制, 默认:0
+#max-upload-limit=0
+
+# 禁用IPv6, 默认:false
+#disable-ipv6=true
+
+# 连接超时时间, 默认:60
+#timeout=60
+
+# 最大重试次数, 设置为 0 表示不限制重试次数, 默认:5
+#max-tries=5
+
+# 设置重试等待的秒数, 默认:0
+#retry-wait=0
+
+
+## 进度保存相关 ##
+
+# 从会话文件中读取下载任务
+input-file=/home/poplar/bin/aria2/aria2.session
+
+# 在 aria2 退出时保存`错误/未完成`的下载任务到会话文件
+save-session=/home/poplar/bin/aria2/aria2.session
+
+# 定时保存会话, 0 为退出时才保存, 需 1.16.1 以上版本, 默认:0
+save-session-interval=120
+
+
+## RPC相关设置 ##
+
+# 启用 RPC, 默认:false
+enable-rpc=true
+
+# 允许所有来源, 默认:false
+rpc-allow-origin-all=true
+
+# 允许非外部访问, 默认:false
+#rpc-listen-all=true
+
+# 事件轮询方式, 取值:[epoll, kqueue, port, poll, select], 不同系统默认值不同
+#event-poll=select
+
+# RPC监听端口, 端口被占用时可以修改, 默认:6800
+#rpc-listen-port=6800
+
+# 设置的 RPC 授权令牌, v1.18.4 新增功能, 取代 --rpc-user 和 --rpc-passwd 选项
+rpc-secret=poplar
+
+# 是否启用 RPC 服务的 SSL/TLS 加密,
+# 启用加密后 RPC 服务需要使用 https 或者 wss 协议连接
+#rpc-secure=true
+
+# 在 RPC 服务中启用 SSL/TLS 加密时的证书文件,
+# 使用 PEM 格式时，您必须通过 --rpc-private-key 指定私钥
+#rpc-certificate=/path/to/certificate.pem
+
+# 在 RPC 服务中启用 SSL/TLS 加密时的私钥文件
+#rpc-private-key=/path/to/certificate.key
+</code></pre>
+<h3 id="aria2service"><a class="header" href="#aria2service"><code>aria2.service</code></a></h3>
+<p>设置使用 systemd 启动 aria2 的服务文件 <code>aria2.service</code>：</p>
+<pre><code class="language-shell">[Unit]
+Description=Start aria2 daemon
+
+[Service]
+ExecStart=/usr/bin/aria2c --conf-path=/home/poplar/bin/aria2/aria2.conf
+Type=simple
+WorkingDirectory=/home/poplar/bin/aria2
+
+[Install]
+WantedBy=default.target
+</code></pre>
+<h3 id="indexhtml"><a class="header" href="#indexhtml"><code>index.html</code></a></h3>
+<ul>
+<li>下载地址：<a href="https://github.com/mayswind/AriaNg/releases">https://github.com/mayswind/AriaNg/releases</a></li>
+</ul>
+<h2 id="启动服务"><a class="header" href="#启动服务">启动服务</a></h2>
+<p>使用 <code>~/bin/command/aria2-m</code> 启动服务：</p>
+<pre><code class="language-shell">#!/bin/sh
+#本脚本用于维护 aria2 及验证和归档 ISO 文件
+
+export ISO_DL_DIR=/home/poplar/Downloads/Aria2
+export ISO_DIR=/home/poplar/Downloads/ISO
+export ARIA2_DIR=/home/poplar/bin/aria2
+#设定目录
+SERVICES_FILE=/home/poplar/bin/aria2/aria2.service
+OPENSUSE_DVD=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+OPENSUSE_DVD_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+OPENSUSE_LIVE_ISO=/home/poplar/Downloads/Aria2/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+OPENSUSE_LIVE_ISO_OLD=/home/poplar/Downloads/ISO/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+
+while true; do
+
+    printf -- '-%0.s' {1..100} &amp;&amp; echo
+    printf 'You can use the aria2 &amp; ISO files maintenance script for:\n\n'
+    printf 'R - Register Aria2 service\n'
+    printf 'C - Clean up aria2 logs\n'
+    printf 'V - Verify openSUSE ISO files\n'
+    printf '1 - Download openSUSE DVD files\n'
+    printf '2 - Download openSUSE KDE LiveISO files\n'
+    printf 'Q - End script\n\n'
+    printf '==&gt; '
+    read answer
+
+    if [ "$answer" = "R" ] || [ "$answer" = "r" ]; then
+    #注册服务
+        printf 'Start registering systemd service...\n'
+        mkdir -p ~/.config/systemd/user
+        if [ -f $SERVICES_FILE ]; then
+            cp $SERVICES_FILE ~/.config/systemd/user
+            systemctl daemon-reload --user
+            printf 'Service file loaded: OK!\n'
+            systemctl enable --now --user aria2
+            printf 'Service status: Running.\n'
+        else
+            printf 'ERROR: Service file not found!\n'
+        fi
+
+    elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
+    #清理日志
+        ls -lh $ARIA2_DIR/aria2.log
+        systemctl status aria2 --user | grep "Active"
+        systemctl stop aria2 --user
+        rm $ARIA2_DIR/aria2.log; touch $ARIA2_DIR/aria2.log
+        printf 'Cleaning up logs: OK!\n'
+        systemctl restart aria2 --user
+        systemctl status aria2 --user | grep "Active"
+        ls -lh $ARIA2_DIR/aria2.log
+
+    elif [ "$answer" = "V" ] || [ "$answer" = "v" ]; then
+    #校验 ISO 文件
+        cd $ISO_DL_DIR
+        if [ -f $OPENSUSE_DVD ]; then
+            gpg --verify openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+            cat openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-DVD-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso/' &gt; temp.sha256
+            sha256sum -c temp.sha256
+            rm temp.sha256
+            if [ -f $OPENSUSE_DVD_OLD ]; then
+                printf 'Found the old DVD ISO file.'
+                rm $ISO_DIR/openSUSE-Tumbleweed-DVD*.*
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
+                printf 'Update DVD ISO files: OK!\n'
+            else
+                printf 'No found the old DVD ISO file.\n'
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-DVD*.* $ISO_DIR
+                printf 'Update DVD ISO files: OK!\n'
+            fi
+        else
+            printf 'No found the new DVD ISO files\n'
+        fi
+        printf -- '-%0.s' {1..100} &amp;&amp; echo
+        if [ -f $OPENSUSE_LIVE_ISO ]; then
+            gpg --verify openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+            cat openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256 | sed 's/openSUSE-Tumbleweed-KDE-Live-x86_64-Snapshot\(........\)-Media.iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso/' &gt; temp.sha256
+            sha256sum -c temp.sha256
+            rm temp.sha256
+            if [ -f $OPENSUSE_LIVE_ISO_OLD ]; then
+                printf 'Found the old Live ISO file.'
+                rm $ISO_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.*
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
+                printf 'Update Live ISO files: OK!\n'
+            else
+                printf 'No found the old Live ISO file.\n'
+                mv $ISO_DL_DIR/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.* $ISO_DIR
+                printf 'Update Live ISO files: OK!\n'
+            fi
+        else
+            printf 'No found the new Live ISO files\n'
+        fi
+
+    elif [ $answer = 1 ]; then
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+
+    elif [ $answer = 2 ]; then
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256
+        aria2c -d $ISO_DL_DIR -s 16 https://mirror.sjtu.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-KDE-Live-x86_64-Current.iso.sha256.asc
+
+    elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
+        exit
+
+    else
+    #重新开始循环
+        printf 'ERROR: Invalid input!\n'
+        continue
+
+    fi
+done
+</code></pre>
+<h2 id="补充说明"><a class="header" href="#补充说明">补充说明</a></h2>
+<ul>
+<li>配置不包含 BT 下载功能，相关另见 <a href="#qbittorrent--peerbanhelper-配置备忘录">qBittorrent 配置备忘录</a>。</li>
+<li>aria2 只有在工作时才会读写日志。下载完文件后，记得要清理一下日志文件。</li>
+</ul>
+<hr>
+<h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
+<ul>
+<li><a href="https://www.higgs.xyz/archives/7/">Aria2+AriaNG 配置指南（Win10 篇）</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="游戏画面设置参考"><a class="header" href="#游戏画面设置参考">游戏画面设置参考</a></h1>
+<ul>
+<li>资料来源：<a href="https://www.bilibili.com/video/BV1Zz4y1U7aB">游戏画质设置教程</a></li>
+</ul>
+<!--end of list-->
+<ul>
+<li>材质纹理：
+<ul>
+<li>材质：对观感影响很大，几乎不吃性能，吃显存，建议开高</li>
+<li>纹理：同上</li>
+<li>各向异性过滤：保证纹理正确显示，不吃性能，建议开高</li>
+</ul>
+</li>
+<li>光照和阴影：
+<ul>
+<li>光线：反射、折射、散射、镜面、光线追踪：很吃性能，对观感影响小，属锦上添花</li>
+<li>阴影：阴影质量、环境光遮蔽等：对性能影响适中，有和没有是两个游戏，开最高性价比低</li>
+<li>体积：体积云、体积雾、体积光：对性能影响很大，看风景可以开</li>
+</ul>
+</li>
+<li>模型视距：
+<ul>
+<li>细节层次：让远处的物体更清晰，对性能影响中等。一般情况下建议开中，看风景开高</li>
+<li>可视距离：同上</li>
+<li>曲面细分：对性能影响适中，对观感几乎没有影响，不建议开</li>
+</ul>
+</li>
+<li>草地植被：
+<ul>
+<li>草地植被密度：对观感影响较大，对性能影响中等，看风景可以开最高</li>
+</ul>
+</li>
+<li>物理类：
+<ul>
+<li>水物理：对性能影响非常大，对观感影响较小，玩水可以开高</li>
+</ul>
+</li>
+<li>粒子特效：
+<ul>
+<li>粒子质量：对性能影响中等、对观感影响较大，根据具体情况选择</li>
+<li>特效质量：同上</li>
+</ul>
+</li>
+<li>抗锯齿：
+<ul>
+<li>TAA（时间抗锯齿）：推荐大部分玩家，不吃性能，抗锯齿和抗闪烁优秀，低分辨率会糊</li>
+<li>MSAA（多重采样抗锯齿）：推荐给高配玩家，很吃性能，抗锯齿效果好，不糊</li>
+<li>FXAA（快速近似抗锯齿）：推荐给低配玩家，不吃性能，抗锯齿效果一般，会模糊</li>
+<li>SMAA（增强型子像素形态学抗锯齿）：推荐给大部分玩家，对性能稍有影响，抗锯齿效果较好，不糊</li>
+</ul>
+</li>
+<li>后期滤镜：
+<ul>
+<li>动态模糊：对性能要求低，仅建议低于 30 帧的玩家开启</li>
+<li>景深、炫光、高光等：几乎不吃性能，看个人喜好开启</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="qbittorrent--peerbanhelper-配置备忘录"><a class="header" href="#qbittorrent--peerbanhelper-配置备忘录">qBittorrent &amp; PeerBanHelper 配置备忘录</a></h1>
+<p><strong>说明：</strong></p>
+<ul>
+<li>这是我个人使用的 qBittorrent 配置。</li>
+<li>本文通过 <code>systemctl --user</code> 进行管理服务；另见 <a href="https://wiki.archlinux.org/title/Systemd/User">Systemd/User - Archlinux wiki</a>。</li>
+</ul>
+<h2 id="安装-1"><a class="header" href="#安装-1">安装</a></h2>
+<pre><code>sudo dnf in qbittorrent
+</code></pre>
+<h3 id="开机启动"><a class="header" href="#开机启动">开机启动</a></h3>
+<p>在 KDE 的系统设置中，把 qbittorrent 添加至开机启动的列表中。</p>
+<h2 id="相关文件"><a class="header" href="#相关文件">相关文件</a></h2>
+<p>配置文件：</p>
+<ul>
+<li><code>~/.config/qBittorrent</code></li>
+<li><code>~/.local/share/qBittorrent</code></li>
+</ul>
+<p>下载文件夹：</p>
+<pre><code class="language-shell">poplar@Greysia:~&gt; tree /home/bt/network -L 1
+/home/bt/network
+├── downloads1
+├── downloads2
+├── misc
+├── torrents1
+└── torrents2
+
+6 directories, 0 files
+</code></pre>
+<h2 id="用户界面"><a class="header" href="#用户界面">用户界面</a></h2>
+<ul>
+<li>在菜单栏的 <strong>视图</strong> → <strong>日志</strong> 中，勾选全部类型的日志信息。</li>
+<li>调整列：
+<ul>
+<li>名称</li>
+<li>选定大小</li>
+<li>进度</li>
+<li>状态</li>
+<li>做种数</li>
+<li>用户</li>
+<li>下载速度</li>
+<li>上传速度</li>
+<li>剩余时间</li>
+<li>比率</li>
+<li><strong>标签</strong></li>
+<li><strong>本次会话上传</strong></li>
+<li><strong>最近活动</strong></li>
+</ul>
+</li>
+<li>分类：
+<ul>
+<li>完整下载：<code>/home/bt/network/downloads1</code>（默认分类）</li>
+<li>非完整下载：<code>/home/bt/network/downloads2</code></li>
+<li>缓存：<code>/home/bt/network/misc</code>（临时下载）</li>
+</ul>
+</li>
+<li>标签：
+<ul>
+<li><code>1 类</code>（长期做种）</li>
+<li><code>2 类</code>（短期做种）</li>
+<li><code>3 类</code>（临时下载）</li>
+<li><code>电影</code></li>
+<li><code>动画</code></li>
+<li><code>其他</code></li>
+<li><code>特典</code></li>
+<li><code>未读</code></li>
+<li><code>新番</code></li>
+<li><code>音乐</code></li>
+<li><code>OVA</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="软件设置"><a class="header" href="#软件设置">软件设置</a></h2>
+<p>在默认配置的基础上</p>
+<h3 id="行为"><a class="header" href="#行为">行为</a></h3>
+<p>修改：</p>
+<ul>
+<li>启动时窗口：隐藏</li>
+<li>在通知区域显示 qBittorrent
+<ul>
+<li>最小化 qBittorrent 到通知区域</li>
+<li>关闭 qBittorrent 到通知区域</li>
+</ul>
+</li>
+<li>托盘图表样式：单色（深色主题）</li>
+</ul>
+<h3 id="下载"><a class="header" href="#下载">下载</a></h3>
+<p>修改：</p>
+<ul>
+<li>为所有文件预分配磁盘空间</li>
+<li>默认 Torrent 管理模式：自动</li>
+<li>默认保存位置：<code>/home/bt/network/misc</code></li>
+</ul>
+<h3 id="连接"><a class="header" href="#连接">连接</a></h3>
+<p>修改：</p>
+<ul>
+<li>端口：大于 <code>10000</code> 的任意端口</li>
+<li>全局最大连接数：800</li>
+<li>每个 torrent 最大连接数：200</li>
+<li>使用我的路由器的 UPnP/NAT-PMP 端口转发（当路由器没有将设备直接映射到公网的时候开启）</li>
+</ul>
+<p>不使用：</p>
+<ul>
+<li>全局上传窗口限制</li>
+<li>每个 torrent 上传窗口限制</li>
+</ul>
+<h3 id="速度"><a class="header" href="#速度">速度</a></h3>
+<p>修改：</p>
+<ul>
+<li>对 µTP 协议进行速度限制</li>
+<li>对传送总开销进行速度限制</li>
+<li>对本地网络用户进行速度限制</li>
+</ul>
+<h3 id="bittorret"><a class="header" href="#bittorret">BitTorret</a></h3>
+<p>修改：</p>
+<ul>
+<li>自动附加这些 tracker 到新下载
+<ul>
+<li><a href="https://trackerslist.com">https://trackerslist.com</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="webui"><a class="header" href="#webui">WebUI</a></h3>
+<p>修改：</p>
+<ul>
+<li>Web 用户界面（远程控制）</li>
+<li>对本地主机上的客户端跳过身份验证</li>
+</ul>
+<h3 id="高级"><a class="header" href="#高级">高级</a></h3>
+<p>修改：</p>
+<ul>
+<li>网络接口：<code>wlp6s0</code>（无线网卡）</li>
+<li>保存恢复数据的间隔：60 分钟</li>
+<li>异步 I/O 线程数：64（AMD 7840H）</li>
+<li>文件池大小：400</li>
+<li>校验时内存使用扩增量：256 MiB</li>
+<li>合并读写</li>
+<li>发送分块上传建议</li>
+<li>禁止连接到特权端口上的 peer</li>
+</ul>
+<h2 id="部署-peerbanhelper"><a class="header" href="#部署-peerbanhelper">部署 Peerbanhelper</a></h2>
+<p>将下载好的 <code>PeerBanHelper*.zip</code> 放置到 <code>pbh</code> 脚本设定的 <code>$PBH_UP</code> 文件夹中。</p>
+<ul>
+<li>下载地址：<a href="https://github.com/Ghost-chu/PeerBanHelper">https://github.com/Ghost-chu/PeerBanHelper</a></li>
+<li>文档：<a href="https://pbh-btn.github.io/pbh-docs/">https://pbh-btn.github.io/pbh-docs/</a></li>
+</ul>
+<pre><code class="language-shell">poplar@Greysia:~&gt; tree ~/bin/pbh -L 1
+/home/poplar/bin/pbh
+├── data
+├── key.txt
+├── libraries
+└── PeerBanHelper.jar
+
+3 directories, 2 files
+</code></pre>
+<h2 id="配置文件"><a class="header" href="#配置文件">配置文件</a></h2>
+<p>使用下文的 <code>pbh</code> 安装并启动服务，然后修改 <code>~/bin/pbh/data/config/config.yml</code>：</p>
+<ul>
+<li><code>server</code>: 将 <code>address</code> 的值设置为 <code>127.0.0.1</code></li>
+</ul>
+<p>然后在 <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a>。生成 token 并添加 qBittorrent 下载器，并修改 <code>~/bin/pbh/data/config/config.yml</code>：</p>
+<ul>
+<li><code>language</code>：改为 <code>zh_CN</code></li>
+<li><code>btn</code>：改为 <code>true</code>，并填入 <code>app-id</code> 和 <code>app-secret</code>
+<ul>
+<li>将 <code>config-url</code> 改为 <code>https://btn-prod.ghostchu-services.top/ping/config</code></li>
+</ul>
+</li>
+<li><code>proxy</code>：将 <code>setting: 0</code> 改为 <code>setting: 2</code>，并检查服务器地址和端口是否正确。</li>
+<li><code>logger</code>：将 <code>hide-finish-log</code> 改为 <code>true</code></li>
+</ul>
+<h3 id="集成管理脚本"><a class="header" href="#集成管理脚本">集成管理脚本</a></h3>
+<p>用于管理 PeerBanHelper 的脚本 <code>pbh</code>：</p>
+<pre><code class="language-shell">#!/bin/sh
+# 本脚本用于 Peerbanhelper 的日常维护
+# 注意，本脚本只适用于直接使用 PeerBanHelper_*.zip 文件进行部署的方式
+
+export PBH_DIR=$HOME/bin/pbh
+# PeerBanHelper 主目录
+export PBH_UP=$HOME/Downloads
+# PeerBanHelper 更新包文件路径
+export BIN_DIR=$HOME/bin
+# PeerBanHelper 的父级目录
+
+SER_FILE=$HOME/.config/systemd/user/pbh.service
+
+while true; do
+    printf -- '-%0.s' {1..100} &amp;&amp; echo
+    printf 'You can use the PeerBanHelper maintenance script for:\n\n'
+    printf '1 - Install PeerBanHelper\n'
+    printf '2 - Activate systemd service\n'
+    printf '3 - Stop systemd service\n'
+    printf '4 - Delete systemd service\n\n'
+    printf 'U - Upgrade PeerBanHelper\n'
+    printf 'D - Degrade PeerBanHelper\n'
+    printf 'F - Delete unused old files\n'
+    printf 'L - Read logs of PeerBanHelper\n\n'
+    printf 'C - Clear terminal output\n'
+    printf 'Q - Quit\n\n'
+    printf '==&gt; '
+    read answer
+
+    if [ $answer = 1 ]; then
+    # 安装 PeerBanHelper
+        printf 'After installing the app, you need to manually edit the configuration file at: /data/config/config.yml \n'
+        if [ -f $SER_FILE ]; then
+        # 检查 systemd 服务文件是否存在
+            printf 'INFO: Found the systemd service file.\n'
+        else
+            printf 'INFO: NO found the systemd service file.\n'
+            mkdir -p ~/.config/systemd/user
+            echo "[Unit]" &gt; $SER_FILE
+            echo "Description=Start PeerBanHelper Service" &gt;&gt; $SER_FILE
+            echo &gt;&gt; $SER_FILE
+            echo "[Service]" &gt;&gt; $SER_FILE
+            echo "ExecStart=/usr/bin/java -jar -Xmx512M -XX:+UseG1GC -XX:+UseStringDeduplication -XX:+ShrinkHeapInSteps PeerBanHelper.jar nogui" &gt;&gt; $SER_FILE
+            echo "Type=simple" &gt;&gt; $SER_FILE
+            echo "WorkingDirectory=$PBH_DIR" &gt;&gt; $SER_FILE
+            echo &gt;&gt; $SER_FILE
+            echo "[Install]" &gt;&gt; $SER_FILE
+            echo "WantedBy=default.target" &gt;&gt; $SER_FILE
+            printf 'INFO: Systemd service file created.\n'
+        fi
+        if [ -f $PBH_DIR/PeerBanHelper.jar ]; then
+        # 检查主程序是否存在
+            printf 'INFO: Main program found.\n'
+            systemctl daemon-reload --user
+            systemctl enable --user pbh
+            systemctl status --user pbh | grep "Loaded"
+        else
+            if [ -f $PBH_UP/PeerBanHelper*.zip ]; then
+                printf 'INFO: Found zip file to install.\n'
+                cd $PBH_UP
+                7z x PeerBanHelper*.zip
+                mv $PBH_UP/PeerBanHelper $BIN_DIR
+                mv $BIN_DIR/PeerBanHelper $BIN_DIR/pbh
+                printf 'INFO: PeerBanHelper installed.\n'
+                systemctl daemon-reload --user
+                systemctl enable --user pbh
+                systemctl status --user pbh | grep "Loaded"
+            else
+                printf 'ERROR: No found zip file to install!\n'
+            fi
+        fi
+
+    elif [ $answer = 2 ]; then
+    # 启动服务
+        systemctl start --user pbh
+        systemctl status --user pbh | grep "Active"
+
+    elif [ $answer = 3 ]; then
+    # 关闭服务
+        systemctl stop --user pbh
+        systemctl status --user pbh | grep "Active"
+    
+    elif [ $answer = 4 ]; then
+    # 删除服务
+        systemctl disable --user pbh --now
+        systemctl status --user pbh | grep "Active"
+        rm $SER_FILE
+        systemctl daemon-reload --user
+        printf 'INFO: systemd service deleted.\n'
+
+    elif [ "$answer" = "U" ] || [ "$answer" = "u" ]; then
+    # 更新 PeerBanHelper
+        systemctl stop --user pbh
+        systemctl status --user pbh | grep "Active"
+        if [ -f $PBH_UP/PeerBanHelper*.zip ]; then
+            printf 'INFO: Found zip file to upgrade.\n'
+            cd $PBH_UP
+            7z x PeerBanHelper*.zip
+            rm -r $PBH_DIR/libraries
+            printf 'INFO: Delete old libraries.\n'
+            mv $PBH_UP/PeerBanHelper/libraries $PBH_DIR
+            printf 'INFO: Update libraries.\n'
+            mv -f $PBH_DIR/PeerBanHelper.jar $PBH_DIR/PeerBanHelper.jar.old
+            printf 'INFO: Jar files back up.\n'
+            mv $PBH_UP/PeerBanHelper/PeerBanHelper.jar $PBH_DIR
+            printf 'INFO: Update jar files.\n'
+            systemctl restart --user pbh
+            systemctl status --user pbh | grep "Active"
+            rm -r $PBH_UP/PeerBanHelper
+            rm -r $PBH_UP/PeerBanHelper*.zip
+            printf 'INFO: Deleted the update tarball.\n'
+        else
+            printf 'ERROR: PeerBanHelper*.zip not found!\n'
+        fi
+
+    elif [ "$answer" = "E" ] || [ "$answer" = "e" ]; then
+    # 降级更新 Peerbanhelper
+        if [ -f $PBH_DIR/PeerBanHelper.jar.old ]; then
+            printf 'INFO: Found the backup files.\n'
+            systemctl stop --user pbh
+            systemctl status --user pbh | grep "Active"
+            mv -f $PBH_DIR/PeerBanHelper.jar $PBH_DIR/PeerBanHelper.jar.error
+            mv -f $PBH_DIR/PeerBanHelper.jar.old $PBH_DIR/PeerBanHelper.jar
+            printf 'INFO: Downgrade completed.\n'
+            systemctl restart --user pbh
+            systemctl status --user pbh | grep "Active"
+        else
+            printf 'ERROR: PeerBanHelper.jar.old not found!\n'
+        fi
+
+    elif [ "$answer" = "F" ] || [ "$answer" = "f" ]; then
+        printf 'INFO: Start deleting files...\n'
+        if [ -d $PBH_DIR/data/logs ]; then
+            rm $PBH_DIR/data/logs/*.gz
+            printf 'Removed archive logs: OK!\n'
+        else
+            printf 'ERROR: No found log files.\n'
+        fi
+        if [ -f $PBH_DIR/PeerBanHelper.jar.error ]; then
+            rm $PBH_DIR/PeerBanHelper.jar.error
+            printf 'INFO: Removed PeerBanHelper.jar.error.\n'
+        else
+            printf 'ERROR: PeerBanHelper.jar.error not found!\n'
+        fi
+
+    elif [ "$answer" = "L" ] || [ "$answer" = "l" ]; then
+    # 读取 Peerbanhelper 日志
+        tail -n 30 $PBH_DIR/data/logs/latest.log
+        # 读取最新的 30 条日志
+        # 也可以使用：
+        #journalctl --user -u pbh
+
+    elif [ "$answer" = "C" ] || [ "$answer" = "c" ]; then
+        clear
+
+    elif [ "$answer" = "Q" ] || [ "$answer" = "q" ]; then
+        exit
+
+    else
+        echo "ERROR: Invalid input!"
+        continue
+
+    fi
+done
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="检查系统信息"><a class="header" href="#检查系统信息">检查系统信息</a></h1>
+<p>要列出 CPU 设备信息，可使用 <code>lscpu</code>。</p>
+<p>要列出当前系统的块设备信息，可使用 <code>lsblk</code>，可附加 <code>--fs</code>。</p>
+<p>要列出 USB 设备信息，可使用 <code>lsusb</code>。</p>
+<p>要列出 PCI 设备信息，可使用 <code>lspci</code>。</p>
+<p>要列出 RAM 信息，可使用 <code>free -m</code>。</p>
+<h2 id="dmidecode"><a class="header" href="#dmidecode">dmidecode</a></h2>
+<p><code>dmidecode</code> 运行时需要 <code>root</code> 权限，可用于读取系统的硬件信息，例如内存条的频率。</p>
+<p>使用 <code>sudo dmidecode -t</code> 查询可列出的硬件信息。</p>
+<h2 id="hwinfo"><a class="header" href="#hwinfo">hwinfo</a></h2>
+<p><code>hwinfo</code> 与 <code>dmidecode</code>，使用 <code>sudo hwinfo --help</code> 列出可查询的信息。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="文件系统文件所有权及文件权限"><a class="header" href="#文件系统文件所有权及文件权限">文件系统、文件所有权及文件权限</a></h1>
+<p>所有东西都是文件，包括文件夹也是文件的一种。</p>
+<h2 id="文件系统"><a class="header" href="#文件系统">文件系统</a></h2>
+<p>Linux 的文件系统树如下：</p>
+<pre><code class="language-shell">poplar@Greysia:~&gt; tree / -L 1
+/
+├── bin -&gt; usr/bin
+├── boot
+├── dev
+├── etc
+├── home
+├── lib -&gt; usr/lib
+├── lib64 -&gt; usr/lib64
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin -&gt; usr/sbin
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+
+19 directories, 0 files
+</code></pre>
+<p>根目录下，常见的文件夹的用途<sup class="footnote-reference" id="fr-ref-fs-1"><a href="#footnote-ref-fs">1</a></sup>：</p>
+<ul>
+<li><code>/bin</code>：存放常用的 Linux 用户命令，如 <code>ls</code>、<code>date</code>、<code>chmod</code> 等。</li>
+<li><code>/boot</code>：存放可引导 Linux 内核、初始化 RAM 磁盘和引导加载器配置文件（GRUB）</li>
+<li><code>/dev</code>：存放代表系统设备访问点的文件。例如终端设备（<code>tty*</code>）、硬盘（<code>hd*</code> 或 <code>sd*</code>）、RAM（<code>ram*</code>）和 CD-ROM（<code>cd*</code>）等。用户可以通过这些设备文件直接访问设备。</li>
+<li><code>/etc</code>：存放管理配置文件，大多数是可编辑的纯文本文件。</li>
+<li><code>/home</code>：普通用户的主目录。</li>
+<li><code>/media</code>：为自动挂载的设备（特别是可移除的设备，如移动硬盘）提供一个标准挂载点。在 openSUSE 上，这个位置默认在 <code>/run/media/$USER/</code>。如果该设备有卷标，则文件夹的名称就是卷标。</li>
+<li><code>/lib</code>：存放 <code>/bin</code> 和 <code>/sbin</code> 中的应用程序启动系统时所需的共享库。</li>
+<li><code>/mnt</code>：在被 <code>/media</code> 取代前，是一个常用的设备挂载点。</li>
+<li><code>/misc</code>：有时用于根据请求自动挂载文件系统的目录。</li>
+<li><code>/opt</code>：存放附加应用软件（一般是用户自行安装的软件）。</li>
+<li><code>/proc</code>：存放有关系统资源的信息。</li>
+<li><code>/root</code>：<code>root</code> 用户的主目录。</li>
+<li><code>/sbin</code>：存放管理命令和守护进程。</li>
+<li><code>/sys</code>：存放调整块存储和管理 cgroup 等参数。</li>
+<li><code>/tmp</code>:存放应用使用的临时文件</li>
+<li><code>/usr</code>：‘Unix System Resource’ 的缩写，存放用户文档、游戏、图形文件（X11）、库文件（lib）以及其他大量在系统启动时不是必须的命令和文件。<code>/usr</code> 用于存放安装后不会更改的文件（理论上，<code>/usr</code> 可以只读方式挂载）。</li>
+<li><code>/var</code>：存放各种应用使用的数据。<code>/var</code> 常用于存放经常变更的文件。</li>
+</ul>
+<h2 id="xfs-与-btrfs"><a class="header" href="#xfs-与-btrfs">XFS 与 Btrfs</a></h2>
+<p>XFS 与 Btrfs 都是 openSUSE 默认推荐使用的文件系统。openSUSE 推荐用户数据目录使用 XFS，操作系统目录使用 Btrfs。</p>
+<blockquote>
+<p>Btrfs 和 XFS 代表了满足 Linux 文件系统需求的成熟且互补的选项。Btrfs 提供现代的写时复制功能，例如简单的快照和压缩以及灵活的存储增长。 XFS 专注于为超大容量提供坚如磐石的稳定性和巨大的可扩展性，并具有持续的高吞吐量。<br />
+<em>详细对比另见：<a href="https://thelinuxcode.com/btrfs-vs-xfs-brief-comparison/">Btrfs vs XFS: An In-Depth Comparison of Linux File Systems</a></em></p>
+</blockquote>
+<h2 id="文件所有权与文件权限"><a class="header" href="#文件所有权与文件权限">文件所有权与文件权限</a></h2>
+<p>一个文件面向三种访问者，</p>
+<ul>
+<li>文件所有者（author，u）</li>
+<li>文件所有者所在组的其他用户（group，g）</li>
+<li>其他人（others，o）</li>
+</ul>
+<p>有三种权限：</p>
+<ul>
+<li>可读（Read, r=4）</li>
+<li>可写（Write, w=2）</li>
+<li>可执行（Execute, x=1）</li>
+</ul>
+<h3 id="chmod"><a class="header" href="#chmod">chmod</a></h3>
+<p>一个典型的文件及文件夹应当具有如下的权限设置：</p>
+<pre><code>poplar@Greysia:~/1&gt; l
+总计 0
+drwxr-xr-x  1 poplar poplar  12  9月24日 13:22 ./
+drwx--x---+ 1 poplar poplar 556  9月24日 13:22 ../
+drwxr-xr-x  1 poplar poplar   0  9月24日 13:22 2/
+-rw-r--r--  1 poplar poplar   0  9月24日 13:22 2.txt
+</code></pre>
+<p>第一行表示当前的文件夹，第二行表示父级文件夹，第三和第四行分别是子文件夹和子文件。</p>
+<p><code>-rw-r--r--</code> 共有十个字符，第一位字符表示文件的性质（文件/文件夹/符号链接），然后是三个字符一组，依次表示文件所有者、文件所有者所在组的其他用户和其他用户对这个文件的权限。</p>
+<p><code>chmod</code> 命令可以使用数字或字母组合更改文件权限。</p>
+<p>使用数字组合时，参考上文，对应的权限组合对应的数值，例如：</p>
+<pre><code>poplar@Greysia:~/1&gt; chmod 777 2.txt; ll
+总计 0
+drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
+-rwxrwxrwx 1 poplar poplar 0  9月24日 13:22 2.txt
+</code></pre>
+<p>使用字母组合时，使用 <code>字母 + 加减符号 + 权限</code> 的形式。</p>
+<p>针对所有用户时，使用 <code>a</code>（all），或者省略字母。添加权限使用加号，删除权限使用减号。</p>
+<p>两边的字母可以多个（同时指定多个对象），例如：</p>
+<pre><code>poplar@Greysia:~/1&gt; chmod go-wx 2.txt; ll
+总计 0
+drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
+-rwxr--r-- 1 poplar poplar 0  9月24日 13:22 2.txt
+</code></pre>
+<p>使用 <code>-R</code> 标志或者 <code>*</code> 可以将操作递归地（recursively）应用到该文件夹的所有文件（包括子文件和子文件夹）。</p>
+<h4 id="文件夹的可执行权限"><a class="header" href="#文件夹的可执行权限">文件夹的可执行权限</a></h4>
+<p>文件夹应当默认具有可执行权限（<code>drwxr-xr-x</code>）。文件目录具有的可执行权限允许用户访问目录内的项目，即使用户无法列出目录内容<sup class="footnote-reference" id="fr-ref-sur-1"><a href="#footnote-ref-sur">2</a></sup>。</p>
+<pre><code>poplar@Greysia:~/1&gt; ll
+总计 0
+drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
+-rw-r--r-- 1 poplar poplar 0  9月24日 13:22 2.txt
+poplar@Greysia:~/1&gt; mv 2.txt 2
+poplar@Greysia:~/1&gt; chmod -x *; l 2
+ls: 无法访问 '2/.': 权限不够
+ls: 无法访问 '2/..': 权限不够
+ls: 无法访问 '2/2.txt': 权限不够
+总计 0
+d????????? ? ? ? ?              ? ./
+d????????? ? ? ? ?              ? ../
+-????????? ? ? ? ?              ? 2.txt
+</code></pre>
+<h3 id="chown"><a class="header" href="#chown">chown</a></h3>
+<p><code>$ chown 用户名:用户组 /文件路径</code></p>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-ref-fs">
+<p>参考《Linux Bible, 10th Edition》Part II: Becoming a Linux Power User - Moving Around the Filesystem，第 94，95 页 <a href="#fr-ref-fs-1">↩</a></p>
+</li>
+<li id="footnote-ref-sur">
+<p>参考 <a href="https://superuser.com/a/169418">Why must a folder be executable?</a> <a href="#fr-ref-sur-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="kvm-备忘录"><a class="header" href="#kvm-备忘录">KVM 备忘录</a></h1>
+<h2 id="安装-2"><a class="header" href="#安装-2">安装</a></h2>
+<p>安装软件包：</p>
+<pre><code>sudo dnf in @virtualization
+</code></pre>
+<p>加入用户组：</p>
+<pre><code class="language-shell">sudo usermod -aG libvirt $USER
+</code></pre>
+<p>注销重新登录。</p>
+<h2 id="主宿机文件共享"><a class="header" href="#主宿机文件共享">主宿机文件共享</a></h2>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<p>首先，在虚拟机安装完毕后，在虚拟机关机的情况下，打开虚拟机的详情页，点击 <strong>内存</strong>，勾选 <strong>Enable shared memory</strong>。</p>
+<p>然后，点击左下角的 <strong>添加新硬件</strong>，选择 <strong>文件系统</strong>，驱动程序保持默认（即 <strong>virtiofs</strong>），将 <strong>源路径</strong> 修改为要与虚拟机共享的文件夹路径，将 <strong>目标路径</strong> 命名为给定的名称，例如 <code>sharing-folder</code>，然后点击 <strong>完成</strong>。</p>
+<p>然后下载两个驱动文件：</p>
+<ul>
+<li>最新版的 <a href="https://winfsp.dev/rel/">winFSP</a></li>
+<li>最新稳定版的 <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/">virtio-win-guest-tools.exe</a></li>
+</ul>
+<p>将下载的文件打包成 ISO 文件，作为一个 SATA CDROM 存储设备添加到虚拟机中。</p>
+<pre><code class="language-shell">mkisofs -o 文件名.iso /文/件/路/径
+</code></pre>
+<p>首先安装 <code>WinFSP</code> Core，然后安装 <code>virtio-win-guest-tools.exe</code>（<code>virtiofs</code>）</p>
+<p>安装完毕后，按下 <code>Win + R</code> 键唤出 CMD，输入 <code>services.msc</code>，然后找到并启动 <strong>VirtIO-FS Service</strong>。</p>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<p>参考上文配置好虚拟机后，启动虚拟机，确认 <code>virtiofsd</code> 已安装。</p>
+<p>然后运行：</p>
+<pre><code class="language-shell">mount -t virtiofs mount_tag /mnt/mount/path
+</code></pre>
+<p><code>mount_tag</code> 是上文中设定的 目标路径，<code>/mnt/mount/path</code> 则是要挂载 <code>virtiofs</code> 的路径，例如：</p>
+<pre><code class="language-shell">sudo mount -t virtiofs sharing-folder /mnt #将 sharing-folder 文件夹挂载到 /mnt
+</code></pre>
+<h2 id="3d-图形加速"><a class="header" href="#3d-图形加速">3D 图形加速</a></h2>
+<p>首先关闭虚拟机，然后将虚拟机的 <strong>显示协议 Spice</strong> 的 <strong>监听类型</strong> 修改为 <strong>无</strong>，然后勾选下方的 <strong>OpenGL</strong>。</p>
+<p>最后修改 <strong>显卡</strong>，将类型更换为 <strong>Virtio</strong>，并勾选 <strong>3D 加速</strong>。</p>
+<p>启动虚拟机即可。</p>
+<p>注意，如果独显不能稳定渲染，则使用核显进行 3D 加速渲染。</p>
+<h2 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h2>
+<h3 id="托盘图标"><a class="header" href="#托盘图标">托盘图标</a></h3>
+<p>托盘图标可以清晰地显示 KVM 是否正在运行。</p>
+<p>要启用托盘图标，需要先打开虚拟机系统管理器，点击菜单栏的 <strong>编辑</strong> &gt; <strong>Preferences</strong>，勾选 <strong>启用系统托盘图标</strong>。</p>
+<h3 id="鼠标捕获"><a class="header" href="#鼠标捕获">鼠标捕获</a></h3>
+<p>要停止鼠标捕获至虚拟机，按下<code>左 Ctrl</code> + <code>左 Alt</code> 键即可。</p>
+<h3 id="虚拟机全屏显示"><a class="header" href="#虚拟机全屏显示">虚拟机全屏显示</a></h3>
+<p>虚拟机切换至全屏的按钮在右上方，切换至全屏后，如果要退出全屏，请将鼠标移动至屏幕正上方，会出现一个退出按钮。</p>
+<h3 id="windows-虚拟机分辨率无法调节"><a class="header" href="#windows-虚拟机分辨率无法调节">Windows 虚拟机分辨率无法调节</a></h3>
+<p>请安装 <code>virtio-win-guest-tools.exe</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="混乱的计量单位"><a class="header" href="#混乱的计量单位">混乱的计量单位</a></h1>
+<p>位元（bit，又称：比特）是信息资讯最小的单位。位元组（Byte，又称为：字节），一个位元组等于 8 位元。</p>
+<ul>
+<li>位元的单位是：b</li>
+<li>位元组的单位是：B</li>
+</ul>
+<p>上述两个单位使用的国际单位制词头有两种：</p>
+<ul>
+<li>十进制：如 KB</li>
+<li>二进制：在词头与单位之间新增一个 i，如 KiB</li>
+</ul>
+<h2 id="对照表"><a class="header" href="#对照表">对照表</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center">值</th><th style="text-align: center"><a href="https://en.wikipedia.org/wiki/Metric_prefix">公制</a>/<a href="https://en.wikipedia.org/wiki/Decimal">十进制</a></th><th style="text-align: center">值</th><th style="text-align: center"><a href="https://en.wikipedia.org/wiki/IEC_80000-13">IEC</a>/<a href="https://en.wikipedia.org/wiki/Binary_prefix">二进制</a></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">1000B = 1kB</td><td style="text-align: center">kilobyte</td><td style="text-align: center">1024B = 1KiB</td><td style="text-align: center">kibibyte</td></tr>
+<tr><td style="text-align: center">1000^2^B = 1MB</td><td style="text-align: center">megabyte</td><td style="text-align: center">1024^2^B = 1MiB</td><td style="text-align: center">mebibyte</td></tr>
+<tr><td style="text-align: center">1000^3^B = 1GB</td><td style="text-align: center">gigabyte</td><td style="text-align: center">1024^3^B = 1GiB</td><td style="text-align: center">gibibyte</td></tr>
+<tr><td style="text-align: center">1000^4^B = 1TB</td><td style="text-align: center">terabyte</td><td style="text-align: center">1024^4^B = 1TiB</td><td style="text-align: center">tebibyte</td></tr>
+<tr><td style="text-align: center">1000^5^B = 1PB</td><td style="text-align: center">petabyte</td><td style="text-align: center">1024^5^B = 1PiB</td><td style="text-align: center">pebibyte</td></tr>
+<tr><td style="text-align: center">1000^6^B = 1EB</td><td style="text-align: center">exabyte</td><td style="text-align: center">1024^6^B = 1EiB</td><td style="text-align: center">exbibyte</td></tr>
+<tr><td style="text-align: center">1000^7^B = 1ZB</td><td style="text-align: center">zettabyte</td><td style="text-align: center">1024^7^B = 1ZiB</td><td style="text-align: center">zebibyte</td></tr>
+<tr><td style="text-align: center">1000^8^B = 1YB</td><td style="text-align: center">yottabyte</td><td style="text-align: center">1024^8^B = 1YiB</td><td style="text-align: center">yobibyte</td></tr>
+<tr><td style="text-align: center">1000^9^B = 1RB</td><td style="text-align: center">ronnabyte</td><td style="text-align: center">1024^9^B</td><td style="text-align: center">-</td></tr>
+<tr><td style="text-align: center">1000^10^B = 1QB</td><td style="text-align: center">quettabyte</td><td style="text-align: center">1024^10^B</td><td style="text-align: center">-</td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>来源：<a href="https://en.wikipedia.org/wiki/Byte#Multiple-byte_units">Multiple-byte units</a></li>
+</ul>
+<h2 id="常见使用场景"><a class="header" href="#常见使用场景">常见使用场景</a></h2>
+<ul>
+<li>十进制：
+<ul>
+<li>硬盘/内存制造商标注的硬盘/内存条容量</li>
+</ul>
+</li>
+<li>二进制：
+<ul>
+<li>Linux 系统的内存/存储空间计算</li>
+</ul>
+</li>
+<li>位元：
+<ul>
+<li>网络带宽</li>
+</ul>
+</li>
+</ul>
+<h2 id="部分命令"><a class="header" href="#部分命令">部分命令</a></h2>
+<p>使用 <code>ls</code> 命令列出文件大小时，可以使用 <code>--block-size=</code> 的 flag 指定显示的大小，如：</p>
+<pre><code class="language-shell">poplar@Greysia:~/Downloads/ISO&gt; ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
+-rw-r--r-- 1 root root 4594860032 10月 3日 09:24 openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
+poplar@Greysia:~/Downloads/ISO&gt; ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso --block-size=MiB
+-rw-r--r-- 1 root root 4382MiB 10月 3日 09:24 openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
+</code></pre>
+<p>详见 <code>man ls</code>。</p>
+<p>又如 <code>free -m</code> 的含义就是以 mebibyte 显示当前的内存信息：</p>
+<pre><code class="language-shell">poplar@Greysia:~&gt; sudo free -m
+[sudo] root 的密码：
+               total        used        free      shared  buff/cache   available
+内存：         15201        6875        2356         335        6634        8325
+交换：          8191        1757        6434
+poplar@Greysia:~&gt; sudo free --mega
+               total        used        free      shared  buff/cache   available
+内存：         15939        7203        2476         351        6956        8736
+交换：          8589        1842        6747
+</code></pre>
+<p>详见 <code>free --help</code>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="个人自用的-mpv-配置"><a class="header" href="#个人自用的-mpv-配置">个人自用的 mpv 配置</a></h1>
+<pre><code class="language-shell">poplar@Greysia:~&gt; tree ~/.config/mpv
+/home/poplar/.config/mpv
+├── mpv.conf
+├── shaders_cache
+└── watch-later
+
+3 directories, 1 file
+poplar@Greysia:~&gt; cat ~/.config/mpv/mpv.conf
+vo=gpu
+# 视频输出驱动
+profile=high-quality
+# 使用一个内置的画质方案预设
+vd-lavc-dr=auto
+# 解码到显存中
+hwdec=yes
+# 使用硬解（原生模式）
+
+gpu-api=vulkan
+vulkan-async-compute=yes
+vulkan-async-transfer=yes
+vulkan-queue-count=1
+# vulkan 或者 opengl
+gpu-shader-cache-dir=/home/poplar/.config/mpv/shaders_cache
+# 着色器缓存目录
+
+video-sync=display-resample
+interpolation=yes
+tscale=oversample
+# 帧数超采样
+# 如果耗电量大，可以考虑关掉
+
+#log-file="/home/poplar/.config/mpv/mpv.log"
+# 日志文件目录（debug 用）
+
+vd-lavc-dr=yes
+opengl-pbo=yes
+# 可能对 4K 解码有帮助
+
+save-position-on-quit=yes
+watch-later-directory=/home/poplar/.config/mpv/watch-later
+# 退出时保存当前的播放状态
+keep-open=yes
+# 播放结束后不退出
+watch-later-options=start,vid,aid,sid
+# 指定保存播放状态的属性列表（示例表示：播放位置、视频 音频 字幕轨号）
+
+audio-file-auto=fuzzy
+alang=jpn,ja,eng,en
+# 自动加载近似名的外置音轨
+sub-auto=fuzzy
+slang=chi,zh-CN,sc,chs
+# 自动加载近似名的外置字幕
+
+screenshot-format=png
+# 截图格式
+screenshot-dir="/home/poplar/Pictures/screenshots"
+# 截图输出路径
+
+deband=yes
+# 启用去色带
+cscale=catmull_rom
+# 色度平面的拉伸
+
+blend-subtitles=video
+# 设置将字幕渲染到视频源分辨率并随视频一起缩放并进行色彩管理
+
+#audio-channels=stereo
+# 如果双声道系统播放多声道影片时有的声道声音没出现，尝试强制设定为双声道
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="显卡切换"><a class="header" href="#显卡切换">显卡切换</a></h1>
+<h2 id="nvidia-prime-render-offload"><a class="header" href="#nvidia-prime-render-offload">NVIDIA PRIME Render Offload</a></h2>
+<p>在安装完 NVIDIA 独显驱动后，删除以下软件包：</p>
+<pre><code>sudo zypper rm -u suse-prime
+sudo zypper al suse-prime
+</code></pre>
+<p>使用下列命令检查驱动是否运行在 <code>modesettings mode</code>：</p>
+<pre><code>sudo cat /sys/module/nvidia_drm/parameters/modeset
+</code></pre>
+<p>终端输出结果应该是 “Y”。</p>
+<p>如果不是，打开 YaST，找到并打开 <strong>引导加载器</strong> -&gt; <strong>内核参数(K)</strong>，在 <strong>可选内核命令行参数(P)</strong> 中，填入 <code>nvidia-drm.modeset=1</code>，保存设置并退出 YaST。</p>
+<p>然后重启系统。</p>
+<p>要让应用在 NVIDIA GPU 运行，使用：</p>
+<pre><code>__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia [命令]
+</code></pre>
+<p>或者将上述命令写成名为 <code>prime-run</code> 的 bash 脚本，放置在 <code>$PATH</code> 中：</p>
+<pre><code>#!/bin/bash
+__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia "$@"
+</code></pre>
+<ul>
+<li>相关：<a href="https://github.com/bayasdev/envycontrol">EnvyControl</a></li>
+</ul>
+<h2 id="dri_prime"><a class="header" href="#dri_prime">DRI_PRIME</a></h2>
+<p>对于 AMD 显卡，使用 <code>DRI_PRIME</code> 变量直接切换显卡即可。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="gpgsig-和-asc-文件的区别"><a class="header" href="#gpgsig-和-asc-文件的区别"><code>*.gpg</code>、<code>*.sig</code> 和 <code>*.asc</code> 文件的区别</a></h1>
+<p>签名（signature）可以验证文件的完整性，密钥对（keypair）中的私钥（private keypair）用于生成签名，公钥（public keypair）用于验证签名。</p>
+<p>三种文件都是 <code>gpg2</code> 生成的签名文件。</p>
+<ul>
+<li><code>*.gpg</code> 和 <code>*.sig</code> 都是二进制文件，<code>*.asc</code> 是纯文本文件。</li>
+<li>生成命令：
+<ul>
+<li><code>gpg -s</code> 或 <code>gpg --sign</code> → <code>*.gpg</code></li>
+<li><code>gpg -b</code> 或 <code>--detach-sign</code> → <code>*.sig</code></li>
+<li><code>gpg --clear-sign</code> → <code>*.asc</code></li>
+</ul>
+</li>
+<li><code>*.gpg</code> 是二进制的 GPG 公钥文件<sup class="footnote-reference" id="fr-ref1-1"><a href="#footnote-ref1">1</a></sup>，含有被签名文件的一份压缩的拷贝</li>
+<li><code>*.sig</code> 是二进制的 GPG 签名文档文件<sup class="footnote-reference" id="fr-ref2-1"><a href="#footnote-ref2">2</a></sup>，可含有被签名的文件</li>
+<li><code>*.asc</code> 是可含有封装文档的 ASCII 加密签名，纯文本格式。</li>
+</ul>
+<p>一个操作实例<sup class="footnote-reference" id="fr-ref3-1"><a href="#footnote-ref3">3</a></sup>（签名，加密，解密，提取文件）：</p>
+<pre><code class="language-shell">poplar@Greysia:~/Downloads/Aria2&gt; ll
+总计 91348KiB
+-rw-r--r-- 1 poplar poplar 91346KiB  9月24日 15:39 vm.iso
+poplar@Greysia:~/Downloads/Aria2&gt; gpg -s vm.iso
+poplar@Greysia:~/Downloads/Aria2&gt; gpg -b vm.iso
+poplar@Greysia:~/Downloads/Aria2&gt; gpg --clear-sign vm.iso
+gpg: 输入行长度超过 19995 字符
+poplar@Greysia:~/Downloads/Aria2&gt; sha256sum vm.iso &gt; vm.iso.sha256
+poplar@Greysia:~/Downloads/Aria2&gt; gpg --clear-sign vm.iso.sha256
+poplar@Greysia:~/Downloads/Aria2&gt; ll
+总计 262924KiB
+-rw-r--r-- 1 poplar poplar 91346KiB  9月24日 15:39 vm.iso
+-rw-r--r-- 1 poplar poplar 90179KiB 10月 7日 14:50 vm.iso.asc
+-rw-r--r-- 1 poplar poplar 81383KiB 10月 7日 14:50 vm.iso.gpg
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:51 vm.iso.sha256
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:51 vm.iso.sha256.asc
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:50 vm.iso.sig
+poplar@Greysia:~/Downloads/Aria2&gt; cat vm.iso.sha256.asc
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+7716911111580decfb84ec983f10b1beec1a6d6b18ee31f236495703005dcd4d  vm.iso
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQQrQpu5CY17IY7L1Nr4+uWxAB7+YwUCZwOFBwAKCRD4+uWxAB7+
+Y6SfAP4+aYK5q04517RUW61RLDvWOnroXa56qhp+q4k6Ug9k4AEAzJEHVyvFExOn
+2eQkaVVIXRvIc+CjCUyljSNFLQrOOwI=
+=nLki
+-----END PGP SIGNATURE-----
+poplar@Greysia:~/Downloads/Aria2&gt; mv vm.iso vms.iso
+poplar@Greysia:~/Downloads/Aria2&gt; ll
+总计 262924KiB
+-rw-r--r-- 1 poplar poplar 90179KiB 10月 7日 14:50 vm.iso.asc
+-rw-r--r-- 1 poplar poplar 81383KiB 10月 7日 14:50 vm.iso.gpg
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:51 vm.iso.sha256
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:51 vm.iso.sha256.asc
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:50 vm.iso.sig
+-rw-r--r-- 1 poplar poplar 91346KiB  9月24日 15:39 vms.iso
+poplar@Greysia:~/Downloads/Aria2&gt; gpg --output vm.iso --decrypt vm.iso.gpg
+gpg: 签名建立于 2024年10月07日 星期一 14时50分31秒 CST
+gpg:               使用 EDDSA 密钥 2B429BB9098D7B218ECBD4DAF8FAE5B1001EFE63
+gpg: 完好的签名，来自于 “White Poplar &lt;poplar.cubic@gmail.com&gt;” [绝对]
+poplar@Greysia:~/Downloads/Aria2&gt; ll
+总计 354272KiB
+-rw------- 1 poplar poplar 91346KiB 10月 7日 14:53 vm.iso
+-rw-r--r-- 1 poplar poplar 90179KiB 10月 7日 14:50 vm.iso.asc
+-rw-r--r-- 1 poplar poplar 81383KiB 10月 7日 14:50 vm.iso.gpg
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:51 vm.iso.sha256
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:51 vm.iso.sha256.asc
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:50 vm.iso.sig
+-rw-r--r-- 1 poplar poplar 91346KiB  9月24日 15:39 vms.iso
+poplar@Greysia:~/Downloads/Aria2&gt; gpg --output vm.iso2.sig --sign vm.iso
+poplar@Greysia:~/Downloads/Aria2&gt; ll
+总计 435656KiB
+-rw------- 1 poplar poplar 91346KiB 10月 7日 14:53 vm.iso
+-rw-r--r-- 1 poplar poplar 81383KiB 10月 7日 14:55 vm.iso2.sig
+-rw-r--r-- 1 poplar poplar 90179KiB 10月 7日 14:50 vm.iso.asc
+-rw-r--r-- 1 poplar poplar 81383KiB 10月 7日 14:50 vm.iso.gpg
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:51 vm.iso.sha256
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:51 vm.iso.sha256.asc
+-rw-r--r-- 1 poplar poplar     1KiB 10月 7日 14:50 vm.iso.sig
+-rw-r--r-- 1 poplar poplar 91346KiB  9月24日 15:39 vms.iso
+poplar@Greysia:~/Downloads/Aria2&gt; ll
+总计 90180KiB
+-rw-r--r-- 1 poplar poplar 90179KiB 10月 7日 14:50 vm.iso.asc
+poplar@Greysia:~/Downloads/Aria2&gt; gpg --output vm.iso --decrypt vm.iso.asc
+gpg: 签名建立于 2024年10月07日 星期一 14时50分58秒 CST
+gpg:               使用 EDDSA 密钥 2B429BB9098D7B218ECBD4DAF8FAE5B1001EFE63
+gpg: 完好的签名，来自于 “White Poplar &lt;poplar.cubic@gmail.com&gt;” [绝对]
+poplar@Greysia:~/Downloads/Aria2&gt; ll
+总计 180300KiB
+-rw------- 1 poplar poplar 90120KiB 10月 7日 15:01 vm.iso
+-rw-r--r-- 1 poplar poplar 90179KiB 10月 7日 14:50 vm.iso.asc
+</code></pre>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-ref1">
+<p>GNU Privacy Guard public keyring file <a href="#fr-ref1-1">↩</a></p>
+</li>
+<li id="footnote-ref2">
+<p>GPG signed document file <a href="#fr-ref2-1">↩</a></p>
+</li>
+<li id="footnote-ref3">
+<p>参考 <a href="https://www.gnupg.org/gph/en/manual/x135.html">Making and verifying signatures</a> <a href="#fr-ref3-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="将-mdbook-项目部署到-pages-中"><a class="header" href="#将-mdbook-项目部署到-pages-中">将 mdbook 项目部署到 Pages 中</a></h1>
+<ul>
+<li>参考：<a href="https://github.com/rust-lang/mdBook/wiki/Automated-Deployment%3A-GitHub-Pages-%28Deploy-from-branch%29">Automated Deployment: GitHub Pages (Deploy from branch)</a></li>
+</ul>
+<p>首次部署：</p>
+<pre><code class="language-shell">mdbook build
+git worktree add --orphan -B gh-pages gh-pages
+cp -r book/* gh-pages
+git config user.name "Deploy from CI"
+git config user.email ""
+cd gh-pages
+git add -A
+git commit -m 'deploy new book'
+git push origin +gh-pages
+</code></pre>
+<p>再次部署：</p>
+<pre><code class="language-shell">mdbook build
+cp -r book/* gh-pages
+cd gh-pages
+git add -A
+git commit -m 'deploy new book'
+git push origin +gh-pages
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="关于-2"><a class="header" href="#关于-2">关于</a></h1>
+<p>该份笔记的主要内容是记录 <a href="https://fedoraproject.org/kde/">Fedora KDE Edition</a> 的安装与配置信息。</p>
+<ul>
+<li><u>本文档提及的部分命令由 <code>~/.bashrc</code> 定义</u>，详见 <a href="#shell-脚本与配置文件">Shell 脚本与配置文件</a>。</li>
+</ul>
+<h2 id="系统信息"><a class="header" href="#系统信息">系统信息</a></h2>
+<pre><code>Operating System: Fedora Linux 43
+KDE Plasma Version: 6.5.2
+KDE Frameworks Version: 6.19.0
+Qt Version: 6.10.0
+Kernel Version: 6.17.7-300.fc43.x86_64 (64-bit)
+Graphics Platform: Wayland
+Processors: 16 × AMD Ryzen 7 7840H  w/ Radeon 780M Graphics
+Memory: 16 GiB of RAM (14.8 GiB usable)
+Graphics Processor 1: AMD Radeon 780M Graphics
+Graphics Processor 2: AMD Radeon RX 7600M XT
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="准备"><a class="header" href="#准备">准备</a></h1>
+<h2 id="iso-文件"><a class="header" href="#iso-文件">ISO 文件</a></h2>
+<p>因为 Fedora 不会更新 ISO 文件，所以不必频繁下载新版 ISO 文件。</p>
+<p>下载：</p>
+<ul>
+<li><a href="https://download.fedoraproject.org/pub/fedora/linux/releases/43/KDE/x86_64/iso/Fedora-KDE-43-1.6-x86_64-CHECKSUM">https://download.fedoraproject.org/pub/fedora/linux/releases/43/KDE/x86_64/iso/Fedora-KDE-43-1.6-x86_64-CHECKSUM</a></li>
+<li><a href="https://download.fedoraproject.org/pub/fedora/linux/releases/43/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-43-1.6.x86_64.iso">https://download.fedoraproject.org/pub/fedora/linux/releases/43/KDE/x86_64/iso/Fedora-KDE-Desktop-Live-43-1.6.x86_64.iso</a></li>
+</ul>
+<h2 id="校验文件"><a class="header" href="#校验文件">校验文件</a></h2>
+<pre><code>wget https://fedoraproject.org/fedora.gpg
+</code></pre>
+<pre><code>gpgv --keyring ./fedora.gpg Fedora-KDE-43-1.6-x86_64-CHECKSUM
+</code></pre>
+<pre><code>sha256sum --ignore-missing -c Fedora-KDE-43-1.6-x86_64-CHECKSUM
+</code></pre>
+<h2 id="烧录-iso-文件"><a class="header" href="#烧录-iso-文件">烧录 ISO 文件</a></h2>
+<p>使用 <a href="https://github.com/ventoy/Ventoy">ventoy</a> 创建可启动安装介质，启动模式为正常启动。</p>
+<h2 id="切换引导启动项"><a class="header" href="#切换引导启动项">切换引导启动项</a></h2>
+<p>关机后，按下开机键，同时按 <code>Esc</code> 进入 BIOS 界面，切换启动项。</p>
+<h3 id="备份文件"><a class="header" href="#备份文件">备份文件</a></h3>
+<p>使用 LiveCD 环境将旧用户文件夹 <code>poplar</code> 重命名 <code>poplar.old</code>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="安装系统"><a class="header" href="#安装系统">安装系统</a></h1>
+<h2 id="转移数据"><a class="header" href="#转移数据">转移数据</a></h2>
+<p>在 Live 环境中，先将旧版用户文件夹重命名，然后启动安装程序。</p>
+<h3 id="磁盘分区"><a class="header" href="#磁盘分区">磁盘分区</a></h3>
+<pre><code>poplar@Greysia:~$ lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+zram0       251:0    0    8G  0 disk [SWAP]
+nvme1n1     259:0    0  1.8T  0 disk 
+├─nvme1n1p1 259:1    0   95M  0 part /boot/efi
+└─nvme1n1p2 259:2    0  1.8T  0 part /home
+                                     /boot
+                                     /
+nvme0n1     259:3    0  1.8T  0 disk 
+└─nvme0n1p1 259:4    0  1.8T  0 part /bt
+</code></pre>
+<ul>
+<li>注意：Fedora 使用 SwapOnZRAM，一般不需要手动创建 swap 分区/分区文件。</li>
+</ul>
+<p>一般地，需要手动创建：</p>
+<ul>
+<li>ESP 分区：文件系统格式为 <code>EFI</code>，大小为 100MiB。</li>
+</ul>
+<p>然后将剩余的空间新建一个 btrfs 文件系统，并新建三个子卷：</p>
+<ul>
+<li>ROOT：系统安装位置
+<ul>
+<li>该子卷要格式化，格式化操作不会影响到其他的子卷。</li>
+</ul>
+</li>
+<li>HOME：用于存储用户文件的子卷
+<ul>
+<li>设置挂载点时不要勾选格式化选项</li>
+</ul>
+</li>
+<li>boot：用于挂载 <code>/boot</code></li>
+</ul>
+<p><code>/dev/nvme0n1p1</code> 挂载到 <code>/bt</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="初次启动"><a class="header" href="#初次启动">初次启动</a></h1>
+<h2 id="恢复备份文件"><a class="header" href="#恢复备份文件">恢复备份文件</a></h2>
+<p>将个人文件复制到新的 <code>$USER</code> 文件夹中。一般需要：</p>
+<pre><code>/home/poplar/bin
+/home/poplar/Desktop
+/home/poplar/Documents
+/home/poplar/Downloads
+/home/poplar/Misc
+/home/poplar/Others
+/home/poplar/Pictures
+
+/home/poplar/.config/audacious
+/home/poplar/.config/fcitx5
+/home/poplar/.config/chromium
+/home/poplar/.config/goldendict
+/home/poplar/.config/htop
+/home/poplar/.config/MangoHud
+/home/poplar/.config/mpv
+/home/poplar/.config/pip
+/home/poplar/.config/qBittorrent
+
+/home/poplar/.local/share/fcitx5
+/home/poplar/.local/share/FlClash
+/home/poplar/.local/share/fonts
+/home/poplar/.local/share/konsole
+/home/poplar/.local/share/qBittorrent
+/home/poplar/.local/share/plasma-systemmonitor
+/home/poplar/.local/share/TelegramDesktop
+
+/home/poplar/.var
+
+/home/poplar/.bashrc
+/home/poplar/.gitconfig
+</code></pre>
+<ul>
+<li>不要备份 flatpak 和 steam 的应用文件夹（存在 sockets 和大量小文件）。</li>
+<li>从其他发行版更新至 Fedora 时，旧版 <code>~/.bashrc</code> 的内容应接在文件的末尾，而非直接覆盖。</li>
+</ul>
+<h2 id="更改防火墙"><a class="header" href="#更改防火墙">更改防火墙</a></h2>
+<p>打开 <code>firewall-config</code>，将默认区域从 <code>fedora-workstation</code> 修改为 <code>public</code>，并设置为 <strong>永久</strong> 配置。</p>
+<h2 id="设置主机名"><a class="header" href="#设置主机名">设置主机名</a></h2>
+<pre><code>set-hostname
+</code></pre>
+<h2 id="音量控制故障"><a class="header" href="#音量控制故障">音量控制故障</a></h2>
+<p>如果播放器音量大小与系统设置的音量值不呈线性变化，则使用 <code>alsamixer</code> 将 <code>Base Speaker</code> 的值降到 0。</p>
+<h2 id="安装基本工具"><a class="header" href="#安装基本工具">安装基本工具</a></h2>
+<h3 id="网络"><a class="header" href="#网络">网络</a></h3>
+<ul>
+<li><input disabled="" type="checkbox" checked=""> <a href="https://github.com/chen08209/FlClash">FlClash</a></li>
+</ul>
+<p>连接网络，使用 dnf 安装该 rpm 软件包及依赖。</p>
+<h3 id="其他"><a class="header" href="#其他">其他</a></h3>
+<p>安装输入法、git-core 和 keepassxc：</p>
+<pre><code>sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc
+</code></pre>
+<h3 id="fcitx5"><a class="header" href="#fcitx5">Fcitx5</a></h3>
+<p>在 KDE 系统设置中，将虚拟键盘设置为 Fcitx5。</p>
+<p>Fcitx5 的主题使用 <a href="https://github.com/Reverier-Xu/Fluent-fcitx5">Fluent-fcitx5</a>。</p>
+<p>Fcitx5 的自定义词库文件（<code>*.dict</code>）：</p>
+<ul>
+<li><a href="https://github.com/felixonmars/fcitx5-pinyin-zhwiki">felixonmars/fcitx5-pinyin-zhwiki</a></li>
+<li><a href="https://github.com/wuhgit/CustomPinyinDictionary">wuhgit/CustomPinyinDictionary</a></li>
+</ul>
+<p><strong>注意</strong>，词库维护者会把新旧版词库放在同一个 release 中。</p>
+<p>词库文件夹：<code>~/.local/share/fcitx5/pinyin/dictionaries/</code></p>
+<p>附注：</p>
+<ul>
+<li>云输入法可以使用 Google 源，但需要设置代理。</li>
+<li>跟换皮肤后，如果没有正常地显示，可以重启一下系统。</li>
+</ul>
+<h2 id="清理无用软件包"><a class="header" href="#清理无用软件包">清理无用软件包</a></h2>
+<ul>
+<li>akregator</li>
+<li>plasma-discover</li>
+<li>dragon</li>
+<li>elisa-player</li>
+<li>mediawriter</li>
+<li>firefox</li>
+<li>plasma-welcome</li>
+<li>kmouth</li>
+<li>kaddressbook</li>
+<li>kamoso</li>
+<li>kdeconnectd</li>
+<li>kdebugsettings</li>
+<li>kgpg</li>
+<li>kmahjongg</li>
+<li>kmail</li>
+<li>kmines</li>
+<li>kolourpaint</li>
+<li>korganizer</li>
+<li>kpat</li>
+<li>krdc</li>
+<li>krfb</li>
+<li>neochat</li>
+<li>qrca</li>
+<li>skanpage</li>
+<li>PackageKit</li>
+<li>ibus</li>
+<li>plasma-browser-integration</li>
+</ul>
+<pre><code>sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus plasma-browser-integration
+</code></pre>
+<p>自动移除不再使用的软件包：</p>
+<pre><code>sudo dnf autoremove
+</code></pre>
+<ul>
+<li>可用 <code>sudo dnf clean all</code> 清除全部缓存。</li>
+<li>详见 <code>dnf --help</code>。</li>
+</ul>
+<p>移除 geoclue2 服务：</p>
+<pre><code>sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
+</code></pre>
+<h2 id="更新并重启"><a class="header" href="#更新并重启">更新并重启</a></h2>
+<pre><code>sudo dnf up
+</code></pre>
+<hr>
+<h2 id="安装软件包"><a class="header" href="#安装软件包">安装软件包</a></h2>
+<p>为 libreoffice 安装中文语言包：</p>
+<ul>
+<li>当不需要安装弱依赖时，可以选择使用 <code>--setopt=install_weak_deps=False</code> 选项。</li>
+</ul>
+<pre><code>sudo dnf in libreoffice-langpack-zh-Hans --setopt=install_weak_deps=False
+</code></pre>
+<h3 id="rpmfusion"><a class="header" href="#rpmfusion">RPMFusion</a></h3>
+<pre><code>sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+</code></pre>
+<p>切换软件包供应商：</p>
+<pre><code>sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+sudo dnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+</code></pre>
+<h3 id="浏览器"><a class="header" href="#浏览器">浏览器</a></h3>
+<p>如果无法使用 fcitx 输入中文，在 <code>chrome://flags</code> 中打开 <code>#wayland-text-input-v3</code>，并将 <code>--ozone-platform-hint=auto --enable-wayland-ime</code> 添加至应用程序的环境变量中。</p>
+<h4 id="chromium"><a class="header" href="#chromium">Chromium</a></h4>
+<pre><code>sudo dnf install chromium
+</code></pre>
+<h3 id="多媒体播放器"><a class="header" href="#多媒体播放器">多媒体播放器</a></h3>
+<pre><code>sudo dnf in audacious mpv
+</code></pre>
+<h3 id="flatpak"><a class="header" href="#flatpak">Flatpak</a></h3>
+<pre><code>sudo dnf in flatpak
+</code></pre>
+<pre><code>flatpak-add
+</code></pre>
+<pre><code>sudo usermod -aG flatpak $USER
+</code></pre>
+<p>删除系统的软件源：</p>
+<pre><code>flatpak remote-delete fedora
+</code></pre>
+<p>清理不再需要的库：</p>
+<pre><code>flatpak uninstall --unused
+</code></pre>
+<p>卸载时一并清理应用数据：</p>
+<pre><code>flatpak uninstall &lt;package id&gt; --delete-data
+</code></pre>
+<h4 id="fcitx5-皮肤没有正确显示"><a class="header" href="#fcitx5-皮肤没有正确显示">fcitx5 皮肤没有正确显示</a></h4>
+<p>关闭所有 flatpak 应用，然后运行：</p>
+<pre><code class="language-shell">flatpak override --env=QT_IM_MODULE= --user
+flatpak override --env=GTK_IM_MODULE= --user
+</code></pre>
+<h4 id="应用-gtk-主题与当前系统主题不匹配"><a class="header" href="#应用-gtk-主题与当前系统主题不匹配">应用 GTK 主题与当前系统主题不匹配</a></h4>
+<p>使用 Flatseal 编辑应用，使其能访问主题文件夹（<code>/usr/share/themes</code>），然后为该应用设置如下环境变量：</p>
+<pre><code>GTK_THEME=Adwaita-dark
+</code></pre>
+<h3 id="kvm"><a class="header" href="#kvm">KVM</a></h3>
+<pre><code>sudo dnf in @virtualization
+</code></pre>
+<pre><code>sudo usermod -aG libvirt $USER
+</code></pre>
+<pre><code>sudo systemctl enable libvirtd --now
+</code></pre>
+<p>重启系统，另见：<a href="linux/1-kvm.html">KVM 备忘录</a>。</p>
+<h3 id="其他-1"><a class="header" href="#其他-1">其他</a></h3>
+<ul>
+<li><code>gimp</code></li>
+<li><code>goverlay</code>
+<ul>
+<li>详见 <code>man mangohud</code></li>
+</ul>
+</li>
+<li><code>kleopatra</code></li>
+<li><code>goldendict-ng</code>
+<ul>
+<li>如果出现问题则换成 flatpak 版</li>
+</ul>
+</li>
+<li><code>steam</code>
+<ul>
+<li>编辑 desktop 文件，设置：
+<pre><code>PrefersNonDefaultGPU=false
+StartupNotify=false
+</code></pre>
+</li>
+<li>更改默认界面语言</li>
+<li>关闭着色器缓存</li>
+<li>更改默认打开的页面</li>
+<li>添加新的库</li>
+<li>steam 会默认优先运行游戏的 Linux 原生版本。如果出现性能问题，请强制使用 steam proton 兼容工具。</li>
+<li>如果存在连接性问题，则使用 <code>steam-proxy</code> 命令。</li>
+<li>如果无法正常缩放，则设置变量：</li>
+</ul>
+<pre><code>STEAM_FORCE_DESKTOPUI_SCALING=1.5
+</code></pre>
+</li>
+<li><code>jpegoptim</code></li>
+<li><code>qbittorrent</code></li>
+<li><code>pandoc</code></li>
+<li><code>papirus-icon-theme</code></li>
+<li><code>webkit2gtk4.1</code></li>
+</ul>
+<pre><code>sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
+</code></pre>
+<ul>
+<li>Fedora KDE 默认使用 Kwrite，它比 Kate 简洁轻便很多。不太需要更换。</li>
+</ul>
+<hr>
+<h2 id="散装软件包"><a class="header" href="#散装软件包">散装软件包</a></h2>
+<h3 id="telegram-desktop"><a class="header" href="#telegram-desktop">telegram-desktop</a></h3>
+<p>telegram 依赖的 Qt 版本经常落后于官方版本，建议使用官方的二进制文件包以免阻碍 dnf 正常更新系统。</p>
+<p>下载文件：</p>
+<ul>
+<li><a href="https://desktop.telegram.org/">https://desktop.telegram.org/</a></li>
+</ul>
+<h3 id="vscodium"><a class="header" href="#vscodium">VSCodium</a></h3>
+<p>下载文件：<a href="https://github.com/VSCodium/vscodium/releases">https://github.com/VSCodium/vscodium/releases</a></p>
+<p>在与 <code>VSCodium*.tar.gz</code> 同级文件夹中新建 <code>data/extensions</code> 和 <code>data/user-data</code>。</p>
+<ul>
+<li>右键点击 KDE 开始菜单，选择 <strong>编辑应用程序</strong>，可以快速新建一个 desktop 文件。</li>
+</ul>
+<p>desktop 文件模板：</p>
+<pre><code class="language-shell">[Desktop Entry]
+Categories=Development;
+Comment[zh_CN]=
+Comment=
+Exec=/home/poplar/bin/codium/codium --ozone-platform-hint=auto --enable-wayland-ime --wayland-text-input-v3
+GenericName[zh_CN]=
+GenericName=
+Icon=/home/poplar/bin/codium/data/paulo22s.png
+MimeType=
+Name[zh_CN]=VSCodium
+Name=VSCodium
+Path=/home/poplar/bin/codium
+PrefersNonDefaultGPU=false
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+</code></pre>
+<p>Logo 文件可从 <a href="https://github.com/VSCodium/icons">VSCodium/icons</a> 仓库下载获得。</p>
+<p>字体设置：</p>
+<pre><code>'Noto Sans Mono', 'Noto Sans SC', monospace
+</code></pre>
+<p>常用扩展列表：</p>
+<ul>
+<li><code>MS-CEINTL.vscode-language-pack-zh-hans</code></li>
+<li><code>GitHub.vscode-pull-request-github</code></li>
+<li><code>GitHub.github-vscode-theme</code></li>
+<li><code>shd101wyy.markdown-preview-enhanced</code></li>
+<li><code>PKief.material-icon-theme</code></li>
+<li><code>alefragnani.project-manager</code></li>
+<li><code>ms-python.python</code></li>
+<li><code>AaaaronZhou.vscode-auto-light-dark-theme</code></li>
+</ul>
+<p>图标另见： <a href="https://github.com/VSCodium/icons">https://github.com/VSCodium/icons</a></p>
+<p>更新脚本 <code>update-code</code> 另见 <a href="#shell-脚本与配置文件">shell-script</a>。</p>
+<h3 id="freefilesync"><a class="header" href="#freefilesync">FreeFileSync</a></h3>
+<p>直接安装开发者提供的二进制文件。</p>
+<ul>
+<li><a href="https://freefilesync.org/download.php">https://freefilesync.org/download.php</a></li>
+</ul>
+<h3 id="mangohud--goverlay"><a class="header" href="#mangohud--goverlay">mangohud &amp; Goverlay</a></h3>
+<p>对于 steam 游戏，使用 <code>mangohud %command%</code>。使用说明详见：<code>man mangohud</code></p>
+<p>注意：</p>
+<ol>
+<li>不要在游戏启动时让 mangohud 读取游戏的平均帧和 1% low 帧</li>
+<li>使用 Goverlay 时，如果有按钮被遮挡，可以把显示器缩放比例从 150% 调整为 100%</li>
+</ol>
+<h3 id="nano"><a class="header" href="#nano">nano</a></h3>
+<p>如果 <code>nano</code> 没有启用语法高亮，则在用户目录下添加下列配置文件：</p>
+<pre><code class="language-shell">poplar@Greysia:~&gt; cat .nanorc
+include /usr/share/nano/*.nanorc
+</code></pre>
+<h3 id="czkawka"><a class="header" href="#czkawka">Czkawka</a></h3>
+<p>下载 <code>linux_czkawka_gui</code></p>
+<ul>
+<li>地址：<a href="https://github.com/qarmin/czkawka/releases">https://github.com/qarmin/czkawka/releases</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="shell-脚本与配置文件"><a class="header" href="#shell-脚本与配置文件">Shell 脚本与配置文件</a></h1>
+<h2 id="amd-gpu"><a class="header" href="#amd-gpu">AMD GPU</a></h2>
+<p>以核显运行应用的环境变量：</p>
+<pre><code>DRI_PRIME=0
+</code></pre>
+<p>以独显运行程序的环境变量：</p>
+<pre><code>DRI_PRIME=1
+</code></pre>
+<h2 id="bashrc"><a class="header" href="#bashrc">bashrc</a></h2>
+<pre><code class="language-shell">## 代理设置
+
+alias pyx='https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890'
+alias dnfx='pyx dnf'
+# 对 dnf 设置代理
+#alias flatpakx="pyx flatpak --user"
+# 对 flatpak 使用代理，并增加 --user 标签
+alias set-proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=http://127.0.0.1:7890"
+alias unset-proxy="unset http_proxy; unset https_proxy; unset all_proxy"
+# 代理变量手动开关
+alias steam-proxy="set-proxy; steam"
+# 设置代理，并启动 steam
+#alias steam-proxy="set-proxy; env STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
+# 设置代理，并启动 steam（150% 缩放）
+
+## 软件源命令
+
+#alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+# 添加 flathub
+
+## shell 自定义
+
+alias ls="ls --block-size=KiB --color=auto"
+# 以 KiB 为单位显示文件大小
+alias l="ls --block-size=KiB --color=auto -lt"
+# 更简短的命令
+export PATH=/home/poplar/.local/bin:/home/poplar/bin:/home/poplar/bin/command:/usr/local/bin:/usr/bin:/bin
+# 自定义 $PATH 路径
+unset GTK_IM_MODULE
+unset QT_IM_MODULE
+# 针对 wayland 会话的 Fcitx5 环境变量
+alias sudo="sudo "
+# 对 sudo 后的字符启用别名
+alias set-hostname="sudo hostnamectl set-hostname --pretty 'C004-H1' &amp;&amp; sudo hostnamectl set-hostname --static Greysia"
+# 设置主机名
+
+## 实用命令
+
+alias sha256sum-dir="find . -type f -exec sha256sum {} \; &gt; ../checksum.sha256; mv ../checksum.sha256 .; echo 'Complete calculation!'"
+# 自动计算当前文件夹内的全部文件的哈希，并将结果写入 sha256 文件
+alias git-repo-clean="git remote prune origin &amp;&amp; git repack &amp;&amp; git prune-packed &amp;&amp; git reflog expire --expire=1.month.ago &amp;&amp; git gc --aggressive"
+# 清理并压缩 git 仓库
+alias pings="ping mirror.nyist.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 6"
+# 测试网络连通性
+alias venv-setup="python3 -m venv venv"
+alias venv="source venv/bin/activate"
+# 启动 python 容器环境
+#alias furmark='DRI_PRIME=1 $HOME/bin/FurMark_linux64/FurMark_GUI'
+# 启动 GPU 压力测试
+</code></pre>
+<h2 id="update-code"><a class="header" href="#update-code">update-code</a></h2>
+<pre><code class="language-shell">#!/bin/sh
+#本脚本用于更新 VScodium
+
+FILE=/home/poplar/Downloads/VSCodium*.tar.gz
+
+if [ -f $FILE ]; then
+    mv /home/poplar/bin/codium/data /home/poplar/bin/data
+    printf 'Back up data: OK!\n'
+    rm -r /home/poplar/bin/codium/*
+    printf 'Remove old exc: OK!\n'
+    tar -xf /home/poplar/Downloads/VSCodium*.tar.gz -C /home/poplar/bin/codium
+    printf 'Software update: OK!\n'
+    mv /home/poplar/bin/data /home/poplar/bin/codium/data
+    printf 'Data restored: OK!\n'
+    rm /home/poplar/Downloads/VSCodium*.tar.gz
+    printf 'Clear tarball: OK!\n'
+
+else
+    printf 'ERROR: Update tarball no found!\n'
+fi
+</code></pre>
+<h2 id="cab"><a class="header" href="#cab">cab</a></h2>
+<pre><code class="language-shell">#!/bin/sh
+# 本脚本用于 cbz 文件半自动化打包
+
+WD1=$HOME/Others/repository/img-main-repo/0-tmp1/0
+WD2=$HOME/Others/repository/img-main-repo/2-comic-mix/0-cache
+WD3=$HOME/Downloads
+# 可用工作目录列表
+
+echo ""
+printf 'Choose the working dir:\n'
+printf 'WD1: 0-tmp1/0\n'
+printf 'WD2: 2-comic-mix/0-cache\n'
+printf 'WD3: Downloads\n'
+printf 'Enter (1/2/3):'
+
+read -r user_choice
+
+default_wd=""
+
+# 手动选择工作目录
+case "$user_choice" in
+    1)
+        default_wd=$WD1
+        ;;
+    2)
+        default_wd=$WD2
+        ;;
+    3)
+        default_wd=$WD3
+        ;;
+    *)
+        default_wd=$WD2
+        printf 'Code: set_default_wd_to_wd2\n'
+        ;;
+esac
+
+cd $default_wd
+
+while true; do
+
+    echo ""
+    echo "Current working path: $default_wd"
+    printf '1. Initialize\n'
+    printf '2. Unzip the zip file\n'
+    printf '3  Edit src.md\n'
+    printf '4. Calculate the hash value\n'
+    printf '5. Pack the cbz file\n'
+    printf '6. Change to another wd\n'
+    printf '7. Exit(q)\n\n'
+    printf 'Please select an operation:'
+    read -r user_operation
+
+    zip_file_count=$(find $default_wd -name "*.zip" -print | wc -l)
+
+    # 初始化
+    if [ "$user_operation" = "1" ]; then
+        printf 'WARNING:\nThis will delete the files in the WD folder, do you want to continue? (y/n) '
+        read -r rm_duble_check
+        if [ "$rm_duble_check" = "Y" ] || [ "$rm_duble_check" = "y" ]; then
+            rm -f sha256sum.txt src.md
+            rm -rf ch* main
+            touch sha256sum.txt src.md
+            printf 'OK: init_completed\n'
+        elif [ "$rm_duble_check" = "N" ] || [ "$rm_duble_check" = "n" ]; then
+            printf 'INFO: stop_init\n'
+        else
+            printf 'ERROR: invalid_input\n'
+        fi
+
+    # 解压文件
+    elif [ "$user_operation" = "2" ]; then
+        if [ "$zip_file_count" -gt 1 ]; then
+            ls -l
+            read -p "Enter the name of the zip file to unzip: " zip_filename
+            if [ -f "$zip_filename" ] &amp;&amp; [[ "$zip_filename" == *.zip ]]; then
+                read -p "Enter the chapter number: " chapter_number
+                unar "$zip_filename" -q -D -o ch$chapter_number
+                printf 'OK: unzip_tarballs\n'
+            else
+                printf 'ERROR: tarball_filename_not_match\n'
+            fi
+        else
+            if [ "$zip_file_count" -eq 1 ]; then
+                unar *.zip -q -D -o main
+                printf 'OK: unzip_single_tarball\n'
+            else
+                printf 'INFO: no_zipfile_to_extract\n'
+            fi
+        fi
+    
+    # 编辑 src.md
+    elif [ "$user_operation" = "3" ]; then
+        if [ "$zip_file_count" -eq 1 ]; then
+            read -p 'Enter author name of comic:' src_author
+            read -p 'Enter title of comic:' src_title
+            read -p 'Enter src url of comic:' src_url
+            echo "- [$src_author - $src_title]($src_url)" &gt; src.md
+            printf 'OK: edit_src_md\n'
+        else
+            #nano src.md
+            kwrite src.md
+        fi
+
+    # 计算哈希值
+    elif [ "$user_operation" = "4" ]; then
+        if [ -d main ] &amp;&amp; [ -f src.md ]; then
+            sha256sum main/* src.md &gt; sha256sum.txt
+            printf 'OK: single_hash_calc\n'
+        else
+            printf 'INFO: file_not_match_when_calc_single_hash\n'
+            if [ -d ch1 ] &amp;&amp; [ -f src.md ]; then
+                sha256sum ch*/* src.md &gt; sha256sum.txt
+                printf 'OK: multi_hash_calc\n'
+            else
+                printf 'INFO: file_not_match_when_calc_multi_hash\n'
+            fi
+        fi
+
+    # 压缩文件
+    elif [ "$user_operation" = "5" ]; then
+        if [ -d main ] &amp;&amp; [ -f src.md ] &amp;&amp; [ -f sha256sum.txt ]; then
+            zip -q tmp.zip main/* sha256sum.txt src.md
+            mv tmp.zip tmp.cbz
+            printf 'OK: build_finished_single\n'
+        else
+            printf 'ERROR: file_not_match_single\n'
+            if [ -d ch1 ] &amp;&amp; [ -f src.md ] &amp;&amp; [ -f sha256sum.txt ]; then
+                zip -q tmp.zip ch*/* sha256sum.txt src.md
+                mv tmp.zip tmp.cbz
+                printf 'OK: build_finished_multiple\n'
+            else
+                printf 'ERROR: file_not_match_multiple\n'
+            fi
+        fi
+        if [ -f tmp.cbz ]; then
+            read -p 'Enter author name:' author_name
+            read -p 'Enter title name:' title_name
+            filename="[$author_name] $title_name"
+            mv tmp.cbz "$filename".cbz
+            ls -l
+        else
+            printf 'Info: tmp.cbz_no_found\n'
+        fi
+
+    elif [ "$user_operation" == "6" ]; then
+        printf 'Choose working dir:\n'
+        printf 'WD1: 0-tmp1\n'
+        printf 'WD2: 2-comic-mix/0-cache\n'
+        printf 'WD3: ~/Downloads\n'
+        printf 'Enter (1/2/3):'
+        read -r new_choice
+        case "$new_choice" in
+            1)
+                default_wd=$WD1
+                ;;
+            2)
+                default_wd=$WD2
+                ;;
+            3)
+                default_wd=$WD3
+                ;;
+            *)
+                default_wd=$WD2
+                printf 'ERROR:invalid_input\nINFO: set_default_wd_to_wd2\n'
+                ;;
+            esac
+        cd $default_wd
+
+    elif [ "$user_operation" == "7" ]; then
+        printf 'INFO: stop_and_quit\n'
+        break
+    elif [ "$user_operation" = "Q" ] || [ "$user_operation" = "q" ]; then
+        printf 'INFO: stop_and_quit\n'
+        break
+    else
+        printf 'ERROR: invalid_input'
+        continue
+    fi
+done
+</code></pre>
+<hr>
+<h2 id="配置文件-1"><a class="header" href="#配置文件-1">配置文件</a></h2>
+<h3 id="git"><a class="header" href="#git">git</a></h3>
+<p>在 <code>~/.gitconfig</code> 中，写入：</p>
+<pre><code>[user]
+    name = Poplar at twilight
+    email = poplar.cubic@gmail.com
+[http]
+    proxy = http://127.0.0.1:7890
+</code></pre>
+<h3 id="python"><a class="header" href="#python">python</a></h3>
+<p>设置代理（<code>~/.config/pip/pip.conf</code>）：</p>
+<pre><code>[global]
+proxy=http://localhost:7890
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="kde-相关"><a class="header" href="#kde-相关">KDE 相关</a></h1>
+<h2 id="杂项"><a class="header" href="#杂项">杂项</a></h2>
+<h3 id="tty"><a class="header" href="#tty">TTY</a></h3>
+<p>按下 Ctrl + Alt + F1 ~ F9 在不同的 TTY 中切换。</p>
+<h3 id="启动动画"><a class="header" href="#启动动画">启动动画</a></h3>
+<p>要关闭应用的启动动画，可以在 desktop 文件中新增：<code>StartupNotify=false</code>，或在 <strong>编辑应用程序</strong> &gt; <strong>应用程序</strong> &gt; <strong>高级选项</strong>，关闭 <strong>启用启动特效</strong>。</p>
+<h3 id="图标主题"><a class="header" href="#图标主题">图标主题</a></h3>
+<ul>
+<li><input disabled="" type="checkbox" checked=""> <a href="https://www.pling.com/p/1366182/">Qogir-cursors-theme</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://store.kde.org/p/1279924">Tela-icon-theme</a>
+<ul>
+<li>解压文件保存位置：<code>~/.local/share/icons</code></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""> <code>papirus-icon-theme</code></li>
+</ul>
+<h3 id="某些快捷键"><a class="header" href="#某些快捷键">某些快捷键</a></h3>
+<ul>
+<li>杀死窗口：<strong>Super</strong> + <strong>Ctrl</strong> + <strong>Esc</strong></li>
+<li>切换窗口：<strong>Alt</strong> + <strong>Tab</strong></li>
+</ul>
+<h3 id="以太网"><a class="header" href="#以太网">以太网</a></h3>
+<p>新建有线以太网连接时，需要在 <strong>仅限使用此设备</strong> 中指定设备（<code>enp5s0</code>）。</p>
+<hr>
+<h2 id="kde-设置"><a class="header" href="#kde-设置">KDE 设置</a></h2>
+<p>鼠标和触摸板 &gt; 触摸板：</p>
+<ul>
+<li>反向滚动（自然滚动）</li>
+</ul>
+<p>键盘 &gt; 键盘：</p>
+<ul>
+<li>NumLock 在 Plasma 启用时的状态：打开</li>
+</ul>
+<p>键盘 &gt; 虚拟键盘：</p>
+<ul>
+<li>Fcitx 5</li>
+</ul>
+<p>声音：</p>
+<ul>
+<li>静音麦克风</li>
+</ul>
+<p>显示和监视器：</p>
+<ul>
+<li>缩放率：150%</li>
+</ul>
+<p>颜色和主题，修改：</p>
+<ul>
+<li>图标</li>
+<li>光标</li>
+<li>欢迎屏幕</li>
+<li>登录屏幕</li>
+</ul>
+<p>壁纸：</p>
+<ul>
+<li>幻灯片</li>
+</ul>
+<p>常规行为：</p>
+<ul>
+<li>单击文件或者文件夹时：打开</li>
+</ul>
+<p>锁屏：</p>
+<ul>
+<li>自动锁定屏幕：15 分钟</li>
+<li>外观</li>
+</ul>
+<p>用户反馈：</p>
+<ul>
+<li>第四档</li>
+</ul>
+<p>电源管理：</p>
+<ul>
+<li>交流供电：
+<ul>
+<li>不活动一段时间后：无操作</li>
+<li>按下电源键时：关闭屏幕</li>
+<li>合上笔记本盖时：锁屏</li>
+</ul>
+</li>
+</ul>
+<p>用户：</p>
+<ul>
+<li>更换头像</li>
+</ul>
+<p>自动启动：</p>
+<ul>
+<li>qBittorrent</li>
+<li>telegram</li>
+<li>FlClash</li>
+</ul>
+<p>会话 &gt; 桌面会话：</p>
+<ul>
+<li>位置：将默认位置重定向到当前文件夹</li>
+<li>登录时自动启动应用程序：启动为空会话</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="用户字体"><a class="header" href="#用户字体">用户字体</a></h1>
+<h2 id="windows-字体包"><a class="header" href="#windows-字体包">Windows 字体包</a></h2>
+<p>下载地址：<a href="https://learn.microsoft.com/en-us/typography/fonts/windows_11_font_list">Windows 11 font list</a></p>
+<pre><code>poplar@Greysia:~&gt; tree ~/.local/share/fonts
+/home/poplar/.local/share/fonts
+└── win11-fonts-partial
+    ├── arial
+    │   ├── arialbd.ttf
+    │   ├── arialbi.ttf
+    │   ├── ariali.ttf
+    │   ├── ARIALNBI.TTF
+    │   ├── ARIALNB.TTF
+    │   ├── ARIALNI.TTF
+    │   ├── ARIALN.TTF
+    │   ├── arial.ttf
+    │   └── ariblk.ttf
+    ├── checksum.sha256
+    ├── jhengHei
+    │   ├── msjhbd.ttc
+    │   ├── msjhl.ttc
+    │   └── msjh.ttc
+    ├── times-new-roman
+    │   ├── timesbd.ttf
+    │   ├── timesbi.ttf
+    │   ├── timesi.ttf
+    │   └── times.ttf
+    ├── yahei
+    │   ├── msyhbd.ttc
+    │   ├── msyhl.ttc
+    │   └── msyh.ttc
+    └── zh-sc
+        ├── Dengb.ttf
+        ├── Dengl.ttf
+        ├── Deng.ttf
+        ├── simfang.ttf
+        ├── simhei.ttf
+        ├── simkai.ttf
+        ├── simsunb.ttf
+        └── simsun.ttc
+
+7 directories, 28 files
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="关于我"><a class="header" href="#关于我">关于我</a></h1>
+<p><img src="me/images/one-last-neko-2.jpeg" width="170px" height="170px" style="display: block; margin: 0 auto;" /></p>
+<p>我是 <a href="https://github.com/poplar-at-twilight">Poplar at twilight</a> (简称为<strong>白杨</strong>；zh-Hans: <code>暮光的白杨</code>,en: <code>Poplar</code>)。我常用 KDE 桌面环境。</p>
+<h2 id="openpgp-公钥"><a class="header" href="#openpgp-公钥">OpenPGP 公钥</a></h2>
+<p>你可以在<a href="me/assets/White%20Poplar_0x001EFE63_public.asc">此处</a>下载公钥。</p>
+<ul>
+<li>PGP 指纹：<code>2B42 9BB9 098D 7B21 8ECB D4DA F8FA E5B1 001E FE63</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="关于友链"><a class="header" href="#关于友链">关于友链</a></h1>
+<p>如果你想出现在此页面中，你可以向博客的源代码仓库提交 PR 或者 issue。如果你要将我的网站添加至友链中，参考信息如下：</p>
+<ul>
+<li>本站点标题：白杨的文档站</li>
+<li>本人的称呼：暮光的白杨</li>
+<li>GitHub：<a href="https://github.com/poplar-at-twilight">https://github.com/poplar-at-twilight</a></li>
+<li>链接: <a href="https://whiteboard-ui8.pages.dev/">https://whiteboard-ui8.pages.dev/</a></li>
+<li>头像: <a href="me/images/one-last-neko-2.jpeg">点此下载</a></li>
+<li>简介: 何でもは知らないわよ。知ってることだけ。</li>
+</ul>
+<!---->
+<ul>
+<li>注意：
+<ol>
+<li>如果你没有提供自我介绍的描述，那我将直接在使用你在你的个人网站的所写的简介资料。</li>
+<li>如果你没有提供头像，那我将依次查询你的 Github/Gitlab 账户头像、TG 用户头像和社交媒体头像。直到找到可用非默认头像。</li>
+</ol>
+</li>
+</ul>
+<p>这里是朋友们的博客链接：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>头像</th><th>称谓</th><th>个人博客/站点链接</th><th>自我简介</th></tr>
+</thead>
+<tbody>
+<tr><td><img src="me/images/friends-icons/paper-cut.webp" alt="images"></td><td><a href="https://github.com/ImBearChild">ImBearChild</a></td><td><a href="https://imbearchild.cyou/">https://imbearchild.cyou/</a></td><td>喜欢猫猫的技术爱好者，openSUSE 中文社区新闻网站维护者之一。</td></tr>
+<tr><td><img src="me/images/friends-icons/zhul.png" alt="images"></td><td><a href="https://github.com/zhullyb">竹林里有冰</a></td><td><a href="https://zhul.in/">https://zhul.in/</a></td><td>Fedora 用户，但同时也在维护某些 AUR 的包，dipper 机型的 crDroid Official Maintainer。</td></tr>
+<tr><td><img src="me/images/friends-icons/yang.jpg" alt="images"></td><td><a href="https://github.com/qvshuo/">安静</a></td><td><a href="https://anjing.art/">https://anjing.art/</a></td><td>每一个不曾起舞的日子，都是对生命的辜负。</td></tr>
+<tr><td><img src="me/images/friends-icons/Karuboniru.webp" alt="image"></td><td><a href="https://github.com/karuboniru">Karuboniru</a></td><td><a href="https://yanqiyu.info">https://yanqiyu.info</a></td><td>就是个学物理的，懂个屁的计算机。</td></tr>
+<tr><td><img src="me/images/friends-icons/30341059.png" alt="images"></td><td><a href="https://github.com/yzqzss">一座桥在水上</a></td><td><a href="https://blog.othing.xyz/">https://blog.othing.xyz/</a></td><td>我想冻住–<br />我的所见，所听，所想<br />他人所写，所创造<br />自然所变，所灭<br />冻住世界，冻住时间，冻住本就存在的一切！</td></tr>
+<tr><td><img src="me/images/friends-icons/45143513.jpg" alt="images"></td><td><a href="https://github.com/Ratizux">Blockcity</a></td><td><a href="https://ratizux.github.io/about/">https://ratizux.github.io/about/</a></td><td>Ratizux by Blockcity. 使用 Markdown</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="about-licenses"><a class="header" href="#about-licenses">About Licenses</a></h1>
+<ul>
+<li>如果没有特别声明，本站点的所有文章都是基于 <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a> 进行分发授权。<br />Unless otherwise stated, all articles on this site are distributed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a> license.</li>
+<li>搭建此博客所使用的 <a href="https://rust-lang.github.io/mdBook/index.html">mdbook</a> 基于 <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL 2.0</a> 进行授权分发。<br />The <a href="https://rust-lang.github.io/mdBook/index.html">mdbook</a> used to build this blog are licensed and distributed under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL 2.0</a>.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
