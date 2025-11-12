@@ -10,7 +10,7 @@ sudo dnf in @virtualization
 
 加入用户组：
 
-```shell
+```bash
 sudo usermod -aG libvirt $USER
 ```
 
@@ -31,7 +31,7 @@ sudo usermod -aG libvirt $USER
 
 将下载的文件打包成 ISO 文件，作为一个 SATA CDROM 存储设备添加到虚拟机中。
 
-```shell
+```bash
 mkisofs -o 文件名.iso /文/件/路/径
 ```
 
@@ -45,13 +45,13 @@ mkisofs -o 文件名.iso /文/件/路/径
 
 然后运行：
 
-```shell
+```bash
 mount -t virtiofs mount_tag /mnt/mount/path
 ```
 
 `mount_tag` 是上文中设定的 目标路径，`/mnt/mount/path` 则是要挂载 `virtiofs` 的路径，例如：
 
-```shell
+```bash
 sudo mount -t virtiofs sharing-folder /mnt #将 sharing-folder 文件夹挂载到 /mnt
 ```
 

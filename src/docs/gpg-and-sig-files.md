@@ -20,7 +20,7 @@
 
 [^ref3]: 参考 [Making and verifying signatures](https://www.gnupg.org/gph/en/manual/x135.html)
 
-```shell
+```bash
 poplar@Greysia:~/Downloads/Aria2> ll
 总计 91348KiB
 -rw-r--r-- 1 poplar poplar 91346KiB  9月24日 15:39 vm.iso

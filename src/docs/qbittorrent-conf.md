@@ -24,7 +24,7 @@ sudo dnf in qbittorrent
 
 下载文件夹：
 
-```shell
+```bash
 poplar@Greysia:~> tree /home/bt/network -L 1
 /home/bt/network
 ├── downloads1
@@ -148,7 +148,7 @@ poplar@Greysia:~> tree /home/bt/network -L 1
 - 下载地址：<https://github.com/Ghost-chu/PeerBanHelper>
 - 文档：<https://pbh-btn.github.io/pbh-docs/>
 
-```shell
+```bash
 poplar@Greysia:~> tree ~/bin/pbh -L 1
 /home/poplar/bin/pbh
 ├── data
@@ -177,7 +177,7 @@ poplar@Greysia:~> tree ~/bin/pbh -L 1
 
 用于管理 PeerBanHelper 的脚本 `pbh`：
 
-```shell
+```bash
 #!/bin/sh
 # 本脚本用于 Peerbanhelper 的日常维护
 # 注意，本脚本只适用于直接使用 PeerBanHelper_*.zip 文件进行部署的方式

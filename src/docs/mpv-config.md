@@ -1,6 +1,6 @@
 # 个人自用的 mpv 配置
 
-```shell
+```bash
 poplar@Greysia:~> tree ~/.config/mpv
 /home/poplar/.config/mpv
 ├── mpv.conf

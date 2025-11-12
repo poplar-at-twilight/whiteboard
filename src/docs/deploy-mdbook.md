@@ -4,7 +4,7 @@
 
 首次部署：
 
-```shell
+```bash
 mdbook build
 git worktree add --orphan -B gh-pages gh-pages
 cp -r book/* gh-pages
@@ -18,7 +18,7 @@ git push origin +gh-pages
 
 再次部署：
 
-```shell
+```bash
 mdbook build
 cp -r book/* gh-pages
 cd gh-pages
@@ -32,7 +32,7 @@ git push origin +gh-pages
 - 注意，此脚本需要在有登陆授权的 git 终端中使用
 
 
-```shell
+```bash
 #!/bin/sh
 # 本脚本用于将 mdbook 部署到 Pages
 

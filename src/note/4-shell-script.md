@@ -16,7 +16,7 @@ DRI_PRIME=1
 
 ## bashrc
 
-```shell
+```bash
 ## 代理设置
 
 alias pyx='https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890'
@@ -70,7 +70,7 @@ alias venv="source venv/bin/activate"
 
 ## update-code
 
-```shell
+```bash
 #!/bin/sh
 #本脚本用于更新 VScodium
 
@@ -95,7 +95,7 @@ fi
 
 ## cab
 
-```shell
+```bash
 #!/bin/sh
 # 本脚本用于 cbz 文件半自动化打包
 

@@ -46,7 +46,7 @@
 
 使用 `ls` 命令列出文件大小时，可以使用 `--block-size=` 的 flag 指定显示的大小，如：
 
-```shell
+```bash
 poplar@Greysia:~/Downloads/ISO> ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
 -rw-r--r-- 1 root root 4594860032 10月 3日 09:24 openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso
 poplar@Greysia:~/Downloads/ISO> ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot20241001-Media.iso --block-size=MiB
@@ -57,7 +57,7 @@ poplar@Greysia:~/Downloads/ISO> ll openSUSE-Tumbleweed-DVD-x86_64-Snapshot202410
 
 又如 `free -m` 的含义就是以 mebibyte 显示当前的内存信息：
 
-```shell
+```bash
 poplar@Greysia:~> sudo free -m
 [sudo] root 的密码：
                total        used        free      shared  buff/cache   available

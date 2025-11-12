@@ -10,7 +10,7 @@ sudo dnf in aria2
 
 在 `~/bin/aria2` 目录下新建文本文档：
 
-```shell
+```bash
 poplar@Greysia:~> tree ~/bin/aria2
 /home/poplar/bin/aria2
 ├── aria2.conf
@@ -24,7 +24,7 @@ poplar@Greysia:~> tree ~/bin/aria2
 
 ### `aria2.conf`
 
-```shell
+```bash
 # 文件的保存路径(可使用绝对路径或相对路径), 默认: 当前启动位置
 dir=/home/poplar/Downloads/Aria2
 
@@ -132,7 +132,7 @@ rpc-secret=poplar
 
 设置使用 systemd 启动 aria2 的服务文件 `aria2.service`：
 
-```shell
+```bash
 [Unit]
 Description=Start aria2 daemon
 
@@ -153,7 +153,7 @@ WantedBy=default.target
 
 使用 `~/bin/command/aria2-m` 启动服务：
 
-```shell
+```bash
 #!/bin/sh
 #本脚本用于维护 aria2 及验证和归档 ISO 文件
 

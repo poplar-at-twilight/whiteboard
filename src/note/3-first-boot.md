@@ -231,7 +231,7 @@ flatpak uninstall <package id> --delete-data
 
 关闭所有 flatpak 应用，然后运行：
 
-```shell
+```bash
 flatpak override --env=QT_IM_MODULE= --user
 flatpak override --env=GTK_IM_MODULE= --user
 ```
@@ -318,7 +318,7 @@ telegram 依赖的 Qt 版本经常落后于官方版本，建议使用官方的�
 
 desktop 文件模板：
 
-```shell
+```bash
 [Desktop Entry]
 Categories=Development;
 Comment[zh_CN]=
@@ -386,7 +386,7 @@ Logo 文件可从 [VSCodium/icons] 仓库下载获得。
 
 如果 `nano` 没有启用语法高亮，则在用户目录下添加下列配置文件：
 
-```shell
+```bash
 poplar@Greysia:~> cat .nanorc
 include /usr/share/nano/*.nanorc
 ```

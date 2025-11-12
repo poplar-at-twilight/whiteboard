@@ -6,7 +6,7 @@
 
 Linux 的文件系统树如下：
 
-```shell
+```bash
 poplar@Greysia:~> tree / -L 1
 /
 ├── bin -> usr/bin
@@ -78,7 +78,7 @@ XFS 与 Btrfs 都是 openSUSE 默认推荐使用的文件系统。openSUSE 推�
 
 一个典型的文件及文件夹应当具有如下的权限设置：
 
-```
+```bash
 poplar@Greysia:~/1> l
 总计 0
 drwxr-xr-x  1 poplar poplar  12  9月24日 13:22 ./
@@ -95,7 +95,7 @@ drwxr-xr-x  1 poplar poplar   0  9月24日 13:22 2/
 
 使用数字组合时，参考上文，对应的权限组合对应的数值，例如：
 
-```
+```bash
 poplar@Greysia:~/1> chmod 777 2.txt; ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
@@ -108,7 +108,7 @@ drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 
 两边的字母可以多个（同时指定多个对象），例如：
 
-```
+```bash
 poplar@Greysia:~/1> chmod go-wx 2.txt; ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
@@ -123,7 +123,7 @@ drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
 
 [^ref-sur]: 参考 [Why must a folder be executable?](https://superuser.com/a/169418)
 
-```
+```bash
 poplar@Greysia:~/1> ll
 总计 0
 drwxr-xr-x 1 poplar poplar 0  9月24日 13:22 2
