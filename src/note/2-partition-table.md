@@ -19,7 +19,8 @@ nvme0n1     259:3    0  1.8T  0 disk
 └─nvme0n1p1 259:4    0  1.8T  0 part /bt
 ```
 
-- 注意：Fedora 使用 SwapOnZRAM，一般不需要手动创建 swap 分区/分区文件。
+> [!NOTE]
+> Fedora 使用 SwapOnZRAM，一般不需要手动创建 swap 分区/分区文件。
 
 一般地，需要手动创建：
 

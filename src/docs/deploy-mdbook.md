@@ -29,7 +29,8 @@ git push origin +gh-pages
 
 ## shell 脚本
 
-- 注意，此脚本需要在有登陆授权的 git 终端中使用
+> [!IMPORTANT]
+> 此脚本需要在有登陆授权的 git 终端中使用
 
 
 ```bash

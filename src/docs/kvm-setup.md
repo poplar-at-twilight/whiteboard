@@ -63,7 +63,8 @@ sudo mount -t virtiofs sharing-folder /mnt #将 sharing-folder 文件夹挂载�
 
 启动虚拟机即可。
 
-注意，如果独显不能稳定渲染，则使用核显进行 3D 加速渲染。
+> [!TIP]
+> 如果独显不能稳定渲染，则使用核显进行 3D 加速渲染。
 
 ## 常见问题
 

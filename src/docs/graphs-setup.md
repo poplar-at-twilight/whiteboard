@@ -1,6 +1,7 @@
 # 游戏画面设置参考
 
-- 资料来源：[游戏画质设置教程]
+> [!NOTE]
+> 资料来源：[游戏画质设置教程]
 
 [游戏画质设置教程]: https://www.bilibili.com/video/BV1Zz4y1U7aB
 

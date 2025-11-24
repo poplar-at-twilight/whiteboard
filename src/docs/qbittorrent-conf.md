@@ -1,9 +1,11 @@
 # qBittorrent & PeerBanHelper 配置备忘录
 
-**说明：**
+> [!IMPORTANT]
+> - 这是我个人使用的 qBittorrent 配置。  
+> - 本文通过 `systemctl --user` 进行管理服务；另见 [Systemd/User - Archlinux wiki](https://wiki.archlinux.org/title/Systemd/User)。
 
-- 这是我个人使用的 qBittorrent 配置。  
-- 本文通过 `systemctl --user` 进行管理服务；另见 [Systemd/User - Archlinux wiki](https://wiki.archlinux.org/title/Systemd/User)。
+> [!TIP]
+> qbittorrent 的配置可参考 [qBittorrent 参数详细设置教程](https://blog.17lai.site/posts/f6b32521/)
 
 ## 安装
 

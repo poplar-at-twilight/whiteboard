@@ -85,7 +85,8 @@ Fcitx5 的自定义词库文件（`*.dict`）：
 - [felixonmars/fcitx5-pinyin-zhwiki]
 - [wuhgit/CustomPinyinDictionary]
 
-**注意**，词库维护者会把新旧版词库放在同一个 release 中。
+> [!TIP]
+> 词库维护者会把新旧版词库放在同一个 release 中。
 
 [felixonmars/fcitx5-pinyin-zhwiki]: https://github.com/felixonmars/fcitx5-pinyin-zhwiki
 [wuhgit/CustomPinyinDictionary]: https://github.com/wuhgit/CustomPinyinDictionary
@@ -375,12 +376,13 @@ Logo 文件可从 [VSCodium/icons] 仓库下载获得。
 
 ### mangohud & Goverlay
 
+> [!WARNING]
+> 不要在游戏启动时让 mangohud 读取游戏的平均帧和 1% low 帧
+
+> [!TIP]
+> 使用 Goverlay 时，如果有按钮被遮挡，可以把显示器缩放比例从 150% 调整为 100%
+
 对于 steam 游戏，使用 `mangohud %command%`。使用说明详见：`man mangohud`
-
-注意：
-
-1. 不要在游戏启动时让 mangohud 读取游戏的平均帧和 1% low 帧
-1. 使用 Goverlay 时，如果有按钮被遮挡，可以把显示器缩放比例从 150% 调整为 100%
 
 ### nano
 
