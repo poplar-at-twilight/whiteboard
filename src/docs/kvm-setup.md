@@ -18,13 +18,13 @@ sudo usermod -aG libvirt $USER
 
 ## 主宿机文件共享
 
-### Windows
-
 首先，在虚拟机安装完毕后，在虚拟机关机的情况下，打开虚拟机的详情页，点击 **内存**，勾选 **Enable shared memory**。
 
 然后，点击左下角的 **添加新硬件**，选择 **文件系统**，驱动程序保持默认（即 **virtiofs**），将 **源路径** 修改为要与虚拟机共享的文件夹路径，将 **目标路径** 命名为给定的名称，例如 `sharing-folder`，然后点击 **完成**。
 
-然后下载两个驱动文件：
+### Windows 虚拟机
+
+首先，下载两个驱动文件：
 
 - 最新版的 [winFSP](https://winfsp.dev/rel/)
 - 最新稳定版的 [virtio-win-guest-tools.exe](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/)
@@ -39,9 +39,9 @@ mkisofs -o 文件名.iso /文/件/路/径
 
 安装完毕后，按下 `Win + R` 键唤出 CMD，输入 `services.msc`，然后找到并启动 **VirtIO-FS Service**。
 
-### Linux
+### Linux 虚拟机
 
-参考上文配置好虚拟机后，启动虚拟机，确认 `virtiofsd` 已安装。
+启动虚拟机，确认 `virtiofsd` 已安装。
 
 然后运行：
 
