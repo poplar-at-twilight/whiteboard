@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-0e663234.js";
+            window.path_to_searchindex_js = "searchindex-6736ff1e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-11e482cc.js"></script>
@@ -1587,10 +1587,10 @@ d????????? ? ? ? ?              ? ../
 </code></pre>
 <p>注销重新登录。</p>
 <h2 id="主宿机文件共享"><a class="header" href="#主宿机文件共享">主宿机文件共享</a></h2>
-<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
 <p>首先，在虚拟机安装完毕后，在虚拟机关机的情况下，打开虚拟机的详情页，点击 <strong>内存</strong>，勾选 <strong>Enable shared memory</strong>。</p>
 <p>然后，点击左下角的 <strong>添加新硬件</strong>，选择 <strong>文件系统</strong>，驱动程序保持默认（即 <strong>virtiofs</strong>），将 <strong>源路径</strong> 修改为要与虚拟机共享的文件夹路径，将 <strong>目标路径</strong> 命名为给定的名称，例如 <code>sharing-folder</code>，然后点击 <strong>完成</strong>。</p>
-<p>然后下载两个驱动文件：</p>
+<h3 id="windows-虚拟机"><a class="header" href="#windows-虚拟机">Windows 虚拟机</a></h3>
+<p>首先，下载两个驱动文件：</p>
 <ul>
 <li>最新版的 <a href="https://winfsp.dev/rel/">winFSP</a></li>
 <li>最新稳定版的 <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/">virtio-win-guest-tools.exe</a></li>
@@ -1600,8 +1600,8 @@ d????????? ? ? ? ?              ? ../
 </code></pre>
 <p>首先安装 <code>WinFSP</code> Core，然后安装 <code>virtio-win-guest-tools.exe</code>（<code>virtiofs</code>）</p>
 <p>安装完毕后，按下 <code>Win + R</code> 键唤出 CMD，输入 <code>services.msc</code>，然后找到并启动 <strong>VirtIO-FS Service</strong>。</p>
-<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
-<p>参考上文配置好虚拟机后，启动虚拟机，确认 <code>virtiofsd</code> 已安装。</p>
+<h3 id="linux-虚拟机"><a class="header" href="#linux-虚拟机">Linux 虚拟机</a></h3>
+<p>启动虚拟机，确认 <code>virtiofsd</code> 已安装。</p>
 <p>然后运行：</p>
 <pre><code class="language-bash">mount -t virtiofs mount_tag /mnt/mount/path
 </code></pre>
