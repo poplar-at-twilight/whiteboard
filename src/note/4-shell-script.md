@@ -116,7 +116,7 @@ YELLOW='\e[33m'
 BOLD='\e[1m'
 UNDER='\e[4m'
 
-### ###
+###  ###
 
 printf '\n'
 printf "${BOLD}Choose the working dir:${END}\n\n"
@@ -267,11 +267,12 @@ while true; do
             printf "${BLUE}Info: tmp.cbz_no_found${END}\n"
         fi
 
+    # 更换工作目录
     elif [ "$user_operation" == "6" ]; then
         printf 'Choose working dir:\n'
-        printf 'WD1: 0-tmp1\n'
-        printf 'WD2: 2-comic-mix/0-cache\n'
-        printf 'WD3: ~/Downloads\n\n'
+        printf 'WD1: 0-tmp_1/0\n'
+        printf 'WD2: 2-comic-mix-src/0-tmp\n'
+        printf 'WD3: Downloads\n\n'
         printf "${YELLOW}Enter (1/2/3):${END} "
         read -r new_choice
         
@@ -286,12 +287,13 @@ while true; do
                 default_wd=$WD3
                 ;;
             *)
-                default_wd=$WD2
-                printf "${RED}ERROR: invalid_input${END}\n${BLUE}INFO: set_default_wd_to_wd2${END}\n"
+                default_wd=$WD3
+                printf "${RED}ERROR: invalid_input${END}\n${BLUE}INFO: set_default_wd_to_wd3${END}\n"
                 ;;
         esac
         cd $default_wd
 
+    # 结束脚本
     elif [ "$user_operation" == "7" ]; then
         printf "${BLUE}INFO: stop_and_quit${END}\n"
         break
