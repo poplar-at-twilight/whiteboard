@@ -77,8 +77,10 @@
 - 月刊少女野崎君（月刊少女野崎くん）
 - 胆大党（DAN DA DAN） S1
 - 四月是你的谎言（四月は君の嘘）
+- 银魂系列[^gin]（Gin Tama）
 
 [^mono]: 仅包含 1st season、2nd season 和 Final season 三个季度的动画。
+[^gin]: 不含真人版
 
 ### B 类
 
