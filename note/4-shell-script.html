@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-fd9c0c60.js";
+            window.path_to_searchindex_js = "../searchindex-fcc1c2a7.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-f176dd54.js"></script>
@@ -274,41 +274,42 @@ BOLD='\e[1m'
 UNDER='\e[4m'
 END='\e[0m'
 
-# 清空变量
-src_title=""
-src_author=""
-default_wd=""
+choose_wd () {
 
-###################
+    # 清空变量
+    src_title=""
+    src_author=""
+    default_wd=""
 
-printf '\n'
-printf "${BOLD}Choose the working dir:${END}\n\n"
-printf '    1) WD1: 0-tmp_1/0\n'
-printf '    2) WD2: 2-comic-mix-src/0-tmp\n'
-printf '    3) WD3: Downloads\n\n'
-printf "${UNDER}Enter (1/2/3):${END} "
-read -r user_choice
+    printf '\n'
+    printf "${BOLD}Choose the working dir:${END}\n\n"
+    printf '    1) WD1: 0-tmp_1/0\n'
+    printf '    2) WD2: 2-comic-mix-src/0-tmp\n'
+    printf '    3) WD3: Downloads\n\n'
+    printf "${UNDER}Enter (1/2/3):${END} "
+    read -r user_choice
 
-# 手动选择工作目录
-case "$user_choice" in
-    1)
-        default_wd=$WD1
-        ;;
-    2)
-        default_wd=$WD2
-        ;;
-    3)
-        default_wd=$WD3
-        ;;
-    *)
-        default_wd=$WD3
-        printf "${RED}ERROR: invalid_input${END}\n${BLUE}INFO: set_default_wd_to_wd3${END}\n"
-        ;;
-esac
+    # 手动选择工作目录
+    case "$user_choice" in
+        1)
+            default_wd=$WD1
+            ;;
+        2)
+            default_wd=$WD2
+            ;;
+        3)
+            default_wd=$WD3
+            ;;
+        *)
+            default_wd=$WD3
+            printf "${RED}ERROR: invalid_input${END}\n${BLUE}INFO: set_default_wd_to_wd3${END}\n"
+            ;;
+    esac
 
-cd "$default_wd"
+    cd "$default_wd"
+}
 
-###
+choose_wd
 
 while true; do
 
@@ -443,29 +444,7 @@ while true; do
 
     # 重定向工作目录
     elif [[ $user_operation = 5 ]]; then
-        printf 'Choose working dir:\n'
-        printf 'WD1: 0-tmp_1/0\n'
-        printf 'WD2: 2-comic-mix-src/0-tmp\n'
-        printf 'WD3: ~/Downloads\n\n'
-        printf "${YELLOW}Enter (1/2/3):${END} "
-        read -r new_choice
-        
-        case "$new_choice" in
-            1)
-                default_wd=$WD1
-                ;;
-            2)
-                default_wd=$WD2
-                ;;
-            3)
-                default_wd=$WD3
-                ;;
-            *)
-                default_wd=$WD2
-                printf "${RED}ERROR: invalid_input${END}\n${BLUE}INFO: set_default_wd_to_wd2${END}\n"
-                ;;
-        esac
-        cd "$default_wd"
+        choose_wd
 
     elif [[ $user_operation = 6 ]]; then
         printf "${BLUE}INFO: stop_and_quit${END}\n"
