@@ -229,14 +229,14 @@ update_pbh () {
                 mv $PBH_DIR/data $CACHE_TMP
                 printf "OK: backup_data_dir\n"
                 rm -rf $PBH_DIR/*
-                unzip $ZIP_DIR/PeerBanHelper*.zip -d $CACHE_TMP
+                unzip -q $ZIP_DIR/PeerBanHelper*.zip -d $CACHE_TMP
                 cp -r $CACHE_TMP/PeerBanHelper/* $PBH_DIR
                 printf "OK: update_jar_and_libs\n"
                 mv $CACHE_TMP/data $PBH_DIR
                 printf "OK: restore_data_dir\n"
             else
                 printf "INFO: no_found_data_dir_to_backup\n"
-                unzip "$ZIP_DIR"/PeerBanHelper*.zip -d $CACHE_TMP
+                unzip -q $ZIP_DIR/PeerBanHelper*.zip -d $CACHE_TMP
                 rm -rf $PBH_DIR/*
                 cp -r $CACHE_TMP/PeerBanHelper/* $PBH_DIR
                 printf "OK: update_jar_and_libs\n"
