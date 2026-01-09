@@ -160,7 +160,7 @@ sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
 sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
 ```
 
-> [INFO]
+> [!TIP]
 > Fedora KDE 默认使用 Kwrite，它比 Kate 简洁轻便很多。不太需要更换。
 
 
@@ -223,7 +223,7 @@ sudo dnf install chromium audacious mpv
 
 ### Flatpak 初始化
 
-> [INFO]
+> [!TIP]
 > 如果要把应用安装至系统级，需要 `sudo` 命令。
 
 ```
