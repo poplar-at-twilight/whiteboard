@@ -35,3 +35,7 @@ nvme0n1     259:3    0  1.8T  0 disk
 - boot：用于挂载 `/boot`
 
 `/dev/nvme0n1p1` 挂载到 `/bt`
+
+----
+
+重装系统时，格式化并挂载 `/`、`/boot`、`/boot/efi`；仅挂载 `/home` 和 `/bt`。

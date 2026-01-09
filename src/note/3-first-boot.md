@@ -54,49 +54,21 @@ set-hostname
 
 如果播放器音量大小与系统设置的音量值不呈线性变化，则使用 `alsamixer` 将 `Base Speaker` 的值降到 0。
 
-## 安装基本工具
+## 更新系统
 
-### 网络
+在执行其他操作前，先更新系统：
+
+```
+sudo dnf up
+```
+
+## 安装前置工具
 
 - [x] [FlClash]
 
 连接网络，使用 dnf 安装该 rpm 软件包及依赖。
 
 [FlClash]: https://github.com/chen08209/FlClash
-
-### 其他
-
-安装输入法、git-core 和 keepassxc：
-
-```
-sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc
-```
-
-### Fcitx5
-
-在 KDE 系统设置中，将虚拟键盘设置为 Fcitx5。
-
-Fcitx5 的主题使用 [Fluent-fcitx5]。
-
-[Fluent-fcitx5]: https://github.com/Reverier-Xu/Fluent-fcitx5
-
-Fcitx5 的自定义词库文件（`*.dict`）：
-
-- [felixonmars/fcitx5-pinyin-zhwiki]
-- [wuhgit/CustomPinyinDictionary]
-
-> [!TIP]
-> 词库维护者会把新旧版词库放在同一个 release 中。
-
-[felixonmars/fcitx5-pinyin-zhwiki]: https://github.com/felixonmars/fcitx5-pinyin-zhwiki
-[wuhgit/CustomPinyinDictionary]: https://github.com/wuhgit/CustomPinyinDictionary
-
-词库文件夹：`~/.local/share/fcitx5/pinyin/dictionaries/`
-
-附注：
-
-- 云输入法可以使用 Google 源，但需要设置代理。
-- 跟换皮肤后，如果没有正常地显示，可以重启一下系统。
 
 ## 清理无用软件包
 
@@ -147,15 +119,78 @@ sudo dnf autoremove
 sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
 ```
 
-## 更新并重启
-
-```
-sudo dnf up
-```
-
 ----
 
-## 安装软件包
+## 安装基本工具
+
+安装输入法、 和 
+
+- `git-core`
+- `keepassxc`
+- `fcitx5`
+- `gimp`
+- `goverlay`
+    - 详见 `man mangohud`
+- `kleopatra`
+- `goldendict-ng`
+    - 如果出现问题则换成 flatpak 版
+- `steam`
+    - 编辑 desktop 文件，设置：
+        ```
+        PrefersNonDefaultGPU=false
+        StartupNotify=false
+        ```
+    - 更改默认界面语言
+    - 关闭着色器缓存
+    - 更改默认打开的页面
+    - 添加新的库
+    - steam 会默认优先运行游戏的 Linux 原生版本。如果出现性能问题，请强制使用 steam proton 兼容工具。
+    - 如果存在连接性问题，则使用 `steam-proxy` 命令。
+    - 如果无法正常缩放，则设置变量：  
+    ```
+    STEAM_FORCE_DESKTOPUI_SCALING=1.5
+    ```
+- `jpegoptim`
+- `qbittorrent`
+- `pandoc`
+- `papirus-icon-theme`
+- `webkit2gtk4.1`
+
+```
+sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
+```
+
+> [INFO]
+> Fedora KDE 默认使用 Kwrite，它比 Kate 简洁轻便很多。不太需要更换。
+
+
+### Fcitx5
+
+在 KDE 系统设置中，将虚拟键盘设置为 Fcitx5。
+
+Fcitx5 的主题使用 [Fluent-fcitx5]。
+
+[Fluent-fcitx5]: https://github.com/Reverier-Xu/Fluent-fcitx5
+
+Fcitx5 的自定义词库文件（`*.dict`）：
+
+- [felixonmars/fcitx5-pinyin-zhwiki]
+- [wuhgit/CustomPinyinDictionary]
+
+> [!TIP]
+> 词库维护者会把新旧版词库放在同一个 release 中。
+
+[felixonmars/fcitx5-pinyin-zhwiki]: https://github.com/felixonmars/fcitx5-pinyin-zhwiki
+[wuhgit/CustomPinyinDictionary]: https://github.com/wuhgit/CustomPinyinDictionary
+
+词库文件夹：`~/.local/share/fcitx5/pinyin/dictionaries/`
+
+附注：
+
+- 云输入法可以使用 Google 源，但需要设置代理。
+- 跟换皮肤后，如果没有正常地显示，可以重启一下系统。
+
+## libreoffice 中文语言包
 
 为 libreoffice 安装中文语言包：
 
@@ -165,7 +200,7 @@ sudo dnf up
 sudo dnf in libreoffice-langpack-zh-Hans --setopt=install_weak_deps=False
 ```
 
-### RPMFusion
+### 添加 RPMFusion
 
 ```
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -180,23 +215,16 @@ sudo dnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 ```
 
-### 浏览器
-
-如果无法使用 fcitx 输入中文，在 `chrome://flags` 中打开 `#wayland-text-input-v3`，并将 `--ozone-platform-hint=auto --enable-wayland-ime` 添加至应用程序的环境变量中。
-
-#### Chromium
+安装剩余的软件包：
 
 ```
-sudo dnf install chromium
+sudo dnf install chromium audacious mpv
 ```
 
-### 多媒体播放器
+### Flatpak 初始化
 
-```
-sudo dnf in audacious mpv
-```
-
-### Flatpak
+> [INFO]
+> 如果要把应用安装至系统级，需要 `sudo` 命令。
 
 ```
 sudo dnf in flatpak
@@ -251,51 +279,12 @@ GTK_THEME=Adwaita-dark
 sudo dnf in @virtualization
 ```
 ```
-sudo usermod -aG libvirt $USER
-```
-```
-sudo systemctl enable libvirtd --now
+sudo usermod -aG libvirt $USER && sudo systemctl enable libvirtd --now
 ```
 
 重启系统，另见：[KVM 备忘录]。
 
 [KVM 备忘录]: ./../linux/1-kvm.md
-
-### 其他
-
-- `gimp`
-- `goverlay`
-    - 详见 `man mangohud`
-- `kleopatra`
-- `goldendict-ng`
-    - 如果出现问题则换成 flatpak 版
-- `steam`
-    - 编辑 desktop 文件，设置：
-        ```
-        PrefersNonDefaultGPU=false
-        StartupNotify=false
-        ```
-    - 更改默认界面语言
-    - 关闭着色器缓存
-    - 更改默认打开的页面
-    - 添加新的库
-    - steam 会默认优先运行游戏的 Linux 原生版本。如果出现性能问题，请强制使用 steam proton 兼容工具。
-    - 如果存在连接性问题，则使用 `steam-proxy` 命令。
-    - 如果无法正常缩放，则设置变量：  
-    ```
-    STEAM_FORCE_DESKTOPUI_SCALING=1.5
-    ```
-- `jpegoptim`
-- `qbittorrent`
-- `pandoc`
-- `papirus-icon-theme`
-- `webkit2gtk4.1`
-
-```
-sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
-```
-
-- Fedora KDE 默认使用 Kwrite，它比 Kate 简洁轻便很多。不太需要更换。
 
 ----
 

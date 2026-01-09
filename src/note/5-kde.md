@@ -13,11 +13,8 @@
 ### 图标主题
 
 - [x] [Qogir-cursors-theme]
-- [ ] [Tela-icon-theme]
-    - 解压文件保存位置：`~/.local/share/icons`
 - [x] `papirus-icon-theme`
 
-[Tela-icon-theme]: https://store.kde.org/p/1279924
 [Qogir-cursors-theme]: https://www.pling.com/p/1366182/
 
 ### 某些快捷键
@@ -48,10 +45,6 @@
 声音：
 
 - 静音麦克风
-
-显示和监视器：
-
-- 缩放率：150%
 
 颜色和主题，修改：
 

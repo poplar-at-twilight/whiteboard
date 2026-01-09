@@ -31,6 +31,9 @@ sha256sum --ignore-missing -c Fedora-KDE-43-1.6-x86_64-CHECKSUM
 
 ## 切换引导启动项
 
+> [!TIP]
+> 如果无法正常启动，则需要关闭安全启动。
+
 关机后，按下开机键，同时按 `Esc` 进入 BIOS 界面，切换启动项。
 
 ### 备份文件

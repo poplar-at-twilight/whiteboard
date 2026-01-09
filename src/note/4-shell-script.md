@@ -22,8 +22,8 @@ DRI_PRIME=1
 alias pyx='https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890'
 alias dnfx='pyx dnf'
 # 对 dnf 设置代理
-#alias flatpakx="pyx flatpak --user"
-# 对 flatpak 使用代理，并增加 --user 标签
+alias flatpakx="pyx flatpak"
+# 对 flatpak 使用代理
 alias set-proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=http://127.0.0.1:7890"
 alias unset-proxy="unset http_proxy; unset https_proxy; unset all_proxy"
 # 代理变量手动开关
@@ -34,7 +34,7 @@ alias steam-proxy="set-proxy; steam"
 
 ## 软件源命令
 
-#alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
 # 添加 flathub
 
 ## shell 自定义
@@ -50,7 +50,7 @@ unset QT_IM_MODULE
 # 针对 wayland 会话的 Fcitx5 环境变量
 alias sudo="sudo "
 # 对 sudo 后的字符启用别名
-alias set-hostname="sudo hostnamectl set-hostname --pretty 'C004-H1' && sudo hostnamectl set-hostname --static Greysia"
+alias set-hostname="sudo hostnamectl set-hostname --pretty 'C004-H2' && sudo hostnamectl set-hostname --static Greysia"
 # 设置主机名
 
 ## 实用命令
@@ -64,8 +64,6 @@ alias pings="ping mirror.nyist.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 
 alias venv-setup="python3 -m venv venv"
 alias venv="source venv/bin/activate"
 # 启动 python 容器环境
-#alias furmark='DRI_PRIME=1 $HOME/bin/FurMark_linux64/FurMark_GUI'
-# 启动 GPU 压力测试
 ```
 
 ## update-code

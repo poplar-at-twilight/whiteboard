@@ -10,13 +10,16 @@
 
 ```
 Operating System: Fedora Linux 43
-KDE Plasma Version: 6.5.3
-KDE Frameworks Version: 6.20.0
+KDE Plasma Version: 6.5.4
+KDE Frameworks Version: 6.21.0
 Qt Version: 6.10.1
-Kernel Version: 6.17.10-300.fc43.x86_64 (64-bit)
+Kernel Version: 6.18.3-200.fc43.x86_64 (64-bit)
 Graphics Platform: Wayland
-Processors: 16 × AMD Ryzen 7 7840H  w/ Radeon 780M Graphics
-Memory: 16 GiB of RAM (14.8 GiB usable)
-Graphics Processor 1: AMD Radeon 780M Graphics
-Graphics Processor 2: AMD Radeon RX 7600M XT
+Processors: 12 × AMD Ryzen 5 9600X 6-Core Processor
+Memory: 32 GiB of RAM (30.4 GiB usable)
+Graphics Processor 1: AMD Radeon RX 9070
+Graphics Processor 2: AMD Ryzen 5 9600X 6-Core Processor
+Manufacturer: Micro-Star International Co., Ltd.
+Product Name: MS-7D76
+System Version: 2.0
 ```
