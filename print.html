@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-fadf56a2.js";
+            window.path_to_searchindex_js = "searchindex-4f981285.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-f176dd54.js"></script>
@@ -1960,15 +1960,18 @@ fi
 </ul>
 <h2 id="系统信息"><a class="header" href="#系统信息">系统信息</a></h2>
 <pre><code>Operating System: Fedora Linux 43
-KDE Plasma Version: 6.5.3
-KDE Frameworks Version: 6.20.0
+KDE Plasma Version: 6.5.4
+KDE Frameworks Version: 6.21.0
 Qt Version: 6.10.1
-Kernel Version: 6.17.10-300.fc43.x86_64 (64-bit)
+Kernel Version: 6.18.3-200.fc43.x86_64 (64-bit)
 Graphics Platform: Wayland
-Processors: 16 × AMD Ryzen 7 7840H  w/ Radeon 780M Graphics
-Memory: 16 GiB of RAM (14.8 GiB usable)
-Graphics Processor 1: AMD Radeon 780M Graphics
-Graphics Processor 2: AMD Radeon RX 7600M XT
+Processors: 12 × AMD Ryzen 5 9600X 6-Core Processor
+Memory: 32 GiB of RAM (30.4 GiB usable)
+Graphics Processor 1: AMD Radeon RX 9070
+Graphics Processor 2: AMD Ryzen 5 9600X 6-Core Processor
+Manufacturer: Micro-Star International Co., Ltd.
+Product Name: MS-7D76
+System Version: 2.0
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="准备"><a class="header" href="#准备">准备</a></h1>
@@ -1989,6 +1992,10 @@ Graphics Processor 2: AMD Radeon RX 7600M XT
 <h2 id="烧录-iso-文件"><a class="header" href="#烧录-iso-文件">烧录 ISO 文件</a></h2>
 <p>使用 <a href="https://github.com/ventoy/Ventoy">ventoy</a> 创建可启动安装介质，启动模式为正常启动。</p>
 <h2 id="切换引导启动项"><a class="header" href="#切换引导启动项">切换引导启动项</a></h2>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>如果无法正常启动，则需要关闭安全启动。</p>
+</blockquote>
 <p>关机后，按下开机键，同时按 <code>Esc</code> 进入 BIOS 界面，切换启动项。</p>
 <h3 id="备份文件"><a class="header" href="#备份文件">备份文件</a></h3>
 <p>使用 LiveCD 环境将旧用户文件夹 <code>poplar</code> 重命名 <code>poplar.old</code>。</p>
@@ -2031,6 +2038,8 @@ nvme0n1     259:3    0  1.8T  0 disk
 <li>boot：用于挂载 <code>/boot</code></li>
 </ul>
 <p><code>/dev/nvme0n1p1</code> 挂载到 <code>/bt</code></p>
+<hr>
+<p>重装系统时，格式化并挂载 <code>/</code>、<code>/boot</code>、<code>/boot/efi</code>；仅挂载 <code>/home</code> 和 <code>/bt</code>。</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="初次启动"><a class="header" href="#初次启动">初次启动</a></h1>
 <h2 id="恢复备份文件"><a class="header" href="#恢复备份文件">恢复备份文件</a></h2>
@@ -2077,34 +2086,15 @@ nvme0n1     259:3    0  1.8T  0 disk
 </code></pre>
 <h2 id="音量控制故障"><a class="header" href="#音量控制故障">音量控制故障</a></h2>
 <p>如果播放器音量大小与系统设置的音量值不呈线性变化，则使用 <code>alsamixer</code> 将 <code>Base Speaker</code> 的值降到 0。</p>
-<h2 id="安装基本工具"><a class="header" href="#安装基本工具">安装基本工具</a></h2>
-<h3 id="网络"><a class="header" href="#网络">网络</a></h3>
+<h2 id="更新系统"><a class="header" href="#更新系统">更新系统</a></h2>
+<p>在执行其他操作前，先更新系统：</p>
+<pre><code>sudo dnf up
+</code></pre>
+<h2 id="安装前置工具"><a class="header" href="#安装前置工具">安装前置工具</a></h2>
 <ul>
 <li><input disabled="" type="checkbox" checked=""> <a href="https://github.com/chen08209/FlClash">FlClash</a></li>
 </ul>
 <p>连接网络，使用 dnf 安装该 rpm 软件包及依赖。</p>
-<h3 id="其他"><a class="header" href="#其他">其他</a></h3>
-<p>安装输入法、git-core 和 keepassxc：</p>
-<pre><code>sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc
-</code></pre>
-<h3 id="fcitx5"><a class="header" href="#fcitx5">Fcitx5</a></h3>
-<p>在 KDE 系统设置中，将虚拟键盘设置为 Fcitx5。</p>
-<p>Fcitx5 的主题使用 <a href="https://github.com/Reverier-Xu/Fluent-fcitx5">Fluent-fcitx5</a>。</p>
-<p>Fcitx5 的自定义词库文件（<code>*.dict</code>）：</p>
-<ul>
-<li><a href="https://github.com/felixonmars/fcitx5-pinyin-zhwiki">felixonmars/fcitx5-pinyin-zhwiki</a></li>
-<li><a href="https://github.com/wuhgit/CustomPinyinDictionary">wuhgit/CustomPinyinDictionary</a></li>
-</ul>
-<blockquote class="blockquote-tag blockquote-tag-tip">
-<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
-<p>词库维护者会把新旧版词库放在同一个 release 中。</p>
-</blockquote>
-<p>词库文件夹：<code>~/.local/share/fcitx5/pinyin/dictionaries/</code></p>
-<p>附注：</p>
-<ul>
-<li>云输入法可以使用 Google 源，但需要设置代理。</li>
-<li>跟换皮肤后，如果没有正常地显示，可以重启一下系统。</li>
-</ul>
 <h2 id="清理无用软件包"><a class="header" href="#清理无用软件包">清理无用软件包</a></h2>
 <ul>
 <li>akregator</li>
@@ -2147,69 +2137,13 @@ nvme0n1     259:3    0  1.8T  0 disk
 <p>移除 geoclue2 服务：</p>
 <pre><code>sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
 </code></pre>
-<h2 id="更新并重启"><a class="header" href="#更新并重启">更新并重启</a></h2>
-<pre><code>sudo dnf up
-</code></pre>
 <hr>
-<h2 id="安装软件包"><a class="header" href="#安装软件包">安装软件包</a></h2>
-<p>为 libreoffice 安装中文语言包：</p>
+<h2 id="安装基本工具"><a class="header" href="#安装基本工具">安装基本工具</a></h2>
+<p>安装输入法、 和</p>
 <ul>
-<li>当不需要安装弱依赖时，可以选择使用 <code>--setopt=install_weak_deps=False</code> 选项。</li>
-</ul>
-<pre><code>sudo dnf in libreoffice-langpack-zh-Hans --setopt=install_weak_deps=False
-</code></pre>
-<h3 id="rpmfusion"><a class="header" href="#rpmfusion">RPMFusion</a></h3>
-<pre><code>sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-</code></pre>
-<p>切换软件包供应商：</p>
-<pre><code>sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
-sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
-sudo dnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing
-</code></pre>
-<h3 id="浏览器"><a class="header" href="#浏览器">浏览器</a></h3>
-<p>如果无法使用 fcitx 输入中文，在 <code>chrome://flags</code> 中打开 <code>#wayland-text-input-v3</code>，并将 <code>--ozone-platform-hint=auto --enable-wayland-ime</code> 添加至应用程序的环境变量中。</p>
-<h4 id="chromium"><a class="header" href="#chromium">Chromium</a></h4>
-<pre><code>sudo dnf install chromium
-</code></pre>
-<h3 id="多媒体播放器"><a class="header" href="#多媒体播放器">多媒体播放器</a></h3>
-<pre><code>sudo dnf in audacious mpv
-</code></pre>
-<h3 id="flatpak"><a class="header" href="#flatpak">Flatpak</a></h3>
-<pre><code>sudo dnf in flatpak
-</code></pre>
-<pre><code>flatpak-add
-</code></pre>
-<pre><code>sudo usermod -aG flatpak $USER
-</code></pre>
-<p>删除系统的软件源：</p>
-<pre><code>flatpak remote-delete fedora
-</code></pre>
-<p>清理不再需要的库：</p>
-<pre><code>flatpak uninstall --unused
-</code></pre>
-<p>卸载时一并清理应用数据：</p>
-<pre><code>flatpak uninstall &lt;package id&gt; --delete-data
-</code></pre>
-<h4 id="fcitx5-皮肤没有正确显示"><a class="header" href="#fcitx5-皮肤没有正确显示">fcitx5 皮肤没有正确显示</a></h4>
-<p>关闭所有 flatpak 应用，然后运行：</p>
-<pre><code class="language-bash">flatpak override --env=QT_IM_MODULE= --user
-flatpak override --env=GTK_IM_MODULE= --user
-</code></pre>
-<h4 id="应用-gtk-主题与当前系统主题不匹配"><a class="header" href="#应用-gtk-主题与当前系统主题不匹配">应用 GTK 主题与当前系统主题不匹配</a></h4>
-<p>使用 Flatseal 编辑应用，使其能访问主题文件夹（<code>/usr/share/themes</code>），然后为该应用设置如下环境变量：</p>
-<pre><code>GTK_THEME=Adwaita-dark
-</code></pre>
-<h3 id="kvm"><a class="header" href="#kvm">KVM</a></h3>
-<pre><code>sudo dnf in @virtualization
-</code></pre>
-<pre><code>sudo usermod -aG libvirt $USER
-</code></pre>
-<pre><code>sudo systemctl enable libvirtd --now
-</code></pre>
-<p>重启系统，另见：<a href="linux/1-kvm.html">KVM 备忘录</a>。</p>
-<h3 id="其他-1"><a class="header" href="#其他-1">其他</a></h3>
-<ul>
+<li><code>git-core</code></li>
+<li><code>keepassxc</code></li>
+<li><code>fcitx5</code></li>
 <li><code>gimp</code></li>
 <li><code>goverlay</code>
 <ul>
@@ -2246,11 +2180,84 @@ StartupNotify=false
 <li><code>papirus-icon-theme</code></li>
 <li><code>webkit2gtk4.1</code></li>
 </ul>
-<pre><code>sudo dnf in kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
+<pre><code>sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
 </code></pre>
+<blockquote>
+<p>[INFO]
+Fedora KDE 默认使用 Kwrite，它比 Kate 简洁轻便很多。不太需要更换。</p>
+</blockquote>
+<h3 id="fcitx5"><a class="header" href="#fcitx5">Fcitx5</a></h3>
+<p>在 KDE 系统设置中，将虚拟键盘设置为 Fcitx5。</p>
+<p>Fcitx5 的主题使用 <a href="https://github.com/Reverier-Xu/Fluent-fcitx5">Fluent-fcitx5</a>。</p>
+<p>Fcitx5 的自定义词库文件（<code>*.dict</code>）：</p>
 <ul>
-<li>Fedora KDE 默认使用 Kwrite，它比 Kate 简洁轻便很多。不太需要更换。</li>
+<li><a href="https://github.com/felixonmars/fcitx5-pinyin-zhwiki">felixonmars/fcitx5-pinyin-zhwiki</a></li>
+<li><a href="https://github.com/wuhgit/CustomPinyinDictionary">wuhgit/CustomPinyinDictionary</a></li>
 </ul>
+<blockquote class="blockquote-tag blockquote-tag-tip">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
+<p>词库维护者会把新旧版词库放在同一个 release 中。</p>
+</blockquote>
+<p>词库文件夹：<code>~/.local/share/fcitx5/pinyin/dictionaries/</code></p>
+<p>附注：</p>
+<ul>
+<li>云输入法可以使用 Google 源，但需要设置代理。</li>
+<li>跟换皮肤后，如果没有正常地显示，可以重启一下系统。</li>
+</ul>
+<h2 id="libreoffice-中文语言包"><a class="header" href="#libreoffice-中文语言包">libreoffice 中文语言包</a></h2>
+<p>为 libreoffice 安装中文语言包：</p>
+<ul>
+<li>当不需要安装弱依赖时，可以选择使用 <code>--setopt=install_weak_deps=False</code> 选项。</li>
+</ul>
+<pre><code>sudo dnf in libreoffice-langpack-zh-Hans --setopt=install_weak_deps=False
+</code></pre>
+<h3 id="添加-rpmfusion"><a class="header" href="#添加-rpmfusion">添加 RPMFusion</a></h3>
+<pre><code>sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+</code></pre>
+<p>切换软件包供应商：</p>
+<pre><code>sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+sudo dnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+</code></pre>
+<p>安装剩余的软件包：</p>
+<pre><code>sudo dnf install chromium audacious mpv
+</code></pre>
+<h3 id="flatpak-初始化"><a class="header" href="#flatpak-初始化">Flatpak 初始化</a></h3>
+<blockquote>
+<p>[INFO]
+如果要把应用安装至系统级，需要 <code>sudo</code> 命令。</p>
+</blockquote>
+<pre><code>sudo dnf in flatpak
+</code></pre>
+<pre><code>flatpak-add
+</code></pre>
+<pre><code>sudo usermod -aG flatpak $USER
+</code></pre>
+<p>删除系统的软件源：</p>
+<pre><code>flatpak remote-delete fedora
+</code></pre>
+<p>清理不再需要的库：</p>
+<pre><code>flatpak uninstall --unused
+</code></pre>
+<p>卸载时一并清理应用数据：</p>
+<pre><code>flatpak uninstall &lt;package id&gt; --delete-data
+</code></pre>
+<h4 id="fcitx5-皮肤没有正确显示"><a class="header" href="#fcitx5-皮肤没有正确显示">fcitx5 皮肤没有正确显示</a></h4>
+<p>关闭所有 flatpak 应用，然后运行：</p>
+<pre><code class="language-bash">flatpak override --env=QT_IM_MODULE= --user
+flatpak override --env=GTK_IM_MODULE= --user
+</code></pre>
+<h4 id="应用-gtk-主题与当前系统主题不匹配"><a class="header" href="#应用-gtk-主题与当前系统主题不匹配">应用 GTK 主题与当前系统主题不匹配</a></h4>
+<p>使用 Flatseal 编辑应用，使其能访问主题文件夹（<code>/usr/share/themes</code>），然后为该应用设置如下环境变量：</p>
+<pre><code>GTK_THEME=Adwaita-dark
+</code></pre>
+<h3 id="kvm"><a class="header" href="#kvm">KVM</a></h3>
+<pre><code>sudo dnf in @virtualization
+</code></pre>
+<pre><code>sudo usermod -aG libvirt $USER &amp;&amp; sudo systemctl enable libvirtd --now
+</code></pre>
+<p>重启系统，另见：<a href="linux/1-kvm.html">KVM 备忘录</a>。</p>
 <hr>
 <h2 id="散装软件包"><a class="header" href="#散装软件包">散装软件包</a></h2>
 <h3 id="telegram-desktop"><a class="header" href="#telegram-desktop">telegram-desktop</a></h3>
@@ -2343,8 +2350,8 @@ include /usr/share/nano/*.nanorc
 alias pyx='https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890'
 alias dnfx='pyx dnf'
 # 对 dnf 设置代理
-#alias flatpakx="pyx flatpak --user"
-# 对 flatpak 使用代理，并增加 --user 标签
+alias flatpakx="pyx flatpak"
+# 对 flatpak 使用代理
 alias set-proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=http://127.0.0.1:7890"
 alias unset-proxy="unset http_proxy; unset https_proxy; unset all_proxy"
 # 代理变量手动开关
@@ -2355,7 +2362,7 @@ alias steam-proxy="set-proxy; steam"
 
 ## 软件源命令
 
-#alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
+alias flatpak-add="set-proxy; flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo"
 # 添加 flathub
 
 ## shell 自定义
@@ -2371,7 +2378,7 @@ unset QT_IM_MODULE
 # 针对 wayland 会话的 Fcitx5 环境变量
 alias sudo="sudo "
 # 对 sudo 后的字符启用别名
-alias set-hostname="sudo hostnamectl set-hostname --pretty 'C004-H1' &amp;&amp; sudo hostnamectl set-hostname --static Greysia"
+alias set-hostname="sudo hostnamectl set-hostname --pretty 'C004-H2' &amp;&amp; sudo hostnamectl set-hostname --static Greysia"
 # 设置主机名
 
 ## 实用命令
@@ -2385,8 +2392,6 @@ alias pings="ping mirror.nyist.edu.cn -c 6; ping bing.com -c 6; ping 1.1.1.1 -c 
 alias venv-setup="python3 -m venv venv"
 alias venv="source venv/bin/activate"
 # 启动 python 容器环境
-#alias furmark='DRI_PRIME=1 $HOME/bin/FurMark_linux64/FurMark_GUI'
-# 启动 GPU 压力测试
 </code></pre>
 <h2 id="update-code"><a class="header" href="#update-code">update-code</a></h2>
 <pre><code class="language-bash">#!/bin/sh
@@ -2638,11 +2643,6 @@ proxy=http://localhost:7890
 <h3 id="图标主题"><a class="header" href="#图标主题">图标主题</a></h3>
 <ul>
 <li><input disabled="" type="checkbox" checked=""> <a href="https://www.pling.com/p/1366182/">Qogir-cursors-theme</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://store.kde.org/p/1279924">Tela-icon-theme</a>
-<ul>
-<li>解压文件保存位置：<code>~/.local/share/icons</code></li>
-</ul>
-</li>
 <li><input disabled="" type="checkbox" checked=""> <code>papirus-icon-theme</code></li>
 </ul>
 <h3 id="某些快捷键"><a class="header" href="#某些快捷键">某些快捷键</a></h3>
@@ -2669,10 +2669,6 @@ proxy=http://localhost:7890
 <p>声音：</p>
 <ul>
 <li>静音麦克风</li>
-</ul>
-<p>显示和监视器：</p>
-<ul>
-<li>缩放率：150%</li>
 </ul>
 <p>颜色和主题，修改：</p>
 <ul>
