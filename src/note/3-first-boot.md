@@ -16,7 +16,6 @@
 /home/poplar/.config/audacious
 /home/poplar/.config/fcitx5
 /home/poplar/.config/chromium
-/home/poplar/.config/goldendict
 /home/poplar/.config/htop
 /home/poplar/.config/MangoHud
 /home/poplar/.config/mpv
@@ -128,12 +127,11 @@ sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
 - `git-core`
 - `keepassxc`
 - `fcitx5`
-- `gimp`
+- `krita`
+- `android-tools`
 - `goverlay`
     - 详见 `man mangohud`
 - `kleopatra`
-- `goldendict-ng`
-    - 如果出现问题则换成 flatpak 版
 - `steam`
     - 编辑 desktop 文件，设置：
         ```
@@ -157,7 +155,7 @@ sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
 - `webkit2gtk4.1`
 
 ```
-sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
+sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay krita android-tools steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
 ```
 
 > [!TIP]
@@ -254,6 +252,21 @@ flatpak uninstall --unused
 
 ```
 flatpak uninstall <package id> --delete-data
+```
+
+#### flatpak 应用列表
+
+```
+flatpakx install cc.spek.Spek
+```
+```
+flatpakx install com.bilingify.readest
+```
+```
+flatpakx install com.vysp3r.ProtonPlus
+```
+```
+flatpakx install io.github.xiaoyifang.goldendict_ng
 ```
 
 #### fcitx5 皮肤没有正确显示
