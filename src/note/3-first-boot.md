@@ -132,6 +132,7 @@ sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
 - `goverlay`
     - 详见 `man mangohud`
 - `kleopatra`
+- `kid3`
 - `steam`
     - 编辑 desktop 文件，设置：
         ```
@@ -153,14 +154,14 @@ sudo rm /etc/xdg/autostart/geoclue-demo-agent.desktop
 - `pandoc`
 - `papirus-icon-theme`
 - `webkit2gtk4.1`
+- `htop`
 
 ```
-sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay krita android-tools steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
+sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra kid3 goverlay krita android-tools steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1 htop
 ```
 
 > [!TIP]
 > Fedora KDE 默认使用 Kwrite，它比 Kate 简洁轻便很多。不太需要更换。
-
 
 ### Fcitx5
 
