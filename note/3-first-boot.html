@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-bd267d68.js";
+            window.path_to_searchindex_js = "../searchindex-30ead96e.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-f176dd54.js"></script>
@@ -188,7 +188,6 @@
 /home/poplar/.config/audacious
 /home/poplar/.config/fcitx5
 /home/poplar/.config/chromium
-/home/poplar/.config/goldendict
 /home/poplar/.config/htop
 /home/poplar/.config/MangoHud
 /home/poplar/.config/mpv
@@ -277,18 +276,14 @@
 <li><code>git-core</code></li>
 <li><code>keepassxc</code></li>
 <li><code>fcitx5</code></li>
-<li><code>gimp</code></li>
+<li><code>krita</code></li>
+<li><code>android-tools</code></li>
 <li><code>goverlay</code>
 <ul>
 <li>详见 <code>man mangohud</code></li>
 </ul>
 </li>
 <li><code>kleopatra</code></li>
-<li><code>goldendict-ng</code>
-<ul>
-<li>如果出现问题则换成 flatpak 版</li>
-</ul>
-</li>
 <li><code>steam</code>
 <ul>
 <li>编辑 desktop 文件，设置：
@@ -313,7 +308,7 @@ StartupNotify=false
 <li><code>papirus-icon-theme</code></li>
 <li><code>webkit2gtk4.1</code></li>
 </ul>
-<pre><code>sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay gimp goldendict-ng steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
+<pre><code>sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay krita android-tools steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
 </code></pre>
 <blockquote class="blockquote-tag blockquote-tag-tip">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
@@ -375,6 +370,15 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 </code></pre>
 <p>卸载时一并清理应用数据：</p>
 <pre><code>flatpak uninstall &lt;package id&gt; --delete-data
+</code></pre>
+<h4 id="flatpak-应用列表"><a class="header" href="#flatpak-应用列表">flatpak 应用列表</a></h4>
+<pre><code>flatpakx install cc.spek.Spek
+</code></pre>
+<pre><code>flatpakx install com.bilingify.readest
+</code></pre>
+<pre><code>flatpakx install com.vysp3r.ProtonPlus
+</code></pre>
+<pre><code>flatpakx install io.github.xiaoyifang.goldendict_ng
 </code></pre>
 <h4 id="fcitx5-皮肤没有正确显示"><a class="header" href="#fcitx5-皮肤没有正确显示">fcitx5 皮肤没有正确显示</a></h4>
 <p>关闭所有 flatpak 应用，然后运行：</p>
