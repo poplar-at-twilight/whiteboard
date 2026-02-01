@@ -10,10 +10,10 @@
 
 ```
 Operating System: Fedora Linux 43
-KDE Plasma Version: 6.5.4
-KDE Frameworks Version: 6.21.0
+KDE Plasma Version: 6.5.5
+KDE Frameworks Version: 6.22.0
 Qt Version: 6.10.1
-Kernel Version: 6.18.3-200.fc43.x86_64 (64-bit)
+Kernel Version: 6.18.7-200.fc43.x86_64 (64-bit)
 Graphics Platform: Wayland
 Processors: 12 × AMD Ryzen 5 9600X 6-Core Processor
 Memory: 32 GiB of RAM (30.4 GiB usable)

@@ -22,9 +22,12 @@
 /home/poplar/.config/pip
 /home/poplar/.config/qBittorrent
 
+/home/poplar/.local/share/applications
+/home/poplar/.local/share/color-schemes
 /home/poplar/.local/share/fcitx5
 /home/poplar/.local/share/FlClash
 /home/poplar/.local/share/fonts
+/home/poplar/.local/share/icons
 /home/poplar/.local/share/konsole
 /home/poplar/.local/share/qBittorrent
 /home/poplar/.local/share/plasma-systemmonitor
@@ -97,10 +100,9 @@ sudo dnf up
 - skanpage
 - PackageKit
 - ibus
-- plasma-browser-integration
 
 ```
-sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus plasma-browser-integration
+sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus
 ```
 
 自动移除不再使用的软件包：
