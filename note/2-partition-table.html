@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-30ead96e.js";
+            window.path_to_searchindex_js = "../searchindex-e26b6857.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-f176dd54.js"></script>
@@ -197,9 +197,9 @@ nvme0n1     259:3    0  1.8T  0 disk
 <ul>
 <li>ESP 分区：文件系统格式为 <code>EFI</code>，大小为 100MiB。</li>
 </ul>
-<p>然后将剩余的空间新建一个 btrfs 文件系统，并新建三个子卷：</p>
+<p>然后将剩余的空间新建一个 btrfs 文件系统（<code>MAIN_FS</code>），并新建三个子卷：</p>
 <ul>
-<li>ROOT：系统安装位置
+<li>ROOT：系统安装位置（<code>SYS_FS</code>）
 <ul>
 <li>该子卷要格式化，格式化操作不会影响到其他的子卷。</li>
 </ul>

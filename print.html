@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-30ead96e.js";
+            window.path_to_searchindex_js = "searchindex-e26b6857.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-f176dd54.js"></script>
@@ -1960,10 +1960,10 @@ fi
 </ul>
 <h2 id="系统信息"><a class="header" href="#系统信息">系统信息</a></h2>
 <pre><code>Operating System: Fedora Linux 43
-KDE Plasma Version: 6.5.4
-KDE Frameworks Version: 6.21.0
+KDE Plasma Version: 6.5.5
+KDE Frameworks Version: 6.22.0
 Qt Version: 6.10.1
-Kernel Version: 6.18.3-200.fc43.x86_64 (64-bit)
+Kernel Version: 6.18.7-200.fc43.x86_64 (64-bit)
 Graphics Platform: Wayland
 Processors: 12 × AMD Ryzen 5 9600X 6-Core Processor
 Memory: 32 GiB of RAM (30.4 GiB usable)
@@ -2023,9 +2023,9 @@ nvme0n1     259:3    0  1.8T  0 disk
 <ul>
 <li>ESP 分区：文件系统格式为 <code>EFI</code>，大小为 100MiB。</li>
 </ul>
-<p>然后将剩余的空间新建一个 btrfs 文件系统，并新建三个子卷：</p>
+<p>然后将剩余的空间新建一个 btrfs 文件系统（<code>MAIN_FS</code>），并新建三个子卷：</p>
 <ul>
-<li>ROOT：系统安装位置
+<li>ROOT：系统安装位置（<code>SYS_FS</code>）
 <ul>
 <li>该子卷要格式化，格式化操作不会影响到其他的子卷。</li>
 </ul>
@@ -2061,9 +2061,12 @@ nvme0n1     259:3    0  1.8T  0 disk
 /home/poplar/.config/pip
 /home/poplar/.config/qBittorrent
 
+/home/poplar/.local/share/applications
+/home/poplar/.local/share/color-schemes
 /home/poplar/.local/share/fcitx5
 /home/poplar/.local/share/FlClash
 /home/poplar/.local/share/fonts
+/home/poplar/.local/share/icons
 /home/poplar/.local/share/konsole
 /home/poplar/.local/share/qBittorrent
 /home/poplar/.local/share/plasma-systemmonitor
@@ -2122,9 +2125,8 @@ nvme0n1     259:3    0  1.8T  0 disk
 <li>skanpage</li>
 <li>PackageKit</li>
 <li>ibus</li>
-<li>plasma-browser-integration</li>
 </ul>
-<pre><code>sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus plasma-browser-integration
+<pre><code>sudo dnf rm akregator plasma-discover dragon elisa-player mediawriter firefox plasma-welcome kmouth kaddressbook kamoso kdeconnectd kdebugsettings kgpg kmahjongg kmail kmines kolourpaint korganizer kpat krdc krfb neochat qrca skanpage PackageKit ibus
 </code></pre>
 <p>自动移除不再使用的软件包：</p>
 <pre><code>sudo dnf autoremove
@@ -2151,6 +2153,7 @@ nvme0n1     259:3    0  1.8T  0 disk
 </ul>
 </li>
 <li><code>kleopatra</code></li>
+<li><code>kid3</code></li>
 <li><code>steam</code>
 <ul>
 <li>编辑 desktop 文件，设置：
@@ -2174,8 +2177,9 @@ StartupNotify=false
 <li><code>pandoc</code></li>
 <li><code>papirus-icon-theme</code></li>
 <li><code>webkit2gtk4.1</code></li>
+<li><code>htop</code></li>
 </ul>
-<pre><code>sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra goverlay krita android-tools steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1
+<pre><code>sudo dnf in fcitx5 fcitx5-chinese-addons git-core keepassxc kleopatra kid3 goverlay krita android-tools steam jpegoptim qbittorrent pandoc papirus-icon-theme webkit2gtk4.1 htop
 </code></pre>
 <blockquote class="blockquote-tag blockquote-tag-tip">
 <p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p>
