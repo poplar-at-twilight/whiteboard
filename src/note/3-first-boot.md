@@ -58,6 +58,11 @@ set-hostname
 sudo dnf in lm_sensors
 ```
 
+根据 archlinux wiki：
+
+> These motherboards use a Nuvoton NCT6687-R chip for fan, voltage and temperature readings. You need kernel module nct6687d-dkms-gitAUR to access those values.
+> - https://wiki.archlinux.org/title/Lm_sensors#MAG_B650_TOMAHAWK_WIFI_(MS-7D75)/MAG_B550_MORTAR_WIFI_(MS-7C94)
+
 让内核加载主板对应的驱动：
 
 ```
