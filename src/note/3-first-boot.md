@@ -52,9 +52,27 @@
 set-hostname
 ```
 
-## 音量控制故障
+## 修改硬件传感器设置
 
-如果播放器音量大小与系统设置的音量值不呈线性变化，则使用 `alsamixer` 将 `Base Speaker` 的值降到 0。
+```
+sudo dnf in lm_sensors
+```
+
+让内核加载主板对应的驱动：
+
+```
+echo "nct6683" | sudo tee /etc/modules-load.d/nct6683.conf
+```
+
+将 `acpi_enforce_resources=lax` 添加到 `/etc/default/grub` 中 `GRUB_CMDLINE_LINUX` 的参数中。
+
+然后运行：
+
+```
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+最后重启设备。
 
 ## 更新系统
 
