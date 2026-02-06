@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-9802616c.js";
+            window.path_to_searchindex_js = "searchindex-16aaa7dd.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-f176dd54.js"></script>
@@ -2089,6 +2089,13 @@ nvme0n1     259:3    0  1.8T  0 disk
 <h2 id="修改硬件传感器设置"><a class="header" href="#修改硬件传感器设置">修改硬件传感器设置</a></h2>
 <pre><code>sudo dnf in lm_sensors
 </code></pre>
+<p>根据 archlinux wiki：</p>
+<blockquote>
+<p>These motherboards use a Nuvoton NCT6687-R chip for fan, voltage and temperature readings. You need kernel module nct6687d-dkms-gitAUR to access those values.</p>
+<ul>
+<li>https://wiki.archlinux.org/title/Lm_sensors#MAG_B650_TOMAHAWK_WIFI_(MS-7D75)/MAG_B550_MORTAR_WIFI_(MS-7C94)</li>
+</ul>
+</blockquote>
 <p>让内核加载主板对应的驱动：</p>
 <pre><code>sudo modprobe nct6683
 </code></pre>
