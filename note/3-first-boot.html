@@ -35,7 +35,7 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-c2e1d3f3.js";
+            window.path_to_searchindex_js = "../searchindex-9802616c.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-f176dd54.js"></script>
@@ -223,7 +223,9 @@
 <pre><code>sudo dnf in lm_sensors
 </code></pre>
 <p>让内核加载主板对应的驱动：</p>
-<pre><code>echo "nct6683" | sudo tee /etc/modules-load.d/nct6683.conf
+<pre><code>sudo modprobe nct6683
+</code></pre>
+<pre><code class="language-bash">echo "nct6683" | sudo tee /etc/modules-load.d/nct6683.conf
 </code></pre>
 <p>将 <code>acpi_enforce_resources=lax</code> 添加到 <code>/etc/default/grub</code> 中 <code>GRUB_CMDLINE_LINUX</code> 的参数中。</p>
 <p>然后运行：</p>
