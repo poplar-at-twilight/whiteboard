@@ -61,6 +61,10 @@ sudo dnf in lm_sensors
 让内核加载主板对应的驱动：
 
 ```
+sudo modprobe nct6683
+```
+
+```bash
 echo "nct6683" | sudo tee /etc/modules-load.d/nct6683.conf
 ```
 
